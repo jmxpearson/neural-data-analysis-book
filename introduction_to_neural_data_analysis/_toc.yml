@@ -1,0 +1,9 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: python_intro/intro.md
+  sections:
+    - file: python_intro/data_structures.ipynb 
