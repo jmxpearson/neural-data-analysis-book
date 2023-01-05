@@ -1,0 +1,1662 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Patterns, functions, and duck typing &#8212; Introduction to Neural Data Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Basic Programming in Python: Data Structures" href="data_structures.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Neural Data Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Neural Data Analysis
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Why learn Python?
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="data_structures.html">
+     Basic Programming in Python: Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Patterns, functions, and duck typing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/patterns.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/patterns.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpython_intro/patterns.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/python_intro/patterns.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Patterns, functions, and duck typing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#patterns">
+     Patterns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#understanding-variable-scope">
+       Understanding variable scope
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-makes-a-good-function">
+       What makes a good function?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-multiple-data-sets">
+     Handling multiple data sets:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#groupby-split-apply-combine">
+     Groupby: Split-Apply-Combine:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiple-datasets-pulling-it-together">
+     Multiple datasets: pulling it together:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-code-that-lasts">
+     Building code that lasts
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modularization-strategy">
+       Modularization strategy
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-your-own-modules">
+   Writing your own modules:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Patterns, functions, and duck typing</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Patterns, functions, and duck typing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#patterns">
+     Patterns
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#functions">
+     Functions
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#understanding-variable-scope">
+       Understanding variable scope
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#what-makes-a-good-function">
+       What makes a good function?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#handling-multiple-data-sets">
+     Handling multiple data sets:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#groupby-split-apply-combine">
+     Groupby: Split-Apply-Combine:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiple-datasets-pulling-it-together">
+     Multiple datasets: pulling it together:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#building-code-that-lasts">
+     Building code that lasts
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#modularization-strategy">
+       Modularization strategy
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#writing-your-own-modules">
+   Writing your own modules:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="patterns-functions-and-duck-typing">
+<h1>Patterns, functions, and duck typing<a class="headerlink" href="#patterns-functions-and-duck-typing" title="Permalink to this headline">#</a></h1>
+<p>In the last section, we looked at the basic ingredients of Python (its data types) and the ways we can use them (iteration and logic, more formally known as “control flow”).</p>
+<p>We also touched on the idea that both these ingredients and the way we mix them are designed so as to be consistent. This consistency, that lists behave like tuples behave like dicts (whenever that makes sense), is one of the hallmarks of Python.</p>
+<p>This consistency also gives rise to one of the most common patterns or idioms in Python: duck typing. Unlike languages that require you to strictly define what types of data a particular piece of code can work with, Python takes the standpoint that, “If it walks like a duck and quacks like a duck, it’s a duck.” In this paradigm, it doesn’t matter what kind of data you pass to a function so long as that data supports all the necessary operations.</p>
+<p>We’ll explore some of this below.</p>
+<section id="patterns">
+<h2>Patterns<a class="headerlink" href="#patterns" title="Permalink to this headline">#</a></h2>
+<p>Programmers are extremely lazy — a certain type of lazy. A good programmer is the kind of person who will spend six hours coding a solution to a problem that saves her six seconds thousands of times.</p>
+<p>As a result, since the 90s, programmers have collected and studied several dozen kinds of (good) solutions for how to <em>structure</em> programs that come up over and over again. If you’ve written anything more complicated than a simple script, you might have even come up with one or two of these. Many of them only really apply to larger software projects. These solutions are known as <a class="reference external" href="https://www.oreilly.com/library/view/head-first-design/0596007124/">Design Patterns</a>, and they’re the next step up the ladder in your programming education once you feel comfortable writing snippets of code.</p>
+<p>But let’s make this concrete. To review, consider:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;pooh&#39;</span><span class="p">,</span> <span class="s1">&#39;piglet&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="kc">True</span><span class="p">]]</span>
+<span class="n">mytup</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">mystr</span> <span class="o">=</span> <span class="s2">&quot;we can do this </span><span class="se">\U0001F389</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As a trivial example of duck typing, note that we don’t have to do anything special to print these variables: it’s the same <code class="docutils literal notranslate"><span class="pre">print</span></code> function, regardless of the data type.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mytup</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mystr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1&#39;, 1, &#39;pooh&#39;, &#39;piglet&#39;, [2, 7, True]]
+(&#39;a&#39;, 1, 2, True)
+we can do this 🎉
+</pre></div>
+</div>
+</div>
+</div>
+<p>Less trivially, all of these are collections (they have a notion of “contained in”) and they are iterable (we can get elements out of them one by one). Because of this, the code to iterate over all these collections and print elements one at a time is identical:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">collection</span> <span class="o">=</span> <span class="n">mylist</span>  <span class="c1"># you can change this to different collections defined above</span>
+
+<span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">collection</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1
+pooh
+piglet
+[2, 7, True]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This may seem simple, but it’s because Python has taken one of the most common design patterns — the iterator pattern — and baked it right into the language.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<p>We’ve seen that functions like <code class="docutils literal notranslate"><span class="pre">print</span></code> and the iterator pattern are shared across data types. What are other examples of such similarities?</p>
+</div>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">#</a></h2>
+<p>Functions are the single greatest invention in the history of computer programming. By allowing us to reuse code, functions allow for greater abstraction (as we’ll see), more readable code, and greater modularity (you don’t need to to know the inner details of everything).</p>
+<p>More explicitly, functions are named blocks of code with inputs and a single output (though we can get around this restriction). To define a function, we can use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">myfunc</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">myfunc</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+8
+-6
+-14
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">def</span></code> says we are about to define a function. This keyword is followed by the name of the function and a list of its <em>arguments</em> in parentheses. Python has several neat features in the way arguments are defined, including the ability to take arguments by name, to leave the number of arguments unspecified, and to give default values to certain arguments.</p>
+<p>Finally, the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword specifies the output of the function. Note that, like <code class="docutils literal notranslate"><span class="pre">for</span></code>, the line defining the function ends in a colon and the entire function body is indented.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">anotherfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>  <span class="c1"># y has the default value 2</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>  <span class="c1"># x to the power y</span>
+    <span class="k">return</span> <span class="n">z</span> <span class="o">/</span> <span class="mf">2.0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">anotherfunc</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>  <span class="c1"># here we specify both x and y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">anotherfunc</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>  <span class="c1"># here we specify only x, so y = 2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+8.0
+</pre></div>
+</div>
+</div>
+</div>
+<section id="understanding-variable-scope">
+<h3>Understanding variable scope<a class="headerlink" href="#understanding-variable-scope" title="Permalink to this headline">#</a></h3>
+<p>Functions are like <em>black boxes</em>. The information that gets passed into them is bound to the input variable name, but this variable only exists while the function is running. This is a tricky topic that goes under the name of <em>variable scoping</em>, but the following examples illustrate that you have to be careful about what information is and isn’t being passed into a function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># appending an empty string seems like a sensible default</span>
+<span class="k">def</span> <span class="nf">reverser</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">appender</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>  
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This is a docstring. It tells us what the function does. </span>
+<span class="sd">    This function reverses its input and appends its second argument to the end.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">appender</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">help</span><span class="p">(</span><span class="n">reverser</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">reverser</span><span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reverser</span><span class="p">(</span><span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="s1">&#39; monkey&#39;</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = foo
+Help on function reverser in module __main__:
+
+reverser(x, appender=&#39;&#39;)
+    This is a docstring. It tells us what the function does. 
+    This function reverses its input and appends its second argument to the end.
+
+None
+x = bar
+rab
+x = elephant
+tnahpele monkey
+x = foo
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> inside the function had nothing to do with the value of <code class="docutils literal notranslate"><span class="pre">x</span></code> outside the function. Within the function, <code class="docutils literal notranslate"><span class="pre">x</span></code> took on the value of whatever we passed in as the first argument of reverser. When the function returned, x was restored to its original value.</p>
+<p>This may seem confusing, but we actually want this behavior. The fact that variables defined within the function live and die inside the function means that we can use functions without worrying that they will overwrite variables we ourselves define. Imagine if you used a function that had an argument <code class="docutils literal notranslate"><span class="pre">x</span></code> or defined a variable <code class="docutils literal notranslate"><span class="pre">data</span></code>. You may well have these variables running around in your own code, and scoping makes sure that you don’t need to worry about someone else’s function overwriting them.</p>
+<p>Functions take inputs, perform their work, and return outputs. You don’t have to know what they are doing under the hood, and your own functions should play nice in the same way.</p>
+</section>
+<section id="what-makes-a-good-function">
+<h3>What makes a good function?<a class="headerlink" href="#what-makes-a-good-function" title="Permalink to this headline">#</a></h3>
+<p>Some things to consider:</p>
+<ul class="simple">
+<li><p>functions do <em>one thing</em></p></li>
+<li><p>functions give us the chance to replace confusing behavior with clearly named behavior</p></li>
+<li><p>functions allow us to obey the DRY principle (don’t repeat yourself)</p></li>
+<li><p>functions can call other functions</p></li>
+</ul>
+<p>So how about we practice by writing some code?</p>
+</section>
+</section>
+<section id="handling-multiple-data-sets">
+<h2>Handling multiple data sets:<a class="headerlink" href="#handling-multiple-data-sets" title="Permalink to this headline">#</a></h2>
+<p>To illustrate these features, we’ll be examining data from a comparative study of cognitive ability between macaques and lemurs <a class="reference external" href="https://www.researchgate.net/publication/257075016_Lemurs_and_macaques_show_similar_numerical_sensitivity">link</a>. Data are available <a class="reference external" href="http://www.duke.edu/~jmp33/dibs/primates.tar.gz">here</a>, but to make things easy, we will create a directory here on Colab and download the files directly from Google drive. After that, we will assume that these data live in a directory <code class="docutils literal notranslate"><span class="pre">data/primates</span></code> inside the working directory.</p>
+<p>To accomplish that, we’ll use the <code class="docutils literal notranslate"><span class="pre">os</span></code> library:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;data/primates&#39;</span><span class="p">):</span>
+  <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;data/primates&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’ll use the <code class="docutils literal notranslate"><span class="pre">gdown</span></code> package to download the files directly from Google Drive:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gdown</span>
+<span class="n">data_urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1t-USz89jo4DPuyxUcr6DzX1FKdEeIOl6&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1sZNoxO8Hf4sw6-dvtOKz2TYAydVnihHo&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1lnl5zGDSWHZLKuiiKgPmwPuKBGGIv5AF&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1eBYozAifLLbBfMMdU5CNfYTGuDzH4YnO&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1QKRi0HdKoRDAUOdQJ05ozh065KN0D-IN&#39;</span>
+<span class="p">]</span>
+<span class="n">data_names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;macaque.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;trained_Macaque.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Black.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Mongoose.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Catta.csv&#39;</span>
+<span class="p">]</span>
+<span class="n">prefix</span> <span class="o">=</span> <span class="s1">&#39;data/primates/&#39;</span>
+<span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">data_urls</span><span class="p">,</span> <span class="n">data_names</span><span class="p">):</span>
+    <span class="n">gdown</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">prefix</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">quiet</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Normally, we could just use the <code class="docutils literal notranslate"><span class="pre">%ls</span></code> magic to get the list of files in a given directory:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">ls</span> data/primates
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Black.csv  Catta.csv  Mongoose.csv  macaque.csv  trained_Macaque.csv
+</pre></div>
+</div>
+</div>
+</div>
+<p>But if we want to eventually moved over to pure Python, we will use the <code class="docutils literal notranslate"><span class="pre">os</span></code> library, which gives us operating system commands.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pathparts</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;primates&#39;</span><span class="p">)</span>
+
+<span class="c1"># this command will work on both Windows and Mac/Unix</span>
+<span class="c1"># the * expands the tuple, so it&#39;s as if we&#39;d written </span>
+<span class="c1"># os.path.join(&#39;data&#39;, &#39;basic_python&#39;, &#39;primates&#39;)</span>
+<span class="n">fullpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">pathparts</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data/primates
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datfiles</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span> <span class="c1"># note: we&#39;re not guaranteed an order here</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">datfiles</span><span class="p">)</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Catta.csv&#39;, &#39;trained_Macaque.csv&#39;, &#39;Black.csv&#39;, &#39;Mongoose.csv&#39;, &#39;macaque.csv&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Our first order of business is to figure out our analysis from a single dataset.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The analysis below uses DataFrames. We’ll do more on those later. For now, just see what’s possible and play along. The important thing is how we’ll reorganize (or “refactor”) the code below.</p>
+</div>
+<p>We’ll load the <code class="docutils literal notranslate"><span class="pre">csv</span></code> file (which you can view as a spreadsheet) as a Pandas DataFrame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make the filename by joining with the path (works cross-platform!)</span>
+<span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fullpath</span><span class="p">,</span> <span class="n">datfiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># df is short for dataframe</span>
+<span class="c1"># in code with a lot of dataframes, we would choose a more descriptive name</span>
+<span class="c1"># index_col=0 says the first column of the file is row names </span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sub</th>
+      <th>Species</th>
+      <th>Date</th>
+      <th>Block (approx 72 trials)</th>
+      <th>Trial</th>
+      <th>NumA</th>
+      <th>NumB</th>
+      <th>Accuracy</th>
+      <th>RT</th>
+      <th>Surface Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4200</th>
+      <td>agathon</td>
+      <td>Catta</td>
+      <td>2/9/09</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1.617</td>
+      <td>congruent</td>
+    </tr>
+    <tr>
+      <th>4201</th>
+      <td>agathon</td>
+      <td>Catta</td>
+      <td>2/9/09</td>
+      <td>1.0</td>
+      <td>2</td>
+      <td>2</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1.233</td>
+      <td>congruent</td>
+    </tr>
+    <tr>
+      <th>4202</th>
+      <td>agathon</td>
+      <td>Catta</td>
+      <td>2/9/09</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td>4</td>
+      <td>7</td>
+      <td>1</td>
+      <td>4.000</td>
+      <td>congruent</td>
+    </tr>
+    <tr>
+      <th>4203</th>
+      <td>agathon</td>
+      <td>Catta</td>
+      <td>2/9/09</td>
+      <td>1.0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2.333</td>
+      <td>congruent</td>
+    </tr>
+    <tr>
+      <th>4204</th>
+      <td>agathon</td>
+      <td>Catta</td>
+      <td>2/9/09</td>
+      <td>1.0</td>
+      <td>5</td>
+      <td>4</td>
+      <td>5</td>
+      <td>1</td>
+      <td>2.867</td>
+      <td>congruent</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can find out some interesting things:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sub&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;agathon&#39;, &#39;berisades&#39;, &#39;capnlee&#39;, &#39;licinius&#39;], dtype=object)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Species&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Catta&#39;], dtype=object),
+ array([&#39;2/9/09&#39;, &#39;2/10/09&#39;, &#39;2/11/09&#39;, &#39;2/12/09&#39;, &#39;2/13/09&#39;, &#39;2/16/09&#39;,
+        &#39;2/17/09&#39;, &#39;2/18/09&#39;, &#39;2/19/09&#39;, &#39;2/20/09&#39;, &#39;2/23/09&#39;, &#39;2/24/09&#39;,
+        &#39;2/25/09&#39;, &#39;2/26/09&#39;, &#39;2/27/09&#39;, &#39;3/19/10&#39;, &#39;3/23/10&#39;, &#39;3/24/10&#39;,
+        &#39;3/26/10&#39;, &#39;3/29/10&#39;, &#39;3/30/10&#39;, &#39;3/31/10&#39;, &#39;4/2/10&#39;, &#39;4/5/10&#39;,
+        &#39;4/6/10&#39;, &#39;4/7/10&#39;, &#39;4/8/10&#39;, &#39;4/9/10&#39;, &#39;4/12/10&#39;, &#39;4/13/10&#39;,
+        &#39;4/1/10&#39;, &#39;4/14/10&#39;, &#39;4/15/10&#39;, &#39;4/16/10&#39;, &#39;4/19/10&#39;, &#39;4/20/10&#39;,
+        &#39;4/21/10&#39;, &#39;4/22/10&#39;, &#39;4/23/10&#39;, &#39;3/4/09&#39;, &#39;3/5/09&#39;, &#39;3/6/09&#39;,
+        &#39;3/10/09&#39;, &#39;3/11/09&#39;], dtype=object))
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="groupby-split-apply-combine">
+<h2>Groupby: Split-Apply-Combine:<a class="headerlink" href="#groupby-split-apply-combine" title="Permalink to this headline">#</a></h2>
+<p>It’s pretty typical in a dataset like this that we want to do some analysis for each subset of the data, however that subset is defined. Pandas makes this very easy:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reading left to right: </span>
+<span class="c1"># group the data by subject, </span>
+<span class="c1"># take the accuracy and response time columns,</span>
+<span class="c1"># compute the mean of each</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sub&#39;</span><span class="p">)[[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Accuracy</th>
+      <th>RT</th>
+    </tr>
+    <tr>
+      <th>Sub</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>agathon</th>
+      <td>0.725000</td>
+      <td>3.105548</td>
+    </tr>
+    <tr>
+      <th>berisades</th>
+      <td>0.727778</td>
+      <td>0.798131</td>
+    </tr>
+    <tr>
+      <th>capnlee</th>
+      <td>0.664193</td>
+      <td>0.826445</td>
+    </tr>
+    <tr>
+      <th>licinius</th>
+      <td>0.704630</td>
+      <td>1.454208</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Sub&#39;</span><span class="p">,</span> <span class="s1">&#39;Surface Area&#39;</span><span class="p">])[[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>Accuracy</th>
+      <th>RT</th>
+    </tr>
+    <tr>
+      <th>Sub</th>
+      <th>Surface Area</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">agathon</th>
+      <th>congruent</th>
+      <td>0.716667</td>
+      <td>3.297411</td>
+    </tr>
+    <tr>
+      <th>equal</th>
+      <td>0.733333</td>
+      <td>2.913685</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">berisades</th>
+      <th>congruent</th>
+      <td>0.733333</td>
+      <td>0.801950</td>
+    </tr>
+    <tr>
+      <th>equal</th>
+      <td>0.722222</td>
+      <td>0.794311</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">capnlee</th>
+      <th>congruent</th>
+      <td>0.658627</td>
+      <td>0.897514</td>
+    </tr>
+    <tr>
+      <th>equal</th>
+      <td>0.669759</td>
+      <td>0.755377</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">licinius</th>
+      <th>congruent</th>
+      <td>0.712963</td>
+      <td>1.563544</td>
+    </tr>
+    <tr>
+      <th>equal</th>
+      <td>0.696296</td>
+      <td>1.344872</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">groupby</span></code> has much more sophisticated behavior than this (if you want to group by something other than a specific set of columns, you can supply your own criterion), which you can read about <a class="reference external" href="http://pandas.pydata.org/pandas-docs/dev/groupby.html">here</a>.</p>
+<p>In addition, we can plot things like reaction time distributions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Sub&#39;</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Sub&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/patterns_45_0.svg" src="../_images/patterns_45_0.svg" /></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Sub&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/patterns_46_0.svg" src="../_images/patterns_46_0.svg" /></div>
+</div>
+<p>Pandas plotting is best for quick and dirty plots; if we want to do better, we need to dive more into Matplotlib or Seaborn. We’ll see how to prettify our outputs later on.</p>
+<p>But we can plot all on the same axis if we simply tell Pandas which axis to plot into.</p>
+<p>So here’s our strategy:</p>
+<ul class="simple">
+<li><p>create an axis object to plot into (<code class="docutils literal notranslate"><span class="pre">gca</span></code> = get current axis)</p></li>
+<li><p>split the RT portion of the dataframe into groups using <code class="docutils literal notranslate"><span class="pre">groupby</span></code></p></li>
+<li><p>iterate over these groups (the iterator gives us a name and a dataframe for each group</p></li>
+<li><p>call plot on each dataframe, passing the name as the label and the axis we want to reuse</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+
+<span class="c1"># now we&#39;re going to use iteration!</span>
+<span class="c1"># the grouped dataframe is a collection of (key, dataframe) tuples</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sub&#39;</span><span class="p">):</span>  
+    <span class="c1"># plot repeatedly into the same axes</span>
+    <span class="n">grp</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">());</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>  <span class="c1"># draw plot legend</span>
+
+<span class="c1"># adjust x limits of plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>  
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/patterns_48_0.svg" src="../_images/patterns_48_0.svg" /></div>
+</div>
+<p>So we’ve seen that we can do some neat things with this individual dataset. In fact, we’d like to do these analyses and <em>aggregate</em> across all datasets.</p>
+<p>Here’s the plan:
+- load each datset in turn
+- get the average RT and Accuracy for each animal, store it in a dataframe
+- plot the RT curve for each animal
+- load the next dataset, repeat</p>
+</section>
+<section id="multiple-datasets-pulling-it-together">
+<h2>Multiple datasets: pulling it together:<a class="headerlink" href="#multiple-datasets-pulling-it-together" title="Permalink to this headline">#</a></h2>
+<p>Let’s try to combine the above code into a single chunk of code. We’ll iterate over data files and simply repeat the same code each time. (Note how we made a good decision in encoding the file name in a variable we can change instead of hard coding it.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make an empty piece to hold each dataframe</span>
+<span class="n">df_pieces</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>  <span class="c1"># make a figure and get its current axis object</span>
+
+<span class="c1"># iterate over datfiles</span>
+<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">datfiles</span><span class="p">:</span>
+    <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fullpath</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="n">mean_data</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sub&#39;</span><span class="p">)[[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    
+    <span class="n">df_pieces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_data</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Sub&#39;</span><span class="p">):</span>
+        <span class="n">grp</span><span class="p">[</span><span class="s1">&#39;RT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">());</span>
+        
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">);</span>
+
+<span class="n">combined_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df_pieces</span><span class="p">)</span>
+
+<span class="n">combined_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Accuracy</th>
+      <th>RT</th>
+    </tr>
+    <tr>
+      <th>Sub</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>agathon</th>
+      <td>0.725000</td>
+      <td>3.105548</td>
+    </tr>
+    <tr>
+      <th>berisades</th>
+      <td>0.727778</td>
+      <td>0.798131</td>
+    </tr>
+    <tr>
+      <th>capnlee</th>
+      <td>0.664193</td>
+      <td>0.826445</td>
+    </tr>
+    <tr>
+      <th>licinius</th>
+      <td>0.704630</td>
+      <td>1.454208</td>
+    </tr>
+    <tr>
+      <th>feinstein</th>
+      <td>0.910185</td>
+      <td>0.843286</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/patterns_52_1.svg" src="../_images/patterns_52_1.svg" /></div>
+</div>
+<p>Note that we basically just copied over the code from before. (For the slick arguments to <code class="docutils literal notranslate"><span class="pre">legend</span></code> that put the box outside and to the right, see example <a class="reference external" href="http://matplotlib.org/users/legend_guide.html">here</a>.</p>
+</section>
+<section id="building-code-that-lasts">
+<h2>Building code that lasts<a class="headerlink" href="#building-code-that-lasts" title="Permalink to this headline">#</a></h2>
+<p>The above chunk of code is pretty nifty. It works, it produces good output, it’s something we can back and run in six months to produce that figure.</p>
+<p>But how well will you understand that code in six months? What if you need to change it? What if we’d like to reuse the code elsewhere. Typically, researchers use a few approaches:</p>
+<ul class="simple">
+<li><p>generate plots interactively when needed; don’t bother with a script</p></li>
+<li><p>modify this script as needed to produce new output</p></li>
+<li><p>cut and paste from this script when you need to do something similar</p></li>
+</ul>
+<p>The first of these is a terrible idea. The others less so, but they have disadvantages:</p>
+<ul class="simple">
+<li><p>if you modify this script, you need to remember what you modified and where so that you can produce the original figure again</p></li>
+<li><p>if you cut and paste, and you later improve the code or find a bug, you need to remember all the places you cut and pasted, correct the code, and re-run</p></li>
+<li><p>if you cut and paste, your code will contain lots of repetition; it will be harder to see how what you’re doing differs across scripts</p></li>
+</ul>
+<p>The strategy that good coders use to surmount these difficulties is <em>code reuse</em>. There are lots of ways to reuse code, but the oldest and arguably best is to modularize our code by writing functions. Modular code is built up from smaller subunits. Originally, these units were scripts, but over time, the preferred method is to create functions. Functions are like scripts in that they are named sections of code, but they have a few advantages over scripts, as we will see.</p>
+<section id="modularization-strategy">
+<h3>Modularization strategy<a class="headerlink" href="#modularization-strategy" title="Permalink to this headline">#</a></h3>
+<p>For scientists, the path to modularization generally takes this form:</p>
+<ul class="simple">
+<li><p>start by exploring data interactively in the console or a notebook</p></li>
+<li><p>tidy up the code in a notebook that illustrates a particular analysis</p></li>
+<li><p>when you start to see chunks of code that do a single (non-obvious) task, collect those chunks into functions</p></li>
+<li><p>rewrite the analysis to call the functions</p></li>
+<li><p>remove the functions from the notebook and put them into modules that can be imported</p></li>
+</ul>
+<p>The emphasis here is first on deciding what we want to do (exploring analyses), getting it working (illustrating in a notebook), and only lastly on making our code cleaner and more reusable. The same goes for making our code faster, which comes as a last step. As you become a better programmer, you will develop the ability to think about reuse and speed from the early stages, but even very good coders can be bad guessers at how best to design things early on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data_files</span><span class="p">(</span><span class="n">pathparts</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function takes an iterable of path parts (directories), </span>
+<span class="sd">    finds all files in that directory, and returns a list of those files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="kn">import</span> <span class="nn">os</span>
+    
+    <span class="n">fullpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">pathparts</span><span class="p">)</span>
+
+    <span class="n">datfiles</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">fullpath</span><span class="p">)</span>
+    
+    <span class="c1"># now add the fullpath to each of these file names so</span>
+    <span class="c1"># we output a list of absolute paths</span>
+    
+    <span class="n">output_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fullpath</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">datfiles</span><span class="p">]</span>  <span class="c1"># whoa! </span>
+    
+    <span class="k">return</span> <span class="n">output_list</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">get_data_files</span><span class="p">(</span><span class="n">pathparts</span><span class="p">))</span>  <span class="c1"># should work as before</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">get_data_files</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pathparts</span><span class="p">)))</span>  <span class="c1"># even works if the input is a list</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Catta.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/macaque.csv&#39;]
+[&#39;data/primates/Catta.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/macaque.csv&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that Python is smart enough to use a list, since the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator will convert any iterable object (one that can be stepped through) into a tuple and then unpack as normal.</p>
+<p>Also, we used a fancy trick inside called a <a class="reference external" href="https://docs.python.org/2/tutorial/datastructures.html#list-comprehensions">list comprehension</a> that makes it easy to do some operations where we would normally have to iterate (i.e., use a <code class="docutils literal notranslate"><span class="pre">for</span></code> loop).</p>
+<p>And we can define a couple of other functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the mean RT and Accuracy per subject for the dataframe df. </span>
+<span class="sd">    Return result as a data frame.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">groupvar</span> <span class="o">=</span> <span class="s1">&#39;Sub&#39;</span>
+    <span class="n">colvars</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groupvar</span><span class="p">)[</span><span class="n">colvars</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_RT_dist</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a file name and axis object, plot the RT distribution for </span>
+<span class="sd">    each animal in the file into the axis object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">groupvar</span> <span class="o">=</span> <span class="s1">&#39;Sub&#39;</span>
+    <span class="n">colvar</span> <span class="o">=</span> <span class="s1">&#39;RT&#39;</span>
+    
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">groupvar</span><span class="p">):</span>
+        <span class="n">grp</span><span class="p">[</span><span class="n">colvar</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">name</span><span class="o">.</span><span class="n">capitalize</span><span class="p">());</span>
+        
+    <span class="k">return</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s use those functions to put together the entire analysis into a single function.</p>
+<p>Note how much easier this is to read than the code before. Even though it’s more lines, calling functions with descriptive names like <code class="docutils literal notranslate"><span class="pre">plot_RT_dist</span></code> makes the goal we’re trying to achieve clearer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_all_analysis</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function plots the reaction time density for each subject in each file</span>
+<span class="sd">    contained in the iterable files. It also calculates the mean accuracy and </span>
+<span class="sd">    reaction time for each subject and returns these in a data frame.</span>
+<span class="sd">    Files should be full file paths.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    
+    <span class="n">df_pieces</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
+    
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="c1"># read in data</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1"># process summary data from df</span>
+        <span class="n">summary_data</span> <span class="o">=</span> <span class="n">extract_data</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+        <span class="n">df_pieces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">summary_data</span><span class="p">)</span>
+        
+        <span class="c1"># plot Reaction Time distribution</span>
+        <span class="n">plot_RT_dist</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+        
+    <span class="c1"># add legend to figure</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">borderaxespad</span><span class="o">=</span><span class="mf">0.</span><span class="p">);</span>
+    
+    <span class="c1"># get figure corresponding to axis</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_figure</span><span class="p">()</span>  
+    
+    <span class="c1"># concatenate all extracted dataframe pieces into one</span>
+    <span class="n">combined_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">df_pieces</span><span class="p">)</span>
+    
+    <span class="c1"># now return a tuple with the combined data frame and the figure object</span>
+    <span class="k">return</span> <span class="n">combined_data</span><span class="p">,</span> <span class="n">fig</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flist</span> <span class="o">=</span> <span class="n">get_data_files</span><span class="p">(</span><span class="n">pathparts</span><span class="p">)</span>
+
+<span class="n">summary_data</span><span class="p">,</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">do_all_analysis</span><span class="p">(</span><span class="n">flist</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+
+<span class="n">summary_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Accuracy</th>
+      <th>RT</th>
+    </tr>
+    <tr>
+      <th>Sub</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>agathon</th>
+      <td>0.725000</td>
+      <td>3.105548</td>
+    </tr>
+    <tr>
+      <th>berisades</th>
+      <td>0.727778</td>
+      <td>0.798131</td>
+    </tr>
+    <tr>
+      <th>capnlee</th>
+      <td>0.664193</td>
+      <td>0.826445</td>
+    </tr>
+    <tr>
+      <th>licinius</th>
+      <td>0.704630</td>
+      <td>1.454208</td>
+    </tr>
+    <tr>
+      <th>feinstein</th>
+      <td>0.910185</td>
+      <td>0.843286</td>
+    </tr>
+    <tr>
+      <th>mikulski</th>
+      <td>0.846296</td>
+      <td>0.583694</td>
+    </tr>
+    <tr>
+      <th>schroeder</th>
+      <td>0.726852</td>
+      <td>0.978447</td>
+    </tr>
+    <tr>
+      <th>hopkins</th>
+      <td>0.700803</td>
+      <td>2.023438</td>
+    </tr>
+    <tr>
+      <th>quinn</th>
+      <td>0.749074</td>
+      <td>1.345008</td>
+    </tr>
+    <tr>
+      <th>redford</th>
+      <td>0.597222</td>
+      <td>1.260423</td>
+    </tr>
+    <tr>
+      <th>tarantino</th>
+      <td>0.725096</td>
+      <td>1.687411</td>
+    </tr>
+    <tr>
+      <th>eduardo</th>
+      <td>0.766854</td>
+      <td>3.534282</td>
+    </tr>
+    <tr>
+      <th>felipe</th>
+      <td>0.593519</td>
+      <td>1.147807</td>
+    </tr>
+    <tr>
+      <th>pedro</th>
+      <td>0.763109</td>
+      <td>1.454616</td>
+    </tr>
+    <tr>
+      <th>sancho</th>
+      <td>0.661111</td>
+      <td>1.890181</td>
+    </tr>
+    <tr>
+      <th>broome</th>
+      <td>0.751622</td>
+      <td>0.825900</td>
+    </tr>
+    <tr>
+      <th>huxley</th>
+      <td>0.738889</td>
+      <td>2.045129</td>
+    </tr>
+    <tr>
+      <th>solly</th>
+      <td>0.733333</td>
+      <td>1.271243</td>
+    </tr>
+    <tr>
+      <th>yerkes</th>
+      <td>0.636905</td>
+      <td>0.770189</td>
+    </tr>
+  </tbody>
+</table>
+</div></div><img alt="../_images/patterns_65_1.svg" src="../_images/patterns_65_1.svg" /></div>
+</div>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="writing-your-own-modules">
+<h1>Writing your own modules:<a class="headerlink" href="#writing-your-own-modules" title="Permalink to this headline">#</a></h1>
+<p>First, let’s download the module:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>gdown<span class="w"> </span>1keZWN340R0KT3vxF9ul-2xb4avYRR31v<span class="w"> </span>--quiet
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This is an alternate way to run gdown for downloading files from Google Drive. It uses the same <code class="docutils literal notranslate"><span class="pre">gdown</span></code> package we imported above, but the <code class="docutils literal notranslate"><span class="pre">!</span></code> at the beginning of the line tells Jupyter to run this at the command line rather than in Python.</p>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">lemurs.py</span></code> (the file we just downloaded), I’ve extracted this code into its own standalone module. That is, I’ve excerpted the functions into their own file. There are at least three ways we can use this separate code file:</p>
+<ol>
+<li><p>Because the file has a line</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>the code will check to see if it is being run as a standalone module from the command line. In that case, the special variable <code class="docutils literal notranslate"><span class="pre">__name__</span></code> has the value <code class="docutils literal notranslate"><span class="pre">'__main__'</span></code>, and the code following the colon will execute. In that case, we can simply type</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">lemurs</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>at the command line to load the module and run all the code that follows the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement above.</p>
+</li>
+<li><p>Similarly, we can use the <code class="docutils literal notranslate"><span class="pre">%run</span></code> magic function in the IPython notebook:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">run</span> <span class="n">lemurs</span>
+</pre></div>
+</div>
+<p>This will have the same effect, except we will be able to carry on at the end of the code with all the variables still intact. This is great if we want to pull part of our analysis into a separate file but try out new ideas in the notebook from the place the code left off.</p>
+</li>
+<li><p>Finally, if we just want to make use of some function in the module we can do</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lemurs</span>
+</pre></div>
+</div>
+<p>which loads all of the definitions from the module into memory where we can call them. This is <em>exactly</em> what we did in importing pandas or matplotlib, but this time with our own code!</p>
+</li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> lemurs
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lemurs</span>
+
+<span class="nb">dir</span><span class="p">(</span><span class="n">lemurs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;__builtins__&#39;,
+ &#39;__cached__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__file__&#39;,
+ &#39;__loader__&#39;,
+ &#39;__name__&#39;,
+ &#39;__package__&#39;,
+ &#39;__spec__&#39;,
+ &#39;do_all_analysis&#39;,
+ &#39;extract_data&#39;,
+ &#39;get_data_files&#39;,
+ &#39;os&#39;,
+ &#39;pd&#39;,
+ &#39;plot_RT_dist&#39;,
+ &#39;plt&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemurs</span><span class="o">.</span><span class="n">get_data_files</span><span class="p">(</span><span class="n">pathparts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Catta.csv&#39;,
+ &#39;data/primates/trained_Macaque.csv&#39;,
+ &#39;data/primates/Black.csv&#39;,
+ &#39;data/primates/Mongoose.csv&#39;,
+ &#39;data/primates/macaque.csv&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we’ve seen, Python (and its ecosystem) provide a powerful set of tools for moving quickly from prototyping in the notebook to building modular programs that automate data analysis. As projects get bigger and their corresponding pipelines more complex, this workflow is essential to produce maintainable code and reproducible results.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./python_intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="data_structures.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Basic Programming in Python: Data Structures</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By John Pearson<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
