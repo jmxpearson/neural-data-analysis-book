@@ -1,0 +1,5 @@
+jupyter-book
+myst_nb
+matplotlib
+numpy
+ghp-import
