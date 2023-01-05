@@ -7,3 +7,4 @@ chapters:
 - file: python_intro/intro.md
   sections:
     - file: python_intro/data_structures.ipynb 
+    - file: python_intro/patterns.ipynb 

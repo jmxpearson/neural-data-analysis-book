@@ -1,5 +1,8 @@
 jupyter-book
 myst_nb
-matplotlib
 numpy
+scipy
+pandas
+matplotlib
 ghp-import
+gdown
