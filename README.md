@@ -4,7 +4,7 @@ This book serves as the material for Parts I and II of [NEUROBIO 735: Quantitati
 
 ## Contributors
 
-We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/jmxpearson/introduction_to_neural_data_analysis/graphs/contributors).
+We welcome and recognize all contributions. You can see a list of current contributors in the [contributors tab](https://github.com/jmxpearson/neural-data-analysis-book/graphs/contributors).
 
 ## Credits
 
