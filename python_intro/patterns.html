@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Basic Programming in Python: Data Structures" href="data_structures.html" />
+    <link rel="prev" title="Case Study: Nested Data Structures" href="nested_data_structures.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,6 +121,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="data_structures.html">
      Basic Programming in Python: Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="nested_data_structures.html">
+     Case Study: Nested Data Structures
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -752,7 +757,7 @@ x = foo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Catta.csv&#39;, &#39;trained_Macaque.csv&#39;, &#39;Black.csv&#39;, &#39;Mongoose.csv&#39;, &#39;macaque.csv&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Mongoose.csv&#39;, &#39;trained_Macaque.csv&#39;, &#39;Black.csv&#39;, &#39;Catta.csv&#39;, &#39;macaque.csv&#39;]
 </pre></div>
 </div>
 </div>
@@ -811,68 +816,68 @@ x = foo
   </thead>
   <tbody>
     <tr>
-      <th>4200</th>
-      <td>agathon</td>
-      <td>Catta</td>
-      <td>2/9/09</td>
+      <th>12765</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
       <td>1.0</td>
       <td>1</td>
-      <td>3</td>
       <td>4</td>
+      <td>5</td>
       <td>1</td>
-      <td>1.617</td>
-      <td>congruent</td>
+      <td>1.183</td>
+      <td>equal</td>
     </tr>
     <tr>
-      <th>4201</th>
-      <td>agathon</td>
-      <td>Catta</td>
-      <td>2/9/09</td>
+      <th>12766</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
       <td>1.0</td>
       <td>2</td>
-      <td>2</td>
-      <td>6</td>
-      <td>1</td>
-      <td>1.233</td>
-      <td>congruent</td>
+      <td>3</td>
+      <td>9</td>
+      <td>0</td>
+      <td>0.883</td>
+      <td>equal</td>
     </tr>
     <tr>
-      <th>4202</th>
-      <td>agathon</td>
-      <td>Catta</td>
-      <td>2/9/09</td>
+      <th>12767</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
       <td>1.0</td>
       <td>3</td>
       <td>4</td>
       <td>7</td>
       <td>1</td>
-      <td>4.000</td>
+      <td>2.750</td>
       <td>congruent</td>
     </tr>
     <tr>
-      <th>4203</th>
-      <td>agathon</td>
-      <td>Catta</td>
-      <td>2/9/09</td>
+      <th>12768</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
       <td>1.0</td>
       <td>4</td>
+      <td>5</td>
+      <td>7</td>
       <td>1</td>
+      <td>1.000</td>
+      <td>congruent</td>
+    </tr>
+    <tr>
+      <th>12769</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
+      <td>1.0</td>
+      <td>5</td>
       <td>2</td>
-      <td>1</td>
-      <td>2.333</td>
-      <td>congruent</td>
-    </tr>
-    <tr>
-      <th>4204</th>
-      <td>agathon</td>
-      <td>Catta</td>
-      <td>2/9/09</td>
-      <td>1.0</td>
-      <td>5</td>
-      <td>4</td>
-      <td>5</td>
-      <td>1</td>
-      <td>2.867</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1.250</td>
       <td>congruent</td>
     </tr>
   </tbody>
@@ -887,7 +892,7 @@ x = foo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;agathon&#39;, &#39;berisades&#39;, &#39;capnlee&#39;, &#39;licinius&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;eduardo&#39;, &#39;felipe&#39;, &#39;pedro&#39;, &#39;sancho&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -899,15 +904,17 @@ x = foo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Catta&#39;], dtype=object),
- array([&#39;2/9/09&#39;, &#39;2/10/09&#39;, &#39;2/11/09&#39;, &#39;2/12/09&#39;, &#39;2/13/09&#39;, &#39;2/16/09&#39;,
-        &#39;2/17/09&#39;, &#39;2/18/09&#39;, &#39;2/19/09&#39;, &#39;2/20/09&#39;, &#39;2/23/09&#39;, &#39;2/24/09&#39;,
-        &#39;2/25/09&#39;, &#39;2/26/09&#39;, &#39;2/27/09&#39;, &#39;3/19/10&#39;, &#39;3/23/10&#39;, &#39;3/24/10&#39;,
-        &#39;3/26/10&#39;, &#39;3/29/10&#39;, &#39;3/30/10&#39;, &#39;3/31/10&#39;, &#39;4/2/10&#39;, &#39;4/5/10&#39;,
-        &#39;4/6/10&#39;, &#39;4/7/10&#39;, &#39;4/8/10&#39;, &#39;4/9/10&#39;, &#39;4/12/10&#39;, &#39;4/13/10&#39;,
-        &#39;4/1/10&#39;, &#39;4/14/10&#39;, &#39;4/15/10&#39;, &#39;4/16/10&#39;, &#39;4/19/10&#39;, &#39;4/20/10&#39;,
-        &#39;4/21/10&#39;, &#39;4/22/10&#39;, &#39;4/23/10&#39;, &#39;3/4/09&#39;, &#39;3/5/09&#39;, &#39;3/6/09&#39;,
-        &#39;3/10/09&#39;, &#39;3/11/09&#39;], dtype=object))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Mongoose&#39;], dtype=object),
+ array([&#39;12/2/08&#39;, &#39;12/3/08&#39;, &#39;12/4/08&#39;, &#39;12/5/08&#39;, &#39;12/10/08&#39;, &#39;12/11/08&#39;,
+        &#39;12/12/08&#39;, &#39;12/15/08&#39;, &#39;1/6/09&#39;, &#39;1/7/09&#39;, &#39;1/8/09&#39;, &#39;1/12/09&#39;,
+        &#39;1/13/09&#39;, &#39;1/14/09&#39;, &#39;1/16/09&#39;, &#39;11/16/09&#39;, &#39;11/17/09&#39;,
+        &#39;11/18/09&#39;, &#39;11/19/09&#39;, &#39;11/25/09&#39;, &#39;11/30/09&#39;, &#39;12/1/09&#39;,
+        &#39;12/8/09&#39;, &#39;12/9/09&#39;, &#39;12/10/09&#39;, &#39;12/11/09&#39;, &#39;12/14/09&#39;,
+        &#39;12/15/09&#39;, &#39;12/16/09&#39;, &#39;12/17/09&#39;, &#39;1/21/09&#39;, &#39;1/22/09&#39;,
+        &#39;1/23/09&#39;, &#39;9/8/09&#39;, &#39;9/10/09&#39;, &#39;9/11/09&#39;, &#39;9/14/09&#39;, &#39;9/15/09&#39;,
+        &#39;9/17/09&#39;, &#39;9/18/09&#39;, &#39;9/21/09&#39;, &#39;9/22/09&#39;, &#39;9/24/09&#39;, &#39;9/25/09&#39;,
+        &#39;9/28/09&#39;, &#39;9/29/09&#39;, &#39;10/2/09&#39;, &#39;10/6/09&#39;, &#39;10/9/09&#39;, &#39;10/13/09&#39;],
+       dtype=object))
 </pre></div>
 </div>
 </div>
@@ -957,24 +964,24 @@ x = foo
   </thead>
   <tbody>
     <tr>
-      <th>agathon</th>
-      <td>0.725000</td>
-      <td>3.105548</td>
+      <th>eduardo</th>
+      <td>0.766854</td>
+      <td>3.534282</td>
     </tr>
     <tr>
-      <th>berisades</th>
-      <td>0.727778</td>
-      <td>0.798131</td>
+      <th>felipe</th>
+      <td>0.593519</td>
+      <td>1.147807</td>
     </tr>
     <tr>
-      <th>capnlee</th>
-      <td>0.664193</td>
-      <td>0.826445</td>
+      <th>pedro</th>
+      <td>0.763109</td>
+      <td>1.454616</td>
     </tr>
     <tr>
-      <th>licinius</th>
-      <td>0.704630</td>
-      <td>1.454208</td>
+      <th>sancho</th>
+      <td>0.661111</td>
+      <td>1.890181</td>
     </tr>
   </tbody>
 </table>
@@ -1018,48 +1025,48 @@ x = foo
   </thead>
   <tbody>
     <tr>
-      <th rowspan="2" valign="top">agathon</th>
+      <th rowspan="2" valign="top">eduardo</th>
       <th>congruent</th>
-      <td>0.716667</td>
-      <td>3.297411</td>
+      <td>0.732210</td>
+      <td>4.433112</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.733333</td>
-      <td>2.913685</td>
+      <td>0.801498</td>
+      <td>2.635451</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">berisades</th>
+      <th rowspan="2" valign="top">felipe</th>
       <th>congruent</th>
-      <td>0.733333</td>
-      <td>0.801950</td>
+      <td>0.594444</td>
+      <td>1.150126</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.722222</td>
-      <td>0.794311</td>
+      <td>0.592593</td>
+      <td>1.145489</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">capnlee</th>
+      <th rowspan="2" valign="top">pedro</th>
       <th>congruent</th>
-      <td>0.658627</td>
-      <td>0.897514</td>
+      <td>0.762172</td>
+      <td>1.458337</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.669759</td>
-      <td>0.755377</td>
+      <td>0.764045</td>
+      <td>1.450895</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">licinius</th>
+      <th rowspan="2" valign="top">sancho</th>
       <th>congruent</th>
-      <td>0.712963</td>
-      <td>1.563544</td>
+      <td>0.657407</td>
+      <td>1.758446</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.696296</td>
-      <td>1.344872</td>
+      <td>0.664815</td>
+      <td>2.021917</td>
     </tr>
   </tbody>
 </table>
@@ -1187,24 +1194,24 @@ x = foo
   </thead>
   <tbody>
     <tr>
-      <th>agathon</th>
-      <td>0.725000</td>
-      <td>3.105548</td>
+      <th>eduardo</th>
+      <td>0.766854</td>
+      <td>3.534282</td>
     </tr>
     <tr>
-      <th>berisades</th>
-      <td>0.727778</td>
-      <td>0.798131</td>
+      <th>felipe</th>
+      <td>0.593519</td>
+      <td>1.147807</td>
     </tr>
     <tr>
-      <th>capnlee</th>
-      <td>0.664193</td>
-      <td>0.826445</td>
+      <th>pedro</th>
+      <td>0.763109</td>
+      <td>1.454616</td>
     </tr>
     <tr>
-      <th>licinius</th>
-      <td>0.704630</td>
-      <td>1.454208</td>
+      <th>sancho</th>
+      <td>0.661111</td>
+      <td>1.890181</td>
     </tr>
     <tr>
       <th>feinstein</th>
@@ -1277,8 +1284,8 @@ x = foo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Catta.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/macaque.csv&#39;]
-[&#39;data/primates/Catta.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/macaque.csv&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/Catta.csv&#39;, &#39;data/primates/macaque.csv&#39;]
+[&#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/Catta.csv&#39;, &#39;data/primates/macaque.csv&#39;]
 </pre></div>
 </div>
 </div>
@@ -1406,24 +1413,24 @@ x = foo
   </thead>
   <tbody>
     <tr>
-      <th>agathon</th>
-      <td>0.725000</td>
-      <td>3.105548</td>
+      <th>eduardo</th>
+      <td>0.766854</td>
+      <td>3.534282</td>
     </tr>
     <tr>
-      <th>berisades</th>
-      <td>0.727778</td>
-      <td>0.798131</td>
+      <th>felipe</th>
+      <td>0.593519</td>
+      <td>1.147807</td>
     </tr>
     <tr>
-      <th>capnlee</th>
-      <td>0.664193</td>
-      <td>0.826445</td>
+      <th>pedro</th>
+      <td>0.763109</td>
+      <td>1.454616</td>
     </tr>
     <tr>
-      <th>licinius</th>
-      <td>0.704630</td>
-      <td>1.454208</td>
+      <th>sancho</th>
+      <td>0.661111</td>
+      <td>1.890181</td>
     </tr>
     <tr>
       <th>feinstein</th>
@@ -1461,24 +1468,24 @@ x = foo
       <td>1.687411</td>
     </tr>
     <tr>
-      <th>eduardo</th>
-      <td>0.766854</td>
-      <td>3.534282</td>
+      <th>agathon</th>
+      <td>0.725000</td>
+      <td>3.105548</td>
     </tr>
     <tr>
-      <th>felipe</th>
-      <td>0.593519</td>
-      <td>1.147807</td>
+      <th>berisades</th>
+      <td>0.727778</td>
+      <td>0.798131</td>
     </tr>
     <tr>
-      <th>pedro</th>
-      <td>0.763109</td>
-      <td>1.454616</td>
+      <th>capnlee</th>
+      <td>0.664193</td>
+      <td>0.826445</td>
     </tr>
     <tr>
-      <th>sancho</th>
-      <td>0.661111</td>
-      <td>1.890181</td>
+      <th>licinius</th>
+      <td>0.704630</td>
+      <td>1.454208</td>
     </tr>
     <tr>
       <th>broome</th>
@@ -1588,10 +1595,10 @@ x = foo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Catta.csv&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Mongoose.csv&#39;,
  &#39;data/primates/trained_Macaque.csv&#39;,
  &#39;data/primates/Black.csv&#39;,
- &#39;data/primates/Mongoose.csv&#39;,
+ &#39;data/primates/Catta.csv&#39;,
  &#39;data/primates/macaque.csv&#39;]
 </pre></div>
 </div>
@@ -1627,11 +1634,11 @@ x = foo
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="data_structures.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="nested_data_structures.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Basic Programming in Python: Data Structures</p>
+            <p class="prev-next-title">Case Study: Nested Data Structures</p>
         </div>
     </a>
 </div>
