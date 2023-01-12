@@ -1,4 +1,6 @@
-# Why learn Python?
+# Introduction to Python
+
+_**Why learn Python?**_
 
 Because everything. Python is used for scripting, building and scraping websites, and pretty much anything else where performance isn't critical. It is also the *de facto* standard in data science and machine learning. It's also comparatively easy to learn. Python is the new BASIC. What's more, Python skills actually help on a resume.
 
