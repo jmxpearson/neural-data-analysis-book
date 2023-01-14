@@ -1,0 +1,3305 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction to Data Frames &#8212; Introduction to Neural Data Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Working with Array Data" href="arrays.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Neural Data Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Neural Data Analysis
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Introduction to Python
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="data_structures.html">
+     Basic Programming in Python: Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="nested_data_structures.html">
+     Case Study: Nested Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="patterns.html">
+     Patterns, functions, and duck typing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="arrays.html">
+     Working with Array Data
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Introduction to Data Frames
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/data_frames.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/data_frames.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpython_intro/data_frames.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/python_intro/data_frames.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-study-diamonds">
+   Case Study: Diamonds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-the-data">
+   Loading the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examining-the-data">
+   Examining the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-fine-art-of-looking-things-up">
+   The fine art of looking things up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-the-most-of-data-frames">
+   Making the most of data frames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting">
+   Plotting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-thoughts">
+   Final thoughts:
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Introduction to Data Frames</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#case-study-diamonds">
+   Case Study: Diamonds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-the-data">
+   Loading the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examining-the-data">
+   Examining the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-fine-art-of-looking-things-up">
+   The fine art of looking things up
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-the-most-of-data-frames">
+   Making the most of data frames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting">
+   Plotting
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#final-thoughts">
+   Final thoughts:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-data-frames">
+<h1>Introduction to Data Frames<a class="headerlink" href="#introduction-to-data-frames" title="Permalink to this headline">#</a></h1>
+<section id="case-study-diamonds">
+<h2>Case Study: Diamonds<a class="headerlink" href="#case-study-diamonds" title="Permalink to this headline">#</a></h2>
+<p>In this lesson, we’re going to do some basic data analyses on a set of diamond characteristics and prices. First, we’ll download the data:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>gdown<span class="w"> </span>1Q2saE5Wjis_4Hc3V5MBzAh3ei_bF2Q9M
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you open the file in a text editor, you will see that it consists of a bunch of lines, each with a bunch of commas. This is a csv or “comma-separated value” file. Every row represents a record (like a row in a spreadsheet), with each cell separated by a comma. The first row has the same format, but the entries are the names of the columns.</p>
+</section>
+<section id="loading-the-data">
+<h2>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this headline">#</a></h2>
+<p>We would like to load this data into Python. But to do so, we will need to tell Python that we want to get some tools ready. These tools are located in a library (the Python term is “module”) called Pandas. So we do this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This tells Python to load the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module and nickname it <code class="docutils literal notranslate"><span class="pre">pd</span></code>. Then, whenever we want to use functionality from <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, we do so by giving the address of the function we want. In this case, we want to load data from a csv file, so we call the function <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;minerals.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s read from the left:</p>
+<p><code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span></code></p>
+<p>tells Python that we want to do something (on the right hand side of the equation) and assign its output to a variable called <code class="docutils literal notranslate"><span class="pre">data</span></code>. We could have called it <code class="docutils literal notranslate"><span class="pre">duck</span></code> or <code class="docutils literal notranslate"><span class="pre">shotput</span></code> or <code class="docutils literal notranslate"><span class="pre">harmony</span></code>, but we want to give our variables meaningful names, and in cases where we are only going to be exploring a single dataset, it’s convenient to name it the obvious thing.</p>
+<p>On the right hand side, we’re doing several things:</p>
+<ul class="simple">
+<li><p>We’re telling Python to look in the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module (nicknamed <code class="docutils literal notranslate"><span class="pre">pd</span></code>)</p></li>
+<li><p>We telling Python to call a function named <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> that’s found there (we will find that looking up functions in modules is a lot like looking up files in directories)</p></li>
+<li><p>We’re giving the function the (local) path to the file in quotes</p></li>
+</ul>
+<p>We will see this pattern repeatedly in Python. We use names like <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> to tell Python to perform actions. As we saw <a class="reference internal" href="patterns.html#patterns-functions"><span class="std std-ref">before</span></a> we supply variables or pieces of information (“arguments”) needed as inputs by Python to perform those actions.</p>
+</section>
+<section id="examining-the-data">
+<h2>Examining the data<a class="headerlink" href="#examining-the-data" title="Permalink to this headline">#</a></h2>
+<p>So what did we accomplish?</p>
+<p>The easiest way to see is by asking Python to print the variable to the screen. We can do this with</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        item shape  carat cut color clarity polish symmetry  depth  table  \
+0          1    PS   0.28   F     F     SI2     VG        G   61.6   50.0   
+1          2    PS   0.23   G     F     SI1     VG        G   67.5   51.0   
+2          3    EC   0.34   G     I     VS2     VG       VG   71.6   65.0   
+3          4    MQ   0.34   G     J     VS1      G        G   68.2   55.0   
+4          5    PS   0.23   G     D     SI1     VG       VG   55.0   58.0   
+...      ...   ...    ...  ..   ...     ...    ...      ...    ...    ...   
+65371  65372    RD  10.13   I     F      IF     EX       EX   60.3   58.0   
+65372  65373    RD  20.13   I     J     VS1     EX       EX   59.2   59.0   
+65373  65374    RD  12.35   I     G      IF     EX       EX   59.8   60.0   
+65374  65375    RD   9.19   I     E      IF     EX       EX   60.9   60.0   
+65375  65376    RD  10.13   I     D      FL     EX       EX   62.5   57.0   
+
+      fluorescence  price per carat       culet  length to width ratio  \
+0            Faint              864        None                   1.65   
+1             None             1057        None                   1.46   
+2            Faint              812        None                   1.40   
+3            Faint              818        None                   1.52   
+4             None             1235        None                   1.42   
+...            ...              ...         ...                    ...   
+65371         None           130112  Very Small                   1.01   
+65372         None            66420        None                   1.01   
+65373        Faint           110662        None                   1.01   
+65374         None           150621        None                   1.00   
+65375         None           256150        None                   1.00   
+
+             delivery date      price  
+0       \nJul&amp;amp;nbsp;8\n      242.0  
+1       \nJul&amp;amp;nbsp;8\n      243.0  
+2      \nJul&amp;amp;nbsp;12\n      276.0  
+3       \nJul&amp;amp;nbsp;8\n      278.0  
+4      \nJul&amp;amp;nbsp;14\n      284.0  
+...                    ...        ...  
+65371   \nJul&amp;amp;nbsp;8\n  1318034.0  
+65372  \nJul&amp;amp;nbsp;14\n  1337035.0  
+65373  \nJul&amp;amp;nbsp;12\n  1366679.0  
+65374  \nJul&amp;amp;nbsp;13\n  1384207.0  
+65375  \nJul&amp;amp;nbsp;12\n  2594800.0  
+
+[65376 rows x 16 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should be able to see that the data consists of a bunch of rows and columns, and that, at some point in the middle, Python puts a bunch of …’s, indicating it’s not printing all the information. That’s good in this case, since the data are pretty big.</p>
+<p>So how big are the data? We can find this out by typing</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(65376, 16)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We could have gotten the same answer by typing</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>but, as we’ve seen several times now, when we just type the variable name, Python assumes we mean <code class="docutils literal notranslate"><span class="pre">print</span></code>.</p>
+</div>
+<p>So what does this answer mean? It means that our data set has something like 65,000 rows and 16 columns. Here, the convention is (rows, columns).</p>
+<p>Notice also that the way we got this piece of information was by typing the variable, followed by <code class="docutils literal notranslate"><span class="pre">.</span></code>, followed by the name of some property of the data (called an “attribute”). Again, you can think of this variable as an object having both pieces of information (attributes) and pieces of behavior (functions or methods) tucked inside of it like a file system. The way we access those is by giving a path, except with <code class="docutils literal notranslate"><span class="pre">.</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+<p>But there’s an even friendlier way to look at our data that’s special to the notebook. To look at the first few rows of our data, we can type</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>item</th>
+      <th>shape</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>polish</th>
+      <th>symmetry</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>fluorescence</th>
+      <th>price per carat</th>
+      <th>culet</th>
+      <th>length to width ratio</th>
+      <th>delivery date</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>PS</td>
+      <td>0.28</td>
+      <td>F</td>
+      <td>F</td>
+      <td>SI2</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>61.6</td>
+      <td>50.0</td>
+      <td>Faint</td>
+      <td>864</td>
+      <td>None</td>
+      <td>1.65</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>242.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>PS</td>
+      <td>0.23</td>
+      <td>G</td>
+      <td>F</td>
+      <td>SI1</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>67.5</td>
+      <td>51.0</td>
+      <td>None</td>
+      <td>1057</td>
+      <td>None</td>
+      <td>1.46</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>243.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>EC</td>
+      <td>0.34</td>
+      <td>G</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>71.6</td>
+      <td>65.0</td>
+      <td>Faint</td>
+      <td>812</td>
+      <td>None</td>
+      <td>1.40</td>
+      <td>\nJul&amp;amp;nbsp;12\n</td>
+      <td>276.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>MQ</td>
+      <td>0.34</td>
+      <td>G</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>G</td>
+      <td>G</td>
+      <td>68.2</td>
+      <td>55.0</td>
+      <td>Faint</td>
+      <td>818</td>
+      <td>None</td>
+      <td>1.52</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>278.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>PS</td>
+      <td>0.23</td>
+      <td>G</td>
+      <td>D</td>
+      <td>SI1</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>55.0</td>
+      <td>58.0</td>
+      <td>None</td>
+      <td>1235</td>
+      <td>None</td>
+      <td>1.42</td>
+      <td>\nJul&amp;amp;nbsp;14\n</td>
+      <td>284.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This gives 5 rows by default (<strong>note that counting starts at 0!</strong>), but we can easily ask Python for 10:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>item</th>
+      <th>shape</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>polish</th>
+      <th>symmetry</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>fluorescence</th>
+      <th>price per carat</th>
+      <th>culet</th>
+      <th>length to width ratio</th>
+      <th>delivery date</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>PS</td>
+      <td>0.28</td>
+      <td>F</td>
+      <td>F</td>
+      <td>SI2</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>61.6</td>
+      <td>50.0</td>
+      <td>Faint</td>
+      <td>864</td>
+      <td>None</td>
+      <td>1.65</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>242.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>PS</td>
+      <td>0.23</td>
+      <td>G</td>
+      <td>F</td>
+      <td>SI1</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>67.5</td>
+      <td>51.0</td>
+      <td>None</td>
+      <td>1057</td>
+      <td>None</td>
+      <td>1.46</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>243.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>EC</td>
+      <td>0.34</td>
+      <td>G</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>71.6</td>
+      <td>65.0</td>
+      <td>Faint</td>
+      <td>812</td>
+      <td>None</td>
+      <td>1.40</td>
+      <td>\nJul&amp;amp;nbsp;12\n</td>
+      <td>276.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>MQ</td>
+      <td>0.34</td>
+      <td>G</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>G</td>
+      <td>G</td>
+      <td>68.2</td>
+      <td>55.0</td>
+      <td>Faint</td>
+      <td>818</td>
+      <td>None</td>
+      <td>1.52</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>278.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>PS</td>
+      <td>0.23</td>
+      <td>G</td>
+      <td>D</td>
+      <td>SI1</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>55.0</td>
+      <td>58.0</td>
+      <td>None</td>
+      <td>1235</td>
+      <td>None</td>
+      <td>1.42</td>
+      <td>\nJul&amp;amp;nbsp;14\n</td>
+      <td>284.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>MQ</td>
+      <td>0.23</td>
+      <td>F</td>
+      <td>G</td>
+      <td>VS2</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>71.6</td>
+      <td>55.0</td>
+      <td>None</td>
+      <td>1248</td>
+      <td>None</td>
+      <td>1.95</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>287.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>RA</td>
+      <td>0.37</td>
+      <td>F</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>79.0</td>
+      <td>76.0</td>
+      <td>None</td>
+      <td>781</td>
+      <td>None</td>
+      <td>1.03</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>289.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>EC</td>
+      <td>0.24</td>
+      <td>VG</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>68.6</td>
+      <td>65.0</td>
+      <td>Faint</td>
+      <td>1204</td>
+      <td>None</td>
+      <td>1.34</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>289.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>RD</td>
+      <td>0.24</td>
+      <td>I</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>62.0</td>
+      <td>59.0</td>
+      <td>None</td>
+      <td>1204</td>
+      <td>None</td>
+      <td>1.01</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>289.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>MQ</td>
+      <td>0.33</td>
+      <td>G</td>
+      <td>H</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>66.7</td>
+      <td>61.0</td>
+      <td>Medium</td>
+      <td>888</td>
+      <td>None</td>
+      <td>2.02</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>293.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">head</span></code> is a method of the variable <code class="docutils literal notranslate"><span class="pre">data</span></code> (meaning it’s a function stored in the data object). In the second case, we explicitly told <code class="docutils literal notranslate"><span class="pre">head</span></code> how many rows we wanted, while in the first, the number defaulted to 5.</p>
+<p>Likewise, we can ask for the last few rows of the dataset with <code class="docutils literal notranslate"><span class="pre">tail</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>item</th>
+      <th>shape</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>polish</th>
+      <th>symmetry</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>fluorescence</th>
+      <th>price per carat</th>
+      <th>culet</th>
+      <th>length to width ratio</th>
+      <th>delivery date</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>65369</th>
+      <td>65370</td>
+      <td>RD</td>
+      <td>9.56</td>
+      <td>I</td>
+      <td>F</td>
+      <td>FL</td>
+      <td>EX</td>
+      <td>EX</td>
+      <td>60.3</td>
+      <td>60.0</td>
+      <td>None</td>
+      <td>120336</td>
+      <td>Very Small</td>
+      <td>1.01</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>1150413.0</td>
+    </tr>
+    <tr>
+      <th>65370</th>
+      <td>65371</td>
+      <td>CU</td>
+      <td>8.40</td>
+      <td>G</td>
+      <td>D</td>
+      <td>IF</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>57.9</td>
+      <td>59.0</td>
+      <td>None</td>
+      <td>144300</td>
+      <td>Slightly Large</td>
+      <td>1.20</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>1212120.0</td>
+    </tr>
+    <tr>
+      <th>65371</th>
+      <td>65372</td>
+      <td>RD</td>
+      <td>10.13</td>
+      <td>I</td>
+      <td>F</td>
+      <td>IF</td>
+      <td>EX</td>
+      <td>EX</td>
+      <td>60.3</td>
+      <td>58.0</td>
+      <td>None</td>
+      <td>130112</td>
+      <td>Very Small</td>
+      <td>1.01</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>1318034.0</td>
+    </tr>
+    <tr>
+      <th>65372</th>
+      <td>65373</td>
+      <td>RD</td>
+      <td>20.13</td>
+      <td>I</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>EX</td>
+      <td>EX</td>
+      <td>59.2</td>
+      <td>59.0</td>
+      <td>None</td>
+      <td>66420</td>
+      <td>None</td>
+      <td>1.01</td>
+      <td>\nJul&amp;amp;nbsp;14\n</td>
+      <td>1337035.0</td>
+    </tr>
+    <tr>
+      <th>65373</th>
+      <td>65374</td>
+      <td>RD</td>
+      <td>12.35</td>
+      <td>I</td>
+      <td>G</td>
+      <td>IF</td>
+      <td>EX</td>
+      <td>EX</td>
+      <td>59.8</td>
+      <td>60.0</td>
+      <td>Faint</td>
+      <td>110662</td>
+      <td>None</td>
+      <td>1.01</td>
+      <td>\nJul&amp;amp;nbsp;12\n</td>
+      <td>1366679.0</td>
+    </tr>
+    <tr>
+      <th>65374</th>
+      <td>65375</td>
+      <td>RD</td>
+      <td>9.19</td>
+      <td>I</td>
+      <td>E</td>
+      <td>IF</td>
+      <td>EX</td>
+      <td>EX</td>
+      <td>60.9</td>
+      <td>60.0</td>
+      <td>None</td>
+      <td>150621</td>
+      <td>None</td>
+      <td>1.00</td>
+      <td>\nJul&amp;amp;nbsp;13\n</td>
+      <td>1384207.0</td>
+    </tr>
+    <tr>
+      <th>65375</th>
+      <td>65376</td>
+      <td>RD</td>
+      <td>10.13</td>
+      <td>I</td>
+      <td>D</td>
+      <td>FL</td>
+      <td>EX</td>
+      <td>EX</td>
+      <td>62.5</td>
+      <td>57.0</td>
+      <td>None</td>
+      <td>256150</td>
+      <td>None</td>
+      <td>1.00</td>
+      <td>\nJul&amp;amp;nbsp;12\n</td>
+      <td>2594800.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If you look carefully, you might notice that the rows seem to be sorted by the last item, price. The odd characters under delivery data are a result of the process used to download these data from the internet.</p>
+<p>Finally, as a first, pass, we might just want to know some simple summary statistics of our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>item</th>
+      <th>carat</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>price per carat</th>
+      <th>length to width ratio</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>65376.000000</td>
+      <td>65376.000000</td>
+      <td>65376.000000</td>
+      <td>65376.000000</td>
+      <td>65376.000000</td>
+      <td>65376.000000</td>
+      <td>6.537600e+04</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>32688.500000</td>
+      <td>0.878652</td>
+      <td>63.245745</td>
+      <td>59.397770</td>
+      <td>6282.785365</td>
+      <td>1.111838</td>
+      <td>9.495346e+03</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>18872.569936</td>
+      <td>0.783895</td>
+      <td>3.861799</td>
+      <td>4.868447</td>
+      <td>7198.173546</td>
+      <td>0.212317</td>
+      <td>3.394968e+04</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.230000</td>
+      <td>6.700000</td>
+      <td>6.000000</td>
+      <td>781.000000</td>
+      <td>0.770000</td>
+      <td>2.420000e+02</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>16344.750000</td>
+      <td>0.400000</td>
+      <td>61.200000</td>
+      <td>57.000000</td>
+      <td>2967.000000</td>
+      <td>1.010000</td>
+      <td>1.121000e+03</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>32688.500000</td>
+      <td>0.700000</td>
+      <td>62.200000</td>
+      <td>58.000000</td>
+      <td>4150.000000</td>
+      <td>1.010000</td>
+      <td>2.899000e+03</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>49032.250000</td>
+      <td>1.020000</td>
+      <td>64.400000</td>
+      <td>61.000000</td>
+      <td>6769.000000</td>
+      <td>1.110000</td>
+      <td>6.752250e+03</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>65376.000000</td>
+      <td>20.130000</td>
+      <td>80.000000</td>
+      <td>555.000000</td>
+      <td>256150.000000</td>
+      <td>3.120000</td>
+      <td>2.594800e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="the-fine-art-of-looking-things-up">
+<h2>The fine art of looking things up<a class="headerlink" href="#the-fine-art-of-looking-things-up" title="Permalink to this headline">#</a></h2>
+<p>The Python ecosystem is <em>huge</em>. Nobody knows all the functions for all the libraries. This means that when you start analyzing data in earnest, you will need to learn the parts important for solving your particular problem. Initially, this will be difficult; everything will be new to you. Eventually, though, you develop a conceptual base that will be easy to add to.</p>
+<p>So what should you do in this case? How do we learn more about the functions we’ve used so far?</p>
+<p>First off, let’s figure out what type of object <code class="docutils literal notranslate"><span class="pre">data</span></code> is. Every variable in Python is an object (meaning it has both information and behavior stored inside of it), and every object has a type. We can find this by using the <code class="docutils literal notranslate"><span class="pre">type</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">int</span></code> means integer, a number with no decimal part.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<p>Float is anything with a decimal point. Be aware that the precision of <code class="docutils literal notranslate"><span class="pre">float</span></code> variables is limited, and there is the potential for roundoff errors in calculations if you ever start to do serious data crunching (though most of the time you’ll be fine).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>So what in the world is this?</em></p>
+<p>Read it like so: the type of object <code class="docutils literal notranslate"><span class="pre">data</span></code> is is defined in the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> module, in the <code class="docutils literal notranslate"><span class="pre">core</span></code> submodule, in the <code class="docutils literal notranslate"><span class="pre">frame</span></code> sub-submodule, and it is <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>. Again, using our filesystem analogy, the <code class="docutils literal notranslate"><span class="pre">data</span></code> variable has type <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, and Python gives us the full path to its definition. As we will see, dataframes are a very convenient type of object in which to store our data, since this type of object carries with it very powerful behaviors (methods) that can be used to clean and analyze data.</p>
+<p>So if <code class="docutils literal notranslate"><span class="pre">type</span></code> tells us the type of object, how do we find out what’s in it?</p>
+<p>We can do that with the <code class="docutils literal notranslate"><span class="pre">dir</span></code> command. <code class="docutils literal notranslate"><span class="pre">dir</span></code> is short for “directory,” and tells us the name of all the attributes (information) and methods (behaviors) associated with an object:</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;T&#39;,
+ &#39;_AXIS_LEN&#39;,
+ &#39;_AXIS_ORDERS&#39;,
+ &#39;_AXIS_TO_AXIS_NUMBER&#39;,
+ &#39;_HANDLED_TYPES&#39;,
+ &#39;__abs__&#39;,
+ &#39;__add__&#39;,
+ &#39;__and__&#39;,
+ &#39;__annotations__&#39;,
+ &#39;__array__&#39;,
+ &#39;__array_priority__&#39;,
+ &#39;__array_ufunc__&#39;,
+ &#39;__array_wrap__&#39;,
+ &#39;__bool__&#39;,
+ &#39;__class__&#39;,
+ &#39;__contains__&#39;,
+ &#39;__copy__&#39;,
+ &#39;__dataframe__&#39;,
+ &#39;__deepcopy__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__delitem__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__divmod__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__finalize__&#39;,
+ &#39;__floordiv__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattr__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__getstate__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__iadd__&#39;,
+ &#39;__iand__&#39;,
+ &#39;__ifloordiv__&#39;,
+ &#39;__imod__&#39;,
+ &#39;__imul__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__invert__&#39;,
+ &#39;__ior__&#39;,
+ &#39;__ipow__&#39;,
+ &#39;__isub__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__itruediv__&#39;,
+ &#39;__ixor__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__matmul__&#39;,
+ &#39;__mod__&#39;,
+ &#39;__module__&#39;,
+ &#39;__mul__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__neg__&#39;,
+ &#39;__new__&#39;,
+ &#39;__nonzero__&#39;,
+ &#39;__or__&#39;,
+ &#39;__pos__&#39;,
+ &#39;__pow__&#39;,
+ &#39;__radd__&#39;,
+ &#39;__rand__&#39;,
+ &#39;__rdivmod__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__rfloordiv__&#39;,
+ &#39;__rmatmul__&#39;,
+ &#39;__rmod__&#39;,
+ &#39;__rmul__&#39;,
+ &#39;__ror__&#39;,
+ &#39;__round__&#39;,
+ &#39;__rpow__&#39;,
+ &#39;__rsub__&#39;,
+ &#39;__rtruediv__&#39;,
+ &#39;__rxor__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setitem__&#39;,
+ &#39;__setstate__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__sub__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__truediv__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;__xor__&#39;,
+ &#39;_accessors&#39;,
+ &#39;_accum_func&#39;,
+ &#39;_add_numeric_operations&#39;,
+ &#39;_agg_by_level&#39;,
+ &#39;_agg_examples_doc&#39;,
+ &#39;_agg_summary_and_see_also_doc&#39;,
+ &#39;_align_frame&#39;,
+ &#39;_align_series&#39;,
+ &#39;_append&#39;,
+ &#39;_arith_method&#39;,
+ &#39;_as_manager&#39;,
+ &#39;_attrs&#39;,
+ &#39;_box_col_values&#39;,
+ &#39;_can_fast_transpose&#39;,
+ &#39;_check_inplace_and_allows_duplicate_labels&#39;,
+ &#39;_check_inplace_setting&#39;,
+ &#39;_check_is_chained_assignment_possible&#39;,
+ &#39;_check_label_or_level_ambiguity&#39;,
+ &#39;_check_setitem_copy&#39;,
+ &#39;_clear_item_cache&#39;,
+ &#39;_clip_with_one_bound&#39;,
+ &#39;_clip_with_scalar&#39;,
+ &#39;_cmp_method&#39;,
+ &#39;_combine_frame&#39;,
+ &#39;_consolidate&#39;,
+ &#39;_consolidate_inplace&#39;,
+ &#39;_construct_axes_dict&#39;,
+ &#39;_construct_axes_from_arguments&#39;,
+ &#39;_construct_result&#39;,
+ &#39;_constructor&#39;,
+ &#39;_constructor_sliced&#39;,
+ &#39;_convert&#39;,
+ &#39;_count_level&#39;,
+ &#39;_data&#39;,
+ &#39;_dir_additions&#39;,
+ &#39;_dir_deletions&#39;,
+ &#39;_dispatch_frame_op&#39;,
+ &#39;_drop_axis&#39;,
+ &#39;_drop_labels_or_levels&#39;,
+ &#39;_ensure_valid_index&#39;,
+ &#39;_find_valid_index&#39;,
+ &#39;_flags&#39;,
+ &#39;_from_arrays&#39;,
+ &#39;_get_agg_axis&#39;,
+ &#39;_get_axis&#39;,
+ &#39;_get_axis_name&#39;,
+ &#39;_get_axis_number&#39;,
+ &#39;_get_axis_resolvers&#39;,
+ &#39;_get_block_manager_axis&#39;,
+ &#39;_get_bool_data&#39;,
+ &#39;_get_cleaned_column_resolvers&#39;,
+ &#39;_get_column_array&#39;,
+ &#39;_get_index_resolvers&#39;,
+ &#39;_get_item_cache&#39;,
+ &#39;_get_label_or_level_values&#39;,
+ &#39;_get_numeric_data&#39;,
+ &#39;_get_value&#39;,
+ &#39;_getitem_bool_array&#39;,
+ &#39;_getitem_multilevel&#39;,
+ &#39;_gotitem&#39;,
+ &#39;_hidden_attrs&#39;,
+ &#39;_indexed_same&#39;,
+ &#39;_info_axis&#39;,
+ &#39;_info_axis_name&#39;,
+ &#39;_info_axis_number&#39;,
+ &#39;_info_repr&#39;,
+ &#39;_init_mgr&#39;,
+ &#39;_inplace_method&#39;,
+ &#39;_internal_names&#39;,
+ &#39;_internal_names_set&#39;,
+ &#39;_is_copy&#39;,
+ &#39;_is_homogeneous_type&#39;,
+ &#39;_is_label_or_level_reference&#39;,
+ &#39;_is_label_reference&#39;,
+ &#39;_is_level_reference&#39;,
+ &#39;_is_mixed_type&#39;,
+ &#39;_is_view&#39;,
+ &#39;_iset_item&#39;,
+ &#39;_iset_item_mgr&#39;,
+ &#39;_iset_not_inplace&#39;,
+ &#39;_item_cache&#39;,
+ &#39;_iter_column_arrays&#39;,
+ &#39;_ixs&#39;,
+ &#39;_join_compat&#39;,
+ &#39;_logical_func&#39;,
+ &#39;_logical_method&#39;,
+ &#39;_maybe_cache_changed&#39;,
+ &#39;_maybe_update_cacher&#39;,
+ &#39;_metadata&#39;,
+ &#39;_mgr&#39;,
+ &#39;_min_count_stat_function&#39;,
+ &#39;_needs_reindex_multi&#39;,
+ &#39;_protect_consolidate&#39;,
+ &#39;_reduce&#39;,
+ &#39;_reduce_axis1&#39;,
+ &#39;_reindex_axes&#39;,
+ &#39;_reindex_columns&#39;,
+ &#39;_reindex_index&#39;,
+ &#39;_reindex_multi&#39;,
+ &#39;_reindex_with_indexers&#39;,
+ &#39;_rename&#39;,
+ &#39;_replace_columnwise&#39;,
+ &#39;_repr_data_resource_&#39;,
+ &#39;_repr_fits_horizontal_&#39;,
+ &#39;_repr_fits_vertical_&#39;,
+ &#39;_repr_html_&#39;,
+ &#39;_repr_latex_&#39;,
+ &#39;_reset_cache&#39;,
+ &#39;_reset_cacher&#39;,
+ &#39;_sanitize_column&#39;,
+ &#39;_series&#39;,
+ &#39;_set_axis&#39;,
+ &#39;_set_axis_name&#39;,
+ &#39;_set_axis_nocheck&#39;,
+ &#39;_set_is_copy&#39;,
+ &#39;_set_item&#39;,
+ &#39;_set_item_frame_value&#39;,
+ &#39;_set_item_mgr&#39;,
+ &#39;_set_value&#39;,
+ &#39;_setitem_array&#39;,
+ &#39;_setitem_frame&#39;,
+ &#39;_setitem_slice&#39;,
+ &#39;_slice&#39;,
+ &#39;_stat_axis&#39;,
+ &#39;_stat_axis_name&#39;,
+ &#39;_stat_axis_number&#39;,
+ &#39;_stat_function&#39;,
+ &#39;_stat_function_ddof&#39;,
+ &#39;_take&#39;,
+ &#39;_take_with_is_copy&#39;,
+ &#39;_to_dict_of_blocks&#39;,
+ &#39;_typ&#39;,
+ &#39;_update_inplace&#39;,
+ &#39;_validate_dtype&#39;,
+ &#39;_values&#39;,
+ &#39;_where&#39;,
+ &#39;abs&#39;,
+ &#39;add&#39;,
+ &#39;add_prefix&#39;,
+ &#39;add_suffix&#39;,
+ &#39;agg&#39;,
+ &#39;aggregate&#39;,
+ &#39;align&#39;,
+ &#39;all&#39;,
+ &#39;any&#39;,
+ &#39;append&#39;,
+ &#39;apply&#39;,
+ &#39;applymap&#39;,
+ &#39;asfreq&#39;,
+ &#39;asof&#39;,
+ &#39;assign&#39;,
+ &#39;astype&#39;,
+ &#39;at&#39;,
+ &#39;at_time&#39;,
+ &#39;attrs&#39;,
+ &#39;axes&#39;,
+ &#39;backfill&#39;,
+ &#39;between_time&#39;,
+ &#39;bfill&#39;,
+ &#39;bool&#39;,
+ &#39;boxplot&#39;,
+ &#39;carat&#39;,
+ &#39;clarity&#39;,
+ &#39;clip&#39;,
+ &#39;color&#39;,
+ &#39;columns&#39;,
+ &#39;combine&#39;,
+ &#39;combine_first&#39;,
+ &#39;compare&#39;,
+ &#39;convert_dtypes&#39;,
+ &#39;copy&#39;,
+ &#39;corr&#39;,
+ &#39;corrwith&#39;,
+ &#39;count&#39;,
+ &#39;cov&#39;,
+ &#39;culet&#39;,
+ &#39;cummax&#39;,
+ &#39;cummin&#39;,
+ &#39;cumprod&#39;,
+ &#39;cumsum&#39;,
+ &#39;cut&#39;,
+ &#39;depth&#39;,
+ &#39;describe&#39;,
+ &#39;diff&#39;,
+ &#39;div&#39;,
+ &#39;divide&#39;,
+ &#39;dot&#39;,
+ &#39;drop&#39;,
+ &#39;drop_duplicates&#39;,
+ &#39;droplevel&#39;,
+ &#39;dropna&#39;,
+ &#39;dtypes&#39;,
+ &#39;duplicated&#39;,
+ &#39;empty&#39;,
+ &#39;eq&#39;,
+ &#39;equals&#39;,
+ &#39;eval&#39;,
+ &#39;ewm&#39;,
+ &#39;expanding&#39;,
+ &#39;explode&#39;,
+ &#39;ffill&#39;,
+ &#39;fillna&#39;,
+ &#39;filter&#39;,
+ &#39;first&#39;,
+ &#39;first_valid_index&#39;,
+ &#39;flags&#39;,
+ &#39;floordiv&#39;,
+ &#39;fluorescence&#39;,
+ &#39;from_dict&#39;,
+ &#39;from_records&#39;,
+ &#39;ge&#39;,
+ &#39;get&#39;,
+ &#39;groupby&#39;,
+ &#39;gt&#39;,
+ &#39;head&#39;,
+ &#39;hist&#39;,
+ &#39;iat&#39;,
+ &#39;idxmax&#39;,
+ &#39;idxmin&#39;,
+ &#39;iloc&#39;,
+ &#39;index&#39;,
+ &#39;infer_objects&#39;,
+ &#39;info&#39;,
+ &#39;insert&#39;,
+ &#39;interpolate&#39;,
+ &#39;isetitem&#39;,
+ &#39;isin&#39;,
+ &#39;isna&#39;,
+ &#39;isnull&#39;,
+ &#39;item&#39;,
+ &#39;items&#39;,
+ &#39;iteritems&#39;,
+ &#39;iterrows&#39;,
+ &#39;itertuples&#39;,
+ &#39;join&#39;,
+ &#39;keys&#39;,
+ &#39;kurt&#39;,
+ &#39;kurtosis&#39;,
+ &#39;last&#39;,
+ &#39;last_valid_index&#39;,
+ &#39;le&#39;,
+ &#39;loc&#39;,
+ &#39;lookup&#39;,
+ &#39;lt&#39;,
+ &#39;mad&#39;,
+ &#39;mask&#39;,
+ &#39;max&#39;,
+ &#39;mean&#39;,
+ &#39;median&#39;,
+ &#39;melt&#39;,
+ &#39;memory_usage&#39;,
+ &#39;merge&#39;,
+ &#39;min&#39;,
+ &#39;mod&#39;,
+ &#39;mode&#39;,
+ &#39;mul&#39;,
+ &#39;multiply&#39;,
+ &#39;ndim&#39;,
+ &#39;ne&#39;,
+ &#39;nlargest&#39;,
+ &#39;notna&#39;,
+ &#39;notnull&#39;,
+ &#39;nsmallest&#39;,
+ &#39;nunique&#39;,
+ &#39;pad&#39;,
+ &#39;pct_change&#39;,
+ &#39;pipe&#39;,
+ &#39;pivot&#39;,
+ &#39;pivot_table&#39;,
+ &#39;plot&#39;,
+ &#39;polish&#39;,
+ &#39;pop&#39;,
+ &#39;pow&#39;,
+ &#39;price&#39;,
+ &#39;prod&#39;,
+ &#39;product&#39;,
+ &#39;quantile&#39;,
+ &#39;query&#39;,
+ &#39;radd&#39;,
+ &#39;rank&#39;,
+ &#39;rdiv&#39;,
+ &#39;reindex&#39;,
+ &#39;reindex_like&#39;,
+ &#39;rename&#39;,
+ &#39;rename_axis&#39;,
+ &#39;reorder_levels&#39;,
+ &#39;replace&#39;,
+ &#39;resample&#39;,
+ &#39;reset_index&#39;,
+ &#39;rfloordiv&#39;,
+ &#39;rmod&#39;,
+ &#39;rmul&#39;,
+ &#39;rolling&#39;,
+ &#39;round&#39;,
+ &#39;rpow&#39;,
+ &#39;rsub&#39;,
+ &#39;rtruediv&#39;,
+ &#39;sample&#39;,
+ &#39;select_dtypes&#39;,
+ &#39;sem&#39;,
+ &#39;set_axis&#39;,
+ &#39;set_flags&#39;,
+ &#39;set_index&#39;,
+ &#39;shape&#39;,
+ &#39;shift&#39;,
+ &#39;size&#39;,
+ &#39;skew&#39;,
+ &#39;slice_shift&#39;,
+ &#39;sort_index&#39;,
+ &#39;sort_values&#39;,
+ &#39;squeeze&#39;,
+ &#39;stack&#39;,
+ &#39;std&#39;,
+ &#39;style&#39;,
+ &#39;sub&#39;,
+ &#39;subtract&#39;,
+ &#39;sum&#39;,
+ &#39;swapaxes&#39;,
+ &#39;swaplevel&#39;,
+ &#39;symmetry&#39;,
+ &#39;table&#39;,
+ &#39;tail&#39;,
+ &#39;take&#39;,
+ &#39;to_clipboard&#39;,
+ &#39;to_csv&#39;,
+ &#39;to_dict&#39;,
+ &#39;to_excel&#39;,
+ &#39;to_feather&#39;,
+ &#39;to_gbq&#39;,
+ &#39;to_hdf&#39;,
+ &#39;to_html&#39;,
+ &#39;to_json&#39;,
+ &#39;to_latex&#39;,
+ &#39;to_markdown&#39;,
+ &#39;to_numpy&#39;,
+ &#39;to_orc&#39;,
+ &#39;to_parquet&#39;,
+ &#39;to_period&#39;,
+ &#39;to_pickle&#39;,
+ &#39;to_records&#39;,
+ &#39;to_sql&#39;,
+ &#39;to_stata&#39;,
+ &#39;to_string&#39;,
+ &#39;to_timestamp&#39;,
+ &#39;to_xarray&#39;,
+ &#39;to_xml&#39;,
+ &#39;transform&#39;,
+ &#39;transpose&#39;,
+ &#39;truediv&#39;,
+ &#39;truncate&#39;,
+ &#39;tz_convert&#39;,
+ &#39;tz_localize&#39;,
+ &#39;unstack&#39;,
+ &#39;update&#39;,
+ &#39;value_counts&#39;,
+ &#39;values&#39;,
+ &#39;var&#39;,
+ &#39;where&#39;,
+ &#39;xs&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Whoa!</p>
+<p>Okay, keep in mind a few things:</p>
+<ul class="simple">
+<li><p>One of the sayings in the Python credo is “We’re all adults here.” Python trusts you as a programmer. Sometimes too much. This means that, in a case like this, you might get more info than you really need or can handle.</p></li>
+<li><p>Any name in that list (and the output of this function is indeed a Python list — data structures again!) that begins with <code class="docutils literal notranslate"><span class="pre">_</span></code> or <code class="docutils literal notranslate"><span class="pre">__</span></code> is a <em>private</em> variable (like files beginning with <code class="docutils literal notranslate"><span class="pre">.</span></code> in the shell). You can safely ignore these until you are much more experienced.</p></li>
+<li><p>I don’t know what half of these do, either. If I need to know, I look them up.</p></li>
+</ul>
+<p>How do we do that?</p>
+<p>First, IPython has some pretty spiffy things that can help us right from the shell or notebook. For instance, if I want to learn about the <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> item in the list, I can type</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method sort_values in module pandas.core.frame:
+
+sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#39;bool | list[bool] | tuple[bool, ...]&#39; = True, inplace: &#39;bool&#39; = False, kind: &#39;str&#39; = &#39;quicksort&#39;, na_position: &#39;str&#39; = &#39;last&#39;, ignore_index: &#39;bool&#39; = False, key: &#39;ValueKeyFunc&#39; = None) -&gt; &#39;DataFrame | None&#39; method of pandas.core.frame.DataFrame instance
+    Sort by the values along either axis.
+    
+    Parameters
+    ----------
+            by : str or list of str
+                Name or list of names to sort by.
+    
+                - if `axis` is 0 or `&#39;index&#39;` then `by` may contain index
+                  levels and/or column labels.
+                - if `axis` is 1 or `&#39;columns&#39;` then `by` may contain column
+                  levels and/or index labels.
+    axis : {0 or &#39;index&#39;, 1 or &#39;columns&#39;}, default 0
+         Axis to be sorted.
+    ascending : bool or list of bool, default True
+         Sort ascending vs. descending. Specify list for multiple sort
+         orders.  If this is a list of bools, must match the length of
+         the by.
+    inplace : bool, default False
+         If True, perform operation in-place.
+    kind : {&#39;quicksort&#39;, &#39;mergesort&#39;, &#39;heapsort&#39;, &#39;stable&#39;}, default &#39;quicksort&#39;
+         Choice of sorting algorithm. See also :func:`numpy.sort` for more
+         information. `mergesort` and `stable` are the only stable algorithms. For
+         DataFrames, this option is only applied when sorting on a single
+         column or label.
+    na_position : {&#39;first&#39;, &#39;last&#39;}, default &#39;last&#39;
+         Puts NaNs at the beginning if `first`; `last` puts NaNs at the
+         end.
+    ignore_index : bool, default False
+         If True, the resulting axis will be labeled 0, 1, …, n - 1.
+    
+         .. versionadded:: 1.0.0
+    
+    key : callable, optional
+        Apply the key function to the values
+        before sorting. This is similar to the `key` argument in the
+        builtin :meth:`sorted` function, with the notable difference that
+        this `key` function should be *vectorized*. It should expect a
+        ``Series`` and return a Series with the same shape as the input.
+        It will be applied to each column in `by` independently.
+    
+        .. versionadded:: 1.1.0
+    
+    Returns
+    -------
+    DataFrame or None
+        DataFrame with sorted values or None if ``inplace=True``.
+    
+    See Also
+    --------
+    DataFrame.sort_index : Sort a DataFrame by the index.
+    Series.sort_values : Similar method for a Series.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; df = pd.DataFrame({
+    ...     &#39;col1&#39;: [&#39;A&#39;, &#39;A&#39;, &#39;B&#39;, np.nan, &#39;D&#39;, &#39;C&#39;],
+    ...     &#39;col2&#39;: [2, 1, 9, 8, 7, 4],
+    ...     &#39;col3&#39;: [0, 1, 9, 4, 2, 3],
+    ...     &#39;col4&#39;: [&#39;a&#39;, &#39;B&#39;, &#39;c&#39;, &#39;D&#39;, &#39;e&#39;, &#39;F&#39;]
+    ... })
+    &gt;&gt;&gt; df
+      col1  col2  col3 col4
+    0    A     2     0    a
+    1    A     1     1    B
+    2    B     9     9    c
+    3  NaN     8     4    D
+    4    D     7     2    e
+    5    C     4     3    F
+    
+    Sort by col1
+    
+    &gt;&gt;&gt; df.sort_values(by=[&#39;col1&#39;])
+      col1  col2  col3 col4
+    0    A     2     0    a
+    1    A     1     1    B
+    2    B     9     9    c
+    5    C     4     3    F
+    4    D     7     2    e
+    3  NaN     8     4    D
+    
+    Sort by multiple columns
+    
+    &gt;&gt;&gt; df.sort_values(by=[&#39;col1&#39;, &#39;col2&#39;])
+      col1  col2  col3 col4
+    1    A     1     1    B
+    0    A     2     0    a
+    2    B     9     9    c
+    5    C     4     3    F
+    4    D     7     2    e
+    3  NaN     8     4    D
+    
+    Sort Descending
+    
+    &gt;&gt;&gt; df.sort_values(by=&#39;col1&#39;, ascending=False)
+      col1  col2  col3 col4
+    4    D     7     2    e
+    5    C     4     3    F
+    2    B     9     9    c
+    0    A     2     0    a
+    1    A     1     1    B
+    3  NaN     8     4    D
+    
+    Putting NAs first
+    
+    &gt;&gt;&gt; df.sort_values(by=&#39;col1&#39;, ascending=False, na_position=&#39;first&#39;)
+      col1  col2  col3 col4
+    3  NaN     8     4    D
+    4    D     7     2    e
+    5    C     4     3    F
+    2    B     9     9    c
+    0    A     2     0    a
+    1    A     1     1    B
+    
+    Sorting with a key function
+    
+    &gt;&gt;&gt; df.sort_values(by=&#39;col4&#39;, key=lambda col: col.str.lower())
+       col1  col2  col3 col4
+    0    A     2     0    a
+    1    A     1     1    B
+    2    B     9     9    c
+    3  NaN     8     4    D
+    4    D     7     2    e
+    5    C     4     3    F
+    
+    Natural sort with the key argument,
+    using the `natsort &lt;https://github.com/SethMMorton/natsort&gt;` package.
+    
+    &gt;&gt;&gt; df = pd.DataFrame({
+    ...    &quot;time&quot;: [&#39;0hr&#39;, &#39;128hr&#39;, &#39;72hr&#39;, &#39;48hr&#39;, &#39;96hr&#39;],
+    ...    &quot;value&quot;: [10, 20, 30, 40, 50]
+    ... })
+    &gt;&gt;&gt; df
+        time  value
+    0    0hr     10
+    1  128hr     20
+    2   72hr     30
+    3   48hr     40
+    4   96hr     50
+    &gt;&gt;&gt; from natsort import index_natsorted
+    &gt;&gt;&gt; df.sort_values(
+    ...    by=&quot;time&quot;,
+    ...    key=lambda x: np.argsort(index_natsorted(df[&quot;time&quot;]))
+    ... )
+        time  value
+    0    0hr     10
+    3   48hr     40
+    2   72hr     30
+    4   96hr     50
+    1  128hr     20
+</pre></div>
+</div>
+</div>
+</div>
+<p>And IPython will pop up a handy (or cryptic, as you might feel at first) documentation window for the function. At the very least, we are told at the top of the page that the type of <code class="docutils literal notranslate"><span class="pre">data.sort</span></code> is an instancemethod, meaning that it’s a behavior and not a piece of information. The help then goes on to tell us what inputs the function takes and what outputs it gives.</p>
+<p>More realistically, I would Google</p>
+<p><code class="docutils literal notranslate"><span class="pre">DataFrame.sort_values</span> <span class="pre">python</span></code></p>
+<p>(Remember, DataFrame is the type of the data object, and the internet doesn’t know that <code class="docutils literal notranslate"><span class="pre">data</span></code> is a variable name for us. So I ask for the <code class="docutils literal notranslate"><span class="pre">type.method</span></code> and throw in the keyword “python” so Google knows what I’m talking about.)</p>
+<p>The first result that pops up should be <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.sort_values.html">this</a>.</p>
+<p>Good news!</p>
+<ul class="simple">
+<li><p>This page is much easier to read.</p></li>
+<li><p>This page is located on the website for Pandas, the library we’re using. Even if we don’t understand this particular help page, there’s probably a tutorial somewhere nearby that will get us started.</p></li>
+</ul>
+<p>As a result of this, if we look carefully, we might be able to puzzle out that if we want to sort the dataset by price per carat, we can do</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_sorted</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;price per carat&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that we have to save the output of the sort here, since the <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> function doesn’t touch the <code class="docutils literal notranslate"><span class="pre">data</span></code> variable. Instead, it returns a new data frame that we need to assign to a new variable name. In other words,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>item</th>
+      <th>shape</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>polish</th>
+      <th>symmetry</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>fluorescence</th>
+      <th>price per carat</th>
+      <th>culet</th>
+      <th>length to width ratio</th>
+      <th>delivery date</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>PS</td>
+      <td>0.28</td>
+      <td>F</td>
+      <td>F</td>
+      <td>SI2</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>61.6</td>
+      <td>50.0</td>
+      <td>Faint</td>
+      <td>864</td>
+      <td>None</td>
+      <td>1.65</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>242.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>PS</td>
+      <td>0.23</td>
+      <td>G</td>
+      <td>F</td>
+      <td>SI1</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>67.5</td>
+      <td>51.0</td>
+      <td>None</td>
+      <td>1057</td>
+      <td>None</td>
+      <td>1.46</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>243.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>EC</td>
+      <td>0.34</td>
+      <td>G</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>71.6</td>
+      <td>65.0</td>
+      <td>Faint</td>
+      <td>812</td>
+      <td>None</td>
+      <td>1.40</td>
+      <td>\nJul&amp;amp;nbsp;12\n</td>
+      <td>276.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>MQ</td>
+      <td>0.34</td>
+      <td>G</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>G</td>
+      <td>G</td>
+      <td>68.2</td>
+      <td>55.0</td>
+      <td>Faint</td>
+      <td>818</td>
+      <td>None</td>
+      <td>1.52</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>278.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>PS</td>
+      <td>0.23</td>
+      <td>G</td>
+      <td>D</td>
+      <td>SI1</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>55.0</td>
+      <td>58.0</td>
+      <td>None</td>
+      <td>1235</td>
+      <td>None</td>
+      <td>1.42</td>
+      <td>\nJul&amp;amp;nbsp;14\n</td>
+      <td>284.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>MQ</td>
+      <td>0.23</td>
+      <td>F</td>
+      <td>G</td>
+      <td>VS2</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>71.6</td>
+      <td>55.0</td>
+      <td>None</td>
+      <td>1248</td>
+      <td>None</td>
+      <td>1.95</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>287.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>RA</td>
+      <td>0.37</td>
+      <td>F</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>79.0</td>
+      <td>76.0</td>
+      <td>None</td>
+      <td>781</td>
+      <td>None</td>
+      <td>1.03</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>289.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>EC</td>
+      <td>0.24</td>
+      <td>VG</td>
+      <td>E</td>
+      <td>SI1</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>68.6</td>
+      <td>65.0</td>
+      <td>Faint</td>
+      <td>1204</td>
+      <td>None</td>
+      <td>1.34</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>289.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>RD</td>
+      <td>0.24</td>
+      <td>I</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>62.0</td>
+      <td>59.0</td>
+      <td>None</td>
+      <td>1204</td>
+      <td>None</td>
+      <td>1.01</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>289.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>MQ</td>
+      <td>0.33</td>
+      <td>G</td>
+      <td>H</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>66.7</td>
+      <td>61.0</td>
+      <td>Medium</td>
+      <td>888</td>
+      <td>None</td>
+      <td>2.02</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>293.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>looks the same as before, while</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>item</th>
+      <th>shape</th>
+      <th>carat</th>
+      <th>cut</th>
+      <th>color</th>
+      <th>clarity</th>
+      <th>polish</th>
+      <th>symmetry</th>
+      <th>depth</th>
+      <th>table</th>
+      <th>fluorescence</th>
+      <th>price per carat</th>
+      <th>culet</th>
+      <th>length to width ratio</th>
+      <th>delivery date</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>RA</td>
+      <td>0.37</td>
+      <td>F</td>
+      <td>I</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>79.0</td>
+      <td>76.0</td>
+      <td>None</td>
+      <td>781</td>
+      <td>None</td>
+      <td>1.03</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>289.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>EC</td>
+      <td>0.34</td>
+      <td>G</td>
+      <td>I</td>
+      <td>VS2</td>
+      <td>VG</td>
+      <td>VG</td>
+      <td>71.6</td>
+      <td>65.0</td>
+      <td>Faint</td>
+      <td>812</td>
+      <td>None</td>
+      <td>1.40</td>
+      <td>\nJul&amp;amp;nbsp;12\n</td>
+      <td>276.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>MQ</td>
+      <td>0.34</td>
+      <td>G</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>G</td>
+      <td>G</td>
+      <td>68.2</td>
+      <td>55.0</td>
+      <td>Faint</td>
+      <td>818</td>
+      <td>None</td>
+      <td>1.52</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>278.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>21</td>
+      <td>PS</td>
+      <td>0.39</td>
+      <td>G</td>
+      <td>J</td>
+      <td>VS1</td>
+      <td>G</td>
+      <td>G</td>
+      <td>54.2</td>
+      <td>66.0</td>
+      <td>None</td>
+      <td>859</td>
+      <td>Slightly Large</td>
+      <td>1.37</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>335.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>PS</td>
+      <td>0.35</td>
+      <td>F</td>
+      <td>H</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>50.0</td>
+      <td>55.0</td>
+      <td>None</td>
+      <td>860</td>
+      <td>Small</td>
+      <td>1.35</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>301.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>PS</td>
+      <td>0.28</td>
+      <td>F</td>
+      <td>F</td>
+      <td>SI2</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>61.6</td>
+      <td>50.0</td>
+      <td>Faint</td>
+      <td>864</td>
+      <td>None</td>
+      <td>1.65</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>242.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>MQ</td>
+      <td>0.33</td>
+      <td>G</td>
+      <td>H</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>66.7</td>
+      <td>61.0</td>
+      <td>Medium</td>
+      <td>888</td>
+      <td>None</td>
+      <td>2.02</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>293.0</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>50</td>
+      <td>MQ</td>
+      <td>0.39</td>
+      <td>VG</td>
+      <td>I</td>
+      <td>SI1</td>
+      <td>G</td>
+      <td>G</td>
+      <td>64.9</td>
+      <td>61.0</td>
+      <td>Faint</td>
+      <td>938</td>
+      <td>None</td>
+      <td>1.73</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>366.0</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>49</td>
+      <td>PS</td>
+      <td>0.39</td>
+      <td>F</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>57.0</td>
+      <td>68.0</td>
+      <td>Faint</td>
+      <td>938</td>
+      <td>None</td>
+      <td>1.37</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>366.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>27</td>
+      <td>MQ</td>
+      <td>0.36</td>
+      <td>VG</td>
+      <td>G</td>
+      <td>SI2</td>
+      <td>G</td>
+      <td>G</td>
+      <td>64.9</td>
+      <td>60.0</td>
+      <td>None</td>
+      <td>944</td>
+      <td>Small</td>
+      <td>1.96</td>
+      <td>\nJul&amp;amp;nbsp;8\n</td>
+      <td>340.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Has the rows in order. (In fact, you can see the original row numbers at the left.)</p>
+<div class="admonition-exercises admonition">
+<p class="admonition-title">Exercises</p>
+<ol class="simple">
+<li><p>By default, the <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> function sorts in ascending order (lowest to highest). Use Google to figure out how to sort the data in descending order by carat.</p></li>
+<li><p>What happens if we sort by shape instead? What sort order is used?</p></li>
+</ol>
+</div>
+</section>
+<section id="making-the-most-of-data-frames">
+<h2>Making the most of data frames<a class="headerlink" href="#making-the-most-of-data-frames" title="Permalink to this headline">#</a></h2>
+<p>So let’s get down to some real data analysis.</p>
+<p>If we want to know what the columns in our data frame are (if, for instance, there are too many to fit onscreen, or we need the list of them to manipulate), we can do</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;item&#39;, &#39;shape&#39;, &#39;carat&#39;, &#39;cut&#39;, &#39;color&#39;, &#39;clarity&#39;, &#39;polish&#39;,
+       &#39;symmetry&#39;, &#39;depth&#39;, &#39;table&#39;, &#39;fluorescence&#39;, &#39;price per carat&#39;,
+       &#39;culet&#39;, &#39;length to width ratio&#39;, &#39;delivery date&#39;, &#39;price&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>So we see columns is an attribute, not a method (the giveaway in this case is that we did not have to use parentheses afterward, as we would with a function/method).</p>
+<p>What type of object is this?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.indexes.base.Index
+</pre></div>
+</div>
+</div>
+</div>
+<p>And what can we do with an Index?</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">dir</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;T&#39;,
+ &#39;__abs__&#39;,
+ &#39;__add__&#39;,
+ &#39;__and__&#39;,
+ &#39;__annotations__&#39;,
+ &#39;__array__&#39;,
+ &#39;__array_priority__&#39;,
+ &#39;__array_ufunc__&#39;,
+ &#39;__array_wrap__&#39;,
+ &#39;__bool__&#39;,
+ &#39;__class__&#39;,
+ &#39;__contains__&#39;,
+ &#39;__copy__&#39;,
+ &#39;__deepcopy__&#39;,
+ &#39;__delattr__&#39;,
+ &#39;__dict__&#39;,
+ &#39;__dir__&#39;,
+ &#39;__divmod__&#39;,
+ &#39;__doc__&#39;,
+ &#39;__eq__&#39;,
+ &#39;__floordiv__&#39;,
+ &#39;__format__&#39;,
+ &#39;__ge__&#39;,
+ &#39;__getattribute__&#39;,
+ &#39;__getitem__&#39;,
+ &#39;__gt__&#39;,
+ &#39;__hash__&#39;,
+ &#39;__iadd__&#39;,
+ &#39;__init__&#39;,
+ &#39;__init_subclass__&#39;,
+ &#39;__invert__&#39;,
+ &#39;__iter__&#39;,
+ &#39;__le__&#39;,
+ &#39;__len__&#39;,
+ &#39;__lt__&#39;,
+ &#39;__mod__&#39;,
+ &#39;__module__&#39;,
+ &#39;__mul__&#39;,
+ &#39;__ne__&#39;,
+ &#39;__neg__&#39;,
+ &#39;__new__&#39;,
+ &#39;__nonzero__&#39;,
+ &#39;__or__&#39;,
+ &#39;__pos__&#39;,
+ &#39;__pow__&#39;,
+ &#39;__radd__&#39;,
+ &#39;__rand__&#39;,
+ &#39;__rdivmod__&#39;,
+ &#39;__reduce__&#39;,
+ &#39;__reduce_ex__&#39;,
+ &#39;__repr__&#39;,
+ &#39;__rfloordiv__&#39;,
+ &#39;__rmod__&#39;,
+ &#39;__rmul__&#39;,
+ &#39;__ror__&#39;,
+ &#39;__rpow__&#39;,
+ &#39;__rsub__&#39;,
+ &#39;__rtruediv__&#39;,
+ &#39;__rxor__&#39;,
+ &#39;__setattr__&#39;,
+ &#39;__setitem__&#39;,
+ &#39;__sizeof__&#39;,
+ &#39;__str__&#39;,
+ &#39;__sub__&#39;,
+ &#39;__subclasshook__&#39;,
+ &#39;__truediv__&#39;,
+ &#39;__weakref__&#39;,
+ &#39;__xor__&#39;,
+ &#39;_accessors&#39;,
+ &#39;_arith_method&#39;,
+ &#39;_assert_can_do_setop&#39;,
+ &#39;_attributes&#39;,
+ &#39;_cache&#39;,
+ &#39;_can_hold_identifiers_and_holds_name&#39;,
+ &#39;_can_hold_na&#39;,
+ &#39;_can_hold_strings&#39;,
+ &#39;_can_use_libjoin&#39;,
+ &#39;_check_indexing_error&#39;,
+ &#39;_check_indexing_method&#39;,
+ &#39;_cleanup&#39;,
+ &#39;_cmp_method&#39;,
+ &#39;_comparables&#39;,
+ &#39;_concat&#39;,
+ &#39;_construct_result&#39;,
+ &#39;_constructor&#39;,
+ &#39;_convert_can_do_setop&#39;,
+ &#39;_convert_slice_indexer&#39;,
+ &#39;_convert_tolerance&#39;,
+ &#39;_data&#39;,
+ &#39;_data_cls&#39;,
+ &#39;_deprecate_dti_setop&#39;,
+ &#39;_deprecated_arg&#39;,
+ &#39;_difference&#39;,
+ &#39;_difference_compat&#39;,
+ &#39;_dir_additions&#39;,
+ &#39;_dir_additions_for_owner&#39;,
+ &#39;_dir_deletions&#39;,
+ &#39;_drop_level_numbers&#39;,
+ &#39;_dtype_to_subclass&#39;,
+ &#39;_duplicated&#39;,
+ &#39;_engine&#39;,
+ &#39;_engine_type&#39;,
+ &#39;_ensure_array&#39;,
+ &#39;_filter_indexer_tolerance&#39;,
+ &#39;_find_common_type_compat&#39;,
+ &#39;_format_attrs&#39;,
+ &#39;_format_data&#39;,
+ &#39;_format_duplicate_message&#39;,
+ &#39;_format_native_types&#39;,
+ &#39;_format_space&#39;,
+ &#39;_format_with_header&#39;,
+ &#39;_formatter_func&#39;,
+ &#39;_from_join_target&#39;,
+ &#39;_get_attributes_dict&#39;,
+ &#39;_get_default_index_names&#39;,
+ &#39;_get_engine_target&#39;,
+ &#39;_get_fill_indexer&#39;,
+ &#39;_get_fill_indexer_searchsorted&#39;,
+ &#39;_get_grouper_for_level&#39;,
+ &#39;_get_indexer&#39;,
+ &#39;_get_indexer_non_comparable&#39;,
+ &#39;_get_indexer_strict&#39;,
+ &#39;_get_level_names&#39;,
+ &#39;_get_level_number&#39;,
+ &#39;_get_level_values&#39;,
+ &#39;_get_names&#39;,
+ &#39;_get_nearest_indexer&#39;,
+ &#39;_get_reconciled_name_object&#39;,
+ &#39;_get_string_slice&#39;,
+ &#39;_get_values_for_loc&#39;,
+ &#39;_getitem_slice&#39;,
+ &#39;_hidden_attrs&#39;,
+ &#39;_id&#39;,
+ &#39;_index_as_unique&#39;,
+ &#39;_inner_indexer&#39;,
+ &#39;_intersection&#39;,
+ &#39;_intersection_via_get_indexer&#39;,
+ &#39;_invalid_indexer&#39;,
+ &#39;_is_all_dates&#39;,
+ &#39;_is_backward_compat_public_numeric_index&#39;,
+ &#39;_is_comparable_dtype&#39;,
+ &#39;_is_memory_usage_qualified&#39;,
+ &#39;_is_multi&#39;,
+ &#39;_is_numeric_dtype&#39;,
+ &#39;_is_strictly_monotonic_decreasing&#39;,
+ &#39;_is_strictly_monotonic_increasing&#39;,
+ &#39;_isnan&#39;,
+ &#39;_join_level&#39;,
+ &#39;_join_monotonic&#39;,
+ &#39;_join_multi&#39;,
+ &#39;_join_non_unique&#39;,
+ &#39;_join_precedence&#39;,
+ &#39;_join_via_get_indexer&#39;,
+ &#39;_left_indexer&#39;,
+ &#39;_left_indexer_unique&#39;,
+ &#39;_logical_method&#39;,
+ &#39;_map_values&#39;,
+ &#39;_maybe_cast_indexer&#39;,
+ &#39;_maybe_cast_listlike_indexer&#39;,
+ &#39;_maybe_cast_slice_bound&#39;,
+ &#39;_maybe_check_unique&#39;,
+ &#39;_maybe_disable_logical_methods&#39;,
+ &#39;_maybe_disallow_fill&#39;,
+ &#39;_maybe_preserve_names&#39;,
+ &#39;_maybe_promote&#39;,
+ &#39;_memory_usage&#39;,
+ &#39;_mpl_repr&#39;,
+ &#39;_na_value&#39;,
+ &#39;_name&#39;,
+ &#39;_no_setting_name&#39;,
+ &#39;_outer_indexer&#39;,
+ &#39;_raise_if_missing&#39;,
+ &#39;_reduce&#39;,
+ &#39;_reindex_non_unique&#39;,
+ &#39;_rename&#39;,
+ &#39;_require_scalar&#39;,
+ &#39;_requires_unique_msg&#39;,
+ &#39;_reset_cache&#39;,
+ &#39;_reset_identity&#39;,
+ &#39;_scalar_data_error&#39;,
+ &#39;_searchsorted_monotonic&#39;,
+ &#39;_set_names&#39;,
+ &#39;_shallow_copy&#39;,
+ &#39;_should_compare&#39;,
+ &#39;_should_fallback_to_positional&#39;,
+ &#39;_should_partial_index&#39;,
+ &#39;_simple_new&#39;,
+ &#39;_sort_levels_monotonic&#39;,
+ &#39;_string_data_error&#39;,
+ &#39;_summary&#39;,
+ &#39;_supports_partial_string_indexing&#39;,
+ &#39;_transform_index&#39;,
+ &#39;_typ&#39;,
+ &#39;_unary_method&#39;,
+ &#39;_union&#39;,
+ &#39;_validate_can_reindex&#39;,
+ &#39;_validate_fill_value&#39;,
+ &#39;_validate_index_level&#39;,
+ &#39;_validate_indexer&#39;,
+ &#39;_validate_names&#39;,
+ &#39;_validate_positional_slice&#39;,
+ &#39;_validate_sort_keyword&#39;,
+ &#39;_values&#39;,
+ &#39;_view&#39;,
+ &#39;_with_infer&#39;,
+ &#39;_wrap_difference_result&#39;,
+ &#39;_wrap_intersection_result&#39;,
+ &#39;_wrap_joined_index&#39;,
+ &#39;_wrap_reindex_result&#39;,
+ &#39;_wrap_setop_result&#39;,
+ &#39;all&#39;,
+ &#39;any&#39;,
+ &#39;append&#39;,
+ &#39;argmax&#39;,
+ &#39;argmin&#39;,
+ &#39;argsort&#39;,
+ &#39;array&#39;,
+ &#39;asi8&#39;,
+ &#39;asof&#39;,
+ &#39;asof_locs&#39;,
+ &#39;astype&#39;,
+ &#39;copy&#39;,
+ &#39;delete&#39;,
+ &#39;difference&#39;,
+ &#39;drop&#39;,
+ &#39;drop_duplicates&#39;,
+ &#39;droplevel&#39;,
+ &#39;dropna&#39;,
+ &#39;dtype&#39;,
+ &#39;duplicated&#39;,
+ &#39;empty&#39;,
+ &#39;equals&#39;,
+ &#39;factorize&#39;,
+ &#39;fillna&#39;,
+ &#39;format&#39;,
+ &#39;get_indexer&#39;,
+ &#39;get_indexer_for&#39;,
+ &#39;get_indexer_non_unique&#39;,
+ &#39;get_level_values&#39;,
+ &#39;get_loc&#39;,
+ &#39;get_slice_bound&#39;,
+ &#39;get_value&#39;,
+ &#39;groupby&#39;,
+ &#39;has_duplicates&#39;,
+ &#39;hasnans&#39;,
+ &#39;holds_integer&#39;,
+ &#39;identical&#39;,
+ &#39;inferred_type&#39;,
+ &#39;insert&#39;,
+ &#39;intersection&#39;,
+ &#39;is_&#39;,
+ &#39;is_all_dates&#39;,
+ &#39;is_boolean&#39;,
+ &#39;is_categorical&#39;,
+ &#39;is_floating&#39;,
+ &#39;is_integer&#39;,
+ &#39;is_interval&#39;,
+ &#39;is_mixed&#39;,
+ &#39;is_monotonic&#39;,
+ &#39;is_monotonic_decreasing&#39;,
+ &#39;is_monotonic_increasing&#39;,
+ &#39;is_numeric&#39;,
+ &#39;is_object&#39;,
+ &#39;is_type_compatible&#39;,
+ &#39;is_unique&#39;,
+ &#39;isin&#39;,
+ &#39;isna&#39;,
+ &#39;isnull&#39;,
+ &#39;item&#39;,
+ &#39;join&#39;,
+ &#39;map&#39;,
+ &#39;max&#39;,
+ &#39;memory_usage&#39;,
+ &#39;min&#39;,
+ &#39;name&#39;,
+ &#39;names&#39;,
+ &#39;nbytes&#39;,
+ &#39;ndim&#39;,
+ &#39;nlevels&#39;,
+ &#39;notna&#39;,
+ &#39;notnull&#39;,
+ &#39;nunique&#39;,
+ &#39;putmask&#39;,
+ &#39;ravel&#39;,
+ &#39;reindex&#39;,
+ &#39;rename&#39;,
+ &#39;repeat&#39;,
+ &#39;searchsorted&#39;,
+ &#39;set_names&#39;,
+ &#39;shape&#39;,
+ &#39;shift&#39;,
+ &#39;size&#39;,
+ &#39;slice_indexer&#39;,
+ &#39;slice_locs&#39;,
+ &#39;sort&#39;,
+ &#39;sort_values&#39;,
+ &#39;sortlevel&#39;,
+ &#39;str&#39;,
+ &#39;symmetric_difference&#39;,
+ &#39;take&#39;,
+ &#39;to_flat_index&#39;,
+ &#39;to_frame&#39;,
+ &#39;to_list&#39;,
+ &#39;to_native_types&#39;,
+ &#39;to_numpy&#39;,
+ &#39;to_series&#39;,
+ &#39;transpose&#39;,
+ &#39;union&#39;,
+ &#39;unique&#39;,
+ &#39;value_counts&#39;,
+ &#39;values&#39;,
+ &#39;view&#39;,
+ &#39;where&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Oh, a lot.</p>
+<p>What will often be very useful to us is to get a single column out of the data frame. We can do this like so:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">price</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0            242.0
+1            243.0
+2            276.0
+3            278.0
+4            284.0
+           ...    
+65371    1318034.0
+65372    1337035.0
+65373    1366679.0
+65374    1384207.0
+65375    2594800.0
+Name: price, Length: 65376, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>or</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0            242.0
+1            243.0
+2            276.0
+3            278.0
+4            284.0
+           ...    
+65371    1318034.0
+65372    1337035.0
+65373    1366679.0
+65374    1384207.0
+65375    2594800.0
+Name: price, Length: 65376, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>The second method (but not the first) also works when the column name has spaces:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;length to width ratio&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0        1.65
+1        1.46
+2        1.40
+3        1.52
+4        1.42
+         ... 
+65371    1.01
+65372    1.01
+65373    1.01
+65374    1.00
+65375    1.00
+Name: length to width ratio, Length: 65376, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note also that this second pattern (i.e, “get something out of a collection using brackets”) is the same pattern used for lists, dictionaries, tuples, NumPy arrays, etc. This is part of the consistent look and feel of Python.</p>
+<p>Note that the result of this operation doesn’t return a 1-column data frame, but a Series:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;length to width ratio&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</div>
+<p>What you might be able to guess here is that a DataFrame is an object that (more or less) contains a bunch of Series objects named in an Index.</p>
+<p>Finally, we can get multiple columns at once:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;price per carat&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+      <th>price per carat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>242.0</td>
+      <td>864</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>243.0</td>
+      <td>1057</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>276.0</td>
+      <td>812</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>278.0</td>
+      <td>818</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>284.0</td>
+      <td>1235</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>65371</th>
+      <td>1318034.0</td>
+      <td>130112</td>
+    </tr>
+    <tr>
+      <th>65372</th>
+      <td>1337035.0</td>
+      <td>66420</td>
+    </tr>
+    <tr>
+      <th>65373</th>
+      <td>1366679.0</td>
+      <td>110662</td>
+    </tr>
+    <tr>
+      <th>65374</th>
+      <td>1384207.0</td>
+      <td>150621</td>
+    </tr>
+    <tr>
+      <th>65375</th>
+      <td>2594800.0</td>
+      <td>256150</td>
+    </tr>
+  </tbody>
+</table>
+<p>65376 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>This actually does return a data frame. Note that the expression we put between the brackets in this case was a list of strings, each with the name of a column we wanted to pull out.</p>
+<p>Handily, <code class="docutils literal notranslate"><span class="pre">pandas</span></code> has some functions we can use to calculate basic statistics of our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># save outputs to variable names to make the code cleaner</span>
+<span class="n">ppc_mean</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;price per carat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">ppc_std</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;price per carat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The average price per carat is </span><span class="si">{</span><span class="n">ppc_mean</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The standard deviation of price per carat is </span><span class="si">{</span><span class="n">ppc_std</span><span class="si">}</span><span class="s2">.&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ppc_std</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The coefficient of variation (std / mean) is thus </span><span class="si">{</span><span class="n">ppc_mean</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">ppc_std</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The average price per carat is 6282.785364659814.
+The standard deviation of price per carat is 7198.173546249838.7198.173546249838
+The coefficient of variation (std / mean) is thus 0.8728304929426257.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In fact, these functions will work column-by-column where appropriate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>item                                  65376
+shape                                    RD
+carat                                 20.13
+cut                                      VG
+color                                     J
+clarity                                VVS2
+polish                                   VG
+symmetry                                 VG
+depth                                  80.0
+table                                 555.0
+fluorescence               Very Strong Blue
+price per carat                      256150
+culet                            Very Small
+length to width ratio                  3.12
+delivery date            \nJul&amp;amp;nbsp;8\n
+price                             2594800.0
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<p>Finally, we might eventually want to select subsets of our data, for which there are lots of methods described <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">here</a>.</p>
+<p>For example, say we wanted to look only at diamonds between 1 and 2 carats. One of the nicest methods to select these data is to use the <code class="docutils literal notranslate"><span class="pre">query</span></code> method:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;(carat &gt;= 1) &amp; (carat &lt;= 2)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean for the whole dataset is </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean for the subset is </span><span class="si">{</span><span class="n">subset</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean for the whole dataset is 9495.346426823298.
+The mean for the subset is 11344.487346603253.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercises admonition">
+<p class="admonition-title">Exercises</p>
+<ol class="simple">
+<li><p>Extract the subset of data with less than 1 carat and cut equal to Very Good (VG). (Hint: the double equals <code class="docutils literal notranslate"><span class="pre">==</span></code> operator tests for equality. The normal equals sign is only for assigning values to variables.)</p></li>
+<li><p>Extract the subset of data with color other than J. (Hint, if you have a query that would return all the rows you <em>don’t</em> want, you can negate that query by putting <code class="docutils literal notranslate"><span class="pre">~</span></code> in front of it.)</p></li>
+</ol>
+</div>
+</section>
+<section id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h2>
+<p>Plotting is just fun. It is also, far and away, the best method for exploring your data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this magic -- it&#39;s literally called that -- </span>
+<span class="c1"># makes sure our plots appear in the browser</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let&#39;s look at some distributions of variables</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frames_84_0.svg" src="../_images/data_frames_84_0.svg" /></div>
+</div>
+<p>Hmm. Let’s fix two things:</p>
+<ol class="simple">
+<li><p>Let’s plot the logarithm of price. That will make the scale more meaningful.</p></li>
+<li><p>Let’s suppress the matplotlib.axes business (it’s reflecting the object our plot command returns). We can do this by ending the line with a semicolon.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first, import numpy, which has the logarithm function. We&#39;ll also give it a nickname.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># the apply method applies a function to every element of a data frame (or series in this case)</span>
+<span class="c1"># we will use this to create a new column in the data frame called log_price</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;log_price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;log_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frames_86_0.svg" src="../_images/data_frames_86_0.svg" /></div>
+</div>
+<p>But we can do so much better!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#let&#39;s pull out the big guns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
+<span class="c1"># we need this to call the two plt functions below, which allow us to label the axes</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;log_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Log_10 price (dollars)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frames_88_0.svg" src="../_images/data_frames_88_0.svg" /></div>
+</div>
+<p>What about other types of plots?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># the value_counts() method counts the number of times each value occurs in the data[&#39;color&#39;] series</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frames_90_0.svg" src="../_images/data_frames_90_0.svg" /></div>
+</div>
+<p>That’s a bit ugly. Let’s change plot styles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># scatter plot the relationship between carat and price</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">);</span>
+
+<span class="c1"># do the same thing, but plot y on a log scale</span>
+<span class="n">data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">logy</span><span class="o">=</span><span class="kc">True</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frames_94_0.png" src="../_images/data_frames_94_0.png" />
+<img alt="../_images/data_frames_94_1.png" src="../_images/data_frames_94_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;log_price&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;color&#39;</span><span class="p">);</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;log_price&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;cut&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frames_95_0.png" src="../_images/data_frames_95_0.png" />
+<img alt="../_images/data_frames_95_1.png" src="../_images/data_frames_95_1.png" />
+</div>
+</div>
+<div class="admonition-challenge-question admonition">
+<p class="admonition-title">Challenge Question:</p>
+<p>You can see from the above above that color and cut don’t seem to matter much to price. Can you think of a reason why this might be?</p>
+</div>
+<section id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;color&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;cut&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">scatter_matrix</span>
+
+<span class="n">column_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;price per carat&#39;</span><span class="p">,</span> <span class="s1">&#39;log_price&#39;</span><span class="p">]</span>
+<span class="n">scatter_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">column_list</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/data_frames_98_0.png" src="../_images/data_frames_98_0.png" />
+<img alt="../_images/data_frames_98_1.png" src="../_images/data_frames_98_1.png" />
+<img alt="../_images/data_frames_98_2.png" src="../_images/data_frames_98_2.png" />
+</div>
+</div>
+<div class="toggle docutils container">
+<p>As we can see, especially in the last plot, size is strongly correlated with price, but size is <em>inversely</em> correlated with other quality measures. That is, if you’re going to stock a flawed or off-colored diamond, it is almost certainly a big one!</p>
+</div>
+</section>
+</section>
+<section id="final-thoughts">
+<h2>Final thoughts:<a class="headerlink" href="#final-thoughts" title="Permalink to this headline">#</a></h2>
+<p>There are lots and lots and lots of plotting libraries out there.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> is the standard (and most full-featured), but it’s built to look and work like Matlab, which is not known for the prettiness of its plots.</p></li>
+<li><p>There is an unofficial port of the excellent <a class="reference external" href="http://ggplot2.org/">ggplot2</a> library from R to <a class="reference external" href="http://ggplot.yhathq.com/">Python</a>. It lacks some features, but does follow ggplot’s unique “grammar of graphics” approach.</p></li>
+<li><p><a class="reference external" href="http://stanford.edu/~mwaskom/software/seaborn/">Seaborn</a> has become a pretty standard add-on to Matplotlib. ggplot-quality results, but with a more Python-y syntax. Focus on good-looking defaults relative to Matplotlib with less typing and swap-in stylesheets to give plots a consistent look and feel.</p></li>
+<li><p><a class="reference external" href="http://bokeh.pydata.org/en/latest/">Bokeh</a> has a focus on web output and large or streaming datasets.</p></li>
+<li><p><a class="reference external" href="https://plot.ly">plot.ly</a> has a focus on data sharing and collaboration. May not be best for quick and dirty data exploration, but nice for showing to colleagues.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Very important:</strong> Plotting is lots of fun to play around with, but almost no plot is going to be of publication quality without some tweaking. Once you pick a package, you will want to spend time learning how to get labels, spacing, tick marks, etc. right. All of the packages above are very powerful, but inevitably, you will want to do something that seems simple and turns out to be hard.</p>
+<p>Why not just take the plot that’s easy to make and pretty it up in Adobe Illustrator? <strong>Any plot that winds up in a paper will be revised many times in the course of revision and peer review. Learn to let the program do the hard work.</strong> You want code that will get you 90 - 95% of the way to publication quality.</p>
+<p>Thankfully, it’s very, very easy to learn how to do this. Because plotting routines present such nice visual feedback, there are lots and lots of examples on line with code that will show you how to make gorgeous plots. Here again, documentation and StackOverflow are your friends!</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./python_intro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="arrays.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Working with Array Data</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By John Pearson<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
