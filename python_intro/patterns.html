@@ -722,6 +722,19 @@ x = foo
 </div>
 </div>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If you don’t already have a package installed, lines like</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gdown</span>
+</pre></div>
+</div>
+<p>above will produce errors. In this case, you can install them by creating a new cell and running, e.g.,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!pip install gdown
+</pre></div>
+</div>
+<p>In in a code cell, a leading <code class="docutils literal notranslate"><span class="pre">!</span></code> (often read “bang”) tells Jupyter to run the rest of the line in the shell, as if it had been
+typed into the terminal. <code class="docutils literal notranslate"><span class="pre">pip</span></code> is Python’s package manager, which will try to find and download the relevant package and its dependencies.</p>
+</div>
 <p>Normally, we could just use the <code class="docutils literal notranslate"><span class="pre">%ls</span></code> magic to get the list of files in a given directory:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1089,7 +1102,7 @@ x = foo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/patterns_45_0.svg" src="../_images/patterns_45_0.svg" /></div>
+<img alt="../_images/patterns_46_0.svg" src="../_images/patterns_46_0.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1098,7 +1111,7 @@ x = foo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/patterns_46_0.svg" src="../_images/patterns_46_0.svg" /></div>
+<img alt="../_images/patterns_47_0.svg" src="../_images/patterns_47_0.svg" /></div>
 </div>
 <p>Pandas plotting is best for quick and dirty plots; if we want to do better, we need to dive more into Matplotlib or Seaborn. We’ll see how to prettify our outputs later on.</p>
 <p>But we can plot all on the same axis if we simply tell Pandas which axis to plot into.</p>
@@ -1128,7 +1141,7 @@ x = foo
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/patterns_48_0.svg" src="../_images/patterns_48_0.svg" /></div>
+<img alt="../_images/patterns_49_0.svg" src="../_images/patterns_49_0.svg" /></div>
 </div>
 <p>So we’ve seen that we can do some neat things with this individual dataset. In fact, we’d like to do these analyses and <em>aggregate</em> across all datasets.</p>
 <p>Here’s the plan:
@@ -1226,7 +1239,7 @@ x = foo
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/patterns_52_1.svg" src="../_images/patterns_52_1.svg" /></div>
+</div></div><img alt="../_images/patterns_53_1.svg" src="../_images/patterns_53_1.svg" /></div>
 </div>
 <p>Note that we basically just copied over the code from before. (For the slick arguments to <code class="docutils literal notranslate"><span class="pre">legend</span></code> that put the box outside and to the right, see example <a class="reference external" href="http://matplotlib.org/users/legend_guide.html">here</a>.</p>
 </section>
@@ -1515,7 +1528,7 @@ x = foo
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/patterns_65_1.svg" src="../_images/patterns_65_1.svg" /></div>
+</div></div><img alt="../_images/patterns_66_1.svg" src="../_images/patterns_66_1.svg" /></div>
 </div>
 </section>
 </section>
