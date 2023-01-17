@@ -13,4 +13,4 @@ chapters:
     - file: python_intro/data_frames.ipynb 
 - file: point_process/intro.md
   sections:
-    - file: point_process/theory.md
+    - file: point_process/theory.ipynb
