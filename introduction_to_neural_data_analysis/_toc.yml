@@ -11,3 +11,6 @@ chapters:
     - file: python_intro/patterns.ipynb 
     - file: python_intro/arrays.ipynb 
     - file: python_intro/data_frames.ipynb 
+- file: point_process/intro.md
+  sections:
+    - file: point_process/theory.md
