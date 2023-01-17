@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Introduction to Python &#8212; Introduction to Neural Data Analysis</title>
+    <title>Point process data &#8212; Introduction to Neural Data Analysis</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,8 +52,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Basic Programming in Python: Data Structures" href="data_structures.html" />
-    <link rel="prev" title="Introduction to Neural Data Analysis" href="../intro.html" />
+    <link rel="next" title="A little point process theory" href="theory.html" />
+    <link rel="prev" title="Introduction to Data Frames" href="../python_intro/data_frames.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -109,55 +109,55 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python_intro/intro.html">
    Introduction to Python
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="data_structures.html">
+    <a class="reference internal" href="../python_intro/data_structures.html">
      Basic Programming in Python: Data Structures
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="nested_data_structures.html">
+    <a class="reference internal" href="../python_intro/nested_data_structures.html">
      Case Study: Nested Data Structures
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="patterns.html">
+    <a class="reference internal" href="../python_intro/patterns.html">
      Patterns, functions, and duck typing
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="arrays.html">
+    <a class="reference internal" href="../python_intro/arrays.html">
      Working with Array Data
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="data_frames.html">
+    <a class="reference internal" href="../python_intro/data_frames.html">
      Introduction to Data Frames
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../point_process/intro.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
    Point process data
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/theory.html">
+    <a class="reference internal" href="theory.html">
      A little point process theory
     </a>
    </li>
@@ -253,7 +253,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpython_intro/intro.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpoint_process/intro.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -281,7 +281,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/python_intro/intro.md"
+        <a href="../_sources/point_process/intro.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -330,7 +330,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to Python</h1>
+                <h1>Point process data</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -342,13 +342,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-python">
-<h1>Introduction to Python<a class="headerlink" href="#introduction-to-python" title="Permalink to this headline">#</a></h1>
-<p><em><strong>Why learn Python?</strong></em></p>
-<p>Because everything. Python is used for scripting, building and scraping websites, and pretty much anything else where performance isn’t critical. It is also the <em>de facto</em> standard in data science and machine learning. It’s also comparatively easy to learn. Python is the new BASIC. What’s more, Python skills actually help on a resume.</p>
-<p>Perhaps more importantly, neuroscientists have been increasingly transitioning to Python for about a decade. This process has only accelerated as neural data analysis becomes more complex, since complex analyses often rely on shared open source tools, and these tools are almost exclusively built in Python.</p>
-<p>If you’re coming to Python from a different language and want a quick overview, I highly recommend Jake Vanderplas’s <a class="reference external" href="https://jakevdp.github.io/WhirlwindTourOfPython/">Whirlwind Tour of Python</a>. It’s perhaps a little more than what many scientists need to know to get started, but it’s free and excellent. For data science, the <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a> is by far the best resource.</p>
-<p>In the rest of this chapter, we’ll work through a series of basic exercises to get you familiar with Python’s ecoystem, syntax, and basic data structures.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="point-process-data">
+<h1>Point process data<a class="headerlink" href="#point-process-data" title="Permalink to this headline">#</a></h1>
+<p>Point process data, usually in the form of spike times from recorded neurons, are one of the most common data types in systems neuroscience. In this
+chapter, we’ll look at some theory of point processes — including why they’re called that — learn how to estimate their underlying event
+rates, and take a look at some common data analysis methods, including the ubiquitous peri-stimulus time histogram (PSTH).</p>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -366,7 +364,7 @@ title="Print to PDF"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./python_intro"
+            path: "./point_process"
         },
         predefinedOutput: true
     }
@@ -380,17 +378,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../intro.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../python_intro/data_frames.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction to Neural Data Analysis</p>
+            <p class="prev-next-title">Introduction to Data Frames</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="data_structures.html" title="next page">
+    <a class='right-next' id="next-link" href="theory.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Programming in Python: Data Structures</p>
+        <p class="prev-next-title">A little point process theory</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
