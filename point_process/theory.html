@@ -417,7 +417,7 @@ p(n) = \frac{e^{-\lambda T}(\lambda T)^n}{n!},
 </div>
 </div>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Five example realizations (one per line) of a Poisson process with rate <span class="math notranslate nohighlight">\(\lambda = 8\)</span> per second. Each event time is marked with a dot.</span><a class="headerlink" href="#poisson-examples" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Five example realizations (one per line) of a Poisson process with rate <span class="math notranslate nohighlight">\(\lambda = 8\)</span> per unit time. Each event time is marked with a dot.</span><a class="headerlink" href="#poisson-examples" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="reference internal" href="#poisson-examples"><span class="std std-numref">Fig. 1</span></a> shows a few example realizations from this process. Note that the number of events in each realization is variable, and that the times between events (what we would call the inter-spike intervals in electrophysiology data) are highly variable. That is, Poisson processes often look clumpier than we might naively expect.</p>
@@ -433,7 +433,11 @@ p(\text{no events}) = \prod_{i = 1}^N e^{-\lambda \Delta t} = e^{-\lambda T}
 p(T) = \lambda e^{-\lambda T}
 \]</div>
 <p>which is an exponential random variable with parameter <span class="math notranslate nohighlight">\(\lambda\)</span>. In other words, we can generate sample event times like those in <a class="reference internal" href="#poisson-examples"><span class="std std-numref">Fig. 1</span></a> by choosing inter-event times from an exponential distribution with the same rate parameter.</p>
-</section>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>Indeed, it’s possible to <em>define</em> a Poisson process in one dimension as a set of events with exponentially-distributed arrival times. See, e.g., Proposition 4.2.1 in <span id="id1">[]</span>.</p>
+</div>
+<span class="target" id="id2"></span></section>
 
     <script type="text/x-thebe-config">
     {
