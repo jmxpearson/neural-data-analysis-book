@@ -15,4 +15,5 @@ chapters:
   sections:
     - file: point_process/theory.ipynb
     - file: point_process/estimation.ipynb
+    - file: point_process/psth.ipynb
 - file: bibliography.md
