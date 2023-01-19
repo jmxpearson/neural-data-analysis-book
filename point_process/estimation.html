@@ -419,6 +419,11 @@ title="Print to PDF"
    Estimation: variable rate, single observation
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coda">
+   Coda:
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -456,6 +461,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estimation-variable-rate-single-observation">
    Estimation: variable rate, single observation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#coda">
+   Coda:
   </a>
  </li>
 </ul>
@@ -545,6 +555,10 @@ p(n) = \frac{e^{-\int_0^T \lambda(t) dt}(\int_0^T \lambda(t) dt)^n}{n!}
 <li><p>The event rates <span class="math notranslate nohighlight">\(\lambda(t)\)</span> are smooth (with some known smoothness; e.g. <span id="id2">[<a class="reference internal" href="../bibliography.html#id4" title="Valeria C Caruso, Jeff T Mohl, Christopher Glynn, Jungah Lee, Shawn M Willett, Azeem Zaman, Akinori F Ebihara, Rolando Estrada, Winrich A Freiwald, Surya T Tokdar, and others. Single neurons may encode simultaneous stimuli by switching between activity patterns. Nature communications, 9(1):1–16, 2018.">CMG+18</a>]</span>). The smoothness assumption effectively lets us use nearby time bins to improve our estimates.</p></li>
 <li><p>We are observing multiple event streams (think neurons) whose event rates <span class="math notranslate nohighlight">\(\lambda_j(t)\)</span> are correlated (e.g., <span id="id3">[<a class="reference internal" href="../bibliography.html#id5" title="Chethan Pandarinath, Daniel J O’Shea, Jasmine Collins, Rafal Jozefowicz, Sergey D Stavisky, Jonathan C Kao, Eric M Trautmann, Matthew T Kaufman, Stephen I Ryu, Leigh R Hochberg, and others. Inferring single-trial neural population dynamics using sequential auto-encoders. Nature methods, 15(10):805–815, 2018.">POSheaC+18</a>]</span>). Here, the correlated multiple streams function sort of like multiple observations.</p></li>
 </ul>
+</section>
+<section id="coda">
+<h2>Coda:<a class="headerlink" href="#coda" title="Permalink to this headline">#</a></h2>
+<p>Much of the chapter so far has focused on theory. In the next sections, we’ll turn to practicalities of how to use the theory we’ve established here to estimate event rates from real data.</p>
 </section>
 </section>
 
