@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Estimating Poisson processes &#8212; Introduction to Neural Data Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="../bibliography.html" />
+    <link rel="prev" title="A little point process theory" href="theory.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Neural Data Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Neural Data Analysis
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python_intro/intro.html">
+   Introduction to Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/data_structures.html">
+     Basic Programming in Python: Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/nested_data_structures.html">
+     Case Study: Nested Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/patterns.html">
+     Patterns, functions, and duck typing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/arrays.html">
+     Working with Array Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/data_frames.html">
+     Introduction to Data Frames
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Point process data
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="theory.html">
+     A little point process theory
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Estimating Poisson processes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/point_process/estimation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/point_process/estimation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpoint_process/estimation.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/point_process/estimation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-constant-rate-one-observation">
+   Estimation: constant rate, one observation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-constant-rate-multiple-observations">
+   Estimation: constant rate, multiple observations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-variable-rate-multiple-observations">
+   Estimation: variable rate, multiple observations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-variable-rate-single-observation">
+   Estimation: variable rate, single observation
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Estimating Poisson processes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-constant-rate-one-observation">
+   Estimation: constant rate, one observation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-constant-rate-multiple-observations">
+   Estimation: constant rate, multiple observations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-variable-rate-multiple-observations">
+   Estimation: variable rate, multiple observations
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimation-variable-rate-single-observation">
+   Estimation: variable rate, single observation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="estimating-poisson-processes">
+<h1>Estimating Poisson processes<a class="headerlink" href="#estimating-poisson-processes" title="Permalink to this headline">#</a></h1>
+<p>In the last section, we considered a few simple properties of Poisson processes, but in doing so, we implicitly made two crucial assumptions:</p>
+<ol class="simple">
+<li><p>We assumed the rate for the process, <span class="math notranslate nohighlight">\(\lambda\)</span> was <em>known</em>.</p></li>
+<li><p>We assumed <span class="math notranslate nohighlight">\(\lambda\)</span> was <em>constant</em>.</p></li>
+</ol>
+<p>In this section, we consider how to deal with situations in which these assumptions are not valid.</p>
+<section id="estimation-constant-rate-one-observation">
+<h2>Estimation: constant rate, one observation<a class="headerlink" href="#estimation-constant-rate-one-observation" title="Permalink to this headline">#</a></h2>
+<p>To begin, let’s consider what happens when we <em>can</em> assume that <span class="math notranslate nohighlight">\(\lambda\)</span> is constant but we need to estimate its value from data. A little more formally, given some data in the form of a count <span class="math notranslate nohighlight">\(n\)</span> in a time window of length <span class="math notranslate nohighlight">\(T\)</span>, we want to figure out what our “best” guess is as to the <span class="math notranslate nohighlight">\(\lambda\)</span> that produced these data. And we’d like this procedure to work for any possible data we might be given. That is, we want some function (an <strong>estimator</strong>) <span class="math notranslate nohighlight">\(\hat{\lambda}(n)\)</span> that takes in <span class="math notranslate nohighlight">\(n\)</span> and returns an estimate of <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>Now, there are many, many possible ways to define such a function, and the “best” one will depend on what we want to do with it. At a conceptual level, you might think of it in terms of bets you could place on the estimation game: if some kinds of errors are more costly than others, you might want to shift your estimation procedure.</p>
+<p>So to start, we’ll consider a very simple kind of estimator. We’ll just decide to choose the parameter <span class="math notranslate nohighlight">\(\lambda\)</span> that makes our observation <span class="math notranslate nohighlight">\(n\)</span> most likely (again, <em>assuming</em> that the data come from a Poisson process with constant rate). As we recall from <a class="reference internal" href="theory.html#poisson-theory-section"><span class="std std-ref">the last section</span></a>, this means that <span class="math notranslate nohighlight">\(n\)</span> is Poisson-distributed:</p>
+<div class="math notranslate nohighlight">
+\[
+p(n) = \frac{e^{-\lambda T} (\lambda T)^n}{n!} .
+\]</div>
+<p>Now, for a given <span class="math notranslate nohighlight">\(n\)</span>, we’d like to maximize this quantity by changing <span class="math notranslate nohighlight">\(\lambda\)</span>. In other words, instead of viewing the right-hand side as a function of <span class="math notranslate nohighlight">\(n\)</span> (with <span class="math notranslate nohighlight">\(\lambda\)</span> fixed), as we have been, we fix <span class="math notranslate nohighlight">\(n\)</span> and view it as a function of <span class="math notranslate nohighlight">\(\lambda\)</span>. Viewed this way, the right-hand side is called the <strong>likelihood</strong>, a quantity that shows up over and over in statistics.</p>
+<p>So we want to maximize the likelihood as a function of <span class="math notranslate nohighlight">\(\lambda\)</span> In practice, we do a trick that often makes the math easier: we maximize the <em>logarithm</em> of the likelihood. Since <span class="math notranslate nohighlight">\(\log\)</span> is a function that is always increasing, maximizing <span class="math notranslate nohighlight">\(\log p(n)\)</span> gives the same result as maximizing <span class="math notranslate nohighlight">\(p(n)\)</span>, so this won’t change the outcome. So writing <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> for the log likelihood, we have</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}(\lambda) = \log p(n) = -\lambda T + n \log (\lambda T) - \log n! .
+\]</div>
+<p>To maximize this, we recall from calculus that we want to take its derivative and set that to 0:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d\mathcal{L}}{d\lambda} = 0 = -T + \frac{n}{\lambda} \quad \Rightarrow \quad \hat{\lambda} = \frac{n}{T}
+\]</div>
+<p>This is a pretty sensible result. Our best estimate of the rate is simply the number of events divided by the total time.</p>
+</section>
+<section id="estimation-constant-rate-multiple-observations">
+<h2>Estimation: constant rate, multiple observations<a class="headerlink" href="#estimation-constant-rate-multiple-observations" title="Permalink to this headline">#</a></h2>
+<p>Okay, so let’s consider what happens when we have multiple observations <span class="math notranslate nohighlight">\(\lbrace n_i \rbrace\)</span> for <span class="math notranslate nohighlight">\(i = 1\ldots I\)</span>, each of which is observed in a time <span class="math notranslate nohighlight">\(T_i\)</span>. Here, we need to consider not just the probability of one event, but of all the events put together. Thankfully, as we <a class="reference internal" href="theory.html#poisson-theory-section"><span class="std std-ref">noted before</span></a>, if the observation times don’t overlap, these events are statistically independent, and the probability of observing all our data is simply the product of all the probabilities for the individual events:</p>
+<div class="math notranslate nohighlight">
+\[
+p(\lbrace n_i \rbrace) = \prod_{i=1}^I \frac{e^{-\lambda T_i} (\lambda T_i)^{n_i}}{n_i!} 
+\]</div>
+<p>and the log likelihood is</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L} = -\lambda \sum_{i=1}^I T_i + \log \lambda \sum_{i=1}^I n_i + \sum_{i=1}^I \left(n_i \log T_i - \log n_i!\right) .
+\]</div>
+<p>Now, once again taking the derivative and noting that the last term is constant with respect to <span class="math notranslate nohighlight">\(\lambda\)</span>, we find that maximizing <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> requires</p>
+<div class="math notranslate nohighlight">
+\[
+-\sum_{i} T_i + \frac{1}{\lambda} \sum_i n_i = 0 \quad \Rightarrow \quad \hat{\lambda} = \frac{\sum_i n_i}{\sum_i T_i} .
+\]</div>
+<p>Here again, the result is perfectly sensible: we just add all the events and divide by the total time. And this works because the Poisson process treats non-overlapping sections of time as independent.</p>
+</section>
+<section id="estimation-variable-rate-multiple-observations">
+<h2>Estimation: variable rate, multiple observations<a class="headerlink" href="#estimation-variable-rate-multiple-observations" title="Permalink to this headline">#</a></h2>
+<p>This is where it starts to get fun. Up to this point, we’ve assumed that the rate is a constant, but in many situations of interest in neuroscience, event rates are decidedly <em>not</em> constant. And when we consider rates that vary in time, we have to start making changes to our formulas. For example, if we have a rate <em>function</em> <span class="math notranslate nohighlight">\(\lambda(t)\)</span> for <span class="math notranslate nohighlight">\(t \in [0, T]\)</span>, then the counts over the entire interval are still Poisson distributed,</p>
+<div class="math notranslate nohighlight">
+\[
+p(n) = \frac{e^{-\int_0^T \lambda(t) dt}(\int_0^T \lambda(t) dt)^n}{n!}
+\]</div>
+<p>but we’ve had to replace <span class="math notranslate nohighlight">\(\lambda T \rightarrow \int_0^T \lambda(t) dt\)</span>, which is another way of saying we have to sum up the total intensity over the interval to get a prediction for the counts.</p>
+<p>Unfortunately, when it comes to estimating <span class="math notranslate nohighlight">\(\lambda(t)\)</span>, we can get an intuition from this expression that simply summing events won’t be good enough: two rate functions with the same integral will produce identical Poisson distributions, so we won’t be able to tell them apart from count numbers alone.</p>
+<p>So instead, we’ll pull the same trick we keep using in the case of the Poisson process. We’ll chop the interval <span class="math notranslate nohighlight">\([0, T]\)</span> into a lot of little intervals <span class="math notranslate nohighlight">\(\Delta t = T/N\)</span>, and we’ll assume that in each of these intervals, the rate <span class="math notranslate nohighlight">\(\lambda(t)\)</span> can be approximated as <em>constant</em>. That is, if we consider discrete bins with edges (abusing notation) <span class="math notranslate nohighlight">\(t\Delta t\)</span>, <span class="math notranslate nohighlight">\(t = 1\ldots N\)</span>, then we have <span class="math notranslate nohighlight">\(N\)</span> rates <span class="math notranslate nohighlight">\(\lambda_t\)</span> to estimate.</p>
+<p>Clearly, we can perform this estimate using the methods above, provided we make one <em>additional</em> assumption: the rate function <span class="math notranslate nohighlight">\(\lambda(t)\)</span> needs to be <em>the same</em> for every observation. That is, the time course of the intensity function needs to be repeated multiple times so that when we combine observations, we are estimating the <em>same</em> <span class="math notranslate nohighlight">\(\lambda_t\)</span>. More explicitly, if <span class="math notranslate nohighlight">\(t\)</span> continues to index time and <span class="math notranslate nohighlight">\(i\)</span> indexes repeats, our estimator is</p>
+<div class="math notranslate nohighlight" id="equation-psth-estimator">
+<span class="eqno">(1)<a class="headerlink" href="#equation-psth-estimator" title="Permalink to this equation">#</a></span>\[\hat{\lambda}_t = \frac{\sum_i n_{it}}{\sum_i \Delta t} = \frac{\sum_i n_{it}}{I \Delta t} .\]</div>
+<p>A few important remarks on this formula:</p>
+<ol class="simple">
+<li><p>As before, the estimator has a simple form: add event counts, divide by total observation time. But here, we are being careful <em>not</em> to combine counts across time bins with different rates.</p></li>
+<li><p>This new estimator depends on the bin size <span class="math notranslate nohighlight">\(\Delta t\)</span>, which is something of a free parameter. As we will see in the next section, the choice of this parameter not only reflects our assumptions about time-varying event rates, it controls tradeoffs in our ability to accurately estimate events rates versus <em>changes</em> in those rates.</p></li>
+<li><p>Again, the assumption that <span class="math notranslate nohighlight">\(\lambda(t)\)</span> has the <em>same</em> time course across repeats <span class="math notranslate nohighlight">\(i\)</span> is <strong>critical</strong> to this result. If each repeat (think trial) has a distinct time course <span class="math notranslate nohighlight">\(\lambda_i(t)\)</span>, our estimator above is only estimating the <em>mean</em> rate across repeats.</p></li>
+</ol>
+</section>
+<section id="estimation-variable-rate-single-observation">
+<h2>Estimation: variable rate, single observation<a class="headerlink" href="#estimation-variable-rate-single-observation" title="Permalink to this headline">#</a></h2>
+<p>This is the challenge case. Clearly, even if we only have one observation, we can still use the estimator <a class="reference internal" href="#equation-psth-estimator">(1)</a>, but you may also suspect that when count numbers are low (perhaps only 0 or 1), this may be a very bad estimator. And you would be correct. In general, estimating <em>single-trial</em> event rates is a challenging research problem and generally involves making one or more additional assumptions about the data. For example, we might assume:</p>
+<ul class="simple">
+<li><p>Event rates are controlled by some other set of known variables (think stimuli) in a parametric way (e.g., <span id="id1">[<a class="reference internal" href="../bibliography.html#id3" title="Jonathan W Pillow, Jonathon Shlens, Liam Paninski, Alexander Sher, Alan M Litke, EJ Chichilnisky, and Eero P Simoncelli. Spatio-temporal correlations and visual signalling in a complete neuronal population. Nature, 454(7207):995–999, 2008.">PSP+08</a>]</span>). Then adjusting for these parameters gives us a way to combine multiple observations in our estimates.</p></li>
+<li><p>The event rates <span class="math notranslate nohighlight">\(\lambda(t)\)</span> are smooth (with some known smoothness; e.g. <span id="id2">[<a class="reference internal" href="../bibliography.html#id4" title="Valeria C Caruso, Jeff T Mohl, Christopher Glynn, Jungah Lee, Shawn M Willett, Azeem Zaman, Akinori F Ebihara, Rolando Estrada, Winrich A Freiwald, Surya T Tokdar, and others. Single neurons may encode simultaneous stimuli by switching between activity patterns. Nature communications, 9(1):1–16, 2018.">CMG+18</a>]</span>). The smoothness assumption effectively lets us use nearby time bins to improve our estimates.</p></li>
+<li><p>We are observing multiple event streams (think neurons) whose event rates <span class="math notranslate nohighlight">\(\lambda_j(t)\)</span> are correlated (e.g., <span id="id3">[<a class="reference internal" href="../bibliography.html#id5" title="Chethan Pandarinath, Daniel J O’Shea, Jasmine Collins, Rafal Jozefowicz, Sergey D Stavisky, Jonathan C Kao, Eric M Trautmann, Matthew T Kaufman, Stephen I Ryu, Leigh R Hochberg, and others. Inferring single-trial neural population dynamics using sequential auto-encoders. Nature methods, 15(10):805–815, 2018.">POSheaC+18</a>]</span>). Here, the correlated multiple streams function sort of like multiple observations.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./point_process"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="theory.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">A little point process theory</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../bibliography.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By John Pearson<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
