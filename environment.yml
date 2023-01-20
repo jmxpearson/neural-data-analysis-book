@@ -1,0 +1,15 @@
+name: book
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.11
+  - pip
+  - jupyter-book
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib
+  - ghp-import
+  - gdown
+  - pip:
+    - myst_nb
