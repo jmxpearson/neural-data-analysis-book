@@ -30,9 +30,9 @@ jobs:
     #   run: |
     #     conda init bash
 
-    # - name: Restart shell
-    #   run: |
-    #     exec bash
+    - name: Initialize shell
+      run: |
+          eval "$(micromamba shell hook --shell=bash)"
 
     - name: Activate environment
       run: |
