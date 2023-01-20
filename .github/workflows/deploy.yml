@@ -26,6 +26,10 @@ jobs:
     - name: Install dependencies
       uses: mamba-org/provision-with-micromamba@main
 
+    - name: Initialize Conda
+      run: |
+        conda init bash
+
     - name: Activate environment
       run: |
         conda activate book
