@@ -1,8 +1,9 @@
 name: deploy
 
 defaults:
+  # needed to micromamba will be initialized
   run:
-    shell: bash -l {0}
+    shell: bash -l {0}  
 
 on:
   # Trigger the workflow on push to main branch
@@ -29,14 +30,6 @@ jobs:
 
     - name: Install dependencies
       uses: mamba-org/provision-with-micromamba@main
-
-    # - name: Initialize Conda
-    #   run: |
-    #     conda init bash
-
-    # - name: Initialize shell
-    #   run: |
-    #       eval "$(micromamba shell hook --shell=bash)"
 
     - name: Activate environment
       run: |
