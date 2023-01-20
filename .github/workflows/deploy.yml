@@ -26,17 +26,17 @@ jobs:
     - name: Install dependencies
       uses: mamba-org/provision-with-micromamba@main
 
-    - name: Initialize Conda
-      run: |
-        conda init bash
+    # - name: Initialize Conda
+    #   run: |
+    #     conda init bash
 
-    - name: Restart shell
-      run: |
-        exec bash
+    # - name: Restart shell
+    #   run: |
+    #     exec bash
 
     - name: Activate environment
       run: |
-        conda activate book
+        micromamba activate book
 
     # Build the book
     - name: Build the book
