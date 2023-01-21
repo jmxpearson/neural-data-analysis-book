@@ -408,15 +408,12 @@ title="Print to PDF"
 <h1>The peri-stimulus time histogram<a class="headerlink" href="#the-peri-stimulus-time-histogram" title="Permalink to this headline">#</a></h1>
 <p>The peri-stimulus (or peri-event) time histogram (PSTH/PETH) is one of the most prevalent analyses in systems neuroscience. Its original usage was in identifying responses of single neurons to specific events in time (where the events were action potentials), but it can also be used to analyze time series of specific behaviors, estimate connected cell pairs, and analyze any number of other ways in which streams of events might relate to other events in time.</p>
 <p>Here, we’re going to work through the process of creating a simple PSTH using Python, noting along the way how various parameter choices capture relevant statistical assumptions and tradeoffs as well as affecting the look and feel of the resulting plots.</p>
-<p>We’ll start by loading some relevant modules:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
+<p>We’ll start with some sample data, shown in the raster plot below:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/psth_4_0.svg" src="../_images/psth_4_0.svg" /></div>
 </div>
-</div>
-</div>
+<p>It should be obvious from this representation of the data that the firing rate goes up around 0 and down around 1 second later. In fact, these are artificial data generated from the methods of the last section by assuming that the firing rate is 1 Hz at baseline, increases to 10 Hz at 0.0, and falls again to baseline at 1.0 s. This highly contrived example — real data rarely look this clean — will allow us to examine the tradeoffs endemic in constructing the PSTH in a case where we know the ground truth.</p>
 </section>
 
     <script type="text/x-thebe-config">
