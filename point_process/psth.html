@@ -380,12 +380,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binning">
+   Binning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#firing-rates-and-smoothing">
+   Firing rates and smoothing
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -397,6 +426,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binning">
+   Binning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#firing-rates-and-smoothing">
+   Firing rates and smoothing
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -414,6 +461,72 @@ title="Print to PDF"
 <img alt="../_images/psth_4_0.svg" src="../_images/psth_4_0.svg" /></div>
 </div>
 <p>It should be obvious from this representation of the data that the firing rate goes up around 0 and down around 1 second later. In fact, these are artificial data generated from the methods of the last section by assuming that the firing rate is 1 Hz at baseline, increases to 10 Hz at 0.0, and falls again to baseline at 1.0 s. This highly contrived example — real data rarely look this clean — will allow us to examine the tradeoffs endemic in constructing the PSTH in a case where we know the ground truth.</p>
+<section id="binning">
+<h2>Binning<a class="headerlink" href="#binning" title="Permalink to this headline">#</a></h2>
+<p>In the following sections, we’ll assume we have our data in the form of two vectors, <code class="docutils literal notranslate"><span class="pre">times</span></code>, which contains the times of all the spikes, and <code class="docutils literal notranslate"><span class="pre">trials</span></code>, a vector of the same length that indicates the trial to which each spike belongs.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>It is more typical that data would be given as a list of lists, with each sub-list containing the spike times for that trial. How would you convert those data into the form we assume here?</p>
+<p>What if the times were given relative to a wall clock time (not trial onset), but you were given the start time of each trial?</p>
+</div>
+<p>Given these data, we want to construct a histogram, in which the heights of histogram bars indicate <em>counts</em>. But in order to turn spike times into counts, we need to decide what time intervals will define our discrete bins. There are two ways to get these counts:</p>
+<ol class="simple">
+<li><p>We can use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.histogram.html"><code class="docutils literal notranslate"><span class="pre">np.histogram</span></code></a> to get them, specifying either the number of bins (as an integer) or the bin edges (as a vector).</p></li>
+<li><p>We can use <a class="reference external" href="https://matplotlib.org/stable/gallery/statistics/hist.html#histograms"><code class="docutils literal notranslate"><span class="pre">plt.hist</span></code></a> to make a bar plot of the result (which calls <code class="docutils literal notranslate"><span class="pre">np.histogram</span></code> under the hood).</p></li>
+</ol>
+<p>Here, we’ll use the slightly more cumbersome method of specifying bin edges, since in neural data analysis we are typically more interested in specifying bin size than the number of bins.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#specify a set of bin sizes (in s)</span>
+<span class="n">bin_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">]</span> 
+
+<span class="c1"># make a 2 x 2 grid of plots</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># loop over bin sizes</span>
+<span class="c1"># make a PSTH for each one</span>
+<span class="c1"># zip pairs up the lists of bin sizes and axes</span>
+<span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bin_sizes</span><span class="p">,</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+    <span class="c1"># make bins spaced b apart</span>
+    <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bin size = </span><span class="si">{</span><span class="n">b</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Count&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/psth_9_0.svg" src="../_images/psth_9_0.svg" /></div>
+</div>
+<p>A few things should stick out to you about the effects bin size has on the PSTH:</p>
+<ul class="simple">
+<li><p>The small the bins, the fewer events in each bin. As a result, smaller bins lead to less (visually) apparent increases in firing.</p></li>
+<li><p>Smaller bins result in “spikier” estimates of firing rate during the 1 s period of elevated firing. This is true despite the fact that we know that the firing rate during this period is <em>constant</em>. Conversely, larger bin sizes lead to <em>relatively</em> less variance in bin counts. (The absolute variance is higher, since the Poisson distribution has a variance that scales as its mean.)</p></li>
+<li><p>If we were concerned with estimating the onset and offset times of the elevated firing rate, larger bins would make this harder to estimate, since we would only be able to localize this event to within a time comparable to the bin size. That is, as we’ll more clearly below, larger bins act as <em>smoothers</em> of firing rate estimates.</p></li>
+</ul>
+<p>In effect, each of these phenomena are a result of the same concept, known in statistics as the <strong>bias-variance tradeoff</strong>: attempts to reduce the variance of an estimate (e.g., by using a larger bin size), often come at the cost of less accurate estimates (e.g., less precise onset times). Here, we know that firing rates in the middle 1 s period are constant, but if they were changing, smaller bins would allow us to better track those small changes. But the (relative) variance of those estimates would be much higher than if we used larger bins.</p>
+</section>
+<section id="firing-rates-and-smoothing">
+<h2>Firing rates and smoothing<a class="headerlink" href="#firing-rates-and-smoothing" title="Permalink to this headline">#</a></h2>
+<p>What we have constructed above is the classic PSTH: a histogram of spike counts across all trials. It is what you will see in many older physiology papers. It does, however, have a couple of shortcomings:</p>
+<ul class="simple">
+<li><p>The quantity plotted on the y axis is spike counts, which depends on the number of trials we observe; it’s not really a biological quantity of interest.</p></li>
+<li><p>The estimates of firing rate are specific to each bin, but if we believe firing rates vary smoothly, we might want to lower the variance in these estimates by “sharing” some statistical power across bins.</p></li>
+</ul>
+<p>In response to these concerns, we will introduce two additional steps our analysis that are common features of more “modern” PSTHs:</p>
+<ul class="simple">
+<li><p>Instead of summing across trials to get counts, we will <em>average</em> them to get estimates of <em>firing rate</em> as in <a class="reference internal" href="estimation.html#equation-psth-estimator">(1)</a>.</p></li>
+<li><p>We will then <em>smooth</em> these firing rate estimates in time to trade temporal precision for a reduction in the variance of our estimates.</p></li>
+</ul>
+<figure class="align-default" id="filter-illustration">
+<div class="cell_output docutils container">
+<img alt="../_images/psth_12_0.svg" src="../_images/psth_12_0.svg" /></div>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Effects of filter shape and width on spike rate estimation. <strong>(Left)</strong> A single spike (blue) and the same spike as smoothed (convolved) with a boxcar (orange), Gaussian (green), and causal exponential (red) filter. <strong>(Right)</strong> An example spike train smoothed using the same filters. Note that a trial-averaged PSTH is equivalent to a boxcar filter with width equal to the bin width, and that the boxcar and Gaussian filters spread the influence of a spike into the both the past and the future.</span><a class="headerlink" href="#filter-illustration" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p><a class="reference internal" href="#filter-illustration"><span class="std std-numref">Fig. 2</span></a> illustrates this smoothing strategy on a simple example data set of four spikes. In each case, we have replaced a single spike with the filter itself (equivalent to a <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution">convolution</a> operation). This operation spreads the influence of the single spike in time, increasing firing rate estimates nearby while lowering them at the time of the spike itself. Note also that, except for the case of the exponential filter, this smoothing spreads firing rate estimates into the future, which means that estimated firing rates will increase <em>before</em> the first spikes actually arrive. Thus, for cases in which latencies and onsets are important, causal filters (which only spread into the past) should always be used.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
