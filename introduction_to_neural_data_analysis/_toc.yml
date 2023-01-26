@@ -16,4 +16,5 @@ chapters:
     - file: point_process/theory.ipynb
     - file: point_process/estimation.ipynb
     - file: point_process/psth.ipynb
+    - file: point_process/exploring_spike_data.ipynb
 - file: bibliography.md
