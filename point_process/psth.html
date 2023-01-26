@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bibliography" href="../bibliography.html" />
@@ -417,6 +419,11 @@ title="Print to PDF"
    Estimating trial-averaged firing
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beyond-spikes">
+   Beyond spikes
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -449,6 +456,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#estimating-trial-averaged-firing">
    Estimating trial-averaged firing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#beyond-spikes">
+   Beyond spikes
   </a>
  </li>
 </ul>
@@ -539,43 +551,16 @@ title="Print to PDF"
 </section>
 <section id="estimating-trial-averaged-firing">
 <h2>Estimating trial-averaged firing<a class="headerlink" href="#estimating-trial-averaged-firing" title="Permalink to this headline">#</a></h2>
-<p>So let’s return to our example data set and try using what we’ve learned to estimate firing as a function of time in trial. As with the PSTH, our first step will be to bin the data, but this time, since we’ll want access to the counts, not just the plot, we’ll use the <code class="docutils literal notranslate"><span class="pre">np.histogram</span></code> function. Moreover, to illustrate the effects of bin size, we’ll bin counts using both 1 ms and 20 ms bins.</p>
-<p>So let’s start, as before, simply counting spikes:</p>
+<p>So let’s return to our example data set and try using what we’ve learned to estimate firing as a function of time in trial. As with the PSTH, our first step will be to bin the data, but this time, since we’ll want access to the counts, not just the plot, we’ll use the <code class="docutils literal notranslate"><span class="pre">np.histogram</span></code> function. Since we’re eventually going to smooth with filters of various widths, we can start by using a very fine bin size of 1 ms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bin_size</span> <span class="o">=</span> <span class="mf">0.001</span> 
 
-<span class="c1">#specify a set of bin sizes (in s)</span>
-<span class="n">bin_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]</span> 
+<span class="n">edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">)</span>
 
-<span class="c1"># loop over bin sizes</span>
-<span class="c1"># get bin edges and counts</span>
-<span class="c1"># zip pairs up the lists of bin sizes and axes</span>
-<span class="n">edges</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">counts</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bin_sizes</span><span class="p">):</span>
-    <span class="c1"># make bins spaced b apart</span>
-    <span class="n">bin_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="n">bin_counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bin_edges</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="n">edges</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bin_edges</span><span class="p">)</span>
-    <span class="n">counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bin_counts</span><span class="p">)</span>
-
-    <span class="n">ax</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="n">idx</span><span class="p">][</span><span class="mi">1</span><span class="p">:],</span> <span class="n">counts</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="n">b</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/psth_17_0.svg" src="../_images/psth_17_0.svg" /></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">counts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1999,)
+<span class="c1"># histogram returns a tuple (counts, edges), so take </span>
+<span class="c1"># only the first of these</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">times</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">edges</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -586,13 +571,13 @@ title="Print to PDF"
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 
 <span class="c1"># standard deviation of smoothing filter</span>
-<span class="n">smooth_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">]</span>
+<span class="n">smooth_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.050</span><span class="p">,</span> <span class="mf">0.100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
 
 <span class="n">filters</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="c1"># now for each bin size</span>
-<span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">bin_sizes</span><span class="p">,</span> <span class="n">smooth_widths</span><span class="p">):</span>
-    <span class="c1"># make a time axis for the filter (50 ms before and after)</span>
-    <span class="n">t_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">smooth_widths</span><span class="p">:</span>
+    <span class="c1"># make a time axis for the filter (3 std before and after)</span>
+    <span class="n">t_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">s</span><span class="p">,</span> <span class="n">bin_size</span><span class="p">)</span>
 
     <span class="c1"># make Gaussian filter </span>
     <span class="n">gaussian_filter</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">t_axis</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">s</span><span class="p">)</span>
@@ -605,7 +590,51 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>Now, just as we did with our four-spike data set, we’re going to use convolution to smooth the data. You can read more <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution#Visual_explanation">here</a>, but the basic idea is that convolution moves the filter along the data, creating a summary of the nearby data at each stop. That is, it replaces the data value at a particular point with a weighted sum of data in the local neighborhood. In our case, we have two bin sizes and two filters of different widths, and we can create a plot that illustrates the effects of each choice:</p>
+<p>Now, just as we did with our four-spike data set, we’re going to use convolution to smooth the data. You can read more <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution#Visual_explanation">here</a>, but the basic idea is that convolution moves the filter along the data, creating a summary of the nearby data at each stop. That is, it replaces the data value at a particular point with a weighted sum of data in the local neighborhood. In our case, we can create a plot that illustrates the effects of smoothing width on our firing rate estimate:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># include the ground truth rate for plotting</span>
+<span class="n">true_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+<span class="c1"># in [0, 1] rate is 10Hz</span>
+<span class="n">true_rate</span><span class="p">[(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">edges</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">edges</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">ntrials</span> <span class="o">=</span> <span class="mi">50</span>
+
+<span class="c1"># plot ground truth rate</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">true_rate</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+
+<span class="c1"># enumerate gives us both indices and values in a tuple</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">smooth_widths</span><span class="p">):</span>
+    <span class="c1"># since the smoothed data is an estimate of spikes per bin,</span>
+    <span class="c1"># we need to divide by bin size and number of trials </span>
+    <span class="c1"># to get an estimate of rate</span>
+    <span class="n">rate_estimate</span> <span class="o">=</span> <span class="p">(</span><span class="n">counts</span><span class="o">/</span><span class="n">bin_size</span><span class="p">)</span><span class="o">/</span><span class="n">ntrials</span>
+
+    <span class="c1"># convolve to get filtered data</span>
+    <span class="c1"># &#39;same&#39; returns data of the same length</span>
+    <span class="n">smoothed_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">rate_estimate</span><span class="p">,</span> <span class="n">filters</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="s1">&#39;same&#39;</span><span class="p">)</span>
+
+    <span class="c1"># since there are one fewer bins than edges, we use edges[1:]</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">smoothed_data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">bin_size</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;firing rate (spks/s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/psth_20_0.svg" src="../_images/psth_20_0.svg" /></div>
+</div>
+<p>Note that the smaller-width filters are more variable but still centered around the true data, so our estimates pick up on smaller fluctuations in local spike counts while being less reliable at each point. By contrast, the larger smoothing widths are less variable but are badly biased around firing rate changes. In effect, when smoothing with a filter of width <span class="math notranslate nohighlight">\(T\)</span>, it is hard to detect changes in firing rate on scales <span class="math notranslate nohighlight">\(&lt; T\)</span>.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>In our above analysis, we binned spikes on a very fine time scale and used smoothing to get firing rate estimates. What would happen if we had used bigger bin sizes to start? Would this have affected our final rate estimates?</p>
+</div>
+</section>
+<section id="beyond-spikes">
+<h2>Beyond spikes<a class="headerlink" href="#beyond-spikes" title="Permalink to this headline">#</a></h2>
+<p>Though the analyses we’ve done here are very simple, they apply to many different types of data. For example, many experiments generate time stamps of short behaviors that can be viewed as realizations of a point process, and we are often interested in the (average) rate of such a process around sets of other events. In such cases, the PSTH is often the method of choice. Along different lines, for continuously recorded data, we may also be interested in the average time trace of the data across repetitions of the same experimental condition, again aligned to select moments in time (e.g., trial start, movement or stimulus onset, reward delivery). In this case, the PSTH is also a useful analysis (without the hassle of binning). Implicitly, the PSTH assumes that the data have a characteristic time course of interest, and this pattern repeats around some class of events whose locations we know in time. Aligning the data to these events and then averaging thus produces an estimate of this “typical” time course.</p>
 </section>
 </section>
 
