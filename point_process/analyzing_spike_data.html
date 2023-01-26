@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bibliography" href="../bibliography.html" />
@@ -426,6 +428,37 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#smoothing">
      Smoothing
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solutions:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-firing-rates-for-single-trials">
+   Estimating firing rates for single trials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solutions:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-smoothing">
+     Gaussian smoothing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Solutions:
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -462,6 +495,37 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#smoothing">
      Smoothing
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id1">
+       Solutions:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#estimating-firing-rates-for-single-trials">
+   Estimating firing rates for single trials
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solutions:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#gaussian-smoothing">
+     Gaussian smoothing
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id3">
+       Solutions:
+      </a>
+     </li>
+    </ul>
    </li>
   </ul>
  </li>
@@ -549,6 +613,8 @@ title="Print to PDF"
 <li><p>Plot this as a function of time on the same plot as the unsmoothed average.</p></li>
 </ol>
 </div>
+<section id="id1">
+<h4>Solutions:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Smooth the trial-averaged firing rate over a 20ms window.</span>
@@ -574,8 +640,195 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/analyzing_spike_data_10_0.svg" src="../_images/analyzing_spike_data_10_0.svg" /></div>
+<img alt="../_images/analyzing_spike_data_11_0.svg" src="../_images/analyzing_spike_data_11_0.svg" /></div>
 </div>
+</section>
+</section>
+</section>
+<section id="estimating-firing-rates-for-single-trials">
+<h2>Estimating firing rates for single trials<a class="headerlink" href="#estimating-firing-rates-for-single-trials" title="Permalink to this headline">#</a></h2>
+<p>In cases where trial-to-trial variability (neural <em>or</em> behavioral) is important, we might want to have an estimate of firing rate on a single trial to correlate with behavior. This is a tricky proposition, since, again, firing rate is not something we directly observe. In statistical language, we observe events from a Poisson <em>process</em>, which is equivalent, as we have seen, to observing counts within time bins that are governed by a Poisson <em>distribution</em>. In both cases, we assume there is an underlying spike rate or spike density <span class="math notranslate nohighlight">\(\lambda(t)\)</span> that varies in time.</p>
+<p>As discussed <a class="reference internal" href="estimation.html#point-process-estimation-single-trial"><span class="std std-ref">previously</span></a>, this is a hard problem, but as seen in our <a class="reference internal" href="psth.html#psth-section"><span class="std std-ref">investigation of the PSTH</span></a>, one approach is to trade variance for bias by smoothing the binned single-trial spikes.</p>
+<p>So let’s estimate some single-trial firing rates. The simplest kerenel is a boxcar or sliding window of width <span class="math notranslate nohighlight">\(w\)</span>. This simply replaces each spike count of <span class="math notranslate nohighlight">\(n\)</span> with a spike count of <span class="math notranslate nohighlight">\(n/w\)</span> in each bin of the window (i.e., a moving average).</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Create a time points x trials x units array of firing rate estimates by performing a moving average. The code above gives a straightforward way to do this.</p></li>
+<li><p>Experiment with different window widths. What tradeoff is made by using these different widths?</p></li>
+<li><p>Plot the collection of single-trial firing rates for a given unit as the first panel of a multi-panel plot of the same form as last class.</p></li>
+</ol>
+</div>
+<section id="id2">
+<h3>Solutions:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create the array of firing rate estimates </span>
+
+<span class="k">def</span> <span class="nf">firing_rate_moving_avg</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">window_len</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">window_len</span><span class="p">)</span>
+    <span class="n">estimate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span> <span class="c1"># Create an empty array of the same size as spikes</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_units</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">w</span><span class="o">/</span><span class="n">w</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">spikes</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
+            <span class="n">estimate</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span> <span class="c1">#/ (window_len * 1e-3)</span>
+    <span class="k">return</span> <span class="n">estimate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Different window widths</span>
+
+<span class="n">window_lens</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">w_len</span> <span class="ow">in</span> <span class="n">window_lens</span><span class="p">:</span>
+    <span class="n">lambda_</span> <span class="o">=</span> <span class="n">firing_rate_moving_avg</span><span class="p">(</span><span class="n">spk_bin</span><span class="p">,</span> <span class="n">w_len</span><span class="p">)[:,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># divide by bin size to get rate</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lambda_</span><span class="o">/</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">window_lens</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Window</span><span class="se">\n</span><span class="s2">length (ms)&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Rate (spks/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (ms)&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/analyzing_spike_data_16_0.svg" src="../_images/analyzing_spike_data_16_0.svg" /></div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Plot all the rates</span>
+
+<span class="n">lambda_</span> <span class="o">=</span> <span class="n">firing_rate_moving_avg</span><span class="p">(</span><span class="n">spk_bin</span><span class="p">,</span> <span class="n">window_len</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># Plot the behavior as before (see Week 1, part 1)</span>
+<span class="k">def</span> <span class="nf">plot_summary</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">mat</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
+    <span class="n">im1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">mat</span><span class="p">[:,:,</span><span class="n">unit</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">);</span>
+    <span class="n">im2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+    <span class="n">im3</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im2</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im3</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Unit 1&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Horizontal position&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Vertical position&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">plot_summary</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lambda_</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/analyzing_spike_data_17_0.svg" src="../_images/analyzing_spike_data_17_0.svg" /></div>
+</div>
+</section>
+<section id="gaussian-smoothing">
+<h3>Gaussian smoothing<a class="headerlink" href="#gaussian-smoothing" title="Permalink to this headline">#</a></h3>
+<p>In contrast to the moving average, we might like to use a filter that does not “share” the spike equally among many time bins but keeps the bulk of its effect concentrated near the real data. That is, we’d like something more bump-like. A natural candidate is the Gaussian, or Normal, distribution.</p>
+<p>For smoothing by an arbitrary filter, NumPy has many methods available, but the most straightforward one is to generate a vector representing the filter and use the convolution command (<a class="reference external" href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.convolve.html"><code class="docutils literal notranslate"><span class="pre">convolve</span></code></a>) to perform the smoothing. This is the same method we’ve seen now several times, but here we’ll dig a little more into the details.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Create a Gaussian filter.</p>
+<ol class="simple">
+<li><p>Start by creating a range of times over which to define the filter. I suggest <code class="docutils literal notranslate"><span class="pre">-1000:1000</span></code>, which is 1 second on either side of 0.</p></li>
+<li><p>Pick a smoothing width. This will be the standard deviation of the distribution. I suggest 20ms to start.</p></li>
+<li><p>Create the filter. The <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.norm.html"><code class="docutils literal notranslate"><span class="pre">scipy.stats.norm.pdf</span></code></a> function implements the classic bell curve.</p></li>
+<li><p>Normalize your filter so that it sums to 1. This is important so that we maintain the total spike density in the time series (i.e., the sum of the smoothed signal is still the total spike count.)</p></li>
+<li><p>Plot your filter as a function of time to make sure it’s right.</p></li>
+</ol>
+</li>
+<li><p>Perform the smoothing. This will work just like the moving average, except you will use your Gaussian window to generate the single-trial estimates. A few caveats:</p>
+<ul class="simple">
+<li><p>The first argument to <code class="docutils literal notranslate"><span class="pre">convolve</span></code> should be the spike count time series. The second argument is the filter. While convolution as a mathematical operation treats both arguments the same (it is <a class="reference external" href="https://en.wikipedia.org/wiki/Commutative_property">commutative</a>), extra arguments to the function do make assumptions.</p></li>
+<li><p>To wit: you will need to specify the <code class="docutils literal notranslate"><span class="pre">'same'</span></code> argument to <code class="docutils literal notranslate"><span class="pre">convolve</span></code>. This is to ensure that NumPy returns a time series of the same length as the one you put in. It’s also the reason we needed to specify the spikes and filter in the order we did, and why the middle of the filter is treated as time lag 0.</p></li>
+</ul>
+</li>
+<li><p>Generate the same plot as above using these new smoothed firing rates.</p></li>
+<li><p>What happens as you change the width of the filter?</p></li>
+</ol>
+</div>
+<section id="id3">
+<h4>Solutions:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create a Gaussian filter.</span>
+
+<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+
+<span class="n">window_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1001</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">window_std</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">window</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">window_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">window_std</span><span class="p">)</span>
+<span class="n">window</span> <span class="o">/=</span> <span class="n">window</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">window_size</span><span class="p">[</span><span class="mi">750</span><span class="p">:</span><span class="mi">1250</span><span class="p">],</span> <span class="n">window</span><span class="p">[</span><span class="mi">750</span><span class="p">:</span><span class="mi">1250</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (ms)&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/analyzing_spike_data_20_0.svg" src="../_images/analyzing_spike_data_20_0.svg" /></div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 2. Perform the smoothing.</span>
+
+<span class="c1"># Create an empty array of the same size as spikes</span>
+<span class="n">estimate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">spk_bin</span><span class="p">)</span>
+
+<span class="c1"># With mode=&#39;same&#39; we need to truncate the window to the middle 500 time points</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_units</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">window</span><span class="p">[</span><span class="mi">750</span><span class="p">:</span><span class="mi">1250</span><span class="p">],</span> <span class="n">spk_bin</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
+        <span class="n">estimate</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 3. Generate the same plot as above using these new smoothed firing rates.</span>
+
+<span class="n">plot_summary</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">estimate</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/analyzing_spike_data_22_0.svg" src="../_images/analyzing_spike_data_22_0.svg" /></div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. What happens as you change the width of the filter?</span>
+
+<span class="k">def</span> <span class="nf">firing_rate_estimate</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+    <span class="n">estimate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span> <span class="c1"># Create an empty array of the same size as spikes</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_units</span><span class="p">):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">spikes</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
+            <span class="n">estimate</span><span class="p">[:,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="k">return</span> <span class="n">estimate</span>
+
+<span class="n">window_stds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">]</span>
+<span class="n">window_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">250</span><span class="p">,</span><span class="mi">250</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">std</span> <span class="ow">in</span> <span class="n">window_stds</span><span class="p">:</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">window_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">std</span><span class="p">)</span>
+    <span class="n">window</span> <span class="o">/=</span> <span class="n">window</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">lambda_</span> <span class="o">=</span> <span class="n">firing_rate_estimate</span><span class="p">(</span><span class="n">spk_bin</span><span class="p">,</span> <span class="n">window</span><span class="p">)[:,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="c1"># convert to rate by dividing by bin size</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">lambda_</span><span class="o">/</span><span class="mf">1e-3</span><span class="p">)</span>   
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">window_stds</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Standard</span><span class="se">\n</span><span class="s2">deviation&quot;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Rate (spks/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (ms)&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/analyzing_spike_data_23_0.svg" src="../_images/analyzing_spike_data_23_0.svg" /></div>
+</div>
+</section>
 </section>
 </section>
 </section>
