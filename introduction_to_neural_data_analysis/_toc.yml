@@ -21,4 +21,5 @@ chapters:
 - file: tables/intro.md
   sections:
     - file: tables/exploring_table_data.ipynb
+    - file: tables/analyzing_table_data.ipynb
 - file: bibliography.md
