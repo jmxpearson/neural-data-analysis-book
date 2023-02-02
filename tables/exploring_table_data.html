@@ -1,0 +1,1795 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Exploring table data &#8212; Introduction to Neural Data Analysis</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bibliography" href="../bibliography.html" />
+    <link rel="prev" title="Tabular data" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Introduction to Neural Data Analysis</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction to Neural Data Analysis
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../python_intro/intro.html">
+   Introduction to Python
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/data_structures.html">
+     Basic Programming in Python: Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/nested_data_structures.html">
+     Case Study: Nested Data Structures
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/patterns.html">
+     Patterns, functions, and duck typing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/arrays.html">
+     Working with Array Data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../python_intro/data_frames.html">
+     Introduction to Data Frames
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../point_process/intro.html">
+   Point process data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../point_process/theory.html">
+     A little point process theory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../point_process/estimation.html">
+     Estimating Poisson processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../point_process/psth.html">
+     The peri-stimulus time histogram
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../point_process/exploring_spike_data.html">
+     Exploring neural spike data
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../point_process/analyzing_spike_data.html">
+     Analyzing neural spike data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="intro.html">
+   Tabular data
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Exploring table data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/tables/exploring_table_data.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/tables/exploring_table_data.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Ftables/exploring_table_data.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/tables/exploring_table_data.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-table-data">
+   Loading table data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-plots">
+   First plots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-data-sets">
+   Combining data sets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tidying-data">
+     Tidying data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-in-multiple-directories">
+     Data in multiple directories
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#group-level-statistics">
+   Group-level statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-plotting-redux">
+   Exploratory plotting redux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-final-tidy">
+     The final tidy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-did-we-do-all-this">
+     Why did we do all this?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Exploring table data</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-table-data">
+   Loading table data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#first-plots">
+   First plots
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#combining-data-sets">
+   Combining data sets
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tidying-data">
+     Tidying data
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id7">
+       Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-in-multiple-directories">
+     Data in multiple directories
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#group-level-statistics">
+   Group-level statistics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-plotting-redux">
+   Exploratory plotting redux
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-final-tidy">
+     The final tidy
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id10">
+       Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#why-did-we-do-all-this">
+     Why did we do all this?
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id11">
+       Solution:
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="exploring-table-data">
+<span id="id1"></span><h1>Exploring table data<a class="headerlink" href="#exploring-table-data" title="Permalink to this headline">#</a></h1>
+<p>This week, our in-class work will focus on two topics in tandem. First, we’ll be getting practice with handling real-world tabular data using Pandas. Second, we’ll be thinking about how we deal with sex differences in neuroscience and sex as a biological variable.</p>
+<p>Let’s tackle those in reverse. Since 2016, NIH has required that its projects properly account for <a class="reference external" href="https://orwh.od.nih.gov/sex-gender/nih-policy-sex-biological-variable">sex as a biological variable</a> in research designs. To grossly oversimplify, if females make up 50% of the human population we hope to benefit, you need to have a strong reason for only using only a single sex (usually males) in your study. Of course, there are such reasons (some courtship behaviors, maternal behavior), but the purpose of the policy is to move researchers away from viewing “male” as a biological default.</p>
+<p>As several papers have pointed out (e.g. <span id="id2">Shansky and Murphy [<a class="reference internal" href="../bibliography.html#id6" title="Rebecca M Shansky and Anne Z Murphy. Considering sex as a biological variable will require a global shift in science culture. Nature neuroscience, 24(4):457–464, 2021.">2021</a>]</span>) this will require a shift in thinking. Not only because it’s typical to treat female physiology as more complicated <span id="id3">[<a class="reference internal" href="../bibliography.html#id7" title="Rebecca M Shansky. Are hormones a “female problem” for animal research? Science, 364(6443):825–826, 2019.">Shansky, 2019</a>]</span> but because underpowered or misinterpreted studies on sex differences have been used to reinforce stereotypes <span id="id4">[<a class="reference internal" href="../bibliography.html#id8" title="Nicola M Grissom and Teresa M Reyes. Let’s call the whole thing off: evaluating gender and sex differences in executive function. Neuropsychopharmacology, 44(1):86–96, 2019.">Grissom and Reyes, 2019</a>]</span>. For this reason, it’s important to think in a methodologically rigorous way about how we investigate sex differences, even when they’re not the primary aim of our research.</p>
+<p>Our data this week come from a recent study in this vein from <span id="id5">Chen <em>et al.</em> [<a class="reference internal" href="../bibliography.html#id9" title="Cathy S Chen, Evan Knep, Autumn Han, R Becket Ebitz, and Nicola M Grissom. Sex differences in learning from exploration. eLife, 10:e69748, nov 2021. URL: https://doi.org/10.7554/eLife.69748, doi:10.7554/eLife.69748.">2021</a>]</span> at the University of Minnesota, who examined sex differences in mice performing a restless bandit task. Briefly, the task presents animals with two options, both of which are (probabilistically) rewarded but whose values change in time. This requires animals to trade off exploiting an option with known value against exploring the value of an option they haven’t chosen in a while. As the authors report in the paper, while both sexes achieved the same reward rates in the task, the strategies they used to do so differed in interesting ways.</p>
+<p>Fortunately, the authors posted their data to an <a class="reference external" href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.z612jm6c0">online repository</a> (yay open science!). If you’re working locally, you can download from this link. If not, you can start your Colab notebook with the following cell, which will download the data and unzip it for you:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+curl --output tmp.zip -L -X GET &quot;https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.z612jm6c0/download&quot; -H &quot;accept: application/zip&quot;
+unzip tmp.zip
+unzip cleaned_up_restless_final_data.zip
+rm tmp.zip
+rm README.txt
+rm cleaned_up_restless_final_data.zip
+chmod -R u+wx cleaned\ up\ restless\ final\ data
+mv cleaned\ up\ restless\ final\ data data
+</pre></div>
+</div>
+</div>
+</div>
+<p>The files are in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder, with one subfolder for each session. Animals 1–16 are male, 17–32 female. Our goal for today will be to aggregate all this data into a single tidy data frame that we can use to perform some exploratory plotting.</p>
+<section id="loading-table-data">
+<h2>Loading table data<a class="headerlink" href="#loading-table-data" title="Permalink to this headline">#</a></h2>
+<p>The most common format for storing tabular data is in comma-separated
+value or <code class="docutils literal notranslate"><span class="pre">.csv</span></code> format, in which each line of the file contains a row of
+the table, with columns separated by commas. Often, the first line of the
+file lists the column names, also separated by commas.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Start by loading the data for a single session and a single animal into Pandas. This can be done via the <code class="docutils literal notranslate"><span class="pre">pandas.read_csv</span></code> function. Note that the first column of the <code class="docutils literal notranslate"><span class="pre">csv</span></code> file is an index, so you might want to provide the <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> keyword argument.</p></li>
+<li><p>Print the first 5 rows of the table. What are the column names? What is a way to find this out without printing the table directly (i.e., what if you had to find this out within a function)?</p></li>
+</ol>
+</div>
+<section id="solution">
+<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pandas package</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># load data from a csv into a table</span>
+<span class="n">data_path</span> <span class="o">=</span> <span class="s1">&#39;data/&#39;</span>
+<span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;session1/1.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>left</th>
+      <th>right</th>
+      <th>choice</th>
+      <th>reward</th>
+      <th>state</th>
+      <th>RT</th>
+      <th>retrieval</th>
+      <th>initiation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.945</td>
+      <td>0.000</td>
+      <td>2.387</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.787</td>
+      <td>1.717</td>
+      <td>1.248</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.235</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.026</td>
+      <td>0.000</td>
+      <td>4.393</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.977</td>
+      <td>1.603</td>
+      <td>1.959</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get column names without printing</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;left&#39;, &#39;right&#39;, &#39;choice&#39;, &#39;reward&#39;, &#39;state&#39;, &#39;RT&#39;, &#39;retrieval&#39;,
+       &#39;initiation&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="first-plots">
+<h2>First plots<a class="headerlink" href="#first-plots" title="Permalink to this headline">#</a></h2>
+<p>As we did last week, let’s try out some ideas on this small chunk of data by making plots.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> columns list the probability reward for nosepokes to the left and right targets on each trial. Plot the values of both of these over time. What would the optimal strategy for the mice be in this situation if they knew this information? How should this change if they <em>don’t</em> know the values?</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">choice</span></code> variable is coded <code class="docutils literal notranslate"><span class="pre">1</span></code> for a left choice and <code class="docutils literal notranslate"><span class="pre">2</span></code> for a right choice. Make a plot that shows how choices track reward probabilities for the two options. Since choice only has two values, you might want to smooth the series. You can either adopt the convolutional approach we used last week or use the Pandas <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/window.html#window-generic">windowing operations</a>.</p></li>
+<li><p>Plot the cumulative reward earned by the animal as a function of trial in the session.</p></li>
+</ol>
+</div>
+<section id="id6">
+<h3>Solution:<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = [&#39;svg&#39;]
+
+<span class="c1"># plot left and right values over time</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dat</span><span class="p">[[</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">]])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Trial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Reward probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/exploring_table_data_9_0.svg" src="../_images/exploring_table_data_9_0.svg" /></div>
+</div>
+<div class="toggle docutils container">
+<p>If the mice <em>knew</em> the values, they would choose whichever is maximal at a given time. If they <em>don’t</em> know the values of each option, they need to estimate them, and explore when it’s likely another option is better. (Actually, calculating the optimal strategy in situations like this is a surprisingly rich mathematical problem.)</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot choice probability</span>
+
+<span class="n">choice_prob</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">choice</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># 10-bin window by default, this will use the *past only*</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">choice_prob</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;choice probability - 0.5&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">right</span> <span class="o">-</span> <span class="n">dat</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;right - left reward probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.55</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Trial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Choice tracks reward probability&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/exploring_table_data_11_0.svg" src="../_images/exploring_table_data_11_0.svg" /></div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot cumulative reward</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">reward</span><span class="o">.</span><span class="n">cumsum</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Trial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Cumulative Reward&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/exploring_table_data_12_0.svg" src="../_images/exploring_table_data_12_0.svg" /></div>
+</div>
+</section>
+</section>
+<section id="combining-data-sets">
+<h2>Combining data sets<a class="headerlink" href="#combining-data-sets" title="Permalink to this headline">#</a></h2>
+<p>With these simple analyses under our belt, we can think about how we want to analyze data for all the animals combined. There are two basic approaches:</p>
+<ul class="simple">
+<li><p>Loop over data sets, applying the same analysis to each one. Then write out the results to disk or hold them all in a list in memory.</p></li>
+<li><p>Combine all the data together into a single <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object that can be easily manipulated for a wide variety of analyses.</p></li>
+</ul>
+<section id="tidying-data">
+<h3>Tidying data<a class="headerlink" href="#tidying-data" title="Permalink to this headline">#</a></h3>
+<p>Many data tables are structured with multiple observations in each row, but for many analysis and visualization needs, data are better structured as one observation per row or <a class="reference external" href="https://www.jstatsoft.org/article/view/v059i10">“tidy” data</a>. While not perfect for all purposes, tidy data provides a method for canonicalizing data so that software can focus on transferring to and from a fixed form.</p>
+<p>In Pandas, the key functions for this purpose are <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.melt.html"><code class="docutils literal notranslate"><span class="pre">melt</span></code></a> and <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.stack.html"><code class="docutils literal notranslate"><span class="pre">stack</span></code></a>, along with several others. For a more full-featured approach in R, see <a class="reference external" href="https://www.tidyverse.org">tidyverse</a> and the comparison <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_r.html">here</a>.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Given that each <code class="docutils literal notranslate"><span class="pre">csv</span></code> file contains data from one session from one animal, what additional columns do we need to put the final <em>combined</em> data frame into tidy format?</p></li>
+<li><p>Write code that performs this conversion for <em>a single dataset</em>:</p>
+<ul class="simple">
+<li><p>Load the data set.</p></li>
+<li><p>Add columns for the session, subject number, and sex of the animal. Note that these will be the same for the entire data set.</p></li>
+<li><p>Makes the index (trial number) into a new column called <code class="docutils literal notranslate"><span class="pre">trial</span></code>. Hint <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.reset_index.html"><code class="docutils literal notranslate"><span class="pre">reset_index</span></code></a>.</p></li>
+</ul>
+</li>
+<li><p>Is there any additional information you will need to <em>uniquely</em> identify each row? Can that be added at this stage?</p></li>
+</ol>
+</div>
+<section id="id7">
+<h4>Solution:<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add columns to make the dataframe tidy</span>
+<span class="c1"># we need columns for session and subject</span>
+
+<span class="n">chunk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span> <span class="o">+</span> <span class="s1">&#39;session1/1.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">session</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">sub</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># add columns for session and subject</span>
+<span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span>
+<span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub</span>
+<span class="k">if</span> <span class="n">sub</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">:</span>
+    <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span>
+
+<span class="c1"># make a trial column by resetting the current index and renaming to trial</span>
+<span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;trial&quot;</span><span class="p">})</span>
+
+<span class="n">chunk</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>trial</th>
+      <th>left</th>
+      <th>right</th>
+      <th>choice</th>
+      <th>reward</th>
+      <th>state</th>
+      <th>RT</th>
+      <th>retrieval</th>
+      <th>initiation</th>
+      <th>session</th>
+      <th>subject</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.945</td>
+      <td>0.000</td>
+      <td>2.387</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.787</td>
+      <td>1.717</td>
+      <td>1.248</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.235</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.026</td>
+      <td>0.000</td>
+      <td>4.393</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.977</td>
+      <td>1.603</td>
+      <td>1.959</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>295</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1.527</td>
+      <td>1.174</td>
+      <td>0.001</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>296</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2.611</td>
+      <td>1.319</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>297</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1.996</td>
+      <td>1.042</td>
+      <td>0.904</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>298</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1.826</td>
+      <td>1.181</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>299</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1.324</td>
+      <td>1.098</td>
+      <td>0.314</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 12 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="data-in-multiple-directories">
+<h3>Data in multiple directories<a class="headerlink" href="#data-in-multiple-directories" title="Permalink to this headline">#</a></h3>
+<p>Now that we can load and add needed information to each data chunk, we have to think about how to systematically go through subdirectories and load data. For this, we’ll use the <code class="docutils literal notranslate"><span class="pre">walk</span></code> function from the <code class="docutils literal notranslate"><span class="pre">os</span></code> module, which takes a directory name as input and returns a generator we can loop over. Our overall strategy will be to walk through the directory, loading all the <code class="docutils literal notranslate"><span class="pre">csv</span></code> files, process each one, hold the results in a list, and use <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html"><code class="docutils literal notranslate"><span class="pre">concat</span></code></a> to combine them into a single data frame at the end.</p>
+<p>This bit can be a little tricky, so we’ll break it down in pieces:</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Write a loop that simply prints the information given by <code class="docutils literal notranslate"><span class="pre">os.walk</span></code> as we go through the data directory. Which of these pieces do you need?</p></li>
+<li><p>We don’t need to process all the directories returned by this process. Write code to prevent us from doing so.</p></li>
+<li><p>Write code that extracts the session number from the directory name. Remember that <code class="docutils literal notranslate"><span class="pre">int</span></code> converts a string to an integer.</p></li>
+<li><p>Write code that ensures we only process files that end in <code class="docutils literal notranslate"><span class="pre">.csv</span></code>.</p></li>
+<li><p>Write code that gets the subject number from the file name.</p></li>
+<li><p>Using the code you wrote above, add session, subject, sex, and trial columns to the data set.</p></li>
+<li><p>Append this data frame to the list you’re using to hold the results.</p></li>
+<li><p>Finally, concatenate the results list to form a new data frame. Note that the index is not unique, so for technical reasons, it will help to <code class="docutils literal notranslate"><span class="pre">reset_index</span></code> again to get a unique index for each row.</p></li>
+</ol>
+</div>
+<section id="id8">
+<h4>Solution:<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">chunk_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">dirname</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">data_path</span><span class="p">)):</span>
+  <span class="n">folder</span> <span class="o">=</span> <span class="n">dirname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="k">if</span> <span class="s1">&#39;session&#39;</span> <span class="ow">in</span> <span class="n">folder</span><span class="p">:</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">folder</span><span class="p">[</span><span class="mi">7</span><span class="p">:])</span>  <span class="c1"># make it an integer</span>
+    <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+      <span class="k">if</span> <span class="n">fname</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
+        <span class="n">sub</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">fname</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># make it an integer</span>
+        <span class="n">chunk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">dirname</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">fname</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># add columns for session and subject</span>
+        <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;session&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">session</span>
+        <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sub</span>
+        <span class="k">if</span> <span class="n">sub</span> <span class="o">&lt;=</span> <span class="mi">16</span><span class="p">:</span>
+          <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+          <span class="n">chunk</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span>
+        
+        <span class="c1"># make a trial column by resetting the current index and renaming to trial</span>
+        <span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">chunk</span> <span class="o">=</span> <span class="n">chunk</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="s2">&quot;trial&quot;</span><span class="p">})</span>
+        
+        <span class="n">chunk_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of chunks: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">chunk_list</span><span class="p">)))</span>
+
+
+<span class="c1"># concatenate all data frames together</span>
+
+<span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">chunk_list</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># overwrites our old dat variable!</span>
+<span class="n">dat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of chunks: 256
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>trial</th>
+      <th>left</th>
+      <th>right</th>
+      <th>choice</th>
+      <th>reward</th>
+      <th>state</th>
+      <th>RT</th>
+      <th>retrieval</th>
+      <th>initiation</th>
+      <th>session</th>
+      <th>subject</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.223</td>
+      <td>0.000</td>
+      <td>2.384</td>
+      <td>1</td>
+      <td>2</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2.547</td>
+      <td>1.458</td>
+      <td>0.008</td>
+      <td>1</td>
+      <td>2</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1.400</td>
+      <td>0.000</td>
+      <td>0.931</td>
+      <td>1</td>
+      <td>2</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2.994</td>
+      <td>2.414</td>
+      <td>1.361</td>
+      <td>1</td>
+      <td>2</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.825</td>
+      <td>1.269</td>
+      <td>0.001</td>
+      <td>1</td>
+      <td>2</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70773</th>
+      <td>275</td>
+      <td>0.7</td>
+      <td>0.2</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.769</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>3</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>70774</th>
+      <td>276</td>
+      <td>0.6</td>
+      <td>0.3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3.488</td>
+      <td>1.535</td>
+      <td>2.362</td>
+      <td>3</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>70775</th>
+      <td>277</td>
+      <td>0.6</td>
+      <td>0.3</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.726</td>
+      <td>0.000</td>
+      <td>0.001</td>
+      <td>3</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>70776</th>
+      <td>278</td>
+      <td>0.7</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3.878</td>
+      <td>2.877</td>
+      <td>4.008</td>
+      <td>3</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>70777</th>
+      <td>279</td>
+      <td>0.7</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>4.642</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>3</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+  </tbody>
+</table>
+<p>70778 rows × 12 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="group-level-statistics">
+<h2>Group-level statistics<a class="headerlink" href="#group-level-statistics" title="Permalink to this headline">#</a></h2>
+<p>Having data in tidy format can facilitate easier comparisons across observation types. In Pandas, the relevant code pattern is to call <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a> on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, followed by a call to a summary statistic like <code class="docutils literal notranslate"><span class="pre">mean</span></code> or <code class="docutils literal notranslate"><span class="pre">std</span></code>. That is, if <code class="docutils literal notranslate"><span class="pre">data</span></code> is a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;column1&#39;</span><span class="p">,</span> <span class="s1">&#39;column5&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>will calculate a groupwise mean. More generally, this pattern of breaking data into chunks based on a combination of variables, performing some analysis, and aggregating the results is known as <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">Split-Apply-Combine</a>.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">groupby</span></code> to calculate the mean and variance of the reaction time for each animal in each session.</p></li>
+</ol>
+</div>
+<section id="id9">
+<h3>Solution:<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">RT</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>mean</th>
+      <th>var</th>
+    </tr>
+    <tr>
+      <th>subject</th>
+      <th>session</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1</th>
+      <th>1</th>
+      <td>2.722293</td>
+      <td>10.967707</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.345410</td>
+      <td>376.833405</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.266718</td>
+      <td>4.629838</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.041440</td>
+      <td>4.596238</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4.084762</td>
+      <td>8.817232</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">32</th>
+      <th>4</th>
+      <td>3.608547</td>
+      <td>31.459340</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.572577</td>
+      <td>9.237009</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3.565250</td>
+      <td>31.661808</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3.583887</td>
+      <td>30.114035</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2.970333</td>
+      <td>9.691184</td>
+    </tr>
+  </tbody>
+</table>
+<p>256 rows × 2 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="exploratory-plotting-redux">
+<h2>Exploratory plotting redux<a class="headerlink" href="#exploratory-plotting-redux" title="Permalink to this headline">#</a></h2>
+<p>Now let’s try to generalize our plot above of accumulated rewards over time. This time, however, we’d like to plot accumulated rewards for <em>all animals</em> across <em>all sessions</em>. As you might expect, <code class="docutils literal notranslate"><span class="pre">groupby</span></code> will be our friend, but we’ll have to figure out how to calculate the information we need. As we’ll see, it’s easiest to do this by adding the new variables as columns to our data frame.</p>
+<section id="the-final-tidy">
+<h3>The final tidy<a class="headerlink" href="#the-final-tidy" title="Permalink to this headline">#</a></h3>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>To make sure the steps below work, we need to start by sorting the data frame by subject and session. (Be sure to save the result or use <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>!)</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, calculate the cumulative reward for each subject and each session as we did for a single dataset above. Assign this to a new column in the data frame.</p></li>
+<li><p>Similarly, calculate the cumulative reward for each subject <em>across all sessions</em> and assign this as a different column in the dataframe.</p></li>
+<li><p>The one relevant piece of information we still don’t have, the one that would uniquely identify each row and make the data frame tidy, is a <em>unique</em> trial number for each animal across sessions. If <code class="docutils literal notranslate"><span class="pre">dat</span></code> is the data frame and <code class="docutils literal notranslate"><span class="pre">trial</span></code> is the column containing the (within-session) trial number, the following line of code creates such a column:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span><span class="p">[</span><span class="s1">&#39;cumulative_trial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>How does this work?</p>
+</div>
+<section id="id10">
+<h4>Solution:<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<div class="toggle docutils container">
+<p>The strategy here is as follows:</p>
+<ol class="simple">
+<li><p>Group the data frame into chunks, one per subject.</p></li>
+<li><p>Pull out the column we want.</p></li>
+<li><p>Perform some transformation (e.g., cumulative sum).</p></li>
+<li><p>Assign the result back as a new column.</p></li>
+</ol>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">])</span>
+<span class="n">dat</span><span class="p">[</span><span class="s1">&#39;cumulative_reward_session&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reward</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">dat</span><span class="p">[</span><span class="s1">&#39;cumulative_reward_lifetime&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reward</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="n">dat</span><span class="p">[</span><span class="s1">&#39;cumulative_trial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">trial</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">dat</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>trial</th>
+      <th>left</th>
+      <th>right</th>
+      <th>choice</th>
+      <th>reward</th>
+      <th>state</th>
+      <th>RT</th>
+      <th>retrieval</th>
+      <th>initiation</th>
+      <th>session</th>
+      <th>subject</th>
+      <th>sex</th>
+      <th>cumulative_reward_session</th>
+      <th>cumulative_reward_lifetime</th>
+      <th>cumulative_trial</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8876</th>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.945</td>
+      <td>0.000</td>
+      <td>2.387</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8877</th>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.787</td>
+      <td>1.717</td>
+      <td>1.248</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>8878</th>
+      <td>2</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.235</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>8879</th>
+      <td>3</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.026</td>
+      <td>0.000</td>
+      <td>4.393</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>8880</th>
+      <td>4</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.977</td>
+      <td>1.603</td>
+      <td>1.959</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="why-did-we-do-all-this">
+<h3>Why did we do all this?<a class="headerlink" href="#why-did-we-do-all-this" title="Permalink to this headline">#</a></h3>
+<p>The above approach — adding a bunch of variables to our data frame rather than extracting what we need — might seem like overkill, but as R users know, the approach really shines when we want to start grouping our analyses by different sets of variables. As an example, with our expanded data set, Seaborn easily lets us easily make both of the following plots with a simple variation in the same command:</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">lineplot</span></code>, plot cumulative reward across all sessions, aggregating by sex. (Hint: since <code class="docutils literal notranslate"><span class="pre">lineplot</span></code> automatically calculates bootstrapped confidence intervals and this can take a long time for big datasets, you might want to supply the keyword <code class="docutils literal notranslate"><span class="pre">ci=None</span></code>.)</p></li>
+<li><p>Make the same plot, showing cumulative rewards for all individuals.</p></li>
+</ol>
+</div>
+<section id="id11">
+<h4>Solution:<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">dat</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;cumulative_trial&#39;</span><span class="p">,</span> 
+             <span class="n">y</span><span class="o">=</span><span class="s1">&#39;cumulative_reward_lifetime&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">dat</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;cumulative_trial&#39;</span><span class="p">,</span> 
+             <span class="n">y</span><span class="o">=</span><span class="s1">&#39;cumulative_reward_lifetime&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="n">errorbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Total Trials&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Total Trials&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total Rewards&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Total Rewards&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/exploring_table_data_26_0.svg" src="../_images/exploring_table_data_26_0.svg" /></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tables"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tabular data</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../bibliography.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By John Pearson<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
