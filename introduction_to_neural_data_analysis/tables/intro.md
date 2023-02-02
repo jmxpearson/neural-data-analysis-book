@@ -1,0 +1,3 @@
+# Tabular data
+
+In this chapter, we'll be working with tabular data, perhaps the most common type of data across science. Almost any kind of data can be stored as some form of table (if we consider arrays to be tables), but usually tabular data are organized with observations as rows and variables as columns. Columns do not need to be of the same data type, but as we'll see, there are distinct advantages to analysis when the data are [tidy](https://www.jstatsoft.org/article/view/v059i10). In particular, this format will allow us to make use of flexible [split-apply-combine](https://www.jstatsoft.org/article/view/v040i01) methods.
