@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bibliography" href="../bibliography.html" />
@@ -444,7 +446,29 @@ title="Print to PDF"
      Solution:
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-modeling">
+   Statistical modeling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixed-effects-modeling">
+   Mixed effects modeling
+  </a>
  </li>
 </ul>
 
@@ -475,7 +499,29 @@ title="Print to PDF"
      Solution:
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution
+    </a>
+   </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#statistical-modeling">
+   Statistical modeling
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mixed-effects-modeling">
+   Mixed effects modeling
+  </a>
  </li>
 </ul>
 
@@ -507,7 +553,376 @@ title="Print to PDF"
 </div>
 <section id="solution">
 <h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># total reward in each state</span>
+<span class="n">rwd_by_state</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reward</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># add sex back in by merging</span>
+<span class="n">rwd_by_state</span> <span class="o">=</span> <span class="n">rwd_by_state</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dat</span><span class="p">[[</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;sex&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">())</span>
+
+<span class="n">rwd_by_state</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>subject</th>
+      <th>session</th>
+      <th>state</th>
+      <th>reward</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>87</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>32</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>86</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>1</td>
+      <td>103</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>2</td>
+      <td>2</td>
+      <td>33</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>638</th>
+      <td>32</td>
+      <td>7</td>
+      <td>1</td>
+      <td>65</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>639</th>
+      <td>32</td>
+      <td>7</td>
+      <td>2</td>
+      <td>56</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>640</th>
+      <td>32</td>
+      <td>7</td>
+      <td>3</td>
+      <td>44</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>641</th>
+      <td>32</td>
+      <td>8</td>
+      <td>1</td>
+      <td>117</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>642</th>
+      <td>32</td>
+      <td>8</td>
+      <td>3</td>
+      <td>77</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+<p>643 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>Now, let’s make a couple of plots to see how dividing trials by state suggests effects that might be present in the data:</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Using the data frame you just made, make a box plot that shows the distribution of rewards earned for each animal across sessions. Color the boxes by sex.</p></li>
+<li><p>Aggregating across individuals and sessions, make a box plot that compares the distribution of rewards earned in each state by sex. Color the boxes by sex.</p></li>
+<li><p>What patterns do you see in the results? Does sex appear to make a difference?</p></li>
+</ol>
+</div>
 </section>
+<section id="id2">
+<h3>Solution<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make box plot</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = [&#39;svg&#39;]
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">rwd_by_state</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;reward&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">data</span><span class="o">=</span><span class="n">rwd_by_state</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;reward&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">([],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([</span><span class="s1">&#39;explore&#39;</span><span class="p">,</span> <span class="s1">&#39;exploit (L)&#39;</span><span class="p">,</span> <span class="s1">&#39;exploit (R)&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/analyzing_table_data_8_0.svg" src="../_images/analyzing_table_data_8_0.svg" /></div>
+</div>
+</section>
+</section>
+<section id="statistical-modeling">
+<h2>Statistical modeling<a class="headerlink" href="#statistical-modeling" title="Permalink to this headline">#</a></h2>
+<p>Of course, eyeballing our plots will only get us so far. Eventually, we will want to produce some kind of statistical model that helps us determine whether the results we see could be due to chance. Note that I’m speaking in terms of statistical <em>modeling</em> because rather than just trying to run a test, we want to think in terms of what kind of process might have generated the data and build in our assumptions about that. Even very simple statistical tests are built on models that encapsulate our assumptions. For example, <a class="reference external" href="https://stats.stackexchange.com/questions/175246/why-is-anova-equivalent-to-linear-regression">every ANOVA is just a linear model</a>, and the class of linear models (and their cousins) are much more flexible and powerful.</p>
+<p>So let’s build a linear model.</p>
+<p>Our goal is to model the reward as a function of state and sex. In R’s formula notation, this regression would be</p>
+<div class="math notranslate nohighlight">
+\[
+reward \sim state + sex
+\]</div>
+<p>which adds an intercept plus a linear term for each variable. But of course the plots appear to indicate that reward might depend on an <em>interaction</em> between state and sex, which we would code as</p>
+<div class="math notranslate nohighlight">
+\[
+reward \sim state * sex
+\]</div>
+<p>which adds an intercept, a main effect for each variable, <em>and</em> the interaction.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+</pre></div>
+</div>
+<p>fit the two regressions described above. You’ll want the <code class="docutils literal notranslate"><span class="pre">smf.ols</span></code> command (ordinary least squares) for regression. You’ll also need to tell <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code> that <code class="docutils literal notranslate"><span class="pre">session</span></code> is a <a class="reference external" href="https://www.statsmodels.org/dev/example_formulas.html#categorical-variables">categorical variable</a>.</p>
+</li>
+<li><p>What do you find? Is there an effect of sex?</p></li>
+</ol>
+</div>
+<section id="id3">
+<h3>Solution:<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">statsmodels</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="k">as</span> <span class="nn">smf</span>
+
+<span class="c1"># main effects only</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">&quot;reward ~ C(state) + sex&quot;</span><span class="p">,</span> <span class="n">rwd_by_state</span><span class="p">)</span>
+<span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 reward   R-squared:                       0.309
+Model:                            OLS   Adj. R-squared:                  0.306
+Method:                 Least Squares   F-statistic:                     95.16
+Date:                Fri, 03 Feb 2023   Prob (F-statistic):           6.41e-51
+Time:                        01:42:39   Log-Likelihood:                -3264.5
+No. Observations:                 643   AIC:                             6537.
+Df Residuals:                     639   BIC:                             6555.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+=================================================================================
+                    coef    std err          t      P&gt;|t|      [0.025      0.975]
+---------------------------------------------------------------------------------
+Intercept       100.0311      2.902     34.473      0.000      94.333     105.729
+C(state)[T.2]   -46.1535      3.765    -12.259      0.000     -53.546     -38.761
+C(state)[T.3]   -57.8245      3.667    -15.769      0.000     -65.025     -50.624
+sex[T.M]         -5.2647      3.085     -1.706      0.088     -11.323       0.794
+==============================================================================
+Omnibus:                       25.442   Durbin-Watson:                   2.456
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               27.461
+Skew:                           0.500   Prob(JB):                     1.09e-06
+Kurtosis:                       3.152   Cond. No.                         3.97
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model with interaction term</span>
+
+<span class="n">md</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">&quot;reward ~ C(state) * sex&quot;</span><span class="p">,</span> <span class="n">rwd_by_state</span><span class="p">)</span>
+<span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 reward   R-squared:                       0.335
+Model:                            OLS   Adj. R-squared:                  0.330
+Method:                 Least Squares   F-statistic:                     64.15
+Date:                Fri, 03 Feb 2023   Prob (F-statistic):           3.27e-54
+Time:                        01:42:39   Log-Likelihood:                -3252.1
+No. Observations:                 643   AIC:                             6516.
+Df Residuals:                     637   BIC:                             6543.
+Df Model:                           5                                         
+Covariance Type:            nonrobust                                         
+==========================================================================================
+                             coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------------------
+Intercept                 91.7920      3.419     26.847      0.000      85.078      98.506
+C(state)[T.2]            -29.4406      4.985     -5.905      0.000     -39.230     -19.651
+C(state)[T.3]            -48.7349      5.060     -9.631      0.000     -58.672     -38.798
+sex[T.M]                  11.0205      4.807      2.293      0.022       1.581      20.460
+C(state)[T.2]:sex[T.M]   -37.1350      7.450     -4.985      0.000     -51.764     -22.506
+C(state)[T.3]:sex[T.M]   -18.0470      7.206     -2.504      0.013     -32.198      -3.896
+==============================================================================
+Omnibus:                       17.212   Durbin-Watson:                   2.435
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.070
+Skew:                           0.410   Prob(JB):                     0.000119
+Kurtosis:                       3.029   Cond. No.                         8.96
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="mixed-effects-modeling">
+<h2>Mixed effects modeling<a class="headerlink" href="#mixed-effects-modeling" title="Permalink to this headline">#</a></h2>
+<p>Of course, something about the above models stinks. If you’ve done any amount of regression, you know that standard linear models assume that the errors are independent and identically distributed. This means that once we specify the sex of the animal and its behavioral state, all the deviations of the data from the model’s prediction are drawn from the same normal distribution.</p>
+<p>But this obviously ignores two extremely important sources of variation in the real data—subject and session—and as we showed above, these sources of variation are <em>not</em> negligible. One (bad) attempt at solving this problem is to simply do a separate regression for each animal (and perhaps each session), but in that case, we have very few data points to go on. Another (also bad) solution is to try fitting separate parameters for, e.g., each session’s mean rewards, but that drastically increases the number of parameters we have to fit. Instead we’ll assume the following:</p>
+<ol class="simple">
+<li><p>We start by using state and sex to make a (linear) prediction for the total reward obtained. These are called our <em>fixed effects</em>.</p></li>
+<li><p>But we assume that every subject’s individual prediction is jittered around this value. Some subjects, even accounting for state and sex, earn a little more or a little less.</p></li>
+<li><p>In addition, we assume that every session is distributed around the subject’s mean performance. Again, some are a little better, some a little worse.</p></li>
+</ol>
+<p>These latter two additions are called <em>random effects</em>, and models that include both fixed and random effects are known as <em>mixed effects models</em>. In math form, this is</p>
+<div class="math notranslate nohighlight">
+\[
+reward = \beta_0 + \beta_{sex} * sex + \beta_{state} * state + \beta_{int} sex * state + \eta + \delta + \varepsilon
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\eta\)</span> is the subject random effect (normally distributed with mean 0), <span class="math notranslate nohighlight">\(\delta\)</span> is the session effect, and <span class="math notranslate nohighlight">\(\varepsilon\)</span> is the unnaccounted-for (residual) error. Rather than estimating these values individually, we focus on estimating their <em>variance</em>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>, we use <code class="docutils literal notranslate"><span class="pre">mixedlm</span></code> to do mixed effects modeling. Here, I’ll be honest: <a class="reference external" href="https://cran.r-project.org/web/packages/lme4/vignettes/lmer.pdf">it’s easier in R</a>. In our case, it’s particularly tricky because session is “nested” within subject. In R, we’d do this with</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">lmer</span><span class="p">(</span><span class="s">&quot;reward ~ sex * state + (1|subject/session)&quot;</span><span class="p">,</span><span class="w"> </span>
+<span class="w">     </span><span class="n">data</span><span class="o">=</span><span class="n">rwd_by_state</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>but in Python, we need</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">mixedlm</span><span class="p">(</span><span class="s2">&quot;reward ~ C(state) * sex&quot;</span><span class="p">,</span> <span class="n">rwd_by_state</span><span class="p">,</span> 
+                 <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span>
+                 <span class="n">re_formula</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                 <span class="n">vc_formula</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;session&#39;</span><span class="p">:</span> <span class="s2">&quot;0 + C(session)&quot;</span><span class="p">}</span>
+                 <span class="p">)</span>
+</pre></div>
+</div>
+<p>That last bit, the <code class="docutils literal notranslate"><span class="pre">vc_formula</span></code> tells us that <code class="docutils literal notranslate"><span class="pre">session</span></code> is nested inside the grouping variable (<code class="docutils literal notranslate"><span class="pre">subject</span></code>).</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol>
+<li><p>Fit this model. I suggest</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span> 
+</pre></div>
+</div>
+</li>
+</ol>
+<p>to avoid some numerical instabilities.</p>
+<ol class="simple">
+<li><p>What do you find? Is there an effect of sex? Do the variance parameters for the random effects have the right sizes based on your plot of all subjects earlier?</p></li>
+</ol>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">mixedlm</span><span class="p">(</span><span class="s2">&quot;reward ~ C(state) * sex&quot;</span><span class="p">,</span> <span class="n">rwd_by_state</span><span class="p">,</span> 
+                 <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span>
+                 <span class="n">re_formula</span><span class="o">=</span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                 <span class="n">vc_formula</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;session&#39;</span><span class="p">:</span> <span class="s2">&quot;0 + C(session)&quot;</span><span class="p">}</span>
+                 <span class="p">)</span>
+<span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Mixed Linear Model Regression Results
+====================================================================
+Model:                MixedLM     Dependent Variable:     reward    
+No. Observations:     643         Method:                 REML      
+No. Groups:           32          Scale:                  1384.8025 
+Min. group size:      12          Log-Likelihood:         -3241.9555
+Max. group size:      24          Converged:              Yes       
+Mean group size:      20.1                                          
+--------------------------------------------------------------------
+                        Coef.  Std.Err.   z    P&gt;|z|  [0.025  0.975]
+--------------------------------------------------------------------
+Intercept               92.156    3.796 24.274 0.000  84.715  99.597
+C(state)[T.2]          -29.289    4.866 -6.020 0.000 -38.825 -19.753
+C(state)[T.3]          -47.769    4.959 -9.633 0.000 -57.488 -38.050
+sex[T.M]                10.656    5.342  1.995 0.046   0.187  21.126
+C(state)[T.2]:sex[T.M] -37.621    7.304 -5.151 0.000 -51.936 -23.306
+C(state)[T.3]:sex[T.M] -18.270    7.047 -2.593 0.010 -32.082  -4.459
+subject Var             45.099    0.722                             
+session Var             61.766                                      
+====================================================================
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba-root/envs/book/lib/python3.11/site-packages/statsmodels/regression/mixed_linear_model.py:2261: ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.
+  warnings.warn(msg, ConvergenceWarning)
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
