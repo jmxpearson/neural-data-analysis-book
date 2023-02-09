@@ -1,0 +1,3 @@
+# Image data
+
+In this chapter, we'll dip our toes in to the basics of analyzing image data, which underlie some of the most important and fast-moving areas of neuroscience. From functional MRI to the various forms of microscopy, each type of imaging data represents its own unique challenge, often spawning a whole analysis ecosystem. Rather than delve into specialized processing, we will focus on the basics of manipulating images in the form of NumPy arrays, with a detour into parallelism and loops.

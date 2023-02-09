@@ -22,4 +22,7 @@ chapters:
   sections:
     - file: tables/exploring_table_data.ipynb
     - file: tables/analyzing_table_data.ipynb
+- file: images/intro.md
+  sections:
+    - file: images/exploring_image_data.ipynb
 - file: bibliography.md
