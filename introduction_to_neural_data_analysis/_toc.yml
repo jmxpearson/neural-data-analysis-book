@@ -25,4 +25,5 @@ chapters:
 - file: images/intro.md
   sections:
     - file: images/exploring_image_data.ipynb
+    - file: images/analyzing_image_data.ipynb
 - file: bibliography.md
