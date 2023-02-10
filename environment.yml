@@ -13,5 +13,6 @@ dependencies:
   - ghp-import
   - gdown
   - jupyter-book
+  - ffmpeg
   - pip:
     - myst_nb
