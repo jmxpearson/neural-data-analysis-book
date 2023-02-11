@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Bibliography" href="../bibliography.html" />
@@ -468,6 +470,30 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuning-curves-handling-noise">
+   Tuning curves: handling noise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuning-curves-tuned-at-all">
+   Tuning curves: tuned at all?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
     </nav>
@@ -499,6 +525,30 @@ title="Print to PDF"
    </li>
   </ul>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuning-curves-handling-noise">
+   Tuning curves: handling noise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tuning-curves-tuned-at-all">
+   Tuning curves: tuned at all?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Solution:
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
@@ -522,13 +572,17 @@ title="Print to PDF"
 <li><p>Write code that finds the preferred orientation for each pixel in the image.</p></li>
 <li><p>Display the result as a color-mapped image:</p>
 <ul class="simple">
-<li><p>To get a colormap with <code class="docutils literal notranslate"><span class="pre">n</span></code> values, use, e.g., <code class="docutils literal notranslate"><span class="pre">cm.get_cmap('viridis',</span> <span class="pre">n)</span></code> (explanations <a class="reference external" href="https://matplotlib.org/tutorials/colors/colormap-manipulation.html">here</a> and <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.07-customizing-colorbars.html">here</a>).</p></li>
+<li><p>To get a colormap with <code class="docutils literal notranslate"><span class="pre">n</span></code> values, use, e.g., <code class="docutils literal notranslate"><span class="pre">cm.get_cmap('jet',</span> <span class="pre">n)</span></code> (explanations <a class="reference external" href="https://matplotlib.org/tutorials/colors/colormap-manipulation.html">here</a> and <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.07-customizing-colorbars.html">here</a>).</p></li>
 <li><p>To set the colormap for the current image, use <code class="docutils literal notranslate"><span class="pre">cmap=&lt;cmap</span> <span class="pre">name&gt;</span></code>, where <code class="docutils literal notranslate"><span class="pre">&lt;cmap</span> <span class="pre">name&gt;</span></code> is a colormap name. There are <a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">lots to choose from</a>.</p></li>
 <li><p>You will want to create a discrete color axis by assigning each value in the array to a color. This is illustrated in <a class="reference external" href="https://jakevdp.github.io/PythonDataScienceHandbook/04.07-customizing-colorbars.html#Discrete-Color-Bars">PDSH</a>.</p></li>
 </ul>
 </li>
 <li><p>What do you note about the resulting image? What does or doesn’t make sense biologically?</p></li>
 </ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The image can take a while to plot (&gt; 1 minute on a decent machine), so you may want to settle for plotting a smaller section of the image while you debug.</p>
 </div>
 <section id="solution">
 <h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
@@ -594,6 +648,274 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <img alt="../_images/analyzing_image_data_5_0.svg" src="../_images/analyzing_image_data_5_0.svg" /></div>
+</div>
+<p>For the rest of this exercise, we’ll be improving our methods of calculating and plotting the pixel tuning.</p>
+</section>
+</section>
+<section id="tuning-curves-handling-noise">
+<h2>Tuning curves: handling noise<a class="headerlink" href="#tuning-curves-handling-noise" title="Permalink to this headline">#</a></h2>
+<p>If we want to consider our pixel as tuned, or a particular value the preferred value, it will help to have a sense of how confident we can be in our tuning curve.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>Modify your code to calculate both the mean and the standard error of the mean for both the baseline and each stimulus.</p>
+<ul class="simple">
+<li><p>How do the standard errors for the stimulus and baseline means compare? Why?</p></li>
+<li><p>Is the standard error a good measure of variability for this type of data?</p></li>
+<li><p>Assuming the standard error is okay, are we over- or under-estimating the variability of the signal? How might we change this?</p></li>
+</ul>
+</li>
+<li><p>How might you test whether a particular value is really a peak, or just a fluctuation due to noise? There are multiple possible strategies. Discuss with me and then implement this change in a new function. Make sure not to use any <a class="reference external" href="https://en.wikipedia.org/wiki/Magic_number_(programming)#Unnamed_numerical_constants">magic numbers</a>. That is, any parameters of your algorithm should be specifiable by callers of your function.</p></li>
+<li><p>Re-plot the tuning map.</p></li>
+</ol>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>When considering the difference of two Gaussian variables <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, the variance of their <em>difference</em> is <span class="math notranslate nohighlight">\(\sigma^2_{X - Y} = \sigma^2_X + \sigma^2_Y\)</span></p>
+</div>
+<section id="id1">
+<h3>Solution:<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wrap the codes as a function</span>
+<span class="k">def</span> <span class="nf">find_pixel_tuning2</span><span class="p">(</span><span class="n">tseries</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">thresh</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a time series and labels (-1 = baseline) for the stimulus shown in each </span>
+<span class="sd">    frame, return the preferred direction of the stimulus as an index</span>
+<span class="sd">    into the categories of labels</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="n">labels</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="s1">&#39;trace&#39;</span><span class="p">:</span> <span class="n">tseries</span><span class="p">})</span>
+
+    <span class="c1"># convert labels to categorical variable</span>
+    <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;orientation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;orientation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+    
+    <span class="c1">## group stats</span>
+    <span class="n">tuning</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;orientation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">sems</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;orientation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sem</span><span class="p">()</span>
+    
+    <span class="c1"># calculate get means and standard errors of the means for </span>
+    <span class="c1"># both baseline and stimulus values</span>
+    <span class="n">baseline</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">bsem</span> <span class="o">=</span> <span class="n">sems</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">tcurve</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">baseline</span>
+    <span class="n">tsems</span> <span class="o">=</span> <span class="n">sems</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">peakind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tcurve</span><span class="p">)</span>
+    
+    <span class="c1"># and let&#39;s be sure this is &gt; &#39;thresh&#39; standard deviations from baseline</span>
+    <span class="n">threshold</span> <span class="o">=</span> <span class="n">thresh</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tsems</span><span class="p">[</span><span class="n">peakind</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">bsem</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tcurve</span><span class="p">[</span><span class="n">peakind</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">preferred</span> <span class="o">=</span> <span class="n">peakind</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">preferred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        
+    <span class="k">return</span> <span class="n">preferred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="toggle docutils container">
+<p>Note that sem is a bad measure here for two reasons:</p>
+<ol class="simple">
+<li><p>The signal is only positive (or should be: you can’t have negative
+light), so it’s not normally distributed. Standard errors are based on
+normality assumptions.</p></li>
+<li><p>The sem calculation treats every frame as independent, which is
+clearly wrong. We could do better by averaging frames within trials and
+calculating the sem across trials, since those numbers are more
+independent.</p></li>
+</ol>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now let&#39;s repeat for all pixels</span>
+<span class="n">preferred_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">Nvert</span><span class="p">,</span> <span class="n">Nhorz</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">hh</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nhorz</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nvert</span><span class="p">):</span>
+        <span class="n">preferred_img</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">]</span> <span class="o">=</span> <span class="n">find_pixel_tuning2</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">,</span> <span class="p">:],</span> <span class="n">labels</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">hh</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nhorz</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nvert</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>         <span class="n">preferred_img</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">]</span> <span class="o">=</span> <span class="n">find_pixel_tuning2</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">,</span> <span class="p">:],</span> <span class="n">labels</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nn">Cell In[6], line 16,</span> in <span class="ni">find_pixel_tuning2</span><span class="nt">(tseries, labels, thresh)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1">## group stats</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">tuning</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;orientation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">sems</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;orientation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sem</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># calculate get means and standard errors of the means for </span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># both baseline and stimulus values</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/groupby/groupby.py:2397,</span> in <span class="ni">GroupBy.sem</span><span class="nt">(self, ddof, numeric_only)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2395</span> <span class="n">counts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2396</span> <span class="n">result_ilocs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_indexer_for</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2397</span> <span class="n">count_ilocs</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_indexer_for</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2398</span> <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
+<span class="g g-Whitespace">   </span><span class="mi">2399</span>     <span class="c1"># TODO(2.0): once iloc[:, foo] = bar depecation is enforced,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2400</span>     <span class="c1">#  this catching will be unnecessary</span>
+<span class="g g-Whitespace">   </span><span class="mi">2401</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2402</span>         <span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="s2">&quot;.*will attempt to set the values inplace.*&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">2403</span>     <span class="p">)</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/indexes/base.py:6052,</span> in <span class="ni">Index.get_indexer_for</span><span class="nt">(self, target)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6034</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">6035</span><span class="sd"> Guaranteed return of an indexer even when non-unique.</span>
+<span class="g g-Whitespace">   </span><span class="mi">6036</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6049</span><span class="sd"> array([0, 2])</span>
+<span class="g g-Whitespace">   </span><span class="mi">6050</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">6051</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_as_unique</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">6052</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6053</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer_non_unique</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">6054</span> <span class="k">return</span> <span class="n">indexer</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/indexes/base.py:3957,</span> in <span class="ni">Index.get_indexer</span><span class="nt">(self, target, method, limit, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3952</span> <span class="k">if</span> <span class="n">pself</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span> <span class="ow">or</span> <span class="n">ptarget</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">target</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3953</span>     <span class="k">return</span> <span class="n">pself</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3954</span>         <span class="n">ptarget</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span>
+<span class="g g-Whitespace">   </span><span class="mi">3955</span>     <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3957</span> <span class="k">if</span> <span class="n">is_dtype_equal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3958</span>     <span class="c1"># Only call equals if we have same dtype to avoid inference/casting</span>
+<span class="g g-Whitespace">   </span><span class="mi">3959</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">intp</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3961</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_dtype_equal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_interval_dtype</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3962</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span>
+<span class="g g-Whitespace">   </span><span class="mi">3963</span> <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3964</span>     <span class="c1"># IntervalIndex gets special treatment for partial-indexing</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/indexes/base.py:5549,</span> in <span class="ni">Index.equals</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5545</span> <span class="k">if</span> <span class="n">is_extension_array_dtype</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">5546</span>     <span class="c1"># All EA-backed Index subclasses override equals</span>
+<span class="g g-Whitespace">   </span><span class="mi">5547</span>     <span class="k">return</span> <span class="n">other</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">5549</span> <span class="k">return</span> <span class="n">array_equivalent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">_values</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/dtypes/missing.py:527,</span> in <span class="ni">array_equivalent</span><span class="nt">(left, right, strict_nan, dtype_equal)</span>
+<span class="g g-Whitespace">    </span><span class="mi">521</span> <span class="c1"># Slow path when we allow comparing different dtypes.</span>
+<span class="g g-Whitespace">    </span><span class="mi">522</span> <span class="c1"># Object arrays can contain None, NaN and NaT.</span>
+<span class="g g-Whitespace">    </span><span class="mi">523</span> <span class="c1"># string dtypes must be come to this path for NumPy 1.7.1 compat</span>
+<span class="g g-Whitespace">    </span><span class="mi">524</span> <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s2">&quot;OSU&quot;</span> <span class="ow">or</span> <span class="n">right</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s2">&quot;OSU&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">525</span>     <span class="c1"># Note: `in &quot;OSU&quot;` is non-trivially faster than `in [&quot;O&quot;, &quot;S&quot;, &quot;U&quot;]`</span>
+<span class="g g-Whitespace">    </span><span class="mi">526</span>     <span class="c1">#  or `in (&quot;O&quot;, &quot;S&quot;, &quot;U&quot;)`</span>
+<span class="ne">--&gt; </span><span class="mi">527</span>     <span class="k">return</span> <span class="n">_array_equivalent_object</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">strict_nan</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span> <span class="c1"># NaNs can occur in float and complex arrays.</span>
+<span class="g g-Whitespace">    </span><span class="mi">530</span> <span class="k">if</span> <span class="n">is_float_dtype</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_complex_dtype</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/dtypes/missing.py:572,</span> in <span class="ni">_array_equivalent_object</span><span class="nt">(left, right, strict_nan)</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">strict_nan</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span>     <span class="c1"># isna considers NaN and None to be equivalent.</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span>     <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="s2">&quot;F_CONTIGUOUS&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">right</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="s2">&quot;F_CONTIGUOUS&quot;</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span>         <span class="c1"># we can improve performance by doing a copy-free ravel</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="c1"># e.g. in frame_methods.Equals.time_frame_nonunique_equal</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span>         <span class="c1">#  if we transposed the frames</span>
+<span class="ne">--&gt; </span><span class="mi">572</span>         <span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>         <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">array_equivalent_object</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span>         <span class="n">ensure_object</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">ravel</span><span class="p">()),</span> <span class="n">ensure_object</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot preferred image</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">preferred_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">preferred_img</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">preferred_img</span><span class="p">)]))</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">orientations</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tuning-curves-tuned-at-all">
+<h2>Tuning curves: tuned at all?<a class="headerlink" href="#tuning-curves-tuned-at-all" title="Permalink to this headline">#</a></h2>
+<p>It’s clear from both biology and the data at hand that not every pixel is even responsive to the stimuli. We would like a way to “opt out” of coloring a pixel with a preferred orientation in cases where that doesn’t make sense.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<ol class="simple">
+<li><p>What test would you use to determine whether or not a pixel is tuned at all? After discussing with me, implement this change in your code?</p>
+<ul class="simple">
+<li><p>How will you indicate “not tuned” in the return value from your function?</p></li>
+</ul>
+</li>
+<li><p>Re-plot the data. Make sure your colors reflect that some pixels have no apparent tuning.</p></li>
+</ol>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">cmap.set_bad('white')</span></code> to plot NaN values in the resulting image as white.</p>
+</div>
+<section id="id2">
+<h3>Solution:<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">find_pixel_tuning3</span><span class="p">(</span><span class="n">tseries</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">min_baseline</span><span class="p">,</span> <span class="n">thresh</span><span class="p">):</span>
+    <span class="c1"># given a time series and labels (converted to categorical later) of the stimulus shown in each frame (-1 =</span>
+    <span class="c1"># baseline), return the preferred direction of the stimulus as an index</span>
+    <span class="c1"># into the categories of labels</span>
+    
+    <span class="n">dat</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="n">labels</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="s1">&#39;trace&#39;</span><span class="p">:</span> <span class="n">tseries</span><span class="p">})</span>
+    <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;orientation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;orientation&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+    
+    <span class="c1">## group stats</span>
+    <span class="n">tuning</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;orientation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="n">sems</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;orientation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sem</span><span class="p">()</span>
+
+    <span class="n">baseline</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">bsem</span> <span class="o">=</span> <span class="n">sems</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">tcurve</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">baseline</span>
+    <span class="n">tsems</span> <span class="o">=</span> <span class="n">sems</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span>
+
+    <span class="n">peakind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">tcurve</span><span class="p">)</span>
+    
+    <span class="c1"># now we want two conditions:</span>
+    <span class="c1"># 1. baseline needs to be greater than some minimum</span>
+    <span class="c1"># 2. peak activity needs to be more than some given number of standard</span>
+    <span class="c1">#    deviations above that</span>
+    <span class="n">threshold</span> <span class="o">=</span> <span class="n">thresh</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tsems</span><span class="p">[</span><span class="n">peakind</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">bsem</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">baseline</span> <span class="o">&gt;</span> <span class="n">min_baseline</span> <span class="ow">and</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tcurve</span><span class="p">[</span><span class="n">peakind</span><span class="p">])</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">preferred</span> <span class="o">=</span> <span class="n">peakind</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">preferred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        
+    <span class="k">return</span> <span class="n">preferred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># now let&#39;s repeat for all pixels</span>
+<span class="n">preferred_img</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">Nvert</span><span class="p">,</span> <span class="n">Nhorz</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">hh</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nhorz</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nvert</span><span class="p">):</span>
+        <span class="n">preferred_img</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">]</span> <span class="o">=</span> <span class="n">find_pixel_tuning3</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">,</span> <span class="p">:],</span> <span class="n">labels</span><span class="p">,</span> <span class="mf">2e4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cmap</span><span class="o">.</span><span class="n">set_bad</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">preferred_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">preferred_img</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">preferred_img</span><span class="p">)]))</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">orientations</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 </section>
