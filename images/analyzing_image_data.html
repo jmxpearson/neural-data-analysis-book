@@ -632,16 +632,12 @@ title="Print to PDF"
 
 <span class="n">orientations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="n">labels</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="c1"># change entries where baseline was preferred to NaN</span>
-<span class="n">pim</span> <span class="o">=</span> <span class="n">preferred_img</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">pim</span><span class="p">[</span><span class="n">pim</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-
 <span class="c1"># plot preferred image</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">cm</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;jet&#39;</span><span class="p">,</span> <span class="n">orientations</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">cax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">pim</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">cax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">preferred_img</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 <span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cax</span><span class="p">)</span>
-<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">pim</span><span class="p">))</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">preferred_img</span><span class="p">))</span>
 <span class="n">cbar</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">orientations</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">));</span>
 </pre></div>
 </div>
@@ -738,53 +734,6 @@ independent.</p></li>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">hh</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nhorz</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nvert</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>         <span class="n">preferred_img</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">]</span> <span class="o">=</span> <span class="n">find_pixel_tuning2</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">,</span> <span class="p">:],</span> <span class="n">labels</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-
-<span class="nn">Cell In[6], line 21,</span> in <span class="ni">find_pixel_tuning2</span><span class="nt">(tseries, labels, thresh)</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># calculate get means and standard errors of the means for </span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># both baseline and stimulus values</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="ne">---&gt; </span><span class="mi">21</span> <span class="n">bsem</span> <span class="o">=</span> <span class="n">sems</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">tcurve</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">baseline</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">tsems</span> <span class="o">=</span> <span class="n">sems</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span>
-
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/series.py:706,</span> in <span class="ni">Series.values</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">666</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">667</span> <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">669</span><span class="sd">     Return Series as ndarray or ndarray-like depending on the dtype.</span>
-<span class="g g-Whitespace">    </span><span class="mi">670</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="sd">            &#39;2013-01-03T05:00:00.000000000&#39;], dtype=&#39;datetime64[ns]&#39;)</span>
-<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">706</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">external_values</span><span class="p">()</span>
-
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/internals/managers.py:2067,</span> in <span class="ni">SingleBlockManager.external_values</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2065</span> <span class="k">def</span> <span class="nf">external_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2066</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;The array that Series.values returns&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">2067</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_block</span><span class="o">.</span><span class="n">external_values</span><span class="p">()</span>
-
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/_libs/properties.pyx:36,</span> in <span class="ni">pandas._libs.properties.CachedProperty.__get__</span><span class="nt">()</span>
-
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/internals/managers.py:2009,</span> in <span class="ni">SingleBlockManager._block</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2006</span> <span class="k">def</span> <span class="nf">_post_setstate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2007</span>     <span class="k">pass</span>
-<span class="ne">-&gt; </span><span class="mi">2009</span> <span class="nd">@cache_readonly</span>
-<span class="g g-Whitespace">   </span><span class="mi">2010</span> <span class="k">def</span> <span class="nf">_block</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Block</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2011</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">2013</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">   </span><span class="mi">2014</span> <span class="k">def</span> <span class="nf">_blknos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -796,6 +745,8 @@ independent.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/analyzing_image_data_10_0.svg" src="../_images/analyzing_image_data_10_0.svg" /></div>
 </div>
 </section>
 </section>
@@ -878,6 +829,8 @@ independent.</p></li>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/analyzing_image_data_14_0.svg" src="../_images/analyzing_image_data_14_0.svg" /></div>
 </div>
 </section>
 </section>
