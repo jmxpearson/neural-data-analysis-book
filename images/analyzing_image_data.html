@@ -746,79 +746,40 @@ independent.</p></li>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Nvert</span><span class="p">):</span>
 <span class="ne">----&gt; </span><span class="mi">5</span>         <span class="n">preferred_img</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">]</span> <span class="o">=</span> <span class="n">find_pixel_tuning2</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">vv</span><span class="p">,</span> <span class="n">hh</span><span class="p">,</span> <span class="p">:],</span> <span class="n">labels</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="nn">Cell In[6], line 16,</span> in <span class="ni">find_pixel_tuning2</span><span class="nt">(tseries, labels, thresh)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1">## group stats</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="n">tuning</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;orientation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">16</span> <span class="n">sems</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="s1">&#39;orientation&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sem</span><span class="p">()</span>
+<span class="nn">Cell In[6], line 21,</span> in <span class="ni">find_pixel_tuning2</span><span class="nt">(tseries, labels, thresh)</span>
 <span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="c1"># calculate get means and standard errors of the means for </span>
 <span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># both baseline and stimulus values</span>
 <span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">baseline</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="ne">---&gt; </span><span class="mi">21</span> <span class="n">bsem</span> <span class="o">=</span> <span class="n">sems</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span> <span class="n">tcurve</span> <span class="o">=</span> <span class="n">tuning</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">baseline</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">tsems</span> <span class="o">=</span> <span class="n">sems</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/groupby/groupby.py:2397,</span> in <span class="ni">GroupBy.sem</span><span class="nt">(self, ddof, numeric_only)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2395</span> <span class="n">counts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2396</span> <span class="n">result_ilocs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_indexer_for</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2397</span> <span class="n">count_ilocs</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_indexer_for</span><span class="p">(</span><span class="n">cols</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2398</span> <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-<span class="g g-Whitespace">   </span><span class="mi">2399</span>     <span class="c1"># TODO(2.0): once iloc[:, foo] = bar depecation is enforced,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2400</span>     <span class="c1">#  this catching will be unnecessary</span>
-<span class="g g-Whitespace">   </span><span class="mi">2401</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2402</span>         <span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="s2">&quot;.*will attempt to set the values inplace.*&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">2403</span>     <span class="p">)</span>
-
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/indexes/base.py:6052,</span> in <span class="ni">Index.get_indexer_for</span><span class="nt">(self, target)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6034</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">6035</span><span class="sd"> Guaranteed return of an indexer even when non-unique.</span>
-<span class="g g-Whitespace">   </span><span class="mi">6036</span><span class="sd"> </span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/series.py:706,</span> in <span class="ni">Series.values</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">666</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span> <span class="k">def</span> <span class="nf">values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">669</span><span class="sd">     Return Series as ndarray or ndarray-like depending on the dtype.</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span><span class="sd"> </span>
 <span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6049</span><span class="sd"> array([0, 2])</span>
-<span class="g g-Whitespace">   </span><span class="mi">6050</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">6051</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_as_unique</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">6052</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6053</span> <span class="n">indexer</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_indexer_non_unique</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">6054</span> <span class="k">return</span> <span class="n">indexer</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="sd">            &#39;2013-01-03T05:00:00.000000000&#39;], dtype=&#39;datetime64[ns]&#39;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">706</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">external_values</span><span class="p">()</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/indexes/base.py:3957,</span> in <span class="ni">Index.get_indexer</span><span class="nt">(self, target, method, limit, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3952</span> <span class="k">if</span> <span class="n">pself</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">self</span> <span class="ow">or</span> <span class="n">ptarget</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">target</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3953</span>     <span class="k">return</span> <span class="n">pself</span><span class="o">.</span><span class="n">get_indexer</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3954</span>         <span class="n">ptarget</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span>
-<span class="g g-Whitespace">   </span><span class="mi">3955</span>     <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">3957</span> <span class="k">if</span> <span class="n">is_dtype_equal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">target</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3958</span>     <span class="c1"># Only call equals if we have same dtype to avoid inference/casting</span>
-<span class="g g-Whitespace">   </span><span class="mi">3959</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">target</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">intp</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3961</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">is_dtype_equal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">target</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_interval_dtype</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3962</span>     <span class="bp">self</span><span class="o">.</span><span class="n">dtype</span>
-<span class="g g-Whitespace">   </span><span class="mi">3963</span> <span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3964</span>     <span class="c1"># IntervalIndex gets special treatment for partial-indexing</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/internals/managers.py:2067,</span> in <span class="ni">SingleBlockManager.external_values</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2065</span> <span class="k">def</span> <span class="nf">external_values</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2066</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;The array that Series.values returns&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">2067</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_block</span><span class="o">.</span><span class="n">external_values</span><span class="p">()</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/indexes/base.py:5549,</span> in <span class="ni">Index.equals</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5545</span> <span class="k">if</span> <span class="n">is_extension_array_dtype</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5546</span>     <span class="c1"># All EA-backed Index subclasses override equals</span>
-<span class="g g-Whitespace">   </span><span class="mi">5547</span>     <span class="k">return</span> <span class="n">other</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">5549</span> <span class="k">return</span> <span class="n">array_equivalent</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_values</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">_values</span><span class="p">)</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/_libs/properties.pyx:36,</span> in <span class="ni">pandas._libs.properties.CachedProperty.__get__</span><span class="nt">()</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/dtypes/missing.py:527,</span> in <span class="ni">array_equivalent</span><span class="nt">(left, right, strict_nan, dtype_equal)</span>
-<span class="g g-Whitespace">    </span><span class="mi">521</span> <span class="c1"># Slow path when we allow comparing different dtypes.</span>
-<span class="g g-Whitespace">    </span><span class="mi">522</span> <span class="c1"># Object arrays can contain None, NaN and NaT.</span>
-<span class="g g-Whitespace">    </span><span class="mi">523</span> <span class="c1"># string dtypes must be come to this path for NumPy 1.7.1 compat</span>
-<span class="g g-Whitespace">    </span><span class="mi">524</span> <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s2">&quot;OSU&quot;</span> <span class="ow">or</span> <span class="n">right</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">kind</span> <span class="ow">in</span> <span class="s2">&quot;OSU&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">525</span>     <span class="c1"># Note: `in &quot;OSU&quot;` is non-trivially faster than `in [&quot;O&quot;, &quot;S&quot;, &quot;U&quot;]`</span>
-<span class="g g-Whitespace">    </span><span class="mi">526</span>     <span class="c1">#  or `in (&quot;O&quot;, &quot;S&quot;, &quot;U&quot;)`</span>
-<span class="ne">--&gt; </span><span class="mi">527</span>     <span class="k">return</span> <span class="n">_array_equivalent_object</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">strict_nan</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">529</span> <span class="c1"># NaNs can occur in float and complex arrays.</span>
-<span class="g g-Whitespace">    </span><span class="mi">530</span> <span class="k">if</span> <span class="n">is_float_dtype</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="ow">or</span> <span class="n">is_complex_dtype</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
-
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/dtypes/missing.py:572,</span> in <span class="ni">_array_equivalent_object</span><span class="nt">(left, right, strict_nan)</span>
-<span class="g g-Whitespace">    </span><span class="mi">565</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">strict_nan</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">566</span>     <span class="c1"># isna considers NaN and None to be equivalent.</span>
-<span class="g g-Whitespace">    </span><span class="mi">568</span>     <span class="k">if</span> <span class="n">left</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="s2">&quot;F_CONTIGUOUS&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="n">right</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="s2">&quot;F_CONTIGUOUS&quot;</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>         <span class="c1"># we can improve performance by doing a copy-free ravel</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span>         <span class="c1"># e.g. in frame_methods.Equals.time_frame_nonunique_equal</span>
-<span class="g g-Whitespace">    </span><span class="mi">571</span>         <span class="c1">#  if we transposed the frames</span>
-<span class="ne">--&gt; </span><span class="mi">572</span>         <span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">573</span>         <span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="n">ravel</span><span class="p">(</span><span class="s2">&quot;K&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="k">return</span> <span class="n">lib</span><span class="o">.</span><span class="n">array_equivalent_object</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span>         <span class="n">ensure_object</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">ravel</span><span class="p">()),</span> <span class="n">ensure_object</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">ravel</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="p">)</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.11/site-packages/pandas/core/internals/managers.py:2009,</span> in <span class="ni">SingleBlockManager._block</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2006</span> <span class="k">def</span> <span class="nf">_post_setstate</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2007</span>     <span class="k">pass</span>
+<span class="ne">-&gt; </span><span class="mi">2009</span> <span class="nd">@cache_readonly</span>
+<span class="g g-Whitespace">   </span><span class="mi">2010</span> <span class="k">def</span> <span class="nf">_block</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Block</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2011</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">2013</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">   </span><span class="mi">2014</span> <span class="k">def</span> <span class="nf">_blknos</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -846,6 +807,7 @@ independent.</p></li>
 <ol class="simple">
 <li><p>What test would you use to determine whether or not a pixel is tuned at all? After discussing with me, implement this change in your code?</p>
 <ul class="simple">
+<li><p>This does not need to be a rigorous statistical test (though it could be).</p></li>
 <li><p>How will you indicate “not tuned” in the return value from your function?</p></li>
 </ul>
 </li>
