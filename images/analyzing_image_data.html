@@ -562,6 +562,10 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="analyzing-image-data">
 <h1>Analyzing Image data<a class="headerlink" href="#analyzing-image-data" title="Permalink to this headline">#</a></h1>
 <p>In this session, we’ll continue our analysis of orientation and motion tuning in the calcium imaging sample from mouse V1. Our first step will be to refactor our current tuning analysis into a function, making it easier to swap out our method for determining preferred orientation while keeping the rest of our code the same (aka, the <a class="reference external" href="https://en.wikipedia.org/wiki/Strategy_pattern">strategy pattern</a>). The second step will be to write code that calculates tuning across the entire image.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>In this lesson, we will only be considering the simplest type of analysis — analyzing images at the pixel level. For any serious analysis, you would want to use packages like <a class="reference external" href="https://www.suite2p.org">Suite2p</a> or <a class="reference external" href="https://caiman.readthedocs.io/en/master/">CaImAn</a> that detect regions of interest (ROIs), typically cell bodies, and extract their time courses.</p>
+</div>
 <section id="tuning-curves-refactoring">
 <h2>Tuning curves: refactoring<a class="headerlink" href="#tuning-curves-refactoring" title="Permalink to this headline">#</a></h2>
 <p>Before we start, let’s clean up our code:</p>
@@ -643,7 +647,11 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/analyzing_image_data_5_0.svg" src="../_images/analyzing_image_data_5_0.svg" /></div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3309/4206281072.py:8: MatplotlibDeprecationWarning: The get_cmap function was deprecated in Matplotlib 3.7 and will be removed two minor releases later. Use ``matplotlib.colormaps[name]`` or ``matplotlib.colormaps.get_cmap(obj)`` instead.
+  cmap = cm.get_cmap(&#39;jet&#39;, orientations.shape[0])
+</pre></div>
+</div>
+<img alt="../_images/analyzing_image_data_5_1.svg" src="../_images/analyzing_image_data_5_1.svg" /></div>
 </div>
 <p>For the rest of this exercise, we’ll be improving our methods of calculating and plotting the pixel tuning.</p>
 </section>
