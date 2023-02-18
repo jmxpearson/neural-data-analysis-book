@@ -29,5 +29,5 @@ chapters:
 - file: debugging/intro.md
   sections:
     - file: debugging/debugging_i.ipynb
-    # - file: debugging/debugging_ii.ipynb
+    - file: debugging/debugging_ii.ipynb
 - file: bibliography.md
