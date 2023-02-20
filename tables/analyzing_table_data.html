@@ -609,125 +609,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>subject</th>
-      <th>session</th>
-      <th>state</th>
-      <th>reward</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>87</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-      <td>32</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-      <td>86</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1</td>
-      <td>2</td>
-      <td>1</td>
-      <td>103</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1</td>
-      <td>2</td>
-      <td>2</td>
-      <td>33</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>638</th>
-      <td>32</td>
-      <td>7</td>
-      <td>1</td>
-      <td>65</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>639</th>
-      <td>32</td>
-      <td>7</td>
-      <td>2</td>
-      <td>56</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>640</th>
-      <td>32</td>
-      <td>7</td>
-      <td>3</td>
-      <td>44</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>641</th>
-      <td>32</td>
-      <td>8</td>
-      <td>1</td>
-      <td>117</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>642</th>
-      <td>32</td>
-      <td>8</td>
-      <td>3</td>
-      <td>77</td>
-      <td>F</td>
-    </tr>
-  </tbody>
-</table>
-<p>643 rows × 5 columns</p>
-</div></div></div>
 </div>
 <p>Now, let’s make a couple of plots to see how dividing trials by state suggests effects that might be present in the data:</p>
 <div class="admonition-exercise admonition">
@@ -758,8 +639,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/analyzing_table_data_8_0.svg" src="../_images/analyzing_table_data_8_0.svg" /></div>
 </div>
 </section>
 </section>
@@ -805,37 +684,6 @@ reward \sim state * sex
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:                 reward   R-squared:                       0.309
-Model:                            OLS   Adj. R-squared:                  0.306
-Method:                 Least Squares   F-statistic:                     95.16
-Date:                Sat, 18 Feb 2023   Prob (F-statistic):           6.41e-51
-Time:                        16:27:04   Log-Likelihood:                -3264.5
-No. Observations:                 643   AIC:                             6537.
-Df Residuals:                     639   BIC:                             6555.
-Df Model:                           3                                         
-Covariance Type:            nonrobust                                         
-=================================================================================
-                    coef    std err          t      P&gt;|t|      [0.025      0.975]
----------------------------------------------------------------------------------
-Intercept       100.0311      2.902     34.473      0.000      94.333     105.729
-C(state)[T.2]   -46.1535      3.765    -12.259      0.000     -53.546     -38.761
-C(state)[T.3]   -57.8245      3.667    -15.769      0.000     -65.025     -50.624
-sex[T.M]         -5.2647      3.085     -1.706      0.088     -11.323       0.794
-==============================================================================
-Omnibus:                       25.442   Durbin-Watson:                   2.456
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               27.461
-Skew:                           0.500   Prob(JB):                     1.09e-06
-Kurtosis:                       3.152   Cond. No.                         3.97
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -844,39 +692,6 @@ Notes:
 <span class="n">md</span> <span class="o">=</span> <span class="n">smf</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="s2">&quot;reward ~ C(state) * sex&quot;</span><span class="p">,</span> <span class="n">rwd_by_state</span><span class="p">)</span>
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                            OLS Regression Results                            
-==============================================================================
-Dep. Variable:                 reward   R-squared:                       0.335
-Model:                            OLS   Adj. R-squared:                  0.330
-Method:                 Least Squares   F-statistic:                     64.15
-Date:                Sat, 18 Feb 2023   Prob (F-statistic):           3.27e-54
-Time:                        16:27:04   Log-Likelihood:                -3252.1
-No. Observations:                 643   AIC:                             6516.
-Df Residuals:                     637   BIC:                             6543.
-Df Model:                           5                                         
-Covariance Type:            nonrobust                                         
-==========================================================================================
-                             coef    std err          t      P&gt;|t|      [0.025      0.975]
-------------------------------------------------------------------------------------------
-Intercept                 91.7920      3.419     26.847      0.000      85.078      98.506
-C(state)[T.2]            -29.4406      4.985     -5.905      0.000     -39.230     -19.651
-C(state)[T.3]            -48.7349      5.060     -9.631      0.000     -58.672     -38.798
-sex[T.M]                  11.0205      4.807      2.293      0.022       1.581      20.460
-C(state)[T.2]:sex[T.M]   -37.1350      7.450     -4.985      0.000     -51.764     -22.506
-C(state)[T.3]:sex[T.M]   -18.0470      7.206     -2.504      0.013     -32.198      -3.896
-==============================================================================
-Omnibus:                       17.212   Durbin-Watson:                   2.435
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.070
-Skew:                           0.410   Prob(JB):                     0.000119
-Kurtosis:                       3.029   Cond. No.                         8.96
-==============================================================================
-
-Notes:
-[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
 </pre></div>
 </div>
 </div>
@@ -935,34 +750,6 @@ reward = \beta_0 + \beta_{sex} * sex + \beta_{state} * state + \beta_{int} sex *
                  <span class="p">)</span>
 <span class="n">mdf</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;lbfgs&#39;</span><span class="p">,</span> <span class="n">maxiter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mdf</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               Mixed Linear Model Regression Results
-====================================================================
-Model:                MixedLM     Dependent Variable:     reward    
-No. Observations:     643         Method:                 REML      
-No. Groups:           32          Scale:                  1384.8025 
-Min. group size:      12          Log-Likelihood:         -3241.9555
-Max. group size:      24          Converged:              Yes       
-Mean group size:      20.1                                          
---------------------------------------------------------------------
-                        Coef.  Std.Err.   z    P&gt;|z|  [0.025  0.975]
---------------------------------------------------------------------
-Intercept               92.156    3.796 24.274 0.000  84.715  99.597
-C(state)[T.2]          -29.289    4.866 -6.020 0.000 -38.825 -19.753
-C(state)[T.3]          -47.769    4.959 -9.633 0.000 -57.488 -38.050
-sex[T.M]                10.656    5.342  1.995 0.046   0.187  21.126
-C(state)[T.2]:sex[T.M] -37.621    7.304 -5.151 0.000 -51.936 -23.306
-C(state)[T.3]:sex[T.M] -18.270    7.047 -2.593 0.010 -32.082  -4.459
-subject Var             45.099    0.722                             
-session Var             61.766                                      
-====================================================================
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba-root/envs/book/lib/python3.11/site-packages/statsmodels/regression/mixed_linear_model.py:2261: ConvergenceWarning: The Hessian matrix at the estimated parameter values is not positive definite.
-  warnings.warn(msg, ConvergenceWarning)
 </pre></div>
 </div>
 </div>
