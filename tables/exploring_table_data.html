@@ -249,6 +249,23 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../models/intro.html">
+   Modeling neural data
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../models/fitting_basic_models.html">
+     Fitting basic models
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../bibliography.html">
    Bibliography
@@ -753,11 +770,106 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>left</th>
+      <th>right</th>
+      <th>choice</th>
+      <th>reward</th>
+      <th>state</th>
+      <th>RT</th>
+      <th>retrieval</th>
+      <th>initiation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.945</td>
+      <td>0.000</td>
+      <td>2.387</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.787</td>
+      <td>1.717</td>
+      <td>1.248</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.235</td>
+      <td>0.000</td>
+      <td>0.000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.026</td>
+      <td>0.000</td>
+      <td>4.393</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.977</td>
+      <td>1.603</td>
+      <td>1.959</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get column names without printing</span>
 <span class="n">dat</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;left&#39;, &#39;right&#39;, &#39;choice&#39;, &#39;reward&#39;, &#39;state&#39;, &#39;RT&#39;, &#39;retrieval&#39;,
+       &#39;initiation&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -791,6 +903,8 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/exploring_table_data_9_0.svg" src="../_images/exploring_table_data_9_0.svg" /></div>
 </div>
 <div class="toggle docutils container">
 <p>If the mice <em>knew</em> the values, they would choose whichever is maximal at a given time. If they <em>don’t</em> know the values of each option, they need to estimate them, and explore when it’s likely another option is better. (Actually, calculating the optimal strategy in situations like this is a surprisingly rich mathematical problem.)</p>
@@ -808,6 +922,8 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/exploring_table_data_11_0.svg" src="../_images/exploring_table_data_11_0.svg" /></div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
@@ -819,6 +935,8 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/exploring_table_data_12_0.svg" src="../_images/exploring_table_data_12_0.svg" /></div>
 </div>
 </section>
 </section>
@@ -874,6 +992,209 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>trial</th>
+      <th>left</th>
+      <th>right</th>
+      <th>choice</th>
+      <th>reward</th>
+      <th>state</th>
+      <th>RT</th>
+      <th>retrieval</th>
+      <th>initiation</th>
+      <th>session</th>
+      <th>subject</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.945</td>
+      <td>0.000</td>
+      <td>2.387</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.787</td>
+      <td>1.717</td>
+      <td>1.248</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.235</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.026</td>
+      <td>0.000</td>
+      <td>4.393</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.977</td>
+      <td>1.603</td>
+      <td>1.959</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>295</th>
+      <td>295</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1.527</td>
+      <td>1.174</td>
+      <td>0.001</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>296</th>
+      <td>296</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2.611</td>
+      <td>1.319</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>297</th>
+      <td>297</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1.996</td>
+      <td>1.042</td>
+      <td>0.904</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>298</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1.826</td>
+      <td>1.181</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>299</td>
+      <td>0.5</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>3</td>
+      <td>1.324</td>
+      <td>1.098</td>
+      <td>0.314</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+    </tr>
+  </tbody>
+</table>
+<p>300 rows × 12 columns</p>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -934,6 +1255,212 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of chunks: 256
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>trial</th>
+      <th>left</th>
+      <th>right</th>
+      <th>choice</th>
+      <th>reward</th>
+      <th>state</th>
+      <th>RT</th>
+      <th>retrieval</th>
+      <th>initiation</th>
+      <th>session</th>
+      <th>subject</th>
+      <th>sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3.806</td>
+      <td>1.185</td>
+      <td>1.556</td>
+      <td>6</td>
+      <td>30</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1.433</td>
+      <td>1.207</td>
+      <td>1.208</td>
+      <td>6</td>
+      <td>30</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1.438</td>
+      <td>0.000</td>
+      <td>1.314</td>
+      <td>6</td>
+      <td>30</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1.295</td>
+      <td>1.267</td>
+      <td>12.026</td>
+      <td>6</td>
+      <td>30</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0.7</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>1.752</td>
+      <td>1.352</td>
+      <td>0.272</td>
+      <td>6</td>
+      <td>30</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70773</th>
+      <td>295</td>
+      <td>0.9</td>
+      <td>0.4</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6.408</td>
+      <td>1.585</td>
+      <td>0.001</td>
+      <td>4</td>
+      <td>25</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>70774</th>
+      <td>296</td>
+      <td>0.8</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>6.889</td>
+      <td>1.565</td>
+      <td>0.000</td>
+      <td>4</td>
+      <td>25</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>70775</th>
+      <td>297</td>
+      <td>0.8</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3.872</td>
+      <td>1.579</td>
+      <td>0.001</td>
+      <td>4</td>
+      <td>25</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>70776</th>
+      <td>298</td>
+      <td>0.8</td>
+      <td>0.5</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5.094</td>
+      <td>1.619</td>
+      <td>0.000</td>
+      <td>4</td>
+      <td>25</td>
+      <td>F</td>
+    </tr>
+    <tr>
+      <th>70777</th>
+      <td>299</td>
+      <td>0.8</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5.671</td>
+      <td>1.472</td>
+      <td>0.000</td>
+      <td>4</td>
+      <td>25</td>
+      <td>F</td>
+    </tr>
+  </tbody>
+</table>
+<p>70778 rows × 12 columns</p>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -959,6 +1486,99 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>mean</th>
+      <th>var</th>
+    </tr>
+    <tr>
+      <th>subject</th>
+      <th>session</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1</th>
+      <th>1</th>
+      <td>2.722293</td>
+      <td>10.967707</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.345410</td>
+      <td>376.833405</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.266718</td>
+      <td>4.629838</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.041440</td>
+      <td>4.596238</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>4.084762</td>
+      <td>8.817232</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th rowspan="5" valign="top">32</th>
+      <th>4</th>
+      <td>3.608547</td>
+      <td>31.459340</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.572577</td>
+      <td>9.237009</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>3.565250</td>
+      <td>31.661808</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3.583887</td>
+      <td>30.114035</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>2.970333</td>
+      <td>9.691184</td>
+    </tr>
+  </tbody>
+</table>
+<p>256 rows × 2 columns</p>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -1001,6 +1621,136 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>trial</th>
+      <th>left</th>
+      <th>right</th>
+      <th>choice</th>
+      <th>reward</th>
+      <th>state</th>
+      <th>RT</th>
+      <th>retrieval</th>
+      <th>initiation</th>
+      <th>session</th>
+      <th>subject</th>
+      <th>sex</th>
+      <th>cumulative_reward_session</th>
+      <th>cumulative_reward_lifetime</th>
+      <th>cumulative_trial</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>48858</th>
+      <td>0</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.945</td>
+      <td>0.000</td>
+      <td>2.387</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>48859</th>
+      <td>1</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.787</td>
+      <td>1.717</td>
+      <td>1.248</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48860</th>
+      <td>2</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.235</td>
+      <td>0.000</td>
+      <td>0.000</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>48861</th>
+      <td>3</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2.026</td>
+      <td>0.000</td>
+      <td>4.393</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>48862</th>
+      <td>4</td>
+      <td>0.5</td>
+      <td>0.6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.977</td>
+      <td>1.603</td>
+      <td>1.959</td>
+      <td>1</td>
+      <td>1</td>
+      <td>M</td>
+      <td>2</td>
+      <td>2</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -1034,6 +1784,8 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/exploring_table_data_26_0.svg" src="../_images/exploring_table_data_26_0.svg" /></div>
 </div>
 </section>
 </section>
