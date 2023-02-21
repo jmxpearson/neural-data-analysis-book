@@ -30,4 +30,7 @@ chapters:
   sections:
     - file: debugging/debugging_i.ipynb
     - file: debugging/debugging_ii.ipynb
+- file: models/intro.md
+  sections:
+    - file: models/fitting_basic_models.ipynb
 - file: bibliography.md
