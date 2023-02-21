@@ -33,4 +33,5 @@ chapters:
 - file: models/intro.md
   sections:
     - file: models/fitting_basic_models.ipynb
+    - file: models/simulation_models.ipynb
 - file: bibliography.md
