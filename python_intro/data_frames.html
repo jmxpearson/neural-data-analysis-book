@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Introduction to Data Frames &#8212; Introduction to Neural Data Analysis</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,56 +62,98 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_intro/data_frames';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Point process data" href="../point_process/intro.html" />
     <link rel="prev" title="Working with Array Data" href="arrays.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Neural Data Analysis</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to Neural Data Analysis</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -109,514 +163,313 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
-   Introduction to Python
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="data_structures.html">
-     Basic Programming in Python: Data Structures
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="nested_data_structures.html">
-     Case Study: Nested Data Structures
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="patterns.html">
-     Patterns, functions, and duck typing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="arrays.html">
-     Working with Array Data
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Introduction to Data Frames
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../point_process/intro.html">
-   Point process data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/theory.html">
-     A little point process theory
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/estimation.html">
-     Estimating Poisson processes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/psth.html">
-     The peri-stimulus time histogram
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/exploring_spike_data.html">
-     Exploring neural spike data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/analyzing_spike_data.html">
-     Analyzing neural spike data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../tables/intro.html">
-   Tabular data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../tables/exploring_table_data.html">
-     Exploring table data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../tables/analyzing_table_data.html">
-     Analyzing table data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../images/intro.html">
-   Image data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../images/exploring_image_data.html">
-     Exploring Image data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../images/analyzing_image_data.html">
-     Analyzing Image data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../debugging/intro.html">
-   Debugging
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../debugging/debugging_i.html">
-     Debugging Practicum I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../debugging/debugging_ii.html">
-     Debugging Practicum II
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../models/intro.html">
-   Modeling neural data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../models/fitting_basic_models.html">
-     Fitting basic models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../models/simulation_models.html">
-     Fitting simulated models
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Introduction to Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_structures.html">Basic Programming in Python: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nested_data_structures.html">Case Study: Nested Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patterns.html">Patterns, functions, and duck typing</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Working with Array Data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to Data Frames</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/theory.html">A little point process theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/estimation.html">Estimating Poisson processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/psth.html">The peri-stimulus time histogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/exploring_spike_data.html">Exploring neural spike data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/analyzing_spike_data.html">Analyzing neural spike data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tables/exploring_table_data.html">Exploring table data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tables/analyzing_table_data.html">Analyzing table data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../images/exploring_image_data.html">Exploring Image data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../images/analyzing_image_data.html">Analyzing Image data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_i.html">Debugging Practicum I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_ii.html">Debugging Practicum II</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/fitting_basic_models.html">Fitting basic models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/simulation_models.html">Fitting simulated models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/data_frames.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/data_frames.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/data_frames.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/data_frames.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmxpearson/neural-data-analysis-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpython_intro/data_frames.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/python_intro/data_frames.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jmxpearson/neural-data-analysis-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpython_intro/data_frames.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/python_intro/data_frames.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#case-study-diamonds">
-   Case Study: Diamonds
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-the-data">
-   Loading the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examining-the-data">
-   Examining the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-fine-art-of-looking-things-up">
-   The fine art of looking things up
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-the-most-of-data-frames">
-   Making the most of data frames
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting">
-   Plotting
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solution">
-     Solution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#final-thoughts">
-   Final thoughts:
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Introduction to Data Frames</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#case-study-diamonds">
-   Case Study: Diamonds
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-the-data">
-   Loading the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#examining-the-data">
-   Examining the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-fine-art-of-looking-things-up">
-   The fine art of looking things up
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#making-the-most-of-data-frames">
-   Making the most of data frames
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting">
-   Plotting
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solution">
-     Solution
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#final-thoughts">
-   Final thoughts:
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Data Frames</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-diamonds">Case Study: Diamonds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-data">Loading the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-the-data">Examining the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fine-art-of-looking-things-up">The fine art of looking things up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-most-of-data-frames">Making the most of data frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-thoughts">Final thoughts:</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-data-frames">
-<h1>Introduction to Data Frames<a class="headerlink" href="#introduction-to-data-frames" title="Permalink to this headline">#</a></h1>
+<h1>Introduction to Data Frames<a class="headerlink" href="#introduction-to-data-frames" title="Permalink to this heading">#</a></h1>
 <section id="case-study-diamonds">
-<h2>Case Study: Diamonds<a class="headerlink" href="#case-study-diamonds" title="Permalink to this headline">#</a></h2>
+<h2>Case Study: Diamonds<a class="headerlink" href="#case-study-diamonds" title="Permalink to this heading">#</a></h2>
 <p>In this lesson, we’re going to do some basic data analyses on a set of diamond characteristics and prices. First, we’ll download the data:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -628,7 +481,7 @@ title="Print to PDF"
 <p>If you open the file in a text editor, you will see that it consists of a bunch of lines, each with a bunch of commas. This is a csv or “comma-separated value” file. Every row represents a record (like a row in a spreadsheet), with each cell separated by a comma. The first row has the same format, but the entries are the names of the columns.</p>
 </section>
 <section id="loading-the-data">
-<h2>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this headline">#</a></h2>
+<h2>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this heading">#</a></h2>
 <p>We would like to load this data into Python. But to do so, we will need to tell Python that we want to get some tools ready. These tools are located in a library (the Python term is “module”) called Pandas. So we do this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -657,7 +510,7 @@ title="Print to PDF"
 <p>We will see this pattern repeatedly in Python. We use names like <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> to tell Python to perform actions. As we saw <a class="reference internal" href="patterns.html#patterns-functions"><span class="std std-ref">before</span></a> we supply variables or pieces of information (“arguments”) needed as inputs by Python to perform those actions.</p>
 </section>
 <section id="examining-the-data">
-<h2>Examining the data<a class="headerlink" href="#examining-the-data" title="Permalink to this headline">#</a></h2>
+<h2>Examining the data<a class="headerlink" href="#examining-the-data" title="Permalink to this heading">#</a></h2>
 <p>So what did we accomplish?</p>
 <p>The easiest way to see is by asking Python to print the variable to the screen. We can do this with</p>
 <div class="cell tag_output_scroll docutils container">
@@ -681,17 +534,17 @@ title="Print to PDF"
 65375  65376    RD  10.13   I     D      FL     EX       EX   62.5   57.0   
 
       fluorescence  price per carat       culet  length to width ratio  \
-0            Faint              864        None                   1.65   
-1             None             1057        None                   1.46   
-2            Faint              812        None                   1.40   
-3            Faint              818        None                   1.52   
-4             None             1235        None                   1.42   
+0            Faint              864         NaN                   1.65   
+1              NaN             1057         NaN                   1.46   
+2            Faint              812         NaN                   1.40   
+3            Faint              818         NaN                   1.52   
+4              NaN             1235         NaN                   1.42   
 ...            ...              ...         ...                    ...   
-65371         None           130112  Very Small                   1.01   
-65372         None            66420        None                   1.01   
-65373        Faint           110662        None                   1.01   
-65374         None           150621        None                   1.00   
-65375         None           256150        None                   1.00   
+65371          NaN           130112  Very Small                   1.01   
+65372          NaN            66420         NaN                   1.01   
+65373        Faint           110662         NaN                   1.01   
+65374          NaN           150621         NaN                   1.00   
+65375          NaN           256150         NaN                   1.00   
 
              delivery date      price  
 0       \nJul&amp;amp;nbsp;8\n      242.0  
@@ -794,7 +647,7 @@ title="Print to PDF"
       <td>50.0</td>
       <td>Faint</td>
       <td>864</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.65</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>242.0</td>
@@ -811,9 +664,9 @@ title="Print to PDF"
       <td>G</td>
       <td>67.5</td>
       <td>51.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1057</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.46</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>243.0</td>
@@ -832,7 +685,7 @@ title="Print to PDF"
       <td>65.0</td>
       <td>Faint</td>
       <td>812</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.40</td>
       <td>\nJul&amp;amp;nbsp;12\n</td>
       <td>276.0</td>
@@ -851,7 +704,7 @@ title="Print to PDF"
       <td>55.0</td>
       <td>Faint</td>
       <td>818</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.52</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>278.0</td>
@@ -868,9 +721,9 @@ title="Print to PDF"
       <td>VG</td>
       <td>55.0</td>
       <td>58.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1235</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.42</td>
       <td>\nJul&amp;amp;nbsp;14\n</td>
       <td>284.0</td>
@@ -938,7 +791,7 @@ title="Print to PDF"
       <td>50.0</td>
       <td>Faint</td>
       <td>864</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.65</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>242.0</td>
@@ -955,9 +808,9 @@ title="Print to PDF"
       <td>G</td>
       <td>67.5</td>
       <td>51.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1057</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.46</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>243.0</td>
@@ -976,7 +829,7 @@ title="Print to PDF"
       <td>65.0</td>
       <td>Faint</td>
       <td>812</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.40</td>
       <td>\nJul&amp;amp;nbsp;12\n</td>
       <td>276.0</td>
@@ -995,7 +848,7 @@ title="Print to PDF"
       <td>55.0</td>
       <td>Faint</td>
       <td>818</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.52</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>278.0</td>
@@ -1012,9 +865,9 @@ title="Print to PDF"
       <td>VG</td>
       <td>55.0</td>
       <td>58.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1235</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.42</td>
       <td>\nJul&amp;amp;nbsp;14\n</td>
       <td>284.0</td>
@@ -1031,9 +884,9 @@ title="Print to PDF"
       <td>G</td>
       <td>71.6</td>
       <td>55.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1248</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.95</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>287.0</td>
@@ -1050,9 +903,9 @@ title="Print to PDF"
       <td>G</td>
       <td>79.0</td>
       <td>76.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>781</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.03</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>289.0</td>
@@ -1071,7 +924,7 @@ title="Print to PDF"
       <td>65.0</td>
       <td>Faint</td>
       <td>1204</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.34</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>289.0</td>
@@ -1088,9 +941,9 @@ title="Print to PDF"
       <td>VG</td>
       <td>62.0</td>
       <td>59.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1204</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.01</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>289.0</td>
@@ -1109,7 +962,7 @@ title="Print to PDF"
       <td>61.0</td>
       <td>Medium</td>
       <td>888</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>2.02</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>293.0</td>
@@ -1176,7 +1029,7 @@ title="Print to PDF"
       <td>EX</td>
       <td>60.3</td>
       <td>60.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>120336</td>
       <td>Very Small</td>
       <td>1.01</td>
@@ -1195,7 +1048,7 @@ title="Print to PDF"
       <td>G</td>
       <td>57.9</td>
       <td>59.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>144300</td>
       <td>Slightly Large</td>
       <td>1.20</td>
@@ -1214,7 +1067,7 @@ title="Print to PDF"
       <td>EX</td>
       <td>60.3</td>
       <td>58.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>130112</td>
       <td>Very Small</td>
       <td>1.01</td>
@@ -1233,9 +1086,9 @@ title="Print to PDF"
       <td>EX</td>
       <td>59.2</td>
       <td>59.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>66420</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.01</td>
       <td>\nJul&amp;amp;nbsp;14\n</td>
       <td>1337035.0</td>
@@ -1254,7 +1107,7 @@ title="Print to PDF"
       <td>60.0</td>
       <td>Faint</td>
       <td>110662</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.01</td>
       <td>\nJul&amp;amp;nbsp;12\n</td>
       <td>1366679.0</td>
@@ -1271,9 +1124,9 @@ title="Print to PDF"
       <td>EX</td>
       <td>60.9</td>
       <td>60.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>150621</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.00</td>
       <td>\nJul&amp;amp;nbsp;13\n</td>
       <td>1384207.0</td>
@@ -1290,9 +1143,9 @@ title="Print to PDF"
       <td>EX</td>
       <td>62.5</td>
       <td>57.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>256150</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.00</td>
       <td>\nJul&amp;amp;nbsp;12\n</td>
       <td>2594800.0</td>
@@ -1424,7 +1277,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="the-fine-art-of-looking-things-up">
-<h2>The fine art of looking things up<a class="headerlink" href="#the-fine-art-of-looking-things-up" title="Permalink to this headline">#</a></h2>
+<h2>The fine art of looking things up<a class="headerlink" href="#the-fine-art-of-looking-things-up" title="Permalink to this heading">#</a></h2>
 <p>The Python ecosystem is <em>huge</em>. Nobody knows all the functions for all the libraries. This means that when you start analyzing data in earnest, you will need to learn the parts important for solving your particular problem. Initially, this will be difficult; everything will be new to you. Eventually, though, you develop a conceptual base that will be easy to add to.</p>
 <p>So what should you do in this case? How do we learn more about the functions we’ve used so far?</p>
 <p>First off, let’s figure out what type of object <code class="docutils literal notranslate"><span class="pre">data</span></code> is. Every variable in Python is an object (meaning it has both information and behavior stored inside of it), and every object has a type. We can find this by using the <code class="docutils literal notranslate"><span class="pre">type</span></code> function:</p>
@@ -1489,12 +1342,12 @@ title="Print to PDF"
  &#39;__array__&#39;,
  &#39;__array_priority__&#39;,
  &#39;__array_ufunc__&#39;,
- &#39;__array_wrap__&#39;,
  &#39;__bool__&#39;,
  &#39;__class__&#39;,
  &#39;__contains__&#39;,
  &#39;__copy__&#39;,
  &#39;__dataframe__&#39;,
+ &#39;__dataframe_consortium_standard__&#39;,
  &#39;__deepcopy__&#39;,
  &#39;__delattr__&#39;,
  &#39;__delitem__&#39;,
@@ -1539,6 +1392,7 @@ title="Print to PDF"
  &#39;__new__&#39;,
  &#39;__nonzero__&#39;,
  &#39;__or__&#39;,
+ &#39;__pandas_priority__&#39;,
  &#39;__pos__&#39;,
  &#39;__pow__&#39;,
  &#39;__radd__&#39;,
@@ -1569,20 +1423,19 @@ title="Print to PDF"
  &#39;__xor__&#39;,
  &#39;_accessors&#39;,
  &#39;_accum_func&#39;,
- &#39;_add_numeric_operations&#39;,
- &#39;_agg_by_level&#39;,
  &#39;_agg_examples_doc&#39;,
- &#39;_agg_summary_and_see_also_doc&#39;,
+ &#39;_agg_see_also_doc&#39;,
+ &#39;_align_for_op&#39;,
  &#39;_align_frame&#39;,
  &#39;_align_series&#39;,
  &#39;_append&#39;,
  &#39;_arith_method&#39;,
+ &#39;_arith_method_with_reindex&#39;,
  &#39;_as_manager&#39;,
  &#39;_attrs&#39;,
  &#39;_box_col_values&#39;,
  &#39;_can_fast_transpose&#39;,
  &#39;_check_inplace_and_allows_duplicate_labels&#39;,
- &#39;_check_inplace_setting&#39;,
  &#39;_check_is_chained_assignment_possible&#39;,
  &#39;_check_label_or_level_ambiguity&#39;,
  &#39;_check_setitem_copy&#39;,
@@ -1594,13 +1447,14 @@ title="Print to PDF"
  &#39;_consolidate&#39;,
  &#39;_consolidate_inplace&#39;,
  &#39;_construct_axes_dict&#39;,
- &#39;_construct_axes_from_arguments&#39;,
  &#39;_construct_result&#39;,
  &#39;_constructor&#39;,
+ &#39;_constructor_from_mgr&#39;,
  &#39;_constructor_sliced&#39;,
- &#39;_convert&#39;,
- &#39;_count_level&#39;,
+ &#39;_constructor_sliced_from_mgr&#39;,
+ &#39;_create_data_for_split_and_tight_to_dict&#39;,
  &#39;_data&#39;,
+ &#39;_deprecate_downcast&#39;,
  &#39;_dir_additions&#39;,
  &#39;_dir_deletions&#39;,
  &#39;_dispatch_frame_op&#39;,
@@ -1609,7 +1463,10 @@ title="Print to PDF"
  &#39;_ensure_valid_index&#39;,
  &#39;_find_valid_index&#39;,
  &#39;_flags&#39;,
+ &#39;_flex_arith_method&#39;,
+ &#39;_flex_cmp_method&#39;,
  &#39;_from_arrays&#39;,
+ &#39;_from_mgr&#39;,
  &#39;_get_agg_axis&#39;,
  &#39;_get_axis&#39;,
  &#39;_get_axis_name&#39;,
@@ -1626,6 +1483,8 @@ title="Print to PDF"
  &#39;_get_value&#39;,
  &#39;_getitem_bool_array&#39;,
  &#39;_getitem_multilevel&#39;,
+ &#39;_getitem_nocopy&#39;,
+ &#39;_getitem_slice&#39;,
  &#39;_gotitem&#39;,
  &#39;_hidden_attrs&#39;,
  &#39;_indexed_same&#39;,
@@ -1650,21 +1509,20 @@ title="Print to PDF"
  &#39;_item_cache&#39;,
  &#39;_iter_column_arrays&#39;,
  &#39;_ixs&#39;,
- &#39;_join_compat&#39;,
  &#39;_logical_func&#39;,
  &#39;_logical_method&#39;,
+ &#39;_maybe_align_series_as_frame&#39;,
  &#39;_maybe_cache_changed&#39;,
  &#39;_maybe_update_cacher&#39;,
  &#39;_metadata&#39;,
  &#39;_mgr&#39;,
  &#39;_min_count_stat_function&#39;,
  &#39;_needs_reindex_multi&#39;,
+ &#39;_pad_or_backfill&#39;,
  &#39;_protect_consolidate&#39;,
  &#39;_reduce&#39;,
  &#39;_reduce_axis1&#39;,
  &#39;_reindex_axes&#39;,
- &#39;_reindex_columns&#39;,
- &#39;_reindex_index&#39;,
  &#39;_reindex_multi&#39;,
  &#39;_reindex_with_indexers&#39;,
  &#39;_rename&#39;,
@@ -1689,15 +1547,15 @@ title="Print to PDF"
  &#39;_setitem_array&#39;,
  &#39;_setitem_frame&#39;,
  &#39;_setitem_slice&#39;,
+ &#39;_shift_with_freq&#39;,
+ &#39;_should_reindex_frame_op&#39;,
  &#39;_slice&#39;,
- &#39;_stat_axis&#39;,
- &#39;_stat_axis_name&#39;,
- &#39;_stat_axis_number&#39;,
+ &#39;_sliced_from_mgr&#39;,
  &#39;_stat_function&#39;,
  &#39;_stat_function_ddof&#39;,
- &#39;_take&#39;,
  &#39;_take_with_is_copy&#39;,
  &#39;_to_dict_of_blocks&#39;,
+ &#39;_to_latex_via_styler&#39;,
  &#39;_typ&#39;,
  &#39;_update_inplace&#39;,
  &#39;_validate_dtype&#39;,
@@ -1712,7 +1570,6 @@ title="Print to PDF"
  &#39;align&#39;,
  &#39;all&#39;,
  &#39;any&#39;,
- &#39;append&#39;,
  &#39;apply&#39;,
  &#39;applymap&#39;,
  &#39;asfreq&#39;,
@@ -1798,7 +1655,6 @@ title="Print to PDF"
  &#39;isnull&#39;,
  &#39;item&#39;,
  &#39;items&#39;,
- &#39;iteritems&#39;,
  &#39;iterrows&#39;,
  &#39;itertuples&#39;,
  &#39;join&#39;,
@@ -1809,9 +1665,8 @@ title="Print to PDF"
  &#39;last_valid_index&#39;,
  &#39;le&#39;,
  &#39;loc&#39;,
- &#39;lookup&#39;,
  &#39;lt&#39;,
- &#39;mad&#39;,
+ &#39;map&#39;,
  &#39;mask&#39;,
  &#39;max&#39;,
  &#39;mean&#39;,
@@ -1874,7 +1729,6 @@ title="Print to PDF"
  &#39;shift&#39;,
  &#39;size&#39;,
  &#39;skew&#39;,
- &#39;slice_shift&#39;,
  &#39;sort_index&#39;,
  &#39;sort_values&#39;,
  &#39;squeeze&#39;,
@@ -1948,19 +1802,19 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method sort_values in module pandas.core.frame:
 
-sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#39;bool | list[bool] | tuple[bool, ...]&#39; = True, inplace: &#39;bool&#39; = False, kind: &#39;str&#39; = &#39;quicksort&#39;, na_position: &#39;str&#39; = &#39;last&#39;, ignore_index: &#39;bool&#39; = False, key: &#39;ValueKeyFunc&#39; = None) -&gt; &#39;DataFrame | None&#39; method of pandas.core.frame.DataFrame instance
+sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#39;bool | list[bool] | tuple[bool, ...]&#39; = True, inplace: &#39;bool&#39; = False, kind: &#39;SortKind&#39; = &#39;quicksort&#39;, na_position: &#39;str&#39; = &#39;last&#39;, ignore_index: &#39;bool&#39; = False, key: &#39;ValueKeyFunc | None&#39; = None) -&gt; &#39;DataFrame | None&#39; method of pandas.core.frame.DataFrame instance
     Sort by the values along either axis.
-    
+
     Parameters
     ----------
-            by : str or list of str
-                Name or list of names to sort by.
-    
-                - if `axis` is 0 or `&#39;index&#39;` then `by` may contain index
-                  levels and/or column labels.
-                - if `axis` is 1 or `&#39;columns&#39;` then `by` may contain column
-                  levels and/or index labels.
-    axis : {0 or &#39;index&#39;, 1 or &#39;columns&#39;}, default 0
+    by : str or list of str
+        Name or list of names to sort by.
+
+        - if `axis` is 0 or `&#39;index&#39;` then `by` may contain index
+          levels and/or column labels.
+        - if `axis` is 1 or `&#39;columns&#39;` then `by` may contain column
+          levels and/or index labels.
+    axis : &quot;{0 or &#39;index&#39;, 1 or &#39;columns&#39;}&quot;, default 0
          Axis to be sorted.
     ascending : bool or list of bool, default True
          Sort ascending vs. descending. Specify list for multiple sort
@@ -1978,9 +1832,6 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
          end.
     ignore_index : bool, default False
          If True, the resulting axis will be labeled 0, 1, …, n - 1.
-    
-         .. versionadded:: 1.0.0
-    
     key : callable, optional
         Apply the key function to the values
         before sorting. This is similar to the `key` argument in the
@@ -1988,19 +1839,17 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
         this `key` function should be *vectorized*. It should expect a
         ``Series`` and return a Series with the same shape as the input.
         It will be applied to each column in `by` independently.
-    
-        .. versionadded:: 1.1.0
-    
+
     Returns
     -------
     DataFrame or None
         DataFrame with sorted values or None if ``inplace=True``.
-    
+
     See Also
     --------
     DataFrame.sort_index : Sort a DataFrame by the index.
     Series.sort_values : Similar method for a Series.
-    
+
     Examples
     --------
     &gt;&gt;&gt; df = pd.DataFrame({
@@ -2017,9 +1866,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
     3  NaN     8     4    D
     4    D     7     2    e
     5    C     4     3    F
-    
+
     Sort by col1
-    
+
     &gt;&gt;&gt; df.sort_values(by=[&#39;col1&#39;])
       col1  col2  col3 col4
     0    A     2     0    a
@@ -2028,9 +1877,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
     5    C     4     3    F
     4    D     7     2    e
     3  NaN     8     4    D
-    
+
     Sort by multiple columns
-    
+
     &gt;&gt;&gt; df.sort_values(by=[&#39;col1&#39;, &#39;col2&#39;])
       col1  col2  col3 col4
     1    A     1     1    B
@@ -2039,9 +1888,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
     5    C     4     3    F
     4    D     7     2    e
     3  NaN     8     4    D
-    
+
     Sort Descending
-    
+
     &gt;&gt;&gt; df.sort_values(by=&#39;col1&#39;, ascending=False)
       col1  col2  col3 col4
     4    D     7     2    e
@@ -2050,9 +1899,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
     0    A     2     0    a
     1    A     1     1    B
     3  NaN     8     4    D
-    
+
     Putting NAs first
-    
+
     &gt;&gt;&gt; df.sort_values(by=&#39;col1&#39;, ascending=False, na_position=&#39;first&#39;)
       col1  col2  col3 col4
     3  NaN     8     4    D
@@ -2061,9 +1910,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
     2    B     9     9    c
     0    A     2     0    a
     1    A     1     1    B
-    
+
     Sorting with a key function
-    
+
     &gt;&gt;&gt; df.sort_values(by=&#39;col4&#39;, key=lambda col: col.str.lower())
        col1  col2  col3 col4
     0    A     2     0    a
@@ -2072,10 +1921,10 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
     3  NaN     8     4    D
     4    D     7     2    e
     5    C     4     3    F
-    
+
     Natural sort with the key argument,
     using the `natsort &lt;https://github.com/SethMMorton/natsort&gt;` package.
-    
+
     &gt;&gt;&gt; df = pd.DataFrame({
     ...    &quot;time&quot;: [&#39;0hr&#39;, &#39;128hr&#39;, &#39;72hr&#39;, &#39;48hr&#39;, &#39;96hr&#39;],
     ...    &quot;value&quot;: [10, 20, 30, 40, 50]
@@ -2089,8 +1938,8 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
     4   96hr     50
     &gt;&gt;&gt; from natsort import index_natsorted
     &gt;&gt;&gt; df.sort_values(
-    ...    by=&quot;time&quot;,
-    ...    key=lambda x: np.argsort(index_natsorted(df[&quot;time&quot;]))
+    ...     by=&quot;time&quot;,
+    ...     key=lambda x: np.argsort(index_natsorted(df[&quot;time&quot;]))
     ... )
         time  value
     0    0hr     10
@@ -2179,7 +2028,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>50.0</td>
       <td>Faint</td>
       <td>864</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.65</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>242.0</td>
@@ -2196,9 +2045,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>G</td>
       <td>67.5</td>
       <td>51.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1057</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.46</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>243.0</td>
@@ -2217,7 +2066,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>65.0</td>
       <td>Faint</td>
       <td>812</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.40</td>
       <td>\nJul&amp;amp;nbsp;12\n</td>
       <td>276.0</td>
@@ -2236,7 +2085,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>55.0</td>
       <td>Faint</td>
       <td>818</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.52</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>278.0</td>
@@ -2253,9 +2102,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>VG</td>
       <td>55.0</td>
       <td>58.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1235</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.42</td>
       <td>\nJul&amp;amp;nbsp;14\n</td>
       <td>284.0</td>
@@ -2272,9 +2121,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>G</td>
       <td>71.6</td>
       <td>55.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1248</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.95</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>287.0</td>
@@ -2291,9 +2140,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>G</td>
       <td>79.0</td>
       <td>76.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>781</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.03</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>289.0</td>
@@ -2312,7 +2161,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>65.0</td>
       <td>Faint</td>
       <td>1204</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.34</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>289.0</td>
@@ -2329,9 +2178,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>VG</td>
       <td>62.0</td>
       <td>59.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1204</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.01</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>289.0</td>
@@ -2350,7 +2199,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>61.0</td>
       <td>Medium</td>
       <td>888</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>2.02</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>293.0</td>
@@ -2416,9 +2265,9 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>G</td>
       <td>79.0</td>
       <td>76.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>781</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.03</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>289.0</td>
@@ -2437,7 +2286,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>65.0</td>
       <td>Faint</td>
       <td>812</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.40</td>
       <td>\nJul&amp;amp;nbsp;12\n</td>
       <td>276.0</td>
@@ -2456,7 +2305,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>55.0</td>
       <td>Faint</td>
       <td>818</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.52</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>278.0</td>
@@ -2473,7 +2322,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>G</td>
       <td>54.2</td>
       <td>66.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>859</td>
       <td>Slightly Large</td>
       <td>1.37</td>
@@ -2492,7 +2341,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>G</td>
       <td>50.0</td>
       <td>55.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>860</td>
       <td>Small</td>
       <td>1.35</td>
@@ -2513,7 +2362,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>50.0</td>
       <td>Faint</td>
       <td>864</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.65</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>242.0</td>
@@ -2532,7 +2381,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>61.0</td>
       <td>Medium</td>
       <td>888</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>2.02</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>293.0</td>
@@ -2551,7 +2400,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>61.0</td>
       <td>Faint</td>
       <td>938</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.73</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>366.0</td>
@@ -2570,7 +2419,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>68.0</td>
       <td>Faint</td>
       <td>938</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>1.37</td>
       <td>\nJul&amp;amp;nbsp;8\n</td>
       <td>366.0</td>
@@ -2587,7 +2436,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
       <td>G</td>
       <td>64.9</td>
       <td>60.0</td>
-      <td>None</td>
+      <td>NaN</td>
       <td>944</td>
       <td>Small</td>
       <td>1.96</td>
@@ -2601,14 +2450,14 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
 <p>Has the rows in order. (In fact, you can see the original row numbers at the left.)</p>
 <div class="admonition-exercises admonition">
 <p class="admonition-title">Exercises</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>By default, the <code class="docutils literal notranslate"><span class="pre">sort_values</span></code> function sorts in ascending order (lowest to highest). Use Google to figure out how to sort the data in descending order by carat.</p></li>
 <li><p>What happens if we sort by shape instead? What sort order is used?</p></li>
 </ol>
 </div>
 </section>
 <section id="making-the-most-of-data-frames">
-<h2>Making the most of data frames<a class="headerlink" href="#making-the-most-of-data-frames" title="Permalink to this headline">#</a></h2>
+<h2>Making the most of data frames<a class="headerlink" href="#making-the-most-of-data-frames" title="Permalink to this heading">#</a></h2>
 <p>So let’s get down to some real data analysis.</p>
 <p>If we want to know what the columns in our data frame are (if, for instance, there are too many to fit onscreen, or we need the list of them to manipulate), we can do</p>
 <div class="cell docutils container">
@@ -2692,6 +2541,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;__new__&#39;,
  &#39;__nonzero__&#39;,
  &#39;__or__&#39;,
+ &#39;__pandas_priority__&#39;,
  &#39;__pos__&#39;,
  &#39;__pow__&#39;,
  &#39;__radd__&#39;,
@@ -2739,18 +2589,18 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_convert_tolerance&#39;,
  &#39;_data&#39;,
  &#39;_data_cls&#39;,
- &#39;_deprecate_dti_setop&#39;,
- &#39;_deprecated_arg&#39;,
  &#39;_difference&#39;,
  &#39;_difference_compat&#39;,
  &#39;_dir_additions&#39;,
  &#39;_dir_additions_for_owner&#39;,
  &#39;_dir_deletions&#39;,
  &#39;_drop_level_numbers&#39;,
+ &#39;_dti_setop_align_tzs&#39;,
  &#39;_dtype_to_subclass&#39;,
  &#39;_duplicated&#39;,
  &#39;_engine&#39;,
  &#39;_engine_type&#39;,
+ &#39;_engine_types&#39;,
  &#39;_ensure_array&#39;,
  &#39;_filter_indexer_tolerance&#39;,
  &#39;_find_common_type_compat&#39;,
@@ -2762,15 +2612,14 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_format_with_header&#39;,
  &#39;_formatter_func&#39;,
  &#39;_from_join_target&#39;,
- &#39;_get_attributes_dict&#39;,
  &#39;_get_default_index_names&#39;,
  &#39;_get_engine_target&#39;,
  &#39;_get_fill_indexer&#39;,
  &#39;_get_fill_indexer_searchsorted&#39;,
- &#39;_get_grouper_for_level&#39;,
  &#39;_get_indexer&#39;,
  &#39;_get_indexer_non_comparable&#39;,
  &#39;_get_indexer_strict&#39;,
+ &#39;_get_join_target&#39;,
  &#39;_get_level_names&#39;,
  &#39;_get_level_number&#39;,
  &#39;_get_level_values&#39;,
@@ -2778,21 +2627,18 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_get_nearest_indexer&#39;,
  &#39;_get_reconciled_name_object&#39;,
  &#39;_get_string_slice&#39;,
- &#39;_get_values_for_loc&#39;,
  &#39;_getitem_slice&#39;,
  &#39;_hidden_attrs&#39;,
+ &#39;_holds_integer&#39;,
  &#39;_id&#39;,
  &#39;_index_as_unique&#39;,
  &#39;_inner_indexer&#39;,
  &#39;_intersection&#39;,
  &#39;_intersection_via_get_indexer&#39;,
- &#39;_invalid_indexer&#39;,
  &#39;_is_all_dates&#39;,
- &#39;_is_backward_compat_public_numeric_index&#39;,
  &#39;_is_comparable_dtype&#39;,
  &#39;_is_memory_usage_qualified&#39;,
  &#39;_is_multi&#39;,
- &#39;_is_numeric_dtype&#39;,
  &#39;_is_strictly_monotonic_decreasing&#39;,
  &#39;_is_strictly_monotonic_increasing&#39;,
  &#39;_isnan&#39;,
@@ -2821,14 +2667,14 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_no_setting_name&#39;,
  &#39;_outer_indexer&#39;,
  &#39;_raise_if_missing&#39;,
- &#39;_reduce&#39;,
+ &#39;_raise_invalid_indexer&#39;,
+ &#39;_raise_scalar_data_error&#39;,
+ &#39;_references&#39;,
  &#39;_reindex_non_unique&#39;,
  &#39;_rename&#39;,
- &#39;_require_scalar&#39;,
  &#39;_requires_unique_msg&#39;,
  &#39;_reset_cache&#39;,
  &#39;_reset_identity&#39;,
- &#39;_scalar_data_error&#39;,
  &#39;_searchsorted_monotonic&#39;,
  &#39;_set_names&#39;,
  &#39;_shallow_copy&#39;,
@@ -2837,7 +2683,6 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_should_partial_index&#39;,
  &#39;_simple_new&#39;,
  &#39;_sort_levels_monotonic&#39;,
- &#39;_string_data_error&#39;,
  &#39;_summary&#39;,
  &#39;_supports_partial_string_indexing&#39;,
  &#39;_transform_index&#39;,
@@ -2866,12 +2711,12 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;argmin&#39;,
  &#39;argsort&#39;,
  &#39;array&#39;,
- &#39;asi8&#39;,
  &#39;asof&#39;,
  &#39;asof_locs&#39;,
  &#39;astype&#39;,
  &#39;copy&#39;,
  &#39;delete&#39;,
+ &#39;diff&#39;,
  &#39;difference&#39;,
  &#39;drop&#39;,
  &#39;drop_duplicates&#39;,
@@ -2890,29 +2735,25 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;get_level_values&#39;,
  &#39;get_loc&#39;,
  &#39;get_slice_bound&#39;,
- &#39;get_value&#39;,
  &#39;groupby&#39;,
  &#39;has_duplicates&#39;,
  &#39;hasnans&#39;,
  &#39;holds_integer&#39;,
  &#39;identical&#39;,
+ &#39;infer_objects&#39;,
  &#39;inferred_type&#39;,
  &#39;insert&#39;,
  &#39;intersection&#39;,
  &#39;is_&#39;,
- &#39;is_all_dates&#39;,
  &#39;is_boolean&#39;,
  &#39;is_categorical&#39;,
  &#39;is_floating&#39;,
  &#39;is_integer&#39;,
  &#39;is_interval&#39;,
- &#39;is_mixed&#39;,
- &#39;is_monotonic&#39;,
  &#39;is_monotonic_decreasing&#39;,
  &#39;is_monotonic_increasing&#39;,
  &#39;is_numeric&#39;,
  &#39;is_object&#39;,
- &#39;is_type_compatible&#39;,
  &#39;is_unique&#39;,
  &#39;isin&#39;,
  &#39;isna&#39;,
@@ -2936,6 +2777,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;reindex&#39;,
  &#39;rename&#39;,
  &#39;repeat&#39;,
+ &#39;round&#39;,
  &#39;searchsorted&#39;,
  &#39;set_names&#39;,
  &#39;shape&#39;,
@@ -2952,7 +2794,6 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;to_flat_index&#39;,
  &#39;to_frame&#39;,
  &#39;to_list&#39;,
- &#39;to_native_types&#39;,
  &#39;to_numpy&#39;,
  &#39;to_series&#39;,
  &#39;transpose&#39;,
@@ -3175,23 +3016,103 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>item                                  65376
-shape                                    RD
-carat                                 20.13
-cut                                      VG
-color                                     J
-clarity                                VVS2
-polish                                   VG
-symmetry                                 VG
-depth                                  80.0
-table                                 555.0
-fluorescence               Very Strong Blue
-price per carat                      256150
-culet                            Very Small
-length to width ratio                  3.12
-delivery date            \nJul&amp;amp;nbsp;8\n
-price                             2594800.0
-dtype: object
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11298,</span> in <span class="ni">DataFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11290</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">make_doc</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="g g-Whitespace">  </span><span class="mi">11291</span> <span class="k">def</span> <span class="nf">max</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11292</span>     <span class="bp">self</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11296</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11297</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11298</span>     <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11299</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Series</span><span class="p">):</span>
+<span class="g g-Whitespace">  </span><span class="mi">11300</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/generic.py:11976,</span> in <span class="ni">NDFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11969</span> <span class="k">def</span> <span class="nf">max</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11970</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11971</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11974</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11975</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11976</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11977</span>         <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11978</span>         <span class="n">nanops</span><span class="o">.</span><span class="n">nanmax</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11979</span>         <span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11980</span>         <span class="n">skipna</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11981</span>         <span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11982</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11983</span>     <span class="p">)</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/generic.py:11949,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11945</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11947</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">11949</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11950</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">11951</span> <span class="p">)</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11204,</span> in <span class="ni">DataFrame._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11200</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
+<span class="g g-Whitespace">  </span><span class="mi">11202</span> <span class="c1"># After possibly _get_data and transposing, we are now in the</span>
+<span class="g g-Whitespace">  </span><span class="mi">11203</span> <span class="c1">#  simple case where we can use BlockManager.reduce</span>
+<span class="ne">&gt; </span><span class="mi">11204</span> <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">blk_func</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11205</span> <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_constructor_from_mgr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">  </span><span class="mi">11206</span> <span class="k">if</span> <span class="n">out_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">out</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s2">&quot;boolean&quot;</span><span class="p">:</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/internals/managers.py:1459,</span> in <span class="ni">BlockManager.reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1457</span> <span class="n">res_blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1458</span> <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1459</span>     <span class="n">nbs</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1460</span>     <span class="n">res_blocks</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1462</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Index</span><span class="p">([</span><span class="kc">None</span><span class="p">])</span>  <span class="c1"># placeholder</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/internals/blocks.py:377,</span> in <span class="ni">Block.reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">    </span><span class="mi">371</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">372</span> <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">373</span>     <span class="c1"># We will apply the function and reshape the result into a single-row</span>
+<span class="g g-Whitespace">    </span><span class="mi">374</span>     <span class="c1">#  Block with the same mgr_locs; squeezing will be done at a higher level</span>
+<span class="g g-Whitespace">    </span><span class="mi">375</span>     <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="ne">--&gt; </span><span class="mi">377</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">379</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">380</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">result</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11136,</span> in <span class="ni">DataFrame._reduce.&lt;locals&gt;.blk_func</span><span class="nt">(values, axis)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11134</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">result</span><span class="p">])</span>
+<span class="g g-Whitespace">  </span><span class="mi">11135</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11136</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:147,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">147</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:404,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">404</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:1092,</span> in <span class="ni">_nanminmax.&lt;locals&gt;.reduction</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1087</span>     <span class="k">return</span> <span class="n">_na_for_min_count</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1089</span> <span class="n">values</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_get_values</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1090</span>     <span class="n">values</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">fill_value_typ</span><span class="o">=</span><span class="n">fill_value_typ</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span>
+<span class="g g-Whitespace">   </span><span class="mi">1091</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1092</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">meth</span><span class="p">)(</span><span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1093</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_maybe_null_out</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1094</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/numpy/core/_methods.py:41,</span> in <span class="ni">_amax</span><span class="nt">(a, axis, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">def</span> <span class="nf">_amax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span>           <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">umr_maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: &#39;&gt;=&#39; not supported between instances of &#39;str&#39; and &#39;float&#39;
 </pre></div>
 </div>
 </div>
@@ -3206,23 +3127,17 @@ dtype: object
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean for the whole dataset is 9495.346426823298.
-The mean for the subset is 11344.487346603253.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="admonition-exercises admonition">
 <p class="admonition-title">Exercises</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Extract the subset of data with less than 1 carat and cut equal to Very Good (VG). (Hint: the double equals <code class="docutils literal notranslate"><span class="pre">==</span></code> operator tests for equality. The normal equals sign is only for assigning values to variables.)</p></li>
 <li><p>Extract the subset of data with color other than J. (Hint, if you have a query that would return all the rows you <em>don’t</em> want, you can negate that query by putting <code class="docutils literal notranslate"><span class="pre">~</span></code> in front of it.)</p></li>
 </ol>
 </div>
 </section>
 <section id="plotting">
-<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h2>
+<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h2>
 <p>Plotting is just fun. It is also, far and away, the best method for exploring your data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3240,11 +3155,9 @@ The mean for the subset is 11344.487346603253.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frames_85_0.svg" src="../_images/data_frames_85_0.svg" /></div>
 </div>
 <p>Hmm. Let’s fix two things:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Let’s plot the logarithm of price. That will make the scale more meaningful.</p></li>
 <li><p>Let’s suppress the matplotlib.axes business (it’s reflecting the object our plot command returns). We can do this by ending the line with a semicolon.</p></li>
 </ol>
@@ -3260,8 +3173,6 @@ The mean for the subset is 11344.487346603253.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frames_87_0.svg" src="../_images/data_frames_87_0.svg" /></div>
 </div>
 <p>But we can do so much better!</p>
 <div class="cell docutils container">
@@ -3276,8 +3187,6 @@ The mean for the subset is 11344.487346603253.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frames_89_0.svg" src="../_images/data_frames_89_0.svg" /></div>
 </div>
 <p>What about other types of plots?</p>
 <div class="cell docutils container">
@@ -3287,8 +3196,6 @@ The mean for the subset is 11344.487346603253.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frames_91_0.svg" src="../_images/data_frames_91_0.svg" /></div>
 </div>
 <p>That’s a bit ugly. Let’s change plot styles.</p>
 <div class="cell docutils container">
@@ -3308,10 +3215,6 @@ The mean for the subset is 11344.487346603253.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frames_95_0.png" src="../_images/data_frames_95_0.png" />
-<img alt="../_images/data_frames_95_1.png" src="../_images/data_frames_95_1.png" />
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3320,18 +3223,19 @@ The mean for the subset is 11344.487346603253.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frames_96_0.png" src="../_images/data_frames_96_0.png" />
-<img alt="../_images/data_frames_96_1.png" src="../_images/data_frames_96_1.png" />
-</div>
 </div>
 <div class="admonition-challenge-question admonition">
 <p class="admonition-title">Challenge Question:</p>
 <p>You can see from the above above that color and cut don’t seem to matter much to price. Can you think of a reason why this might be?</p>
 </div>
 <section id="solution">
-<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;color&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
@@ -3345,11 +3249,7 @@ The mean for the subset is 11344.487346603253.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/data_frames_99_0.png" src="../_images/data_frames_99_0.png" />
-<img alt="../_images/data_frames_99_1.png" src="../_images/data_frames_99_1.png" />
-<img alt="../_images/data_frames_99_2.png" src="../_images/data_frames_99_2.png" />
-</div>
+</details>
 </div>
 <div class="toggle docutils container">
 <p>As we can see, especially in the last plot, size is strongly correlated with price, but size is <em>inversely</em> correlated with other quality measures. That is, if you’re going to stock a flawed or off-colored diamond, it is almost certainly a big one!</p>
@@ -3357,7 +3257,7 @@ The mean for the subset is 11344.487346603253.
 </section>
 </section>
 <section id="final-thoughts">
-<h2>Final thoughts:<a class="headerlink" href="#final-thoughts" title="Permalink to this headline">#</a></h2>
+<h2>Final thoughts:<a class="headerlink" href="#final-thoughts" title="Permalink to this heading">#</a></h2>
 <p>There are lots and lots and lots of plotting libraries out there.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> is the standard (and most full-featured), but it’s built to look and work like Matlab, which is not known for the prettiness of its plots.</p></li>
@@ -3404,50 +3304,111 @@ The mean for the subset is 11344.487346603253.
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="arrays.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Working with Array Data</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="arrays.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Working with Array Data</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../point_process/intro.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../point_process/intro.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Point process data</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#case-study-diamonds">Case Study: Diamonds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-the-data">Loading the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examining-the-data">Examining the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fine-art-of-looking-things-up">The fine art of looking things up</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#making-the-most-of-data-frames">Making the most of data frames</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-thoughts">Final thoughts:</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By John Pearson<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By John Pearson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

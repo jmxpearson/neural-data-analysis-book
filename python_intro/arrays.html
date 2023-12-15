@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Working with Array Data &#8212; Introduction to Neural Data Analysis</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -52,56 +64,98 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python_intro/arrays';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Introduction to Data Frames" href="data_frames.html" />
     <link rel="prev" title="Patterns, functions, and duck typing" href="patterns.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Neural Data Analysis</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to Neural Data Analysis</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -111,594 +165,319 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
-   Introduction to Python
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="data_structures.html">
-     Basic Programming in Python: Data Structures
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="nested_data_structures.html">
-     Case Study: Nested Data Structures
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="patterns.html">
-     Patterns, functions, and duck typing
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Working with Array Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="data_frames.html">
-     Introduction to Data Frames
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../point_process/intro.html">
-   Point process data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/theory.html">
-     A little point process theory
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/estimation.html">
-     Estimating Poisson processes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/psth.html">
-     The peri-stimulus time histogram
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/exploring_spike_data.html">
-     Exploring neural spike data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/analyzing_spike_data.html">
-     Analyzing neural spike data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../tables/intro.html">
-   Tabular data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../tables/exploring_table_data.html">
-     Exploring table data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../tables/analyzing_table_data.html">
-     Analyzing table data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../images/intro.html">
-   Image data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../images/exploring_image_data.html">
-     Exploring Image data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../images/analyzing_image_data.html">
-     Analyzing Image data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../debugging/intro.html">
-   Debugging
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../debugging/debugging_i.html">
-     Debugging Practicum I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../debugging/debugging_ii.html">
-     Debugging Practicum II
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../models/intro.html">
-   Modeling neural data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../models/fitting_basic_models.html">
-     Fitting basic models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../models/simulation_models.html">
-     Fitting simulated models
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Introduction to Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_structures.html">Basic Programming in Python: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nested_data_structures.html">Case Study: Nested Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="patterns.html">Patterns, functions, and duck typing</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Working with Array Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data_frames.html">Introduction to Data Frames</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/theory.html">A little point process theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/estimation.html">Estimating Poisson processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/psth.html">The peri-stimulus time histogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/exploring_spike_data.html">Exploring neural spike data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/analyzing_spike_data.html">Analyzing neural spike data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tables/exploring_table_data.html">Exploring table data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tables/analyzing_table_data.html">Analyzing table data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../images/exploring_image_data.html">Exploring Image data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../images/analyzing_image_data.html">Analyzing Image data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_i.html">Debugging Practicum I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_ii.html">Debugging Practicum II</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/fitting_basic_models.html">Fitting basic models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/simulation_models.html">Fitting simulated models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/arrays.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/arrays.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/arrays.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/arrays.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmxpearson/neural-data-analysis-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpython_intro/arrays.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/python_intro/arrays.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jmxpearson/neural-data-analysis-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Fpython_intro/arrays.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/python_intro/arrays.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#warm-up-lists">
-   Warm-up: Lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#warm-up-lists-of-lists">
-   Warm-up: Lists of lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-numpy-array">
-   The NumPy array
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-data">
-   Loading data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting-array-data">
-   Plotting array data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#activity-localizing-a-structure">
-   Activity: localizing a structure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solution">
-     Solution:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#array-math">
-   Array Math
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#broadcasting">
-   Broadcasting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#altering-arrays">
-   Altering arrays
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#changing-dimensions">
-   Changing dimensions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#activity-color-images">
-   Activity: Color Images
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-more">
-   Learning More
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bonus-nan-and-missing-data">
-   Bonus: NaN and missing data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ignoring-nans">
-     Ignoring NaNs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#masking-data">
-     Masking Data
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Working with Array Data</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#warm-up-lists">
-   Warm-up: Lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#warm-up-lists-of-lists">
-   Warm-up: Lists of lists
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-numpy-array">
-   The NumPy array
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-data">
-   Loading data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plotting-array-data">
-   Plotting array data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#activity-localizing-a-structure">
-   Activity: localizing a structure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solution">
-     Solution:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#array-math">
-   Array Math
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#broadcasting">
-   Broadcasting
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#altering-arrays">
-   Altering arrays
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#changing-dimensions">
-   Changing dimensions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#activity-color-images">
-   Activity: Color Images
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#learning-more">
-   Learning More
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bonus-nan-and-missing-data">
-   Bonus: NaN and missing data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ignoring-nans">
-     Ignoring NaNs
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#masking-data">
-     Masking Data
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with Array Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-lists">Warm-up: Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-lists-of-lists">Warm-up: Lists of lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-numpy-array">The NumPy array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data">Loading data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-array-data">Plotting array data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-localizing-a-structure">Activity: localizing a structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-math">Array Math</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#altering-arrays">Altering arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-dimensions">Changing dimensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-color-images">Activity: Color Images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-more">Learning More</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-nan-and-missing-data">Bonus: NaN and missing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-nans">Ignoring NaNs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#masking-data">Masking Data</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = [&#39;svg&#39;]
@@ -707,12 +486,12 @@ title="Print to PDF"
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="working-with-array-data">
-<h1>Working with Array Data<a class="headerlink" href="#working-with-array-data" title="Permalink to this headline">#</a></h1>
+<h1>Working with Array Data<a class="headerlink" href="#working-with-array-data" title="Permalink to this heading">#</a></h1>
 <p>It shouldn’t be hard to make the case to a bunch of scientists that arrays are a natural and important data structure for scientific computing. What we discuss less often is why arrays are actually different from data structures we’ve already met and why they help us compute efficiently.</p>
 <p>For these needs the NumPy package provides a general data type, the n-dimensional array or <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>. This data type is so powerful that it forms the basis for most serious numerical processing in Python, including Pandas, SciPy, and image processing packages like scikit-image.</p>
 <p>That’s what we’ll get into today. Specifically, we’ll focus on the syntax needed to get subsets of data into and out of arrays, as well as on basic math, which is the foundation for using the more powerful features available in SciPy.</p>
 <section id="warm-up-lists">
-<h2>Warm-up: Lists<a class="headerlink" href="#warm-up-lists" title="Permalink to this headline">#</a></h2>
+<h2>Warm-up: Lists<a class="headerlink" href="#warm-up-lists" title="Permalink to this heading">#</a></h2>
 <p>Let’s review some facts about lists.</p>
 <p>A list is, well, a list of objects:</p>
 <div class="cell docutils container">
@@ -800,7 +579,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="warm-up-lists-of-lists">
-<h2>Warm-up: Lists of lists<a class="headerlink" href="#warm-up-lists-of-lists" title="Permalink to this headline">#</a></h2>
+<h2>Warm-up: Lists of lists<a class="headerlink" href="#warm-up-lists-of-lists" title="Permalink to this heading">#</a></h2>
 <p>In cases where we have a matrix of data we want to represent, a natural way to do that is as a list of lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -854,7 +633,7 @@ title="Print to PDF"
 <p>The NumPy package resolves these issues by defining the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>…</p>
 </section>
 <section id="the-numpy-array">
-<h2>The NumPy array<a class="headerlink" href="#the-numpy-array" title="Permalink to this headline">#</a></h2>
+<h2>The NumPy array<a class="headerlink" href="#the-numpy-array" title="Permalink to this heading">#</a></h2>
 <p>If we already have a list of lists, NumPy gives us a clear way to convert it to an array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -864,7 +643,7 @@ title="Print to PDF"
 </div>
 </div>
 <p>We’ve not really talked about <code class="docutils literal notranslate"><span class="pre">import</span></code> statements, but I hope you’ve done enough of the reading that this makes sense. Unlike Matlab (but like R), Python requires you to load packages to get specialized functionality. This serves two purposes:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>It keeps the core language small. Python has to do a lot of tasks, from scientific computing to running on very small computing devices with limited memory, and there are times when it’s helpful to not load every possible function.</p></li>
 <li><p>Modules (the name for libraries in Python) also have the benefit of creating “namespaces.” You can think of these like folders: writing <code class="docutils literal notranslate"><span class="pre">np.sort</span></code> looks in the numpy module for a function called <code class="docutils literal notranslate"><span class="pre">sort</span></code>. This is unambiguous, and therefore won’t conflict with any other <code class="docutils literal notranslate"><span class="pre">sort</span></code> function your program has defined. Time and experience have shown that this sort of namespacing, while requiring a few more characters of typing, has a lot of benefits in terms of code readability and sustainability.</p></li>
 </ol>
@@ -952,7 +731,7 @@ title="Print to PDF"
 <p class="admonition-title">Note</p>
 <p>From time to time, it helps to think about how computers work to understand why some types of code go faster.</p>
 <p>For instance, our mental model of a two-dimensional array is as some sort of rectangle with row and column coordinates, but memory on your computer is <em>linearly</em> addressed. That is, the numbers stored in memory are just a big line. Now, for a two-dimensional array, there are two possible (sensible) ways to think about mapping this rectangle to a line:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><strong>Row-major order:</strong> In this scheme, the elements of the array are listed by going across the first row (index 0), then the second row (index 1), and so on until the matrix is completed. Thus, elements indexed <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code> and <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1]</span></code> are located next to each other in memory, while <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">0]</span></code> and <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">0]</span></code> <em>are not</em>. This is the convention in C, Python, and R.</p></li>
 <li><p><strong>Column-major order:</strong> This is the other option, where the first <em>column</em> is contiguous in memory. This is the convention in FORTRAN, Matlab, and Julia.</p></li>
 </ol>
@@ -961,7 +740,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="loading-data">
-<h2>Loading data<a class="headerlink" href="#loading-data" title="Permalink to this headline">#</a></h2>
+<h2>Loading data<a class="headerlink" href="#loading-data" title="Permalink to this heading">#</a></h2>
 <p>But let’s move on to a real example:</p>
 <p>These data are in <code class="docutils literal notranslate"><span class="pre">.npy</span></code> format, which is NumPy’s native array format. Numpy is capable of saving arrays in compressed format (<code class="docutils literal notranslate"><span class="pre">.gz</span></code>) or in plain text (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>) if arrays are 2-dimensional. Bear in mind that NumPy and SciPy can also be used to read in data from other common formats including those used by Matlab.</p>
 <p>Now let’s load the data</p>
@@ -1060,7 +839,7 @@ title="Print to PDF"
 <p>That probably doesn’t seem very helpful. In general, with large arrays, we simply can’t look at all the data. As usual, the way we will address this is by plotting. However, we can’t plot all the dimensions of the array at once…</p>
 </section>
 <section id="plotting-array-data">
-<h2>Plotting array data<a class="headerlink" href="#plotting-array-data" title="Permalink to this headline">#</a></h2>
+<h2>Plotting array data<a class="headerlink" href="#plotting-array-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is also common; pyplot contains most of the common functions</span>
@@ -1096,10 +875,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f19cc558610&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f0cd5b3ee40&gt;
 </pre></div>
 </div>
-<img alt="../_images/arrays_57_1.svg" src="../_images/arrays_57_1.svg" /></div>
+<img alt="../_images/09664b99a7c27bf7b0958c185b3408db4507f138317c19b6551de7f4ea5275b4.svg" src="../_images/09664b99a7c27bf7b0958c185b3408db4507f138317c19b6551de7f4ea5275b4.svg" /></div>
 </div>
 <p>Hmmmm. What if we instead plotted this as an image? (<code class="docutils literal notranslate"><span class="pre">matshow</span></code> is mostly for looking at matrices. The following command is better for visualizing data that are a gridded version of smooth information, like an image. You may often want to try this both ways.)</p>
 <div class="cell docutils container">
@@ -1109,10 +888,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f19cc5c0610&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f0cd5a46750&gt;
 </pre></div>
 </div>
-<img alt="../_images/arrays_59_1.svg" src="../_images/arrays_59_1.svg" /></div>
+<img alt="../_images/ca4513ee45ad25b3cfc42f8f049700e9f0e3ef0601396f4acaf3c3587d9d048d.svg" src="../_images/ca4513ee45ad25b3cfc42f8f049700e9f0e3ef0601396f4acaf3c3587d9d048d.svg" /></div>
 </div>
 <p>Let’s take another slice, this time letting axes 0 and 1 vary:</p>
 <div class="cell docutils container">
@@ -1122,10 +901,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f19cc485750&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f0cd5a2b0b0&gt;
 </pre></div>
 </div>
-<img alt="../_images/arrays_61_1.svg" src="../_images/arrays_61_1.svg" /></div>
+<img alt="../_images/85e519466d9f932cdc49684ca96bdca3a1cb4af18a9224c130c93acab29c1d61.svg" src="../_images/85e519466d9f932cdc49684ca96bdca3a1cb4af18a9224c130c93acab29c1d61.svg" /></div>
 </div>
 <p>And one more…</p>
 <div class="cell docutils container">
@@ -1135,10 +914,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f19cc097fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f0cd483f6b0&gt;
 </pre></div>
 </div>
-<img alt="../_images/arrays_63_1.svg" src="../_images/arrays_63_1.svg" /></div>
+<img alt="../_images/bb8e7e384b90490c831002ce4ae3c9dff70231751ceccb068b1ed34be009d1b3.svg" src="../_images/bb8e7e384b90490c831002ce4ae3c9dff70231751ceccb068b1ed34be009d1b3.svg" /></div>
 </div>
 <p>So the array in question is actually a 3d image! And by fixing one of the coordinate dimensions of the array, we have reduced the 3d image to a 2d image. Note also a few important conventions:</p>
 <ul class="simple">
@@ -1148,7 +927,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="activity-localizing-a-structure">
-<h2>Activity: localizing a structure<a class="headerlink" href="#activity-localizing-a-structure" title="Permalink to this headline">#</a></h2>
+<h2>Activity: localizing a structure<a class="headerlink" href="#activity-localizing-a-structure" title="Permalink to this heading">#</a></h2>
 <p>The orbitofrontal cortex is an area of the brain known to be involved in a large number of cognitive functions, particularly related to reward and decision making. Suppose you perform a study and find a large BOLD (blood oxygenation level-dependent) signal response at coordinates (50, 85, 25).</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
@@ -1172,9 +951,14 @@ title="Print to PDF"
 </ul>
 </div>
 <section id="solution">
-<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
+<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cc</span> <span class="o">=</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span> 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> 
@@ -1189,16 +973,23 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f19cc47d3d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f0cd44f4fb0&gt;
 </pre></div>
 </div>
-<img alt="../_images/arrays_69_1.svg" src="../_images/arrays_69_1.svg" /></div>
+<img alt="../_images/f779e5fe23242d3f9424b2ba79714bf63819fd9f29b118ef8eae0947ac21abf9.svg" src="../_images/f779e5fe23242d3f9424b2ba79714bf63819fd9f29b118ef8eae0947ac21abf9.svg" /></div>
+</details>
 </div>
 </section>
 </section>
 <section id="array-math">
-<h2>Array Math<a class="headerlink" href="#array-math" title="Permalink to this headline">#</a></h2>
+<h2>Array Math<a class="headerlink" href="#array-math" title="Permalink to this heading">#</a></h2>
 <p>The benefit of storing data in arrays is not merely that it makes organizing multidimensional data easier. DataFrames have many more advantages in this way and automate many powerful transformations. Instead, arrays are primarily useful to us because they make numerical operations easier.</p>
 <p>Consider, for example, the following array</p>
 <div class="cell docutils container">
@@ -1255,7 +1046,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="broadcasting">
-<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">#</a></h2>
+<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this heading">#</a></h2>
 <p>But NumPy is much smarter than that. If we create two more arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1339,7 +1130,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="altering-arrays">
-<h2>Altering arrays<a class="headerlink" href="#altering-arrays" title="Permalink to this headline">#</a></h2>
+<h2>Altering arrays<a class="headerlink" href="#altering-arrays" title="Permalink to this heading">#</a></h2>
 <p>Clearly, another thing we might want to do to our arrays is change their entries. In the case of changing single entries, this is pretty easy to do:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1462,7 +1253,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="changing-dimensions">
-<h2>Changing dimensions<a class="headerlink" href="#changing-dimensions" title="Permalink to this headline">#</a></h2>
+<h2>Changing dimensions<a class="headerlink" href="#changing-dimensions" title="Permalink to this heading">#</a></h2>
 <p>Finally, there are times when you would like to change which dimension corresponds to rows and which to columns (for instance, flipping an image around the diagonal). In the 2d case, this is equivalent to matrix transposition:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1503,7 +1294,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="activity-color-images">
-<h2>Activity: Color Images<a class="headerlink" href="#activity-color-images" title="Permalink to this headline">#</a></h2>
+<h2>Activity: Color Images<a class="headerlink" href="#activity-color-images" title="Permalink to this heading">#</a></h2>
 <p>On computers, the simplest type of color image encoding is an M x N x 3 array. This represents an M x N image where each of the final dimensions represents a unique color channel (red, green, and blue). Matplotlib understands this, and will handle this automatically.</p>
 <p>To start, download any png file from the internet and save it to your working directory. (You may try using a <code class="docutils literal notranslate"><span class="pre">.jpg</span></code> or other file formats, but they are not guaranteed to work.) Then use <code class="docutils literal notranslate"><span class="pre">imread</span></code> and <code class="docutils literal notranslate"><span class="pre">imshow</span></code> to display it in the notebook like so:</p>
 <div class="cell tag_remove-output docutils container">
@@ -1525,7 +1316,7 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(153, 128, 3)
 </pre></div>
 </div>
-<img alt="../_images/arrays_108_1.svg" src="../_images/arrays_108_1.svg" /></div>
+<img alt="../_images/5271d16f4ee3ffe30c574eea469fe3922829732bc529b0150d34dd779fd3935c.svg" src="../_images/5271d16f4ee3ffe30c574eea469fe3922829732bc529b0150d34dd779fd3935c.svg" /></div>
 </div>
 <p>Now use what you’ve learned about arrays to adjust the red-green-blue color balance of the image.</p>
 <div class="cell docutils container">
@@ -1537,7 +1328,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/arrays_110_0.svg" src="../_images/arrays_110_0.svg" /></div>
+<img alt="../_images/8b9765c5d238dc031595cdc48d744728598e2697637ceb44ba33ab86095cd08e.svg" src="../_images/8b9765c5d238dc031595cdc48d744728598e2697637ceb44ba33ab86095cd08e.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1548,7 +1339,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/arrays_111_0.svg" src="../_images/arrays_111_0.svg" /></div>
+<img alt="../_images/1eaa784ca20399a60f4fff966fee2a7c835079b0392839141b85981db6cd293b.svg" src="../_images/1eaa784ca20399a60f4fff966fee2a7c835079b0392839141b85981db6cd293b.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1557,7 +1348,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/arrays_112_0.svg" src="../_images/arrays_112_0.svg" /></div>
+<img alt="../_images/e8ba84552ecbdea727bfdbbc5fc417642f293d1e4b6a318552f56ef5a6663fad.svg" src="../_images/e8ba84552ecbdea727bfdbbc5fc417642f293d1e4b6a318552f56ef5a6663fad.svg" /></div>
 </div>
 <p>I used to have an example where we assigned, e.g.,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">img3</span> <span class="o">=</span> <span class="n">img</span>
@@ -1566,7 +1357,7 @@ title="Print to PDF"
 <p>assigned as in the cell above, and showed that the original image changed. Apparently <a class="reference external" href="https://stackoverflow.com/questions/39554660/np-arrays-being-immutable-assignment-destination-is-read-only">you can no longer do that</a>.</p>
 <div class="admonition-bonus-exercises admonition">
 <p class="admonition-title">Bonus Exercises</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Can you flip the image horizontally?</p></li>
 <li><p>Can you rotate the image <span class="math notranslate nohighlight">\(90^\circ\)</span>?</p></li>
 </ol>
@@ -1574,7 +1365,7 @@ title="Print to PDF"
 <p>If you’re interested in learning more about images in Matplotlib, you can read the tutorial <a class="reference external" href="http://matplotlib.org/users/image_tutorial.html">here</a>.</p>
 </section>
 <section id="learning-more">
-<h2>Learning More<a class="headerlink" href="#learning-more" title="Permalink to this headline">#</a></h2>
+<h2>Learning More<a class="headerlink" href="#learning-more" title="Permalink to this heading">#</a></h2>
 <p>NumPy is a powerful library, with incredibly flexible syntax, but for beginners, the code can be a little cryptic. Some suggested reading:</p>
 <ul class="simple">
 <li><p>An extensive tutorial on NumPy is available <a class="reference external" href="https://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial">here</a>.</p></li>
@@ -1582,7 +1373,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="bonus-nan-and-missing-data">
-<h2>Bonus: NaN and missing data<a class="headerlink" href="#bonus-nan-and-missing-data" title="Permalink to this headline">#</a></h2>
+<h2>Bonus: NaN and missing data<a class="headerlink" href="#bonus-nan-and-missing-data" title="Permalink to this heading">#</a></h2>
 <p>If you analyze data for any amount of time, you will have to deal with missing data. Sometimes data are lost — subjects withdraw, files are lost, or a given condition was not run for a particular session — and in that case, we would like a way to indicate that a matrix of data has missing entries.</p>
 <p>Other times, we have data, but some quantity we calculate turns out to be ill-defined. For instance, we might want to standardize our data, subtracting the mean and dividing by the standard deviation (this results in data with mean 0 and standard deviation 1 — a convenient thing to have).</p>
 <p>But what if we only have one data point? In this case the standard deviation of that data set is 0, and division by 0 is undefined.</p>
@@ -1600,9 +1391,9 @@ title="Print to PDF"
 nan
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3752/3629404404.py:1: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3800/3629404404.py:1: RuntimeWarning: divide by zero encountered in divide
   print(np.array([1., np.inf, -7, 0]) / 0.0)
-/tmp/ipykernel_3752/3629404404.py:1: RuntimeWarning: invalid value encountered in divide
+/tmp/ipykernel_3800/3629404404.py:1: RuntimeWarning: invalid value encountered in divide
   print(np.array([1., np.inf, -7, 0]) / 0.0)
 </pre></div>
 </div>
@@ -1640,7 +1431,7 @@ nan
 </div>
 </div>
 <section id="ignoring-nans">
-<h3>Ignoring NaNs<a class="headerlink" href="#ignoring-nans" title="Permalink to this headline">#</a></h3>
+<h3>Ignoring NaNs<a class="headerlink" href="#ignoring-nans" title="Permalink to this heading">#</a></h3>
 <p>Something that often happens is that we want to ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s in our data. Perhaps we want to take a mean that does not take into account any of these undefined entries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1666,7 +1457,7 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/arrays_129_0.svg" src="../_images/arrays_129_0.svg" /></div>
+<img alt="../_images/d775cc9934c3eb96e9a5d6dcca28ca9745cff976918a71b82aa633e28a7d895f.svg" src="../_images/d775cc9934c3eb96e9a5d6dcca28ca9745cff976918a71b82aa633e28a7d895f.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1676,11 +1467,11 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/arrays_130_0.svg" src="../_images/arrays_130_0.svg" /></div>
+<img alt="../_images/e90e750ea93eeddf96b18bdf1de64e8b982b46fa1de771eec2aee03dfb8fb568.svg" src="../_images/e90e750ea93eeddf96b18bdf1de64e8b982b46fa1de771eec2aee03dfb8fb568.svg" /></div>
 </div>
 </section>
 <section id="masking-data">
-<h3>Masking Data<a class="headerlink" href="#masking-data" title="Permalink to this headline">#</a></h3>
+<h3>Masking Data<a class="headerlink" href="#masking-data" title="Permalink to this heading">#</a></h3>
 <p>Masking is a way of adding additional information to an <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> to tell Python that a given entry is missing or otherwise invalid. We might want to do this for several reasons:</p>
 <ul class="simple">
 <li><p>The data are legitimately missing, as in the examples above.</p></li>
@@ -1700,7 +1491,7 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/arrays_133_0.svg" src="../_images/arrays_133_0.svg" /></div>
+<img alt="../_images/5a84794d75eeaa7181bbb4f9840bbbfc67b63af3ed01d9a143288ee21892ccce.svg" src="../_images/5a84794d75eeaa7181bbb4f9840bbbfc67b63af3ed01d9a143288ee21892ccce.svg" /></div>
 </div>
 <p>Let’s say all the readings below 0 are invalid. We can fix this. The <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/maskedarray.html"><code class="docutils literal notranslate"><span class="pre">numpy.ma</span></code> module</a> contains functions relating to masked arrays, including functions to mask data inside a range, greater or less than a given value, or where a particular truth condition is met:</p>
 <div class="cell docutils container">
@@ -1733,7 +1524,7 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/arrays_138_0.svg" src="../_images/arrays_138_0.svg" /></div>
+<img alt="../_images/4484d6c693095050910bca574cdd83de87c2f674e8c3467c7c242a92f04ed76f.svg" src="../_images/4484d6c693095050910bca574cdd83de87c2f674e8c3467c7c242a92f04ed76f.svg" /></div>
 </div>
 <p>This is potentially most useful with images. For instance, we can mask our brain images from earlier by constructing the mask ourselves:</p>
 <div class="cell docutils container">
@@ -1776,7 +1567,7 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/arrays_143_0.svg" src="../_images/arrays_143_0.svg" /></div>
+<img alt="../_images/b32a097cc5e97548d34049ca2a168ac4f65f285ffacb37955b58c2c8cb163de8.svg" src="../_images/b32a097cc5e97548d34049ca2a168ac4f65f285ffacb37955b58c2c8cb163de8.svg" /></div>
 </div>
 <p>In this way, we can restrict our analysis to a particular region of interest inside the image; all other data will be ignored. In real MRI analysis, the mask is often based on anatomy, so that we restrict our data to a particular brain structure or structures.</p>
 </section>
@@ -1803,50 +1594,121 @@ nan
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="patterns.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Patterns, functions, and duck typing</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="patterns.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Patterns, functions, and duck typing</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="data_frames.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="data_frames.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Introduction to Data Frames</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-lists">Warm-up: Lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#warm-up-lists-of-lists">Warm-up: Lists of lists</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-numpy-array">The NumPy array</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-data">Loading data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-array-data">Plotting array data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-localizing-a-structure">Activity: localizing a structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-math">Array Math</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#broadcasting">Broadcasting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#altering-arrays">Altering arrays</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-dimensions">Changing dimensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activity-color-images">Activity: Color Images</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#learning-more">Learning More</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-nan-and-missing-data">Bonus: NaN and missing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ignoring-nans">Ignoring NaNs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#masking-data">Masking Data</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By John Pearson<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By John Pearson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

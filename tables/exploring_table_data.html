@@ -1,48 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" data-content_root="" >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Exploring table data &#8212; Introduction to Neural Data Analysis</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -50,56 +62,98 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tables/exploring_table_data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Analyzing table data" href="analyzing_table_data.html" />
     <link rel="prev" title="Tabular data" href="intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
     
-    <div class="container-fluid" id="banner"></div>
-
     
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
 
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Introduction to Neural Data Analysis</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Introduction to Neural Data Analysis</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -109,624 +163,335 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../python_intro/intro.html">
-   Introduction to Python
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../python_intro/data_structures.html">
-     Basic Programming in Python: Data Structures
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../python_intro/nested_data_structures.html">
-     Case Study: Nested Data Structures
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../python_intro/patterns.html">
-     Patterns, functions, and duck typing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../python_intro/arrays.html">
-     Working with Array Data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../python_intro/data_frames.html">
-     Introduction to Data Frames
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../point_process/intro.html">
-   Point process data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/theory.html">
-     A little point process theory
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/estimation.html">
-     Estimating Poisson processes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/psth.html">
-     The peri-stimulus time histogram
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/exploring_spike_data.html">
-     Exploring neural spike data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../point_process/analyzing_spike_data.html">
-     Analyzing neural spike data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="intro.html">
-   Tabular data
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Exploring table data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="analyzing_table_data.html">
-     Analyzing table data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../images/intro.html">
-   Image data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../images/exploring_image_data.html">
-     Exploring Image data
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../images/analyzing_image_data.html">
-     Analyzing Image data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../debugging/intro.html">
-   Debugging
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../debugging/debugging_i.html">
-     Debugging Practicum I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../debugging/debugging_ii.html">
-     Debugging Practicum II
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../models/intro.html">
-   Modeling neural data
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../models/fitting_basic_models.html">
-     Fitting basic models
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../models/simulation_models.html">
-     Fitting simulated models
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../bibliography.html">
-   Bibliography
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python_intro/intro.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python_intro/data_structures.html">Basic Programming in Python: Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_intro/nested_data_structures.html">Case Study: Nested Data Structures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_intro/patterns.html">Patterns, functions, and duck typing</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../python_intro/arrays.html">Working with Array Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../python_intro/data_frames.html">Introduction to Data Frames</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/theory.html">A little point process theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/estimation.html">Estimating Poisson processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/psth.html">The peri-stimulus time histogram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/exploring_spike_data.html">Exploring neural spike data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../point_process/analyzing_spike_data.html">Analyzing neural spike data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Tabular data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Exploring table data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="analyzing_table_data.html">Analyzing table data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../images/exploring_image_data.html">Exploring Image data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../images/analyzing_image_data.html">Analyzing Image data</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_i.html">Debugging Practicum I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_ii.html">Debugging Practicum II</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/fitting_basic_models.html">Fitting basic models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/simulation_models.html">Fitting simulated models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/tables/exploring_table_data.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/tables/exploring_table_data.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_binder.svg">
   </span>
-<span class="headerbtn__text-container">Binder</span>
+<span class="btn__text-container">Binder</span>
 </a>
-
-      </li>
+</li>
       
-      <li>
-        <a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/tables/exploring_table_data.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/tables/exploring_table_data.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jmxpearson/neural-data-analysis-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Ftables/exploring_table_data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tables/exploring_table_data.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/jmxpearson/neural-data-analysis-book"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
 
-      </li>
-      
-      <li>
-        <a href="https://github.com/jmxpearson/neural-data-analysis-book/issues/new?title=Issue%20on%20page%20%2Ftables/exploring_table_data.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../_sources/tables/exploring_table_data.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-table-data">
-   Loading table data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solution">
-     Solution:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#first-plots">
-   First plots
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Solution:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#combining-data-sets">
-   Combining data sets
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tidying-data">
-     Tidying data
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       Solution:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-in-multiple-directories">
-     Data in multiple directories
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
-       Solution:
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#group-level-statistics">
-   Group-level statistics
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     Solution:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-plotting-redux">
-   Exploratory plotting redux
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-final-tidy">
-     The final tidy
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
-       Solution:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-did-we-do-all-this">
-     Why did we do all this?
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
-       Solution:
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Exploring table data</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#loading-table-data">
-   Loading table data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#solution">
-     Solution:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#first-plots">
-   First plots
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     Solution:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#combining-data-sets">
-   Combining data sets
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tidying-data">
-     Tidying data
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id7">
-       Solution:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-in-multiple-directories">
-     Data in multiple directories
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
-       Solution:
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#group-level-statistics">
-   Group-level statistics
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id9">
-     Solution:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-plotting-redux">
-   Exploratory plotting redux
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-final-tidy">
-     The final tidy
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id10">
-       Solution:
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#why-did-we-do-all-this">
-     Why did we do all this?
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id11">
-       Solution:
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exploring table data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-table-data">Loading table data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-plots">First plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-data-sets">Combining data sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tidying-data">Tidying data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-in-multiple-directories">Data in multiple directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Solution:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-level-statistics">Group-level statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-plotting-redux">Exploratory plotting redux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-tidy">The final tidy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-did-we-do-all-this">Why did we do all this?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Solution:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="exploring-table-data">
-<span id="id1"></span><h1>Exploring table data<a class="headerlink" href="#exploring-table-data" title="Permalink to this headline">#</a></h1>
+<span id="id1"></span><h1>Exploring table data<a class="headerlink" href="#exploring-table-data" title="Permalink to this heading">#</a></h1>
 <p>This week, our in-class work will focus on two topics in tandem. First, we’ll be getting practice with handling real-world tabular data using Pandas. Second, we’ll be thinking about how we deal with sex differences in neuroscience and sex as a biological variable.</p>
 <p>Let’s tackle those in reverse. Since 2016, NIH has required that its projects properly account for <a class="reference external" href="https://orwh.od.nih.gov/sex-gender/nih-policy-sex-biological-variable">sex as a biological variable</a> in research designs. To grossly oversimplify, if females make up 50% of the human population we hope to benefit, you need to have a strong reason for only using only a single sex (usually males) in your study. Of course, there are such reasons (some courtship behaviors, maternal behavior), but the purpose of the policy is to move researchers away from viewing “male” as a biological default.</p>
 <p>As several papers have pointed out (e.g. <span id="id2">Shansky and Murphy [<a class="reference internal" href="../bibliography.html#id6" title="Rebecca M Shansky and Anne Z Murphy. Considering sex as a biological variable will require a global shift in science culture. Nature neuroscience, 24(4):457–464, 2021.">2021</a>]</span>) this will require a shift in thinking. Not only because it’s typical to treat female physiology as more complicated <span id="id3">[<a class="reference internal" href="../bibliography.html#id7" title="Rebecca M Shansky. Are hormones a “female problem” for animal research? Science, 364(6443):825–826, 2019.">Shansky, 2019</a>]</span> but because underpowered or misinterpreted studies on sex differences have been used to reinforce stereotypes <span id="id4">[<a class="reference internal" href="../bibliography.html#id8" title="Nicola M Grissom and Teresa M Reyes. Let’s call the whole thing off: evaluating gender and sex differences in executive function. Neuropsychopharmacology, 44(1):86–96, 2019.">Grissom and Reyes, 2019</a>]</span>. For this reason, it’s important to think in a methodologically rigorous way about how we investigate sex differences, even when they’re not the primary aim of our research.</p>
@@ -749,21 +514,26 @@ mv cleaned\ up\ restless\ final\ data data
 </div>
 <p>The files are in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder, with one subfolder for each session. Animals 1–16 are male, 17–32 female. Our goal for today will be to aggregate all this data into a single tidy data frame that we can use to perform some exploratory plotting.</p>
 <section id="loading-table-data">
-<h2>Loading table data<a class="headerlink" href="#loading-table-data" title="Permalink to this headline">#</a></h2>
+<h2>Loading table data<a class="headerlink" href="#loading-table-data" title="Permalink to this heading">#</a></h2>
 <p>The most common format for storing tabular data is in comma-separated
 value or <code class="docutils literal notranslate"><span class="pre">.csv</span></code> format, in which each line of the file contains a row of
 the table, with columns separated by commas. Often, the first line of the
 file lists the column names, also separated by commas.</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Start by loading the data for a single session and a single animal into Pandas. This can be done via the <code class="docutils literal notranslate"><span class="pre">pandas.read_csv</span></code> function. Note that the first column of the <code class="docutils literal notranslate"><span class="pre">csv</span></code> file is an index, so you might want to provide the <code class="docutils literal notranslate"><span class="pre">index_col=0</span></code> keyword argument.</p></li>
 <li><p>Print the first 5 rows of the table. What are the column names? What is a way to find this out without printing the table directly (i.e., what if you had to find this out within a function)?</p></li>
 </ol>
 </div>
 <section id="solution">
-<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this headline">#</a></h3>
+<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pandas package</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -863,8 +633,14 @@ file lists the column names, also separated by commas.</p>
   </tbody>
 </table>
 </div></div></div>
+</details>
 </div>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get column names without printing</span>
 <span class="n">dat</span><span class="o">.</span><span class="n">columns</span>
@@ -878,23 +654,29 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
 <section id="first-plots">
-<h2>First plots<a class="headerlink" href="#first-plots" title="Permalink to this headline">#</a></h2>
+<h2>First plots<a class="headerlink" href="#first-plots" title="Permalink to this heading">#</a></h2>
 <p>As we did last week, let’s try out some ideas on this small chunk of data by making plots.</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">left</span></code> and <code class="docutils literal notranslate"><span class="pre">right</span></code> columns list the probability reward for nosepokes to the left and right targets on each trial. Plot the values of both of these over time. What would the optimal strategy for the mice be in this situation if they knew this information? How should this change if they <em>don’t</em> know the values?</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">choice</span></code> variable is coded <code class="docutils literal notranslate"><span class="pre">1</span></code> for a left choice and <code class="docutils literal notranslate"><span class="pre">2</span></code> for a right choice. Make a plot that shows how choices track reward probabilities for the two options. Since choice only has two values, you might want to smooth the series. You can either adopt the convolutional approach we used last week or use the Pandas <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/window.html#window-generic">windowing operations</a>.</p></li>
 <li><p>Plot the cumulative reward earned by the animal as a function of trial in the session.</p></li>
 </ol>
 </div>
 <section id="id6">
-<h3>Solution:<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<h3>Solution:<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = [&#39;svg&#39;]
@@ -909,12 +691,18 @@ file lists the column names, also separated by commas.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/exploring_table_data_9_0.svg" src="../_images/exploring_table_data_9_0.svg" /></div>
+<img alt="../_images/3d5bf1cd9505e3a3111b4c5e18967119f662f3d45e54dbcd4889037a5a0d80bc.svg" src="../_images/3d5bf1cd9505e3a3111b4c5e18967119f662f3d45e54dbcd4889037a5a0d80bc.svg" /></div>
+</details>
 </div>
 <div class="toggle docutils container">
 <p>If the mice <em>knew</em> the values, they would choose whichever is maximal at a given time. If they <em>don’t</em> know the values of each option, they need to estimate them, and explore when it’s likely another option is better. (Actually, calculating the optimal strategy in situations like this is a surprisingly rich mathematical problem.)</p>
 </div>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot choice probability</span>
 
@@ -928,9 +716,15 @@ file lists the column names, also separated by commas.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/exploring_table_data_11_0.svg" src="../_images/exploring_table_data_11_0.svg" /></div>
+<img alt="../_images/df7d3d2db1e7d935fa5e411cdae391c37fe3219e5f356067e80b58a186e83178.svg" src="../_images/df7d3d2db1e7d935fa5e411cdae391c37fe3219e5f356067e80b58a186e83178.svg" /></div>
+</details>
 </div>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot cumulative reward</span>
 
@@ -941,24 +735,25 @@ file lists the column names, also separated by commas.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/exploring_table_data_12_0.svg" src="../_images/exploring_table_data_12_0.svg" /></div>
+<img alt="../_images/0d8f0c3a2f153357e93289d68cd8942b19f4db45d0347ac41ad8b74c201ef398.svg" src="../_images/0d8f0c3a2f153357e93289d68cd8942b19f4db45d0347ac41ad8b74c201ef398.svg" /></div>
+</details>
 </div>
 </section>
 </section>
 <section id="combining-data-sets">
-<h2>Combining data sets<a class="headerlink" href="#combining-data-sets" title="Permalink to this headline">#</a></h2>
+<h2>Combining data sets<a class="headerlink" href="#combining-data-sets" title="Permalink to this heading">#</a></h2>
 <p>With these simple analyses under our belt, we can think about how we want to analyze data for all the animals combined. There are two basic approaches:</p>
 <ul class="simple">
 <li><p>Loop over data sets, applying the same analysis to each one. Then write out the results to disk or hold them all in a list in memory.</p></li>
 <li><p>Combine all the data together into a single <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object that can be easily manipulated for a wide variety of analyses.</p></li>
 </ul>
 <section id="tidying-data">
-<h3>Tidying data<a class="headerlink" href="#tidying-data" title="Permalink to this headline">#</a></h3>
+<h3>Tidying data<a class="headerlink" href="#tidying-data" title="Permalink to this heading">#</a></h3>
 <p>Many data tables are structured with multiple observations in each row, but for many analysis and visualization needs, data are better structured as one observation per row or <a class="reference external" href="https://www.jstatsoft.org/article/view/v059i10">“tidy” data</a>. While not perfect for all purposes, tidy data provides a method for canonicalizing data so that software can focus on transferring to and from a fixed form.</p>
 <p>In Pandas, the key functions for this purpose are <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.melt.html"><code class="docutils literal notranslate"><span class="pre">melt</span></code></a> and <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.stack.html"><code class="docutils literal notranslate"><span class="pre">stack</span></code></a>, along with several others. For a more full-featured approach in R, see <a class="reference external" href="https://www.tidyverse.org">tidyverse</a> and the comparison <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_r.html">here</a>.</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Given that each <code class="docutils literal notranslate"><span class="pre">csv</span></code> file contains data from one session from one animal, what additional columns do we need to put the final <em>combined</em> data frame into tidy format?</p></li>
 <li><p>Write code that performs this conversion for <em>a single dataset</em>:</p>
 <ul class="simple">
@@ -971,8 +766,13 @@ file lists the column names, also separated by commas.</p>
 </ol>
 </div>
 <section id="id7">
-<h4>Solution:<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+<h4>Solution:<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add columns to make the dataframe tidy</span>
 <span class="c1"># we need columns for session and subject</span>
@@ -1200,16 +1000,17 @@ file lists the column names, also separated by commas.</p>
 </table>
 <p>300 rows × 12 columns</p>
 </div></div></div>
+</details>
 </div>
 </section>
 </section>
 <section id="data-in-multiple-directories">
-<h3>Data in multiple directories<a class="headerlink" href="#data-in-multiple-directories" title="Permalink to this headline">#</a></h3>
+<h3>Data in multiple directories<a class="headerlink" href="#data-in-multiple-directories" title="Permalink to this heading">#</a></h3>
 <p>Now that we can load and add needed information to each data chunk, we have to think about how to systematically go through subdirectories and load data. For this, we’ll use the <code class="docutils literal notranslate"><span class="pre">walk</span></code> function from the <code class="docutils literal notranslate"><span class="pre">os</span></code> module, which takes a directory name as input and returns a generator we can loop over. Our overall strategy will be to walk through the directory, loading all the <code class="docutils literal notranslate"><span class="pre">csv</span></code> files, process each one, hold the results in a list, and use <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html"><code class="docutils literal notranslate"><span class="pre">concat</span></code></a> to combine them into a single data frame at the end.</p>
 <p>This bit can be a little tricky, so we’ll break it down in pieces:</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Write a loop that simply prints the information given by <code class="docutils literal notranslate"><span class="pre">os.walk</span></code> as we go through the data directory. Which of these pieces do you need?</p></li>
 <li><p>We don’t need to process all the directories returned by this process. Write code to prevent us from doing so.</p></li>
 <li><p>Write code that extracts the session number from the directory name. Remember that <code class="docutils literal notranslate"><span class="pre">int</span></code> converts a string to an integer.</p></li>
@@ -1221,8 +1022,13 @@ file lists the column names, also separated by commas.</p>
 </ol>
 </div>
 <section id="id8">
-<h4>Solution:<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<h4>Solution:<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
@@ -1305,11 +1111,11 @@ file lists the column names, also separated by commas.</p>
       <td>1</td>
       <td>1</td>
       <td>2</td>
-      <td>3.806</td>
-      <td>1.185</td>
-      <td>1.556</td>
+      <td>3.160</td>
+      <td>1.108</td>
+      <td>0.531</td>
       <td>6</td>
-      <td>30</td>
+      <td>17</td>
       <td>F</td>
     </tr>
     <tr>
@@ -1317,14 +1123,14 @@ file lists the column names, also separated by commas.</p>
       <td>1</td>
       <td>0.7</td>
       <td>0.6</td>
-      <td>1</td>
-      <td>1</td>
       <td>2</td>
-      <td>1.433</td>
-      <td>1.207</td>
-      <td>1.208</td>
+      <td>1</td>
+      <td>1</td>
+      <td>1.404</td>
+      <td>0.877</td>
+      <td>0.612</td>
       <td>6</td>
-      <td>30</td>
+      <td>17</td>
       <td>F</td>
     </tr>
     <tr>
@@ -1332,14 +1138,14 @@ file lists the column names, also separated by commas.</p>
       <td>2</td>
       <td>0.7</td>
       <td>0.6</td>
-      <td>1</td>
-      <td>0</td>
       <td>2</td>
-      <td>1.438</td>
-      <td>0.000</td>
-      <td>1.314</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2.028</td>
+      <td>0.920</td>
+      <td>0.001</td>
       <td>6</td>
-      <td>30</td>
+      <td>17</td>
       <td>F</td>
     </tr>
     <tr>
@@ -1347,14 +1153,14 @@ file lists the column names, also separated by commas.</p>
       <td>3</td>
       <td>0.7</td>
       <td>0.6</td>
-      <td>1</td>
-      <td>1</td>
       <td>2</td>
-      <td>1.295</td>
-      <td>1.267</td>
-      <td>12.026</td>
+      <td>0</td>
+      <td>1</td>
+      <td>3.805</td>
+      <td>0.000</td>
+      <td>0.000</td>
       <td>6</td>
-      <td>30</td>
+      <td>17</td>
       <td>F</td>
     </tr>
     <tr>
@@ -1365,11 +1171,11 @@ file lists the column names, also separated by commas.</p>
       <td>1</td>
       <td>1</td>
       <td>2</td>
-      <td>1.752</td>
-      <td>1.352</td>
-      <td>0.272</td>
+      <td>1.995</td>
+      <td>0.934</td>
+      <td>0.761</td>
       <td>6</td>
-      <td>30</td>
+      <td>17</td>
       <td>F</td>
     </tr>
     <tr>
@@ -1389,89 +1195,90 @@ file lists the column names, also separated by commas.</p>
     </tr>
     <tr>
       <th>70773</th>
-      <td>295</td>
-      <td>0.9</td>
-      <td>0.4</td>
+      <td>220</td>
+      <td>0.8</td>
+      <td>0.7</td>
       <td>2</td>
+      <td>0</td>
       <td>1</td>
+      <td>2.745</td>
+      <td>0.000</td>
+      <td>13.238</td>
       <td>1</td>
-      <td>6.408</td>
-      <td>1.585</td>
-      <td>0.001</td>
-      <td>4</td>
-      <td>25</td>
-      <td>F</td>
+      <td>5</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>70774</th>
-      <td>296</td>
+      <td>221</td>
       <td>0.8</td>
-      <td>0.5</td>
+      <td>0.7</td>
       <td>1</td>
       <td>1</td>
       <td>1</td>
-      <td>6.889</td>
-      <td>1.565</td>
-      <td>0.000</td>
-      <td>4</td>
-      <td>25</td>
-      <td>F</td>
+      <td>1.746</td>
+      <td>1.930</td>
+      <td>2.357</td>
+      <td>1</td>
+      <td>5</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>70775</th>
-      <td>297</td>
-      <td>0.8</td>
-      <td>0.5</td>
+      <td>222</td>
+      <td>0.9</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
       <td>1</td>
+      <td>6.772</td>
+      <td>0.000</td>
+      <td>0.000</td>
       <td>1</td>
-      <td>1</td>
-      <td>3.872</td>
-      <td>1.579</td>
-      <td>0.001</td>
-      <td>4</td>
-      <td>25</td>
-      <td>F</td>
+      <td>5</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>70776</th>
-      <td>298</td>
-      <td>0.8</td>
-      <td>0.5</td>
+      <td>223</td>
+      <td>0.9</td>
+      <td>0.6</td>
+      <td>2</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>5.094</td>
-      <td>1.619</td>
+      <td>9.906</td>
       <td>0.000</td>
-      <td>4</td>
-      <td>25</td>
-      <td>F</td>
+      <td>1.348</td>
+      <td>1</td>
+      <td>5</td>
+      <td>M</td>
     </tr>
     <tr>
       <th>70777</th>
-      <td>299</td>
-      <td>0.8</td>
-      <td>0.5</td>
+      <td>224</td>
+      <td>0.9</td>
+      <td>0.6</td>
       <td>2</td>
+      <td>0</td>
       <td>1</td>
-      <td>1</td>
-      <td>5.671</td>
-      <td>1.472</td>
+      <td>6.388</td>
       <td>0.000</td>
-      <td>4</td>
-      <td>25</td>
-      <td>F</td>
+      <td>108.217</td>
+      <td>1</td>
+      <td>5</td>
+      <td>M</td>
     </tr>
   </tbody>
 </table>
 <p>70778 rows × 12 columns</p>
 </div></div></div>
+</details>
 </div>
 </section>
 </section>
 </section>
 <section id="group-level-statistics">
-<h2>Group-level statistics<a class="headerlink" href="#group-level-statistics" title="Permalink to this headline">#</a></h2>
+<h2>Group-level statistics<a class="headerlink" href="#group-level-statistics" title="Permalink to this heading">#</a></h2>
 <p>Having data in tidy format can facilitate easier comparisons across observation types. In Pandas, the relevant code pattern is to call <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.groupby.html"><code class="docutils literal notranslate"><span class="pre">groupby</span></code></a> on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, followed by a call to a summary statistic like <code class="docutils literal notranslate"><span class="pre">mean</span></code> or <code class="docutils literal notranslate"><span class="pre">std</span></code>. That is, if <code class="docutils literal notranslate"><span class="pre">data</span></code> is a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;column1&#39;</span><span class="p">,</span> <span class="s1">&#39;column5&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
@@ -1479,13 +1286,18 @@ file lists the column names, also separated by commas.</p>
 <p>will calculate a groupwise mean. More generally, this pattern of breaking data into chunks based on a combination of variables, performing some analysis, and aggregating the results is known as <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html">Split-Apply-Combine</a>.</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">groupby</span></code> to calculate the mean and variance of the reaction time for each animal in each session.</p></li>
 </ol>
 </div>
 <section id="id9">
-<h3>Solution:<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<h3>Solution:<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">RT</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">])</span>
 </pre></div>
@@ -1584,17 +1396,18 @@ file lists the column names, also separated by commas.</p>
 </table>
 <p>256 rows × 2 columns</p>
 </div></div></div>
+</details>
 </div>
 </section>
 </section>
 <section id="exploratory-plotting-redux">
-<h2>Exploratory plotting redux<a class="headerlink" href="#exploratory-plotting-redux" title="Permalink to this headline">#</a></h2>
+<h2>Exploratory plotting redux<a class="headerlink" href="#exploratory-plotting-redux" title="Permalink to this heading">#</a></h2>
 <p>Now let’s try to generalize our plot above of accumulated rewards over time. This time, however, we’d like to plot accumulated rewards for <em>all animals</em> across <em>all sessions</em>. As you might expect, <code class="docutils literal notranslate"><span class="pre">groupby</span></code> will be our friend, but we’ll have to figure out how to calculate the information we need. As we’ll see, it’s easiest to do this by adding the new variables as columns to our data frame.</p>
 <section id="the-final-tidy">
-<h3>The final tidy<a class="headerlink" href="#the-final-tidy" title="Permalink to this headline">#</a></h3>
+<h3>The final tidy<a class="headerlink" href="#the-final-tidy" title="Permalink to this heading">#</a></h3>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>To make sure the steps below work, we need to start by sorting the data frame by subject and session. (Be sure to save the result or use <code class="docutils literal notranslate"><span class="pre">inplace=True</span></code>!)</p></li>
 <li><p>Using <code class="docutils literal notranslate"><span class="pre">groupby</span></code>, calculate the cumulative reward for each subject and each session as we did for a single dataset above. Assign this to a new column in the data frame.</p></li>
 <li><p>Similarly, calculate the cumulative reward for each subject <em>across all sessions</em> and assign this as a different column in the dataframe.</p></li>
@@ -1606,10 +1419,10 @@ file lists the column names, also separated by commas.</p>
 <p>How does this work?</p>
 </div>
 <section id="id10">
-<h4>Solution:<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<h4>Solution:<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h4>
 <div class="toggle docutils container">
 <p>The strategy here is as follows:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Group the data frame into chunks, one per subject.</p></li>
 <li><p>Pull out the column we want.</p></li>
 <li><p>Perform some transformation (e.g., cumulative sum).</p></li>
@@ -1617,6 +1430,11 @@ file lists the column names, also separated by commas.</p>
 </ol>
 </div>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dat</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">])</span>
 <span class="n">dat</span><span class="p">[</span><span class="s1">&#39;cumulative_reward_session&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dat</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;subject&#39;</span><span class="p">,</span> <span class="s1">&#39;session&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reward</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
@@ -1664,7 +1482,7 @@ file lists the column names, also separated by commas.</p>
   </thead>
   <tbody>
     <tr>
-      <th>48858</th>
+      <th>65395</th>
       <td>0</td>
       <td>0.5</td>
       <td>0.6</td>
@@ -1682,7 +1500,7 @@ file lists the column names, also separated by commas.</p>
       <td>0</td>
     </tr>
     <tr>
-      <th>48859</th>
+      <th>65396</th>
       <td>1</td>
       <td>0.5</td>
       <td>0.6</td>
@@ -1700,7 +1518,7 @@ file lists the column names, also separated by commas.</p>
       <td>1</td>
     </tr>
     <tr>
-      <th>48860</th>
+      <th>65397</th>
       <td>2</td>
       <td>0.5</td>
       <td>0.6</td>
@@ -1718,7 +1536,7 @@ file lists the column names, also separated by commas.</p>
       <td>2</td>
     </tr>
     <tr>
-      <th>48861</th>
+      <th>65398</th>
       <td>3</td>
       <td>0.5</td>
       <td>0.6</td>
@@ -1736,7 +1554,7 @@ file lists the column names, also separated by commas.</p>
       <td>3</td>
     </tr>
     <tr>
-      <th>48862</th>
+      <th>65399</th>
       <td>4</td>
       <td>0.5</td>
       <td>0.6</td>
@@ -1756,22 +1574,28 @@ file lists the column names, also separated by commas.</p>
   </tbody>
 </table>
 </div></div></div>
+</details>
 </div>
 </section>
 </section>
 <section id="why-did-we-do-all-this">
-<h3>Why did we do all this?<a class="headerlink" href="#why-did-we-do-all-this" title="Permalink to this headline">#</a></h3>
+<h3>Why did we do all this?<a class="headerlink" href="#why-did-we-do-all-this" title="Permalink to this heading">#</a></h3>
 <p>The above approach — adding a bunch of variables to our data frame rather than extracting what we need — might seem like overkill, but as R users know, the approach really shines when we want to start grouping our analyses by different sets of variables. As an example, with our expanded data set, Seaborn easily lets us easily make both of the following plots with a simple variation in the same command:</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Using <code class="docutils literal notranslate"><span class="pre">lineplot</span></code>, plot cumulative reward across all sessions, aggregating by sex. (Hint: since <code class="docutils literal notranslate"><span class="pre">lineplot</span></code> automatically calculates bootstrapped confidence intervals and this can take a long time for big datasets, you might want to supply the keyword <code class="docutils literal notranslate"><span class="pre">ci=None</span></code>.)</p></li>
 <li><p>Make the same plot, showing cumulative rewards for all individuals.</p></li>
 </ol>
 </div>
 <section id="id11">
-<h4>Solution:<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<h4>Solution:<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 
@@ -1790,7 +1614,8 @@ file lists the column names, also separated by commas.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/exploring_table_data_26_0.svg" src="../_images/exploring_table_data_26_0.svg" /></div>
+<img alt="../_images/f6e37829f55bb4e434c8a700a5c950b815eb62055994ce1ae7181d7b20a1f342.svg" src="../_images/f6e37829f55bb4e434c8a700a5c950b815eb62055994ce1ae7181d7b20a1f342.svg" /></div>
+</details>
 </div>
 </section>
 </section>
@@ -1817,50 +1642,135 @@ file lists the column names, also separated by commas.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Tabular data</p>
-        </div>
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Tabular data</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="analyzing_table_data.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="analyzing_table_data.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Analyzing table data</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#loading-table-data">Loading table data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-plots">First plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-data-sets">Combining data sets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tidying-data">Tidying data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-in-multiple-directories">Data in multiple directories</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Solution:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-level-statistics">Group-level statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-plotting-redux">Exploratory plotting redux</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-final-tidy">The final tidy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">Solution:</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-did-we-do-all-this">Why did we do all this?</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">Solution:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
   
-    By John Pearson<br/>
-  
-      &copy; Copyright 2023.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
+<p class="component-author">
+By John Pearson
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
 </div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
