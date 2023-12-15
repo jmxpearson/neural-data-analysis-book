@@ -469,7 +469,7 @@ document.write(`
 <p>We’ll start with some sample data, shown in the raster plot below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/baa1dc596c509ad571ab0d7ce899b606651fecba66a1e543dfd3491613084218.svg" src="../_images/baa1dc596c509ad571ab0d7ce899b606651fecba66a1e543dfd3491613084218.svg" /></div>
+<img alt="../_images/94e385e750eb0102c989bd8eaa2eae1562f8b747bbbe12c70a6288bd6e711339.svg" src="../_images/94e385e750eb0102c989bd8eaa2eae1562f8b747bbbe12c70a6288bd6e711339.svg" /></div>
 </div>
 <p>It should be obvious from this representation of the data that the firing rate goes up around 0 and down around 1 second later. In fact, these are artificial data generated from the methods of the last section by assuming that the firing rate is 1 Hz at baseline, increases to 10 Hz at 0.0, and falls again to baseline at 1.0 s. This highly contrived example — real data rarely look this clean — will allow us to examine the tradeoffs endemic in constructing the PSTH in a case where we know the ground truth.</p>
 <section id="binning">
@@ -507,7 +507,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/90f0c940e5e3ca6efd0b941ee9f4e5421854d170aa4919c10630ec746258ad76.svg" src="../_images/90f0c940e5e3ca6efd0b941ee9f4e5421854d170aa4919c10630ec746258ad76.svg" /></div>
+<img alt="../_images/b67c66539c2428296d33fe0db3c58b40e71d7f3ff9b3c7ce6be2e671b2b2f7c9.svg" src="../_images/b67c66539c2428296d33fe0db3c58b40e71d7f3ff9b3c7ce6be2e671b2b2f7c9.svg" /></div>
 </div>
 <p>A few things should stick out to you about the effects bin size has on the PSTH:</p>
 <ul class="simple">
@@ -530,7 +530,7 @@ document.write(`
 <li><p>We will then <em>smooth</em> these firing rate estimates in time to trade temporal precision for a reduction in the variance of our estimates.</p></li>
 </ul>
 <figure class="align-default" id="filter-illustration">
-<img alt="../_images/2e58770445f93dc23a9a840e878bec1a18cc5d74b83862a4ca4e7f8a30cae45b.svg" src="../_images/2e58770445f93dc23a9a840e878bec1a18cc5d74b83862a4ca4e7f8a30cae45b.svg" /><figcaption>
+<img alt="../_images/5bd28df003ff8c648092adfabcce6f8229f74e3883804812732a7e75f230551f.svg" src="../_images/5bd28df003ff8c648092adfabcce6f8229f74e3883804812732a7e75f230551f.svg" /><figcaption>
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">Effects of filter shape and width on spike rate estimation. <strong>(Left)</strong> A single spike (blue) and the same spike as smoothed (convolved) with a boxcar (orange), Gaussian (green), and causal exponential (red) filter. <strong>(Right)</strong> An example spike train smoothed using the same filters. Note that a trial-averaged PSTH is comparable to a boxcar filter with width equal to the bin width, and that the boxcar and Gaussian filters spread the influence of a spike into the both the past and the future.</span><a class="headerlink" href="#filter-illustration" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -611,7 +611,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0960eae44cff09fdaf0e7925192c5f9f37d3f6228e5729c6f29ac1e6ae9dc146.svg" src="../_images/0960eae44cff09fdaf0e7925192c5f9f37d3f6228e5729c6f29ac1e6ae9dc146.svg" /></div>
+<img alt="../_images/5daa6e629c804f11750c326ccdab827e1345b3a03ebaad1363b645faabfad74c.svg" src="../_images/5daa6e629c804f11750c326ccdab827e1345b3a03ebaad1363b645faabfad74c.svg" /></div>
 </div>
 <p>Note that the smaller-width filters are more variable but still centered around the true data, so our estimates pick up on smaller fluctuations in local spike counts while being less reliable at each point. By contrast, the larger smoothing widths are less variable but are badly biased around firing rate changes. In effect, when smoothing with a filter of width <span class="math notranslate nohighlight">\(T\)</span>, it is hard to detect changes in firing rate on scales <span class="math notranslate nohighlight">\(&lt; T\)</span>.</p>
 <div class="admonition-question admonition">
