@@ -1,6 +1,6 @@
 # Debugging
 
-In the following chapter, we'll start to think systematically about debugging. While it's tempting to think of debugging as an occasional nuisance programmer's have to face, the kind of thing we do less and less of as we write better code, the hard truth is this:
+In the following chapter, we'll start to think systematically about debugging. While it's tempting to think of debugging as an occasional nuisance programmers have to face, the kind of thing we do less and less of as we write better code, the hard truth is this:
 
 > **Everyone writes buggy code.**
 
