@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,10 +76,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -464,7 +466,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-data-frames">
 <h1>Introduction to Data Frames<a class="headerlink" href="#introduction-to-data-frames" title="Permalink to this heading">#</a></h1>
@@ -486,6 +488,18 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3747/4080736814.py:1: DeprecationWarning: 
+Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
+(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system.
+If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+        
+  import pandas as pd
 </pre></div>
 </div>
 </div>
@@ -1342,6 +1356,7 @@ document.write(`
  &#39;__array__&#39;,
  &#39;__array_priority__&#39;,
  &#39;__array_ufunc__&#39;,
+ &#39;__arrow_c_stream__&#39;,
  &#39;__bool__&#39;,
  &#39;__class__&#39;,
  &#39;__contains__&#39;,
@@ -1481,6 +1496,7 @@ document.write(`
  &#39;_get_label_or_level_values&#39;,
  &#39;_get_numeric_data&#39;,
  &#39;_get_value&#39;,
+ &#39;_get_values_for_csv&#39;,
  &#39;_getitem_bool_array&#39;,
  &#39;_getitem_multilevel&#39;,
  &#39;_getitem_nocopy&#39;,
@@ -1503,6 +1519,7 @@ document.write(`
  &#39;_is_level_reference&#39;,
  &#39;_is_mixed_type&#39;,
  &#39;_is_view&#39;,
+ &#39;_is_view_after_cow_rules&#39;,
  &#39;_iset_item&#39;,
  &#39;_iset_item_mgr&#39;,
  &#39;_iset_not_inplace&#39;,
@@ -2589,6 +2606,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_convert_tolerance&#39;,
  &#39;_data&#39;,
  &#39;_data_cls&#39;,
+ &#39;_default_na_rep&#39;,
  &#39;_difference&#39;,
  &#39;_difference_compat&#39;,
  &#39;_dir_additions&#39;,
@@ -2607,8 +2625,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_format_attrs&#39;,
  &#39;_format_data&#39;,
  &#39;_format_duplicate_message&#39;,
- &#39;_format_native_types&#39;,
- &#39;_format_space&#39;,
+ &#39;_format_flat&#39;,
  &#39;_format_with_header&#39;,
  &#39;_formatter_func&#39;,
  &#39;_from_join_target&#39;,
@@ -2627,6 +2644,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_get_nearest_indexer&#39;,
  &#39;_get_reconciled_name_object&#39;,
  &#39;_get_string_slice&#39;,
+ &#39;_get_values_for_csv&#39;,
  &#39;_getitem_slice&#39;,
  &#39;_hidden_attrs&#39;,
  &#39;_holds_integer&#39;,
@@ -2646,7 +2664,6 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_join_monotonic&#39;,
  &#39;_join_multi&#39;,
  &#39;_join_non_unique&#39;,
- &#39;_join_precedence&#39;,
  &#39;_join_via_get_indexer&#39;,
  &#39;_left_indexer&#39;,
  &#39;_left_indexer_unique&#39;,
@@ -2658,8 +2675,8 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_maybe_check_unique&#39;,
  &#39;_maybe_disable_logical_methods&#39;,
  &#39;_maybe_disallow_fill&#39;,
+ &#39;_maybe_downcast_for_indexing&#39;,
  &#39;_maybe_preserve_names&#39;,
- &#39;_maybe_promote&#39;,
  &#39;_memory_usage&#39;,
  &#39;_mpl_repr&#39;,
  &#39;_na_value&#39;,
@@ -3021,69 +3038,69 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11298,</span> in <span class="ni">DataFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11290</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">make_doc</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-<span class="g g-Whitespace">  </span><span class="mi">11291</span> <span class="k">def</span> <span class="nf">max</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">11292</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11629,</span> in <span class="ni">DataFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11621</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">make_doc</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="g g-Whitespace">  </span><span class="mi">11622</span> <span class="k">def</span> <span class="nf">max</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11623</span>     <span class="bp">self</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11296</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11297</span> <span class="p">):</span>
-<span class="ne">&gt; </span><span class="mi">11298</span>     <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11299</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Series</span><span class="p">):</span>
-<span class="g g-Whitespace">  </span><span class="mi">11300</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11627</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11628</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11629</span>     <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11630</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Series</span><span class="p">):</span>
+<span class="g g-Whitespace">  </span><span class="mi">11631</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/generic.py:11976,</span> in <span class="ni">NDFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11969</span> <span class="k">def</span> <span class="nf">max</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">11970</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11971</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/generic.py:12397,</span> in <span class="ni">NDFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">12390</span> <span class="k">def</span> <span class="nf">max</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">12391</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12392</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11974</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11975</span> <span class="p">):</span>
-<span class="ne">&gt; </span><span class="mi">11976</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">11977</span>         <span class="s2">&quot;max&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11978</span>         <span class="n">nanops</span><span class="o">.</span><span class="n">nanmax</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11979</span>         <span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11980</span>         <span class="n">skipna</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11981</span>         <span class="n">numeric_only</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11982</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11983</span>     <span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">12395</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12396</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">12397</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">12398</span>         <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12399</span>         <span class="n">nanops</span><span class="o">.</span><span class="n">nanmax</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12400</span>         <span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12401</span>         <span class="n">skipna</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12402</span>         <span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12403</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12404</span>     <span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/generic.py:11949,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11945</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11947</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">&gt; </span><span class="mi">11949</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">11950</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
-<span class="g g-Whitespace">  </span><span class="mi">11951</span> <span class="p">)</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/generic.py:12370,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">12366</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">12368</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">12370</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">12371</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">12372</span> <span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11204,</span> in <span class="ni">DataFrame._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11200</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
-<span class="g g-Whitespace">  </span><span class="mi">11202</span> <span class="c1"># After possibly _get_data and transposing, we are now in the</span>
-<span class="g g-Whitespace">  </span><span class="mi">11203</span> <span class="c1">#  simple case where we can use BlockManager.reduce</span>
-<span class="ne">&gt; </span><span class="mi">11204</span> <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">blk_func</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11205</span> <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_constructor_from_mgr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">  </span><span class="mi">11206</span> <span class="k">if</span> <span class="n">out_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">out</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s2">&quot;boolean&quot;</span><span class="p">:</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11535,</span> in <span class="ni">DataFrame._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11531</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
+<span class="g g-Whitespace">  </span><span class="mi">11533</span> <span class="c1"># After possibly _get_data and transposing, we are now in the</span>
+<span class="g g-Whitespace">  </span><span class="mi">11534</span> <span class="c1">#  simple case where we can use BlockManager.reduce</span>
+<span class="ne">&gt; </span><span class="mi">11535</span> <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">blk_func</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11536</span> <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_constructor_from_mgr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">  </span><span class="mi">11537</span> <span class="k">if</span> <span class="n">out_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">out</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s2">&quot;boolean&quot;</span><span class="p">:</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/internals/managers.py:1459,</span> in <span class="ni">BlockManager.reduce</span><span class="nt">(self, func)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1457</span> <span class="n">res_blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1458</span> <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1459</span>     <span class="n">nbs</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1460</span>     <span class="n">res_blocks</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1462</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Index</span><span class="p">([</span><span class="kc">None</span><span class="p">])</span>  <span class="c1"># placeholder</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/internals/managers.py:1501,</span> in <span class="ni">BlockManager.reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="n">res_blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span> <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1501</span>     <span class="n">nbs</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="n">res_blocks</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1504</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Index</span><span class="p">([</span><span class="kc">None</span><span class="p">])</span>  <span class="c1"># placeholder</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/internals/blocks.py:377,</span> in <span class="ni">Block.reduce</span><span class="nt">(self, func)</span>
-<span class="g g-Whitespace">    </span><span class="mi">371</span> <span class="nd">@final</span>
-<span class="g g-Whitespace">    </span><span class="mi">372</span> <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">373</span>     <span class="c1"># We will apply the function and reshape the result into a single-row</span>
-<span class="g g-Whitespace">    </span><span class="mi">374</span>     <span class="c1">#  Block with the same mgr_locs; squeezing will be done at a higher level</span>
-<span class="g g-Whitespace">    </span><span class="mi">375</span>     <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span>
-<span class="ne">--&gt; </span><span class="mi">377</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">379</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">380</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">result</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/internals/blocks.py:404,</span> in <span class="ni">Block.reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="c1"># We will apply the function and reshape the result into a single-row</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span>     <span class="c1">#  Block with the same mgr_locs; squeezing will be done at a higher level</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span>
+<span class="ne">--&gt; </span><span class="mi">404</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">result</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11136,</span> in <span class="ni">DataFrame._reduce.&lt;locals&gt;.blk_func</span><span class="nt">(values, axis)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11134</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">result</span><span class="p">])</span>
-<span class="g g-Whitespace">  </span><span class="mi">11135</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">&gt; </span><span class="mi">11136</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11454,</span> in <span class="ni">DataFrame._reduce.&lt;locals&gt;.blk_func</span><span class="nt">(values, axis)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11452</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">result</span><span class="p">])</span>
+<span class="g g-Whitespace">  </span><span class="mi">11453</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11454</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 
 <span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:147,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
 <span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
@@ -3098,14 +3115,14 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:1092,</span> in <span class="ni">_nanminmax.&lt;locals&gt;.reduction</span><span class="nt">(values, axis, skipna, mask)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1087</span>     <span class="k">return</span> <span class="n">_na_for_min_count</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1089</span> <span class="n">values</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_get_values</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1090</span>     <span class="n">values</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">fill_value_typ</span><span class="o">=</span><span class="n">fill_value_typ</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span>
-<span class="g g-Whitespace">   </span><span class="mi">1091</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1092</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">meth</span><span class="p">)(</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1093</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_maybe_null_out</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1094</span> <span class="k">return</span> <span class="n">result</span>
+<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:1098,</span> in <span class="ni">_nanminmax.&lt;locals&gt;.reduction</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1093</span>     <span class="k">return</span> <span class="n">_na_for_min_count</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1095</span> <span class="n">values</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_get_values</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1096</span>     <span class="n">values</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">fill_value_typ</span><span class="o">=</span><span class="n">fill_value_typ</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span>
+<span class="g g-Whitespace">   </span><span class="mi">1097</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1098</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">meth</span><span class="p">)(</span><span class="n">axis</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1099</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_maybe_null_out</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span> <span class="k">return</span> <span class="n">result</span>
 
 <span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/numpy/core/_methods.py:41,</span> in <span class="ni">_amax</span><span class="nt">(a, axis, out, keepdims, initial, where)</span>
 <span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">def</span> <span class="nf">_amax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
@@ -3341,6 +3358,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -3405,8 +3423,8 @@ By John Pearson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,10 +76,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -488,7 +490,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="exploring-table-data">
 <span id="id1"></span><h1>Exploring table data<a class="headerlink" href="#exploring-table-data" title="Permalink to this heading">#</a></h1>
@@ -545,94 +547,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>left</th>
-      <th>right</th>
-      <th>choice</th>
-      <th>reward</th>
-      <th>state</th>
-      <th>RT</th>
-      <th>retrieval</th>
-      <th>initiation</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>3.945</td>
-      <td>0.000</td>
-      <td>2.387</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.787</td>
-      <td>1.717</td>
-      <td>1.248</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2.235</td>
-      <td>0.000</td>
-      <td>0.000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2.026</td>
-      <td>0.000</td>
-      <td>4.393</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.977</td>
-      <td>1.603</td>
-      <td>1.959</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -644,13 +558,6 @@ file lists the column names, also separated by commas.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get column names without printing</span>
 <span class="n">dat</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;left&#39;, &#39;right&#39;, &#39;choice&#39;, &#39;reward&#39;, &#39;state&#39;, &#39;RT&#39;, &#39;retrieval&#39;,
-       &#39;initiation&#39;],
-      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -690,8 +597,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/290cc628af4578757d96ffd7d1909981fcd75dd0e242b6195d2726950ccb2a44.svg" src="../_images/290cc628af4578757d96ffd7d1909981fcd75dd0e242b6195d2726950ccb2a44.svg" /></div>
 </details>
 </div>
 <div class="toggle docutils container">
@@ -715,8 +620,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/cb459e87b5bde087959530c8f86fea6a551395990b2f78dc9fea1d6f49599dc2.svg" src="../_images/cb459e87b5bde087959530c8f86fea6a551395990b2f78dc9fea1d6f49599dc2.svg" /></div>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -734,8 +637,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/92fc71025c7406de5028aac299b5bdf0c30e751b489797935def1f31af2e53a8.svg" src="../_images/92fc71025c7406de5028aac299b5bdf0c30e751b489797935def1f31af2e53a8.svg" /></div>
 </details>
 </div>
 </section>
@@ -797,209 +698,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>trial</th>
-      <th>left</th>
-      <th>right</th>
-      <th>choice</th>
-      <th>reward</th>
-      <th>state</th>
-      <th>RT</th>
-      <th>retrieval</th>
-      <th>initiation</th>
-      <th>session</th>
-      <th>subject</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>3.945</td>
-      <td>0.000</td>
-      <td>2.387</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.787</td>
-      <td>1.717</td>
-      <td>1.248</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2.235</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2.026</td>
-      <td>0.000</td>
-      <td>4.393</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.977</td>
-      <td>1.603</td>
-      <td>1.959</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>295</th>
-      <td>295</td>
-      <td>0.5</td>
-      <td>0.4</td>
-      <td>2</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1.527</td>
-      <td>1.174</td>
-      <td>0.001</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>296</th>
-      <td>296</td>
-      <td>0.5</td>
-      <td>0.4</td>
-      <td>2</td>
-      <td>1</td>
-      <td>3</td>
-      <td>2.611</td>
-      <td>1.319</td>
-      <td>0.000</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>297</th>
-      <td>297</td>
-      <td>0.5</td>
-      <td>0.4</td>
-      <td>2</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1.996</td>
-      <td>1.042</td>
-      <td>0.904</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>298</th>
-      <td>298</td>
-      <td>0.5</td>
-      <td>0.4</td>
-      <td>2</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1.826</td>
-      <td>1.181</td>
-      <td>0.000</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>299</th>
-      <td>299</td>
-      <td>0.5</td>
-      <td>0.4</td>
-      <td>2</td>
-      <td>1</td>
-      <td>3</td>
-      <td>1.324</td>
-      <td>1.098</td>
-      <td>0.314</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-    </tr>
-  </tbody>
-</table>
-<p>300 rows × 12 columns</p>
-</div></div></div>
 </details>
 </div>
 </section>
@@ -1066,212 +764,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of chunks: 256
-</pre></div>
-</div>
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>trial</th>
-      <th>left</th>
-      <th>right</th>
-      <th>choice</th>
-      <th>reward</th>
-      <th>state</th>
-      <th>RT</th>
-      <th>retrieval</th>
-      <th>initiation</th>
-      <th>session</th>
-      <th>subject</th>
-      <th>sex</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>0.7</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-      <td>3.160</td>
-      <td>1.108</td>
-      <td>0.531</td>
-      <td>6</td>
-      <td>17</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>0.7</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.404</td>
-      <td>0.877</td>
-      <td>0.612</td>
-      <td>6</td>
-      <td>17</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>2</td>
-      <td>0.7</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>1</td>
-      <td>3</td>
-      <td>2.028</td>
-      <td>0.920</td>
-      <td>0.001</td>
-      <td>6</td>
-      <td>17</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3</td>
-      <td>0.7</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>3.805</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>6</td>
-      <td>17</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>4</td>
-      <td>0.7</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-      <td>1.995</td>
-      <td>0.934</td>
-      <td>0.761</td>
-      <td>6</td>
-      <td>17</td>
-      <td>F</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>70773</th>
-      <td>220</td>
-      <td>0.8</td>
-      <td>0.7</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2.745</td>
-      <td>0.000</td>
-      <td>13.238</td>
-      <td>1</td>
-      <td>5</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>70774</th>
-      <td>221</td>
-      <td>0.8</td>
-      <td>0.7</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.746</td>
-      <td>1.930</td>
-      <td>2.357</td>
-      <td>1</td>
-      <td>5</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>70775</th>
-      <td>222</td>
-      <td>0.9</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>6.772</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>1</td>
-      <td>5</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>70776</th>
-      <td>223</td>
-      <td>0.9</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>9.906</td>
-      <td>0.000</td>
-      <td>1.348</td>
-      <td>1</td>
-      <td>5</td>
-      <td>M</td>
-    </tr>
-    <tr>
-      <th>70777</th>
-      <td>224</td>
-      <td>0.9</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>6.388</td>
-      <td>0.000</td>
-      <td>108.217</td>
-      <td>1</td>
-      <td>5</td>
-      <td>M</td>
-    </tr>
-  </tbody>
-</table>
-<p>70778 rows × 12 columns</p>
-</div></div></div>
 </details>
 </div>
 </section>
@@ -1303,99 +795,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th>mean</th>
-      <th>var</th>
-    </tr>
-    <tr>
-      <th>subject</th>
-      <th>session</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="5" valign="top">1</th>
-      <th>1</th>
-      <td>2.722293</td>
-      <td>10.967707</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>5.345410</td>
-      <td>376.833405</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>3.266718</td>
-      <td>4.629838</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>3.041440</td>
-      <td>4.596238</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>4.084762</td>
-      <td>8.817232</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th rowspan="5" valign="top">32</th>
-      <th>4</th>
-      <td>3.608547</td>
-      <td>31.459340</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>2.572577</td>
-      <td>9.237009</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>3.565250</td>
-      <td>31.661808</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>3.583887</td>
-      <td>30.114035</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>2.970333</td>
-      <td>9.691184</td>
-    </tr>
-  </tbody>
-</table>
-<p>256 rows × 2 columns</p>
-</div></div></div>
 </details>
 </div>
 </section>
@@ -1444,136 +843,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>trial</th>
-      <th>left</th>
-      <th>right</th>
-      <th>choice</th>
-      <th>reward</th>
-      <th>state</th>
-      <th>RT</th>
-      <th>retrieval</th>
-      <th>initiation</th>
-      <th>session</th>
-      <th>subject</th>
-      <th>sex</th>
-      <th>cumulative_reward_session</th>
-      <th>cumulative_reward_lifetime</th>
-      <th>cumulative_trial</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>65395</th>
-      <td>0</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>3.945</td>
-      <td>0.000</td>
-      <td>2.387</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>65396</th>
-      <td>1</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.787</td>
-      <td>1.717</td>
-      <td>1.248</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>65397</th>
-      <td>2</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2.235</td>
-      <td>0.000</td>
-      <td>0.000</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-      <td>1</td>
-      <td>1</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>65398</th>
-      <td>3</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>2</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2.026</td>
-      <td>0.000</td>
-      <td>4.393</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-      <td>1</td>
-      <td>1</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>65399</th>
-      <td>4</td>
-      <td>0.5</td>
-      <td>0.6</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1</td>
-      <td>1.977</td>
-      <td>1.603</td>
-      <td>1.959</td>
-      <td>1</td>
-      <td>1</td>
-      <td>M</td>
-      <td>2</td>
-      <td>2</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
 </details>
 </div>
 </section>
@@ -1613,8 +882,6 @@ file lists the column names, also separated by commas.</p>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../_images/88569606bc1d0c111724b778022ae2ad0df3e2e4ccfbb697593ecb2519f8690c.svg" src="../_images/88569606bc1d0c111724b778022ae2ad0df3e2e4ccfbb697593ecb2519f8690c.svg" /></div>
 </details>
 </div>
 </section>
@@ -1678,6 +945,7 @@ file lists the column names, also separated by commas.</p>
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1767,8 +1035,8 @@ By John Pearson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

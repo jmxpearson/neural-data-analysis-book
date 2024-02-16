@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,10 +76,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -472,7 +474,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="patterns-functions-and-duck-typing">
 <h1>Patterns, functions, and duck typing<a class="headerlink" href="#patterns-functions-and-duck-typing" title="Permalink to this heading">#</a></h1>
@@ -734,7 +736,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;trained_Macaque.csv&#39;, &#39;Black.csv&#39;, &#39;Mongoose.csv&#39;, &#39;macaque.csv&#39;, &#39;Catta.csv&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Mongoose.csv&#39;, &#39;Black.csv&#39;, &#39;macaque.csv&#39;, &#39;trained_Macaque.csv&#39;, &#39;Catta.csv&#39;]
 </pre></div>
 </div>
 </div>
@@ -761,6 +763,16 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3811/954763891.py:4: DeprecationWarning: 
+Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
+(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system.
+If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+        
+  import pandas as pd
+</pre></div>
+</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -793,69 +805,69 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
   </thead>
   <tbody>
     <tr>
-      <th>17061</th>
-      <td>feinstein</td>
-      <td>trained Macaque</td>
-      <td>2010.12.13</td>
-      <td>NaN</td>
+      <th>12765</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
+      <td>1.0</td>
       <td>1</td>
-      <td>6</td>
-      <td>8</td>
+      <td>4</td>
+      <td>5</td>
       <td>1</td>
-      <td>1.117</td>
+      <td>1.183</td>
       <td>equal</td>
     </tr>
     <tr>
-      <th>17062</th>
-      <td>feinstein</td>
-      <td>trained Macaque</td>
-      <td>2010.12.13</td>
-      <td>NaN</td>
+      <th>12766</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
+      <td>1.0</td>
       <td>2</td>
-      <td>4</td>
-      <td>5</td>
-      <td>1</td>
-      <td>0.700</td>
-      <td>congruent</td>
-    </tr>
-    <tr>
-      <th>17063</th>
-      <td>feinstein</td>
-      <td>trained Macaque</td>
-      <td>2010.12.13</td>
-      <td>NaN</td>
       <td>3</td>
-      <td>2</td>
-      <td>7</td>
-      <td>1</td>
-      <td>1.283</td>
-      <td>congruent</td>
-    </tr>
-    <tr>
-      <th>17064</th>
-      <td>feinstein</td>
-      <td>trained Macaque</td>
-      <td>2010.12.13</td>
-      <td>NaN</td>
-      <td>4</td>
-      <td>1</td>
-      <td>8</td>
-      <td>1</td>
-      <td>1.200</td>
-      <td>congruent</td>
-    </tr>
-    <tr>
-      <th>17065</th>
-      <td>feinstein</td>
-      <td>trained Macaque</td>
-      <td>2010.12.13</td>
-      <td>NaN</td>
-      <td>5</td>
-      <td>6</td>
       <td>9</td>
       <td>0</td>
-      <td>0.683</td>
+      <td>0.883</td>
       <td>equal</td>
+    </tr>
+    <tr>
+      <th>12767</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
+      <td>1.0</td>
+      <td>3</td>
+      <td>4</td>
+      <td>7</td>
+      <td>1</td>
+      <td>2.750</td>
+      <td>congruent</td>
+    </tr>
+    <tr>
+      <th>12768</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
+      <td>1.0</td>
+      <td>4</td>
+      <td>5</td>
+      <td>7</td>
+      <td>1</td>
+      <td>1.000</td>
+      <td>congruent</td>
+    </tr>
+    <tr>
+      <th>12769</th>
+      <td>eduardo</td>
+      <td>Mongoose</td>
+      <td>12/2/08</td>
+      <td>1.0</td>
+      <td>5</td>
+      <td>2</td>
+      <td>3</td>
+      <td>0</td>
+      <td>1.250</td>
+      <td>congruent</td>
     </tr>
   </tbody>
 </table>
@@ -869,7 +881,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;feinstein&#39;, &#39;mikulski&#39;, &#39;schroeder&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;eduardo&#39;, &#39;felipe&#39;, &#39;pedro&#39;, &#39;sancho&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -881,9 +893,16 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;trained Macaque&#39;], dtype=object),
- array([&#39;2010.12.13&#39;, &#39;2010.12.14&#39;, &#39;2010.12.15&#39;, &#39;2010.12.16&#39;,
-        &#39;2009.02.11&#39;, &#39;2009.02.12&#39;, &#39;2009.02.13&#39;, &#39;2009.02.16&#39;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Mongoose&#39;], dtype=object),
+ array([&#39;12/2/08&#39;, &#39;12/3/08&#39;, &#39;12/4/08&#39;, &#39;12/5/08&#39;, &#39;12/10/08&#39;, &#39;12/11/08&#39;,
+        &#39;12/12/08&#39;, &#39;12/15/08&#39;, &#39;1/6/09&#39;, &#39;1/7/09&#39;, &#39;1/8/09&#39;, &#39;1/12/09&#39;,
+        &#39;1/13/09&#39;, &#39;1/14/09&#39;, &#39;1/16/09&#39;, &#39;11/16/09&#39;, &#39;11/17/09&#39;,
+        &#39;11/18/09&#39;, &#39;11/19/09&#39;, &#39;11/25/09&#39;, &#39;11/30/09&#39;, &#39;12/1/09&#39;,
+        &#39;12/8/09&#39;, &#39;12/9/09&#39;, &#39;12/10/09&#39;, &#39;12/11/09&#39;, &#39;12/14/09&#39;,
+        &#39;12/15/09&#39;, &#39;12/16/09&#39;, &#39;12/17/09&#39;, &#39;1/21/09&#39;, &#39;1/22/09&#39;,
+        &#39;1/23/09&#39;, &#39;9/8/09&#39;, &#39;9/10/09&#39;, &#39;9/11/09&#39;, &#39;9/14/09&#39;, &#39;9/15/09&#39;,
+        &#39;9/17/09&#39;, &#39;9/18/09&#39;, &#39;9/21/09&#39;, &#39;9/22/09&#39;, &#39;9/24/09&#39;, &#39;9/25/09&#39;,
+        &#39;9/28/09&#39;, &#39;9/29/09&#39;, &#39;10/2/09&#39;, &#39;10/6/09&#39;, &#39;10/9/09&#39;, &#39;10/13/09&#39;],
        dtype=object))
 </pre></div>
 </div>
@@ -934,19 +953,24 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
   </thead>
   <tbody>
     <tr>
-      <th>feinstein</th>
-      <td>0.910185</td>
-      <td>0.843286</td>
+      <th>eduardo</th>
+      <td>0.766854</td>
+      <td>3.534282</td>
     </tr>
     <tr>
-      <th>mikulski</th>
-      <td>0.846296</td>
-      <td>0.583694</td>
+      <th>felipe</th>
+      <td>0.593519</td>
+      <td>1.147807</td>
     </tr>
     <tr>
-      <th>schroeder</th>
-      <td>0.726852</td>
-      <td>0.978447</td>
+      <th>pedro</th>
+      <td>0.763109</td>
+      <td>1.454616</td>
+    </tr>
+    <tr>
+      <th>sancho</th>
+      <td>0.661111</td>
+      <td>1.890181</td>
     </tr>
   </tbody>
 </table>
@@ -990,37 +1014,48 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
   </thead>
   <tbody>
     <tr>
-      <th rowspan="2" valign="top">feinstein</th>
+      <th rowspan="2" valign="top">eduardo</th>
       <th>congruent</th>
-      <td>0.924074</td>
-      <td>0.832150</td>
+      <td>0.732210</td>
+      <td>4.433112</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.896296</td>
-      <td>0.854422</td>
+      <td>0.801498</td>
+      <td>2.635451</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">mikulski</th>
+      <th rowspan="2" valign="top">felipe</th>
       <th>congruent</th>
-      <td>0.855556</td>
-      <td>0.587496</td>
+      <td>0.594444</td>
+      <td>1.150126</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.837037</td>
-      <td>0.579891</td>
+      <td>0.592593</td>
+      <td>1.145489</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">schroeder</th>
+      <th rowspan="2" valign="top">pedro</th>
       <th>congruent</th>
-      <td>0.775926</td>
-      <td>1.120078</td>
+      <td>0.762172</td>
+      <td>1.458337</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.677778</td>
-      <td>0.836817</td>
+      <td>0.764045</td>
+      <td>1.450895</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">sancho</th>
+      <th>congruent</th>
+      <td>0.657407</td>
+      <td>1.758446</td>
+    </tr>
+    <tr>
+      <th>equal</th>
+      <td>0.664815</td>
+      <td>2.021917</td>
     </tr>
   </tbody>
 </table>
@@ -1037,7 +1072,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/444a0375d4cbb4bd6e1e7b9719dbcca007f857f806d000b2d981a9bac4ede1ab.svg" src="../_images/444a0375d4cbb4bd6e1e7b9719dbcca007f857f806d000b2d981a9bac4ede1ab.svg" /></div>
+<img alt="../_images/b96f50c84f11314fd588ffed3779598090cea8014f4a2ea030290a24ce632ed1.svg" src="../_images/b96f50c84f11314fd588ffed3779598090cea8014f4a2ea030290a24ce632ed1.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1046,7 +1081,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/230a345415c80f95ab10c7c2faf857a011f1702f43097cc41b982ad741c071e9.svg" src="../_images/230a345415c80f95ab10c7c2faf857a011f1702f43097cc41b982ad741c071e9.svg" /></div>
+<img alt="../_images/5cc2c0ea7cbd541224616b203832c85e102500532a50b1e503d48e9010f50540.svg" src="../_images/5cc2c0ea7cbd541224616b203832c85e102500532a50b1e503d48e9010f50540.svg" /></div>
 </div>
 <p>Pandas plotting is best for quick and dirty plots; if we want to do better, we need to dive more into Matplotlib or Seaborn. We’ll see how to prettify our outputs later on.</p>
 <p>But we can plot all on the same axis if we simply tell Pandas which axis to plot into.</p>
@@ -1076,7 +1111,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1afc0af7bba2b033c35d294fe1b79c750d27de9d9d809a34a19a6c6c295ed223.svg" src="../_images/1afc0af7bba2b033c35d294fe1b79c750d27de9d9d809a34a19a6c6c295ed223.svg" /></div>
+<img alt="../_images/d00f685e8f8d1a55499050ecf1a20c558519e9bf50a3d3855eae89477335c592.svg" src="../_images/d00f685e8f8d1a55499050ecf1a20c558519e9bf50a3d3855eae89477335c592.svg" /></div>
 </div>
 <p>So we’ve seen that we can do some neat things with this individual dataset. In fact, we’d like to do these analyses and <em>aggregate</em> across all datasets.</p>
 <p>Here’s the plan:
@@ -1148,33 +1183,33 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
   </thead>
   <tbody>
     <tr>
-      <th>feinstein</th>
-      <td>0.910185</td>
-      <td>0.843286</td>
+      <th>eduardo</th>
+      <td>0.766854</td>
+      <td>3.534282</td>
     </tr>
     <tr>
-      <th>mikulski</th>
-      <td>0.846296</td>
-      <td>0.583694</td>
+      <th>felipe</th>
+      <td>0.593519</td>
+      <td>1.147807</td>
     </tr>
     <tr>
-      <th>schroeder</th>
-      <td>0.726852</td>
-      <td>0.978447</td>
+      <th>pedro</th>
+      <td>0.763109</td>
+      <td>1.454616</td>
+    </tr>
+    <tr>
+      <th>sancho</th>
+      <td>0.661111</td>
+      <td>1.890181</td>
     </tr>
     <tr>
       <th>hopkins</th>
       <td>0.700803</td>
       <td>2.023438</td>
     </tr>
-    <tr>
-      <th>quinn</th>
-      <td>0.749074</td>
-      <td>1.345008</td>
-    </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/92141308935a28eb649b9dca6a274ec2c386d61d1eed1b13860f4914900d8e2d.svg" src="../_images/92141308935a28eb649b9dca6a274ec2c386d61d1eed1b13860f4914900d8e2d.svg" /></div>
+</div></div><img alt="../_images/e2651fd02314ecc2490ddbefaeb8a895089598d05b2c341bf7630df9957893ca.svg" src="../_images/e2651fd02314ecc2490ddbefaeb8a895089598d05b2c341bf7630df9957893ca.svg" /></div>
 </div>
 <p>Note that we basically just copied over the code from before. (For the slick arguments to <code class="docutils literal notranslate"><span class="pre">legend</span></code> that put the box outside and to the right, see example <a class="reference external" href="http://matplotlib.org/users/legend_guide.html">here</a>.</p>
 </section>
@@ -1238,8 +1273,8 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/macaque.csv&#39;, &#39;data/primates/Catta.csv&#39;]
-[&#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/macaque.csv&#39;, &#39;data/primates/Catta.csv&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/macaque.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Catta.csv&#39;]
+[&#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/macaque.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Catta.csv&#39;]
 </pre></div>
 </div>
 </div>
@@ -1367,19 +1402,24 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
   </thead>
   <tbody>
     <tr>
-      <th>feinstein</th>
-      <td>0.910185</td>
-      <td>0.843286</td>
+      <th>eduardo</th>
+      <td>0.766854</td>
+      <td>3.534282</td>
     </tr>
     <tr>
-      <th>mikulski</th>
-      <td>0.846296</td>
-      <td>0.583694</td>
+      <th>felipe</th>
+      <td>0.593519</td>
+      <td>1.147807</td>
     </tr>
     <tr>
-      <th>schroeder</th>
-      <td>0.726852</td>
-      <td>0.978447</td>
+      <th>pedro</th>
+      <td>0.763109</td>
+      <td>1.454616</td>
+    </tr>
+    <tr>
+      <th>sancho</th>
+      <td>0.661111</td>
+      <td>1.890181</td>
     </tr>
     <tr>
       <th>hopkins</th>
@@ -1402,26 +1442,6 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
       <td>1.687411</td>
     </tr>
     <tr>
-      <th>eduardo</th>
-      <td>0.766854</td>
-      <td>3.534282</td>
-    </tr>
-    <tr>
-      <th>felipe</th>
-      <td>0.593519</td>
-      <td>1.147807</td>
-    </tr>
-    <tr>
-      <th>pedro</th>
-      <td>0.763109</td>
-      <td>1.454616</td>
-    </tr>
-    <tr>
-      <th>sancho</th>
-      <td>0.661111</td>
-      <td>1.890181</td>
-    </tr>
-    <tr>
       <th>broome</th>
       <td>0.751622</td>
       <td>0.825900</td>
@@ -1440,6 +1460,21 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
       <th>yerkes</th>
       <td>0.636905</td>
       <td>0.770189</td>
+    </tr>
+    <tr>
+      <th>feinstein</th>
+      <td>0.910185</td>
+      <td>0.843286</td>
+    </tr>
+    <tr>
+      <th>mikulski</th>
+      <td>0.846296</td>
+      <td>0.583694</td>
+    </tr>
+    <tr>
+      <th>schroeder</th>
+      <td>0.726852</td>
+      <td>0.978447</td>
     </tr>
     <tr>
       <th>agathon</th>
@@ -1463,7 +1498,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
     </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/4ec5d2a2bef9f93d098c8242253d62d070efe2bcad46e1a874aa3614bc7ff54a.svg" src="../_images/4ec5d2a2bef9f93d098c8242253d62d070efe2bcad46e1a874aa3614bc7ff54a.svg" /></div>
+</div></div><img alt="../_images/684a8ee85b8cb702085aab67204af2baf5f88a1184d7af82a8e8dbf49b24d048.svg" src="../_images/684a8ee85b8cb702085aab67204af2baf5f88a1184d7af82a8e8dbf49b24d048.svg" /></div>
 </div>
 </section>
 </section>
@@ -1514,7 +1549,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/226cb1b5cbb63137742ebff491ec433efdf247bc3e1dec72a591102c050e5d5b.svg" src="../_images/226cb1b5cbb63137742ebff491ec433efdf247bc3e1dec72a591102c050e5d5b.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+<img alt="../_images/286fbe20e7e6a98222798d3652e326238f5da9070c5960abac4c19ab00b9cdd5.svg" src="../_images/286fbe20e7e6a98222798d3652e326238f5da9070c5960abac4c19ab00b9cdd5.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1554,10 +1589,10 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/trained_Macaque.csv&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Mongoose.csv&#39;,
  &#39;data/primates/Black.csv&#39;,
- &#39;data/primates/Mongoose.csv&#39;,
  &#39;data/primates/macaque.csv&#39;,
+ &#39;data/primates/trained_Macaque.csv&#39;,
  &#39;data/primates/Catta.csv&#39;]
 </pre></div>
 </div>
@@ -1622,6 +1657,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1695,8 +1731,8 @@ By John Pearson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
