@@ -1,6 +1,6 @@
 # Introduction to Neural Data Analysis
 
-This book serves as the material for Parts I and II of [NEUROBIO 735: Quantitative Neurobiolgy](https://jmxpearson.com/quantitative-neurobio/) at Duke University.
+[This book](https://jmxpearson.com/neural-data-analysis-book/intro.html) serves as the material for Parts I and II of [NEUROBIO 735: Quantitative Neurobiolgy](https://jmxpearson.com/quantitative-neurobio/) at Duke University.
 
 ## Contributors
 
