@@ -29,11 +29,13 @@ jobs:
         python-version: ${{ matrix.python-version }}
 
     - name: Install dependencies
-      uses: mamba-org/setup-micromamba@v1
+      uses: mamba-org/setup-micromamba@v2
+      with: 
+        environment-file: environment.yml
 
-    - name: Activate environment
-      run: |
-        micromamba activate book
+    # - name: Activate environment
+    #   run: |
+    #     micromamba activate book
 
     # Build the book
     - name: Build the book
