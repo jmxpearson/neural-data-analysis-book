@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Working with Array Data &#8212; Introduction to Neural Data Analysis</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_intro/arrays';</script>
@@ -71,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Patterns, functions, and duck typing" href="patterns.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,31 +77,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -110,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -118,10 +101,15 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -130,7 +118,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -145,6 +134,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -156,7 +147,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Introduction to Neural Data Analysis</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -167,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Introduction to Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Introduction to Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_structures.html">Basic Programming in Python: Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nested_data_structures.html">Case Study: Nested Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="patterns.html">Patterns, functions, and duck typing</a></li>
@@ -175,35 +173,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Working with Array Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_frames.html">Introduction to Data Frames</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/theory.html">A little point process theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/estimation.html">Estimating Poisson processes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/psth.html">The peri-stimulus time histogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/exploring_spike_data.html">Exploring neural spike data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/analyzing_spike_data.html">Analyzing neural spike data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tables/exploring_table_data.html">Exploring table data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tables/analyzing_table_data.html">Analyzing table data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../images/exploring_image_data.html">Exploring Image data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../images/analyzing_image_data.html">Analyzing Image data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_i.html">Debugging Practicum I</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_ii.html">Debugging Practicum II</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/fitting_basic_models.html">Fitting basic models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/simulation_models.html">Fitting simulated models</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -213,14 +211,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -229,14 +232,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -261,14 +264,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/arrays.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -279,14 +282,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/arrays.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -408,27 +411,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -480,20 +475,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> InlineBackend.figure_formats = [&#39;svg&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<section class="tex2jax_ignore mathjax_ignore" id="working-with-array-data">
-<h1>Working with Array Data<a class="headerlink" href="#working-with-array-data" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="working-with-array-data">
+<h1>Working with Array Data<a class="headerlink" href="#working-with-array-data" title="Link to this heading">#</a></h1>
 <p>It shouldn’t be hard to make the case to a bunch of scientists that arrays are a natural and important data structure for scientific computing. What we discuss less often is why arrays are actually different from data structures we’ve already met and why they help us compute efficiently.</p>
 <p>For these needs the NumPy package provides a general data type, the n-dimensional array or <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>. This data type is so powerful that it forms the basis for most serious numerical processing in Python, including Pandas, SciPy, and image processing packages like scikit-image.</p>
 <p>That’s what we’ll get into today. Specifically, we’ll focus on the syntax needed to get subsets of data into and out of arrays, as well as on basic math, which is the foundation for using the more powerful features available in SciPy.</p>
 <section id="warm-up-lists">
-<h2>Warm-up: Lists<a class="headerlink" href="#warm-up-lists" title="Permalink to this heading">#</a></h2>
+<h2>Warm-up: Lists<a class="headerlink" href="#warm-up-lists" title="Link to this heading">#</a></h2>
 <p>Let’s review some facts about lists.</p>
 <p>A list is, well, a list of objects:</p>
 <div class="cell docutils container">
@@ -581,7 +569,7 @@ document.write(`
 </ul>
 </section>
 <section id="warm-up-lists-of-lists">
-<h2>Warm-up: Lists of lists<a class="headerlink" href="#warm-up-lists-of-lists" title="Permalink to this heading">#</a></h2>
+<h2>Warm-up: Lists of lists<a class="headerlink" href="#warm-up-lists-of-lists" title="Link to this heading">#</a></h2>
 <p>In cases where we have a matrix of data we want to represent, a natural way to do that is as a list of lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -635,11 +623,11 @@ document.write(`
 <p>The NumPy package resolves these issues by defining the <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>…</p>
 </section>
 <section id="the-numpy-array">
-<h2>The NumPy array<a class="headerlink" href="#the-numpy-array" title="Permalink to this heading">#</a></h2>
+<h2>The NumPy array<a class="headerlink" href="#the-numpy-array" title="Link to this heading">#</a></h2>
 <p>If we already have a list of lists, NumPy gives us a clear way to convert it to an array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>  <span class="c1"># this nickname (numpy = np) is so common as to be ubiquitous</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>  <span class="c1"># this nickname (numpy = np) is so common as to be ubiquitous</span>
 </pre></div>
 </div>
 </div>
@@ -742,7 +730,7 @@ document.write(`
 </div>
 </section>
 <section id="loading-data">
-<h2>Loading data<a class="headerlink" href="#loading-data" title="Permalink to this heading">#</a></h2>
+<h2>Loading data<a class="headerlink" href="#loading-data" title="Link to this heading">#</a></h2>
 <p>But let’s move on to a real example:</p>
 <p>These data are in <code class="docutils literal notranslate"><span class="pre">.npy</span></code> format, which is NumPy’s native array format. Numpy is capable of saving arrays in compressed format (<code class="docutils literal notranslate"><span class="pre">.gz</span></code>) or in plain text (<code class="docutils literal notranslate"><span class="pre">.txt</span></code>) if arrays are 2-dimensional. Bear in mind that NumPy and SciPy can also be used to read in data from other common formats including those used by Matlab.</p>
 <p>Now let’s load the data</p>
@@ -841,11 +829,11 @@ document.write(`
 <p>That probably doesn’t seem very helpful. In general, with large arrays, we simply can’t look at all the data. As usual, the way we will address this is by plotting. However, we can’t plot all the dimensions of the array at once…</p>
 </section>
 <section id="plotting-array-data">
-<h2>Plotting array data<a class="headerlink" href="#plotting-array-data" title="Permalink to this heading">#</a></h2>
+<h2>Plotting array data<a class="headerlink" href="#plotting-array-data" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is also common; pyplot contains most of the common functions</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  
 
 <span class="c1"># this makes sure plots are displayed in the notebook instead of in a pop-up window</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline  
@@ -877,10 +865,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fde3d0021e0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f5b8407a7b0&gt;
 </pre></div>
 </div>
-<img alt="../_images/10dda9170a5e6b3d8d3bc9ed0bed358161f8fcf9a32d2affb6f11335a74e7216.svg" src="../_images/10dda9170a5e6b3d8d3bc9ed0bed358161f8fcf9a32d2affb6f11335a74e7216.svg" /></div>
+<img alt="../_images/fd8407f6f1ba335e05d94960407b3a4cc005b08100fbb8e95d61468ba3ae3672.svg" src="../_images/fd8407f6f1ba335e05d94960407b3a4cc005b08100fbb8e95d61468ba3ae3672.svg" /></div>
 </div>
 <p>Hmmmm. What if we instead plotted this as an image? (<code class="docutils literal notranslate"><span class="pre">matshow</span></code> is mostly for looking at matrices. The following command is better for visualizing data that are a gridded version of smooth information, like an image. You may often want to try this both ways.)</p>
 <div class="cell docutils container">
@@ -890,10 +878,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fde3ce66cf0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f5b7bf5ad50&gt;
 </pre></div>
 </div>
-<img alt="../_images/60f2050280b1fd6a8844432fca61a9764db14d7bf3251fe79fdd7705fc7a9919.svg" src="../_images/60f2050280b1fd6a8844432fca61a9764db14d7bf3251fe79fdd7705fc7a9919.svg" /></div>
+<img alt="../_images/68111c09d4816ed758f1f661d1f5e876d30c1a668756920f1653baa3d9501ba5.svg" src="../_images/68111c09d4816ed758f1f661d1f5e876d30c1a668756920f1653baa3d9501ba5.svg" /></div>
 </div>
 <p>Let’s take another slice, this time letting axes 0 and 1 vary:</p>
 <div class="cell docutils container">
@@ -903,10 +891,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fde3cf22240&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f5b7bfdd310&gt;
 </pre></div>
 </div>
-<img alt="../_images/ebe7b2eed06b02a56fa33e052bea15ae7a7d7350450b69a9f7c0ed6bbeb848f9.svg" src="../_images/ebe7b2eed06b02a56fa33e052bea15ae7a7d7350450b69a9f7c0ed6bbeb848f9.svg" /></div>
+<img alt="../_images/2171c47258560dc2f18331360fe563704ac23e942f2a7474dfe177663da50e4b.svg" src="../_images/2171c47258560dc2f18331360fe563704ac23e942f2a7474dfe177663da50e4b.svg" /></div>
 </div>
 <p>And one more…</p>
 <div class="cell docutils container">
@@ -916,10 +904,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7fde3cc46480&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x7f5b7913e990&gt;
 </pre></div>
 </div>
-<img alt="../_images/3cc0aa6463e52fdd6b8b98b9760fbced94b6396070ac2526afbd50b1177a0be2.svg" src="../_images/3cc0aa6463e52fdd6b8b98b9760fbced94b6396070ac2526afbd50b1177a0be2.svg" /></div>
+<img alt="../_images/2b5aeb9220433ba3ce740a0756553e84a99285a69805e0a0eee9c6f152d95b23.svg" src="../_images/2b5aeb9220433ba3ce740a0756553e84a99285a69805e0a0eee9c6f152d95b23.svg" /></div>
 </div>
 <p>So the array in question is actually a 3d image! And by fixing one of the coordinate dimensions of the array, we have reduced the 3d image to a 2d image. Note also a few important conventions:</p>
 <ul class="simple">
@@ -929,7 +917,7 @@ document.write(`
 </ul>
 </section>
 <section id="activity-localizing-a-structure">
-<h2>Activity: localizing a structure<a class="headerlink" href="#activity-localizing-a-structure" title="Permalink to this heading">#</a></h2>
+<h2>Activity: localizing a structure<a class="headerlink" href="#activity-localizing-a-structure" title="Link to this heading">#</a></h2>
 <p>The orbitofrontal cortex is an area of the brain known to be involved in a large number of cognitive functions, particularly related to reward and decision making. Suppose you perform a study and find a large BOLD (blood oxygenation level-dependent) signal response at coordinates (50, 85, 25).</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
@@ -953,7 +941,7 @@ document.write(`
 </ul>
 </div>
 <section id="solution">
-<h3>Solution:<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
+<h3>Solution:<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -982,16 +970,16 @@ document.write(`
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fde3c8c7c50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f5b78efe850&gt;
 </pre></div>
 </div>
-<img alt="../_images/af2e4934b36e0b28f92ab0f07c69ac6e6a91b2edc64aa2936c89295277e2c1ef.svg" src="../_images/af2e4934b36e0b28f92ab0f07c69ac6e6a91b2edc64aa2936c89295277e2c1ef.svg" /></div>
+<img alt="../_images/a0d966cf1ba5cebb94d74c0294e762c39aa8acdde0ef08113e330a69325bcc8a.svg" src="../_images/a0d966cf1ba5cebb94d74c0294e762c39aa8acdde0ef08113e330a69325bcc8a.svg" /></div>
 </details>
 </div>
 </section>
 </section>
 <section id="array-math">
-<h2>Array Math<a class="headerlink" href="#array-math" title="Permalink to this heading">#</a></h2>
+<h2>Array Math<a class="headerlink" href="#array-math" title="Link to this heading">#</a></h2>
 <p>The benefit of storing data in arrays is not merely that it makes organizing multidimensional data easier. DataFrames have many more advantages in this way and automate many powerful transformations. Instead, arrays are primarily useful to us because they make numerical operations easier.</p>
 <p>Consider, for example, the following array</p>
 <div class="cell docutils container">
@@ -1048,7 +1036,7 @@ document.write(`
 </div>
 </section>
 <section id="broadcasting">
-<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this heading">#</a></h2>
+<h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Link to this heading">#</a></h2>
 <p>But NumPy is much smarter than that. If we create two more arrays</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1132,7 +1120,7 @@ document.write(`
 </div>
 </section>
 <section id="altering-arrays">
-<h2>Altering arrays<a class="headerlink" href="#altering-arrays" title="Permalink to this heading">#</a></h2>
+<h2>Altering arrays<a class="headerlink" href="#altering-arrays" title="Link to this heading">#</a></h2>
 <p>Clearly, another thing we might want to do to our arrays is change their entries. In the case of changing single entries, this is pretty easy to do:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1255,7 +1243,7 @@ document.write(`
 </div>
 </section>
 <section id="changing-dimensions">
-<h2>Changing dimensions<a class="headerlink" href="#changing-dimensions" title="Permalink to this heading">#</a></h2>
+<h2>Changing dimensions<a class="headerlink" href="#changing-dimensions" title="Link to this heading">#</a></h2>
 <p>Finally, there are times when you would like to change which dimension corresponds to rows and which to columns (for instance, flipping an image around the diagonal). In the 2d case, this is equivalent to matrix transposition:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1296,7 +1284,7 @@ document.write(`
 </div>
 </section>
 <section id="activity-color-images">
-<h2>Activity: Color Images<a class="headerlink" href="#activity-color-images" title="Permalink to this heading">#</a></h2>
+<h2>Activity: Color Images<a class="headerlink" href="#activity-color-images" title="Link to this heading">#</a></h2>
 <p>On computers, the simplest type of color image encoding is an M x N x 3 array. This represents an M x N image where each of the final dimensions represents a unique color channel (red, green, and blue). Matplotlib understands this, and will handle this automatically.</p>
 <p>To start, download any png file from the internet and save it to your working directory. (You may try using a <code class="docutils literal notranslate"><span class="pre">.jpg</span></code> or other file formats, but they are not guaranteed to work.) Then use <code class="docutils literal notranslate"><span class="pre">imread</span></code> and <code class="docutils literal notranslate"><span class="pre">imshow</span></code> to display it in the notebook like so:</p>
 <div class="cell tag_remove-output docutils container">
@@ -1318,7 +1306,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(153, 128, 3)
 </pre></div>
 </div>
-<img alt="../_images/0929e12ee3833663a7a890a3cef94820063115095a11258319a0bd23730702d0.svg" src="../_images/0929e12ee3833663a7a890a3cef94820063115095a11258319a0bd23730702d0.svg" /></div>
+<img alt="../_images/dfec63c60dfbdd4f68b24c83596fa146c3d428393c1464fddcfda2754e1fadcc.svg" src="../_images/dfec63c60dfbdd4f68b24c83596fa146c3d428393c1464fddcfda2754e1fadcc.svg" /></div>
 </div>
 <p>Now use what you’ve learned about arrays to adjust the red-green-blue color balance of the image.</p>
 <div class="cell docutils container">
@@ -1330,7 +1318,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9163e3f6b0c36174b1c5eb4613d56c63c5b57cdbc03083276426ff134c58a87c.svg" src="../_images/9163e3f6b0c36174b1c5eb4613d56c63c5b57cdbc03083276426ff134c58a87c.svg" /></div>
+<img alt="../_images/b1de4c6050f1f964bff024c5e1a003b3924b51ab3cd13ee16e092fc25d5abc4f.svg" src="../_images/b1de4c6050f1f964bff024c5e1a003b3924b51ab3cd13ee16e092fc25d5abc4f.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1341,7 +1329,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8fbf26cdeb6fc309496a5066587433cbb5cfa99a17b05564718b981a4f6e6cd1.svg" src="../_images/8fbf26cdeb6fc309496a5066587433cbb5cfa99a17b05564718b981a4f6e6cd1.svg" /></div>
+<img alt="../_images/0a546a89503c3aea81941ea3837989606e18951136f8e9b874ddd78180e61908.svg" src="../_images/0a546a89503c3aea81941ea3837989606e18951136f8e9b874ddd78180e61908.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1350,7 +1338,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3be52e414078330f7988aae75d74f1e2d8b6f5c9b4cce7128633d44ae4c3d913.svg" src="../_images/3be52e414078330f7988aae75d74f1e2d8b6f5c9b4cce7128633d44ae4c3d913.svg" /></div>
+<img alt="../_images/fb395b6d50dcff699c9b03b391a9673929e26ab5379fea7f3f82169448471f53.svg" src="../_images/fb395b6d50dcff699c9b03b391a9673929e26ab5379fea7f3f82169448471f53.svg" /></div>
 </div>
 <p>I used to have an example where we assigned, e.g.,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">img3</span> <span class="o">=</span> <span class="n">img</span>
@@ -1367,7 +1355,7 @@ document.write(`
 <p>If you’re interested in learning more about images in Matplotlib, you can read the tutorial <a class="reference external" href="http://matplotlib.org/users/image_tutorial.html">here</a>.</p>
 </section>
 <section id="learning-more">
-<h2>Learning More<a class="headerlink" href="#learning-more" title="Permalink to this heading">#</a></h2>
+<h2>Learning More<a class="headerlink" href="#learning-more" title="Link to this heading">#</a></h2>
 <p>NumPy is a powerful library, with incredibly flexible syntax, but for beginners, the code can be a little cryptic. Some suggested reading:</p>
 <ul class="simple">
 <li><p>An extensive tutorial on NumPy is available <a class="reference external" href="https://scipy.github.io/old-wiki/pages/Tentative_NumPy_Tutorial">here</a>.</p></li>
@@ -1375,7 +1363,7 @@ document.write(`
 </ul>
 </section>
 <section id="bonus-nan-and-missing-data">
-<h2>Bonus: NaN and missing data<a class="headerlink" href="#bonus-nan-and-missing-data" title="Permalink to this heading">#</a></h2>
+<h2>Bonus: NaN and missing data<a class="headerlink" href="#bonus-nan-and-missing-data" title="Link to this heading">#</a></h2>
 <p>If you analyze data for any amount of time, you will have to deal with missing data. Sometimes data are lost — subjects withdraw, files are lost, or a given condition was not run for a particular session — and in that case, we would like a way to indicate that a matrix of data has missing entries.</p>
 <p>Other times, we have data, but some quantity we calculate turns out to be ill-defined. For instance, we might want to standardize our data, subtracting the mean and dividing by the standard deviation (this results in data with mean 0 and standard deviation 1 — a convenient thing to have).</p>
 <p>But what if we only have one data point? In this case the standard deviation of that data set is 0, and division by 0 is undefined.</p>
@@ -1393,9 +1381,9 @@ document.write(`
 nan
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3717/3629404404.py:1: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3298/3629404404.py:1: RuntimeWarning: divide by zero encountered in divide
   print(np.array([1., np.inf, -7, 0]) / 0.0)
-/tmp/ipykernel_3717/3629404404.py:1: RuntimeWarning: invalid value encountered in divide
+/tmp/ipykernel_3298/3629404404.py:1: RuntimeWarning: invalid value encountered in divide
   print(np.array([1., np.inf, -7, 0]) / 0.0)
 </pre></div>
 </div>
@@ -1433,7 +1421,7 @@ nan
 </div>
 </div>
 <section id="ignoring-nans">
-<h3>Ignoring NaNs<a class="headerlink" href="#ignoring-nans" title="Permalink to this heading">#</a></h3>
+<h3>Ignoring NaNs<a class="headerlink" href="#ignoring-nans" title="Link to this heading">#</a></h3>
 <p>Something that often happens is that we want to ignore <code class="docutils literal notranslate"><span class="pre">NaN</span></code>s in our data. Perhaps we want to take a mean that does not take into account any of these undefined entries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1459,7 +1447,7 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/22015aaafb635ee9c6ab35e3936d6fa37bad0b7312e5ae9837c0e9077c1f7229.svg" src="../_images/22015aaafb635ee9c6ab35e3936d6fa37bad0b7312e5ae9837c0e9077c1f7229.svg" /></div>
+<img alt="../_images/9ecd8adc108f75eb91b97aea2d9860dc2e26f8b2538ac7c9ef27dd143cdee633.svg" src="../_images/9ecd8adc108f75eb91b97aea2d9860dc2e26f8b2538ac7c9ef27dd143cdee633.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1469,11 +1457,11 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b88afcb757a797df30f6dd53bc5fad9307b2e5c808ac0fb2b6785070728ce309.svg" src="../_images/b88afcb757a797df30f6dd53bc5fad9307b2e5c808ac0fb2b6785070728ce309.svg" /></div>
+<img alt="../_images/91dd6135cba5beb4d85cbd1cb66fc2696e2a216444f0eea8a56f0c31e0a34bd3.svg" src="../_images/91dd6135cba5beb4d85cbd1cb66fc2696e2a216444f0eea8a56f0c31e0a34bd3.svg" /></div>
 </div>
 </section>
 <section id="masking-data">
-<h3>Masking Data<a class="headerlink" href="#masking-data" title="Permalink to this heading">#</a></h3>
+<h3>Masking Data<a class="headerlink" href="#masking-data" title="Link to this heading">#</a></h3>
 <p>Masking is a way of adding additional information to an <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> to tell Python that a given entry is missing or otherwise invalid. We might want to do this for several reasons:</p>
 <ul class="simple">
 <li><p>The data are legitimately missing, as in the examples above.</p></li>
@@ -1493,7 +1481,7 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/316b6bdc2415b244a289ace743bb1a962a0a76bc7d144d6f083383aa57eae3fc.svg" src="../_images/316b6bdc2415b244a289ace743bb1a962a0a76bc7d144d6f083383aa57eae3fc.svg" /></div>
+<img alt="../_images/db88f429665cde6a90d8927ffc0f34769b8fda27ad2ea5b650f7befa66792c00.svg" src="../_images/db88f429665cde6a90d8927ffc0f34769b8fda27ad2ea5b650f7befa66792c00.svg" /></div>
 </div>
 <p>Let’s say all the readings below 0 are invalid. We can fix this. The <a class="reference external" href="http://docs.scipy.org/doc/numpy/reference/maskedarray.html"><code class="docutils literal notranslate"><span class="pre">numpy.ma</span></code> module</a> contains functions relating to masked arrays, including functions to mask data inside a range, greater or less than a given value, or where a particular truth condition is met:</p>
 <div class="cell docutils container">
@@ -1526,7 +1514,7 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/dd48428e75bc49a3d3a3f0a91467d6d6e1e9e44bad430ba42c527b2073fae44d.svg" src="../_images/dd48428e75bc49a3d3a3f0a91467d6d6e1e9e44bad430ba42c527b2073fae44d.svg" /></div>
+<img alt="../_images/ffa4cc21a634e8f8169134ca70b146c1ef3faccd023a06b6d404f7fc1b151857.svg" src="../_images/ffa4cc21a634e8f8169134ca70b146c1ef3faccd023a06b6d404f7fc1b151857.svg" /></div>
 </div>
 <p>This is potentially most useful with images. For instance, we can mask our brain images from earlier by constructing the mask ourselves:</p>
 <div class="cell docutils container">
@@ -1569,7 +1557,7 @@ nan
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5826e994d343ea9b47d1c059b74b50a9f600e0de335b0dd3f518efd28c5d15ed.svg" src="../_images/5826e994d343ea9b47d1c059b74b50a9f600e0de335b0dd3f518efd28c5d15ed.svg" /></div>
+<img alt="../_images/c05779515e9021ecdaa8377b76d2266b96d6facbedc6ae30ac0c03d4a5726299.svg" src="../_images/c05779515e9021ecdaa8377b76d2266b96d6facbedc6ae30ac0c03d4a5726299.svg" /></div>
 </div>
 <p>In this way, we can restrict our analysis to a particular region of interest inside the image; all other data will be ignored. In real MRI analysis, the mask is often based on anatomy, so that we restrict our data to a particular brain structure or structures.</p>
 </section>
@@ -1603,7 +1591,7 @@ nan
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1631,7 +1619,8 @@ nan
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1708,8 +1697,8 @@ By John Pearson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

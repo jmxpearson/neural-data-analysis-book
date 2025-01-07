@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Analyzing neural spike data &#8212; Introduction to Neural Data Analysis</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'point_process/analyzing_spike_data';</script>
@@ -71,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Exploring neural spike data" href="exploring_spike_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,31 +77,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -110,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -118,10 +101,15 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -130,7 +118,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -145,6 +134,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -156,7 +147,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Introduction to Neural Data Analysis</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -167,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python_intro/intro.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python_intro/intro.html">Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/data_structures.html">Basic Programming in Python: Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/nested_data_structures.html">Case Study: Nested Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/patterns.html">Patterns, functions, and duck typing</a></li>
@@ -175,35 +173,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/arrays.html">Working with Array Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/data_frames.html">Introduction to Data Frames</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Point process data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Point process data</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="theory.html">A little point process theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="estimation.html">Estimating Poisson processes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="psth.html">The peri-stimulus time histogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exploring_spike_data.html">Exploring neural spike data</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Analyzing neural spike data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tables/exploring_table_data.html">Exploring table data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tables/analyzing_table_data.html">Analyzing table data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../images/exploring_image_data.html">Exploring Image data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../images/analyzing_image_data.html">Analyzing Image data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_i.html">Debugging Practicum I</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_ii.html">Debugging Practicum II</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/fitting_basic_models.html">Fitting basic models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/simulation_models.html">Fitting simulated models</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -213,14 +211,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -229,14 +232,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -261,14 +264,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/point_process/analyzing_spike_data.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -279,14 +282,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/point_process/analyzing_spike_data.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -408,27 +411,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -477,7 +472,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="analyzing-neural-spike-data">
-<h1>Analyzing neural spike data<a class="headerlink" href="#analyzing-neural-spike-data" title="Permalink to this heading">#</a></h1>
+<h1>Analyzing neural spike data<a class="headerlink" href="#analyzing-neural-spike-data" title="Link to this heading">#</a></h1>
 <p>Today, we’ll get to analyzing spike data. In particular, we’ll deal with estimating firing rates, which are typically the variables of interest. Once we have a good firing rate estimate, we often want to know how such rates are related to behavior, either evoked by it (as in sensory areas) or driving it (as in the motor system).</p>
 <p>We’ll begin with where we left off in the <a class="reference internal" href="exploring_spike_data.html#exploring-spike-data"><span class="std std-ref">last section</span></a>:</p>
 <div class="cell tag_remove-output docutils container">
@@ -488,7 +483,7 @@ document.write(`
 </div>
 </div>
 <section id="estimating-mean-firing-rates">
-<h2>Estimating mean firing rates<a class="headerlink" href="#estimating-mean-firing-rates" title="Permalink to this heading">#</a></h2>
+<h2>Estimating mean firing rates<a class="headerlink" href="#estimating-mean-firing-rates" title="Link to this heading">#</a></h2>
 <p>As we <a class="reference internal" href="psth.html#psth-section"><span class="std std-ref">saw before</span></a>, the simplest method for estimating a firing rate for a cell is to average its responses over multiple trials. Here, we’ll practice that on real data.</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
@@ -499,7 +494,7 @@ document.write(`
 </ol>
 </div>
 <section id="solutions">
-<h3>Solutions:<a class="headerlink" href="#solutions" title="Permalink to this heading">#</a></h3>
+<h3>Solutions:<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -553,12 +548,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/133375729c1675714b648222fdfc25d62fd03222986d75e982867b4fad6bb791.svg" src="../_images/133375729c1675714b648222fdfc25d62fd03222986d75e982867b4fad6bb791.svg" /></div>
+<img alt="../_images/95f3cdfd8c761c6519c64152f2549c359d7fae467c790cc42acf1c2725b86519.svg" src="../_images/95f3cdfd8c761c6519c64152f2549c359d7fae467c790cc42acf1c2725b86519.svg" /></div>
 </details>
 </div>
 </section>
 <section id="smoothing">
-<h3>Smoothing<a class="headerlink" href="#smoothing" title="Permalink to this heading">#</a></h3>
+<h3>Smoothing<a class="headerlink" href="#smoothing" title="Link to this heading">#</a></h3>
 <p>Typically, even with trial averaging, firing rates have a lot of noise. Under the assumption that rates are not changing drastically from one bin to the next, we can often get a more interpretable result by smoothing.</p>
 <p>The most common method of smoothing is calculating a moving average, which we can do <a class="reference external" href="https://scipy-cookbook.readthedocs.io/items/SignalSmooth.html">using NumPy’s filtering commands</a>. This demo is more complicated than you might need, so just focus on the key line, which involves <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.convolve.html"><code class="docutils literal notranslate"><span class="pre">numpy.convolve</span></code></a>.</p>
 <div class="admonition-exercise admonition">
@@ -569,7 +564,7 @@ document.write(`
 </ol>
 </div>
 <section id="id1">
-<h4>Solutions:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<h4>Solutions:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -606,14 +601,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/695162d51debdda3e0349d46f693a0fbc1f7dfd88572e5e4a5c5440fb4485837.svg" src="../_images/695162d51debdda3e0349d46f693a0fbc1f7dfd88572e5e4a5c5440fb4485837.svg" /></div>
+<img alt="../_images/b238b5395ec97fdd259d80962576c2c87944d6e624f0a2ba93dcf9e961d44232.svg" src="../_images/b238b5395ec97fdd259d80962576c2c87944d6e624f0a2ba93dcf9e961d44232.svg" /></div>
 </details>
 </div>
 </section>
 </section>
 </section>
 <section id="estimating-firing-rates-for-single-trials">
-<h2>Estimating firing rates for single trials<a class="headerlink" href="#estimating-firing-rates-for-single-trials" title="Permalink to this heading">#</a></h2>
+<h2>Estimating firing rates for single trials<a class="headerlink" href="#estimating-firing-rates-for-single-trials" title="Link to this heading">#</a></h2>
 <p>In cases where trial-to-trial variability (neural <em>or</em> behavioral) is important, we might want to have an estimate of firing rate on a single trial to correlate with behavior. This is a tricky proposition, since, again, firing rate is not something we directly observe. In statistical language, we observe events from a Poisson <em>process</em>, which is equivalent, as we have seen, to observing counts within time bins that are governed by a Poisson <em>distribution</em>. In both cases, we assume there is an underlying spike rate or spike density <span class="math notranslate nohighlight">\(\lambda(t)\)</span> that varies in time.</p>
 <p>As discussed <a class="reference internal" href="estimation.html#point-process-estimation-single-trial"><span class="std std-ref">previously</span></a>, this is a hard problem, but as seen in our <a class="reference internal" href="psth.html#psth-section"><span class="std std-ref">investigation of the PSTH</span></a>, one approach is to trade variance for bias by smoothing the binned single-trial spikes.</p>
 <p>So let’s estimate some single-trial firing rates. The simplest kerenel is a boxcar or sliding window of width <span class="math notranslate nohighlight">\(w\)</span>. This simply replaces each spike count of <span class="math notranslate nohighlight">\(n\)</span> with a spike count of <span class="math notranslate nohighlight">\(n/w\)</span> in each bin of the window (i.e., a moving average).</p>
@@ -626,7 +621,7 @@ document.write(`
 </ol>
 </div>
 <section id="id2">
-<h3>Solutions:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>Solutions:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -636,7 +631,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create the array of firing rate estimates </span>
 
-<span class="k">def</span> <span class="nf">firing_rate_moving_avg</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">window_len</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">firing_rate_moving_avg</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">window_len</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">window_len</span><span class="p">)</span>
     <span class="n">estimate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span> <span class="c1"># Create an empty array of the same size as spikes</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
@@ -671,7 +666,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/20cf92f603b13fa4ee19aed9506f8102d41011a4c6b86a4e5a7f36f19585049e.svg" src="../_images/20cf92f603b13fa4ee19aed9506f8102d41011a4c6b86a4e5a7f36f19585049e.svg" /></div>
+<img alt="../_images/927eea8101de9accdb69615730bf52687d32f577a111a5831f25c13814cf1b1a.svg" src="../_images/927eea8101de9accdb69615730bf52687d32f577a111a5831f25c13814cf1b1a.svg" /></div>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -686,7 +681,7 @@ document.write(`
 <span class="n">lambda_</span> <span class="o">=</span> <span class="n">firing_rate_moving_avg</span><span class="p">(</span><span class="n">spk_bin</span><span class="p">,</span> <span class="n">window_len</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="c1"># Plot the behavior as before (see Week 1, part 1)</span>
-<span class="k">def</span> <span class="nf">plot_summary</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">mat</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_summary</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">mat</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">V</span><span class="p">):</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">));</span>
     <span class="n">im1</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">mat</span><span class="p">[:,:,</span><span class="n">unit</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">);</span>
     <span class="n">im2</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">H</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
@@ -704,12 +699,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2c65a76fe0a5ba07132d0262e8d997fbe3b2e438e3042fe267063c83deb5a28f.svg" src="../_images/2c65a76fe0a5ba07132d0262e8d997fbe3b2e438e3042fe267063c83deb5a28f.svg" /></div>
+<img alt="../_images/8da03bde044951d72019117b0c454598931a2a6c30fd878b91af5bbfcd6cf026.svg" src="../_images/8da03bde044951d72019117b0c454598931a2a6c30fd878b91af5bbfcd6cf026.svg" /></div>
 </details>
 </div>
 </section>
 <section id="gaussian-smoothing">
-<h3>Gaussian smoothing<a class="headerlink" href="#gaussian-smoothing" title="Permalink to this heading">#</a></h3>
+<h3>Gaussian smoothing<a class="headerlink" href="#gaussian-smoothing" title="Link to this heading">#</a></h3>
 <p>In contrast to the moving average, we might like to use a filter that does not “share” the spike equally among many time bins but keeps the bulk of its effect concentrated near the real data. That is, we’d like something more bump-like. A natural candidate is the Gaussian, or Normal, distribution.</p>
 <p>For smoothing by an arbitrary filter, NumPy has many methods available, but the most straightforward one is to generate a vector representing the filter and use the convolution command (<a class="reference external" href="https://docs.scipy.org/doc/numpy-1.14.0/reference/generated/numpy.convolve.html"><code class="docutils literal notranslate"><span class="pre">convolve</span></code></a>) to perform the smoothing. This is the same method we’ve seen now several times, but here we’ll dig a little more into the details.</p>
 <div class="admonition-exercise admonition">
@@ -735,7 +730,7 @@ document.write(`
 </ol>
 </div>
 <section id="id3">
-<h4>Solutions:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<h4>Solutions:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -745,7 +740,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Create a Gaussian filter.</span>
 
-<span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
 
 <span class="n">window_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1001</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">window_std</span> <span class="o">=</span> <span class="mi">20</span>
@@ -757,7 +752,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d1a789559f5822f6d537dfc981a420efb3972e90a19f77cfe524b0fbfebbd2a2.svg" src="../_images/d1a789559f5822f6d537dfc981a420efb3972e90a19f77cfe524b0fbfebbd2a2.svg" /></div>
+<img alt="../_images/431116a842663012ac22c7aaa7706d4930a73ef166b698d89b1ad833dc9ed0e7.svg" src="../_images/431116a842663012ac22c7aaa7706d4930a73ef166b698d89b1ad833dc9ed0e7.svg" /></div>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -796,7 +791,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33d7432e67ff54de37013d19d5dea34da88f1db8110f3a9f2dcd6e8f4ba4e11a.svg" src="../_images/33d7432e67ff54de37013d19d5dea34da88f1db8110f3a9f2dcd6e8f4ba4e11a.svg" /></div>
+<img alt="../_images/69f38e39b6fc51e4cf469d200d78ee449cab651ea34efbb3f94774ac492d8572.svg" src="../_images/69f38e39b6fc51e4cf469d200d78ee449cab651ea34efbb3f94774ac492d8572.svg" /></div>
 </details>
 </div>
 <div class="cell tag_hide-cell docutils container">
@@ -808,7 +803,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 4. What happens as you change the width of the filter?</span>
 
-<span class="k">def</span> <span class="nf">firing_rate_estimate</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">firing_rate_estimate</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
     <span class="n">estimate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">spikes</span><span class="p">)</span> <span class="c1"># Create an empty array of the same size as spikes</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_units</span><span class="p">):</span>
@@ -834,7 +829,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7b73c8fdc33b9adbe151b9fc8f044852b5cc23e265e8e97719affeb62da65366.svg" src="../_images/7b73c8fdc33b9adbe151b9fc8f044852b5cc23e265e8e97719affeb62da65366.svg" /></div>
+<img alt="../_images/ff65014928127a37a9ca970004909c893c374c77da1cd24a65e7ca0bcabe8eb1.svg" src="../_images/ff65014928127a37a9ca970004909c893c374c77da1cd24a65e7ca0bcabe8eb1.svg" /></div>
 </details>
 </div>
 </section>
@@ -869,7 +864,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -897,7 +892,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -970,8 +966,8 @@ By John Pearson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

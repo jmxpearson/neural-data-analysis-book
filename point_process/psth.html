@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>The peri-stimulus time histogram &#8212; Introduction to Neural Data Analysis</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'point_process/psth';</script>
@@ -71,6 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Estimating Poisson processes" href="estimation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,31 +77,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -110,7 +94,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -118,10 +101,15 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -130,7 +118,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -145,6 +134,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -156,7 +147,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Introduction to Neural Data Analysis</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -167,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../python_intro/intro.html">Introduction to Python</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python_intro/intro.html">Introduction to Python</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/data_structures.html">Basic Programming in Python: Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/nested_data_structures.html">Case Study: Nested Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/patterns.html">Patterns, functions, and duck typing</a></li>
@@ -175,35 +173,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/arrays.html">Working with Array Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python_intro/data_frames.html">Introduction to Data Frames</a></li>
 </ul>
-</li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Point process data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Point process data</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="theory.html">A little point process theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="estimation.html">Estimating Poisson processes</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">The peri-stimulus time histogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exploring_spike_data.html">Exploring neural spike data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="analyzing_spike_data.html">Analyzing neural spike data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tables/exploring_table_data.html">Exploring table data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tables/analyzing_table_data.html">Analyzing table data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../images/exploring_image_data.html">Exploring Image data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../images/analyzing_image_data.html">Analyzing Image data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_i.html">Debugging Practicum I</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_ii.html">Debugging Practicum II</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/fitting_basic_models.html">Fitting basic models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/simulation_models.html">Fitting simulated models</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -213,14 +211,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -229,14 +232,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -261,14 +264,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/point_process/psth.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -279,14 +282,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/point_process/psth.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -408,27 +411,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -465,17 +460,17 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-peri-stimulus-time-histogram">
-<span id="psth-section"></span><h1>The peri-stimulus time histogram<a class="headerlink" href="#the-peri-stimulus-time-histogram" title="Permalink to this heading">#</a></h1>
+<span id="psth-section"></span><h1>The peri-stimulus time histogram<a class="headerlink" href="#the-peri-stimulus-time-histogram" title="Link to this heading">#</a></h1>
 <p>The peri-stimulus (or peri-event) time histogram (PSTH/PETH) is one of the most prevalent analyses in systems neuroscience. Its original usage was in identifying responses of single neurons to specific events in time (where the events were action potentials), but it can also be used to analyze time series of specific behaviors, estimate connected cell pairs, and analyze any number of other ways in which streams of events might relate to other events in time.</p>
 <p>Here, we’re going to work through the process of creating a simple PSTH using Python, noting along the way how various parameter choices capture relevant statistical assumptions and tradeoffs as well as affecting the look and feel of the resulting plots.</p>
 <p>We’ll start with some sample data, shown in the raster plot below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/802fe287c4a438e72fc767f1f6943a729d6645f0e0bbe2b59aa574f4d9b76a9c.svg" src="../_images/802fe287c4a438e72fc767f1f6943a729d6645f0e0bbe2b59aa574f4d9b76a9c.svg" /></div>
+<img alt="../_images/3bbf6f5841583ce4ecbd444a39f6b27b9cf0f81f61faa26fc270efa01597c1a5.svg" src="../_images/3bbf6f5841583ce4ecbd444a39f6b27b9cf0f81f61faa26fc270efa01597c1a5.svg" /></div>
 </div>
 <p>It should be obvious from this representation of the data that the firing rate goes up around 0 and down around 1 second later. In fact, these are artificial data generated from the methods of the last section by assuming that the firing rate is 1 Hz at baseline, increases to 10 Hz at 0.0, and falls again to baseline at 1.0 s. This highly contrived example — real data rarely look this clean — will allow us to examine the tradeoffs endemic in constructing the PSTH in a case where we know the ground truth.</p>
 <section id="binning">
-<h2>Binning<a class="headerlink" href="#binning" title="Permalink to this heading">#</a></h2>
+<h2>Binning<a class="headerlink" href="#binning" title="Link to this heading">#</a></h2>
 <p>In the following sections, we’ll assume we have our data in the form of two vectors, <code class="docutils literal notranslate"><span class="pre">times</span></code>, which contains the times of all the spikes, and <code class="docutils literal notranslate"><span class="pre">trials</span></code>, a vector of the same length that indicates the trial to which each spike belongs.</p>
 <div class="admonition-question admonition">
 <p class="admonition-title">Question</p>
@@ -509,7 +504,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/19dedb28128ab944b98f19af7826aba19e1be4b3f81983eeb5a1f27c8420fb0a.svg" src="../_images/19dedb28128ab944b98f19af7826aba19e1be4b3f81983eeb5a1f27c8420fb0a.svg" /></div>
+<img alt="../_images/6433adcbbabb5d190bf397524b6c198b0a3f22bcbe73d51a5288b35882dad46b.svg" src="../_images/6433adcbbabb5d190bf397524b6c198b0a3f22bcbe73d51a5288b35882dad46b.svg" /></div>
 </div>
 <p>A few things should stick out to you about the effects bin size has on the PSTH:</p>
 <ul class="simple">
@@ -520,7 +515,7 @@ document.write(`
 <p>In effect, each of these phenomena are a result of the same concept, known in statistics as the <strong>bias-variance tradeoff</strong>: attempts to reduce the variance of an estimate (e.g., by using a larger bin size), often come at the cost of less accurate estimates (e.g., less precise onset times). Here, we know that firing rates in the middle 1 s period are constant, but if they were changing, smaller bins would allow us to better track those small changes. But the (relative) variance of those estimates would be much higher than if we used larger bins.</p>
 </section>
 <section id="firing-rates-and-smoothing">
-<h2>Firing rates and smoothing<a class="headerlink" href="#firing-rates-and-smoothing" title="Permalink to this heading">#</a></h2>
+<h2>Firing rates and smoothing<a class="headerlink" href="#firing-rates-and-smoothing" title="Link to this heading">#</a></h2>
 <p>What we have constructed above is the classic PSTH: a histogram of spike counts across all trials. It is what you will see in many older physiology papers. It does, however, have a couple of shortcomings:</p>
 <ul class="simple">
 <li><p>The quantity plotted on the y axis is spike counts, which depends on the number of trials we observe; it’s not really a biological quantity of interest.</p></li>
@@ -532,14 +527,14 @@ document.write(`
 <li><p>We will then <em>smooth</em> these firing rate estimates in time to trade temporal precision for a reduction in the variance of our estimates.</p></li>
 </ul>
 <figure class="align-default" id="filter-illustration">
-<img alt="../_images/e85bc0224a35eb506c8fd8c7d6cb9c6290363255c6f22edad0f96775a8c6e830.svg" src="../_images/e85bc0224a35eb506c8fd8c7d6cb9c6290363255c6f22edad0f96775a8c6e830.svg" /><figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Effects of filter shape and width on spike rate estimation. <strong>(Left)</strong> A single spike (blue) and the same spike as smoothed (convolved) with a boxcar (orange), Gaussian (green), and causal exponential (red) filter. <strong>(Right)</strong> An example spike train smoothed using the same filters. Note that a trial-averaged PSTH is comparable to a boxcar filter with width equal to the bin width, and that the boxcar and Gaussian filters spread the influence of a spike into the both the past and the future.</span><a class="headerlink" href="#filter-illustration" title="Permalink to this image">#</a></p>
+<img alt="../_images/1992b7b922d900870495aa294fbad1fc4800a6d2523a264048f68e42f92ae48c.svg" src="../_images/1992b7b922d900870495aa294fbad1fc4800a6d2523a264048f68e42f92ae48c.svg" /><figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Effects of filter shape and width on spike rate estimation. <strong>(Left)</strong> A single spike (blue) and the same spike as smoothed (convolved) with a boxcar (orange), Gaussian (green), and causal exponential (red) filter. <strong>(Right)</strong> An example spike train smoothed using the same filters. Note that a trial-averaged PSTH is comparable to a boxcar filter with width equal to the bin width, and that the boxcar and Gaussian filters spread the influence of a spike into the both the past and the future.</span><a class="headerlink" href="#filter-illustration" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><a class="reference internal" href="#filter-illustration"><span class="std std-numref">Fig. 2</span></a> illustrates this smoothing strategy on a simple example data set of four spikes. In each case, we have replaced a single spike with the filter itself (equivalent to a <a class="reference external" href="https://en.wikipedia.org/wiki/Convolution">convolution</a> operation). This operation spreads the influence of the single spike in time, increasing firing rate estimates nearby while lowering them at the time of the spike itself. Note also that, except for the case of the exponential filter, this smoothing spreads firing rate estimates into the future, which means that estimated firing rates will increase <em>before</em> the first spikes actually arrive. Thus, for cases in which latencies and onsets are important, causal filters (which only spread into the past) should always be used.</p>
 </section>
 <section id="estimating-trial-averaged-firing">
-<h2>Estimating trial-averaged firing<a class="headerlink" href="#estimating-trial-averaged-firing" title="Permalink to this heading">#</a></h2>
+<h2>Estimating trial-averaged firing<a class="headerlink" href="#estimating-trial-averaged-firing" title="Link to this heading">#</a></h2>
 <p>So let’s return to our example data set and try using what we’ve learned to estimate firing as a function of time in trial. As with the PSTH, our first step will be to bin the data, but this time, since we’ll want access to the counts, not just the plot, we’ll use the <code class="docutils literal notranslate"><span class="pre">np.histogram</span></code> function. Since we’re eventually going to smooth with filters of various widths, we can start by using a very fine bin size of 1 ms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -557,7 +552,7 @@ document.write(`
 <p>The next step is to smooth the counts using a filter. For this example, we’ll use a Gaussian filter, though the principles remain the same for other shapes. Our strategy will be to first define a filter that has a Gaussian shape (using the Gaussian probability density function in <code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>) and then to normalize that filter so that its sum is 1.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">stats</span>
 
 <span class="c1"># standard deviation of smoothing filter</span>
 <span class="n">smooth_widths</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.050</span><span class="p">,</span> <span class="mf">0.100</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
@@ -613,7 +608,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c900380d05fa1f9c3eb7bb42c4923b879a676f23dea224e6be60eb94cb193a4a.svg" src="../_images/c900380d05fa1f9c3eb7bb42c4923b879a676f23dea224e6be60eb94cb193a4a.svg" /></div>
+<img alt="../_images/6cce11166b8d7ae1015c105c88c659d506459466836404e06a56c4453d0406ba.svg" src="../_images/6cce11166b8d7ae1015c105c88c659d506459466836404e06a56c4453d0406ba.svg" /></div>
 </div>
 <p>Note that the smaller-width filters are more variable but still centered around the true data, so our estimates pick up on smaller fluctuations in local spike counts while being less reliable at each point. By contrast, the larger smoothing widths are less variable but are badly biased around firing rate changes. In effect, when smoothing with a filter of width <span class="math notranslate nohighlight">\(T\)</span>, it is hard to detect changes in firing rate on scales <span class="math notranslate nohighlight">\(&lt; T\)</span>.</p>
 <div class="admonition-question admonition">
@@ -622,7 +617,7 @@ document.write(`
 </div>
 </section>
 <section id="beyond-spikes">
-<h2>Beyond spikes<a class="headerlink" href="#beyond-spikes" title="Permalink to this heading">#</a></h2>
+<h2>Beyond spikes<a class="headerlink" href="#beyond-spikes" title="Link to this heading">#</a></h2>
 <p>Though the analyses we’ve done here are very simple, they apply to many different types of data. For example, many experiments generate time stamps of short behaviors that can be viewed as realizations of a point process, and we are often interested in the (average) rate of such a process around sets of other events. In such cases, the PSTH is often the method of choice. Along different lines, for continuously recorded data, we may also be interested in the average time trace of the data across repetitions of the same experimental condition, again aligned to select moments in time (e.g., trial start, movement or stimulus onset, reward delivery). In this case, the PSTH is also a useful analysis (without the hassle of binning). Implicitly, the PSTH assumes that the data have a characteristic time course of interest, and this pattern repeats around some class of events whose locations we know in time. Aligning the data to these events and then averaging thus produces an estimate of this “typical” time course.</p>
 </section>
 </section>
@@ -654,7 +649,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -682,7 +677,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -743,8 +739,8 @@ By John Pearson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

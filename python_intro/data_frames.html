@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Introduction to Data Frames &#8212; Introduction to Neural Data Analysis</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_intro/data_frames';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Working with Array Data" href="arrays.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -76,31 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -108,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -116,10 +99,15 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -128,7 +116,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -154,7 +145,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Introduction to Neural Data Analysis</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -165,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Introduction to Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Introduction to Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_structures.html">Basic Programming in Python: Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nested_data_structures.html">Case Study: Nested Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="patterns.html">Patterns, functions, and duck typing</a></li>
@@ -173,35 +171,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Working with Array Data</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Introduction to Data Frames</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/theory.html">A little point process theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/estimation.html">Estimating Poisson processes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/psth.html">The peri-stimulus time histogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/exploring_spike_data.html">Exploring neural spike data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/analyzing_spike_data.html">Analyzing neural spike data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tables/exploring_table_data.html">Exploring table data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tables/analyzing_table_data.html">Analyzing table data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../images/exploring_image_data.html">Exploring Image data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../images/analyzing_image_data.html">Analyzing Image data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_i.html">Debugging Practicum I</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_ii.html">Debugging Practicum II</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/fitting_basic_models.html">Fitting basic models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/simulation_models.html">Fitting simulated models</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -211,14 +209,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -259,14 +262,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/data_frames.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -277,14 +280,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/data_frames.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -406,27 +409,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -469,9 +464,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-data-frames">
-<h1>Introduction to Data Frames<a class="headerlink" href="#introduction-to-data-frames" title="Permalink to this heading">#</a></h1>
+<h1>Introduction to Data Frames<a class="headerlink" href="#introduction-to-data-frames" title="Link to this heading">#</a></h1>
 <section id="case-study-diamonds">
-<h2>Case Study: Diamonds<a class="headerlink" href="#case-study-diamonds" title="Permalink to this heading">#</a></h2>
+<h2>Case Study: Diamonds<a class="headerlink" href="#case-study-diamonds" title="Link to this heading">#</a></h2>
 <p>In this lesson, we’re going to do some basic data analyses on a set of diamond characteristics and prices. First, we’ll download the data:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -483,23 +478,11 @@ document.write(`
 <p>If you open the file in a text editor, you will see that it consists of a bunch of lines, each with a bunch of commas. This is a csv or “comma-separated value” file. Every row represents a record (like a row in a spreadsheet), with each cell separated by a comma. The first row has the same format, but the entries are the names of the columns.</p>
 </section>
 <section id="loading-the-data">
-<h2>Loading the data<a class="headerlink" href="#loading-the-data" title="Permalink to this heading">#</a></h2>
+<h2>Loading the data<a class="headerlink" href="#loading-the-data" title="Link to this heading">#</a></h2>
 <p>We would like to load this data into Python. But to do so, we will need to tell Python that we want to get some tools ready. These tools are located in a library (the Python term is “module”) called Pandas. So we do this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3747/4080736814.py:1: DeprecationWarning: 
-Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-but was not found to be installed on your system.
-If this would cause problems for you,
-please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-  import pandas as pd
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -524,7 +507,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <p>We will see this pattern repeatedly in Python. We use names like <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> to tell Python to perform actions. As we saw <a class="reference internal" href="patterns.html#patterns-functions"><span class="std std-ref">before</span></a> we supply variables or pieces of information (“arguments”) needed as inputs by Python to perform those actions.</p>
 </section>
 <section id="examining-the-data">
-<h2>Examining the data<a class="headerlink" href="#examining-the-data" title="Permalink to this heading">#</a></h2>
+<h2>Examining the data<a class="headerlink" href="#examining-the-data" title="Link to this heading">#</a></h2>
 <p>So what did we accomplish?</p>
 <p>The easiest way to see is by asking Python to print the variable to the screen. We can do this with</p>
 <div class="cell tag_output_scroll docutils container">
@@ -1291,7 +1274,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </section>
 <section id="the-fine-art-of-looking-things-up">
-<h2>The fine art of looking things up<a class="headerlink" href="#the-fine-art-of-looking-things-up" title="Permalink to this heading">#</a></h2>
+<h2>The fine art of looking things up<a class="headerlink" href="#the-fine-art-of-looking-things-up" title="Link to this heading">#</a></h2>
 <p>The Python ecosystem is <em>huge</em>. Nobody knows all the functions for all the libraries. This means that when you start analyzing data in earnest, you will need to learn the parts important for solving your particular problem. Initially, this will be difficult; everything will be new to you. Eventually, though, you develop a conceptual base that will be easy to add to.</p>
 <p>So what should you do in this case? How do we learn more about the functions we’ve used so far?</p>
 <p>First off, let’s figure out what type of object <code class="docutils literal notranslate"><span class="pre">data</span></code> is. Every variable in Python is an object (meaning it has both information and behavior stored inside of it), and every object has a type. We can find this by using the <code class="docutils literal notranslate"><span class="pre">type</span></code> function:</p>
@@ -1372,6 +1355,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
  &#39;__doc__&#39;,
  &#39;__eq__&#39;,
  &#39;__finalize__&#39;,
+ &#39;__firstlineno__&#39;,
  &#39;__floordiv__&#39;,
  &#39;__format__&#39;,
  &#39;__ge__&#39;,
@@ -1430,6 +1414,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
  &#39;__setitem__&#39;,
  &#39;__setstate__&#39;,
  &#39;__sizeof__&#39;,
+ &#39;__static_attributes__&#39;,
  &#39;__str__&#39;,
  &#39;__sub__&#39;,
  &#39;__subclasshook__&#39;,
@@ -1567,7 +1552,6 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
  &#39;_shift_with_freq&#39;,
  &#39;_should_reindex_frame_op&#39;,
  &#39;_slice&#39;,
- &#39;_sliced_from_mgr&#39;,
  &#39;_stat_function&#39;,
  &#39;_stat_function_ddof&#39;,
  &#39;_take_with_is_copy&#39;,
@@ -1819,7 +1803,17 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on method sort_values in module pandas.core.frame:
 
-sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#39;bool | list[bool] | tuple[bool, ...]&#39; = True, inplace: &#39;bool&#39; = False, kind: &#39;SortKind&#39; = &#39;quicksort&#39;, na_position: &#39;str&#39; = &#39;last&#39;, ignore_index: &#39;bool&#39; = False, key: &#39;ValueKeyFunc | None&#39; = None) -&gt; &#39;DataFrame | None&#39; method of pandas.core.frame.DataFrame instance
+sort_values(
+    by: &#39;IndexLabel&#39;,
+    *,
+    axis: &#39;Axis&#39; = 0,
+    ascending: &#39;bool | list[bool] | tuple[bool, ...]&#39; = True,
+    inplace: &#39;bool&#39; = False,
+    kind: &#39;SortKind&#39; = &#39;quicksort&#39;,
+    na_position: &#39;str&#39; = &#39;last&#39;,
+    ignore_index: &#39;bool&#39; = False,
+    key: &#39;ValueKeyFunc | None&#39; = None
+) -&gt; &#39;DataFrame | None&#39; method of pandas.core.frame.DataFrame instance
     Sort by the values along either axis.
 
     Parameters
@@ -2474,7 +2468,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
 </div>
 </section>
 <section id="making-the-most-of-data-frames">
-<h2>Making the most of data frames<a class="headerlink" href="#making-the-most-of-data-frames" title="Permalink to this heading">#</a></h2>
+<h2>Making the most of data frames<a class="headerlink" href="#making-the-most-of-data-frames" title="Link to this heading">#</a></h2>
 <p>So let’s get down to some real data analysis.</p>
 <p>If we want to know what the columns in our data frame are (if, for instance, there are too many to fit onscreen, or we need the list of them to manipulate), we can do</p>
 <div class="cell docutils container">
@@ -2534,6 +2528,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;__divmod__&#39;,
  &#39;__doc__&#39;,
  &#39;__eq__&#39;,
+ &#39;__firstlineno__&#39;,
  &#39;__floordiv__&#39;,
  &#39;__format__&#39;,
  &#39;__ge__&#39;,
@@ -2578,6 +2573,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;__setattr__&#39;,
  &#39;__setitem__&#39;,
  &#39;__sizeof__&#39;,
+ &#39;__static_attributes__&#39;,
  &#39;__str__&#39;,
  &#39;__sub__&#39;,
  &#39;__subclasshook__&#39;,
@@ -2660,6 +2656,7 @@ sort_values(by: &#39;IndexLabel&#39;, *, axis: &#39;Axis&#39; = 0, ascending: &#
  &#39;_is_strictly_monotonic_decreasing&#39;,
  &#39;_is_strictly_monotonic_increasing&#39;,
  &#39;_isnan&#39;,
+ &#39;_join_empty&#39;,
  &#39;_join_level&#39;,
  &#39;_join_monotonic&#39;,
  &#39;_join_multi&#39;,
@@ -3038,58 +3035,58 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11629,</span> in <span class="ni">DataFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11621</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">make_doc</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-<span class="g g-Whitespace">  </span><span class="mi">11622</span> <span class="k">def</span> <span class="nf">max</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">11623</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/frame.py:11656,</span> in <span class="ni">DataFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11648</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">make_doc</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+<span class="g g-Whitespace">  </span><span class="mi">11649</span> <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">11650</span>     <span class="bp">self</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11627</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11628</span> <span class="p">):</span>
-<span class="ne">&gt; </span><span class="mi">11629</span>     <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11630</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Series</span><span class="p">):</span>
-<span class="g g-Whitespace">  </span><span class="mi">11631</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11654</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">11655</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">11656</span>     <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11657</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Series</span><span class="p">):</span>
+<span class="g g-Whitespace">  </span><span class="mi">11658</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/generic.py:12397,</span> in <span class="ni">NDFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12390</span> <span class="k">def</span> <span class="nf">max</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">12391</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12392</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/generic.py:12404,</span> in <span class="ni">NDFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">12397</span> <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">12398</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12399</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12395</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12396</span> <span class="p">):</span>
-<span class="ne">&gt; </span><span class="mi">12397</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">12398</span>         <span class="s2">&quot;max&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12399</span>         <span class="n">nanops</span><span class="o">.</span><span class="n">nanmax</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12400</span>         <span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12401</span>         <span class="n">skipna</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12402</span>         <span class="n">numeric_only</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12403</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12404</span>     <span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">12402</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12403</span> <span class="p">):</span>
+<span class="ne">&gt; </span><span class="mi">12404</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">12405</span>         <span class="s2">&quot;max&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12406</span>         <span class="n">nanops</span><span class="o">.</span><span class="n">nanmax</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12407</span>         <span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12408</span>         <span class="n">skipna</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12409</span>         <span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12410</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">  </span><span class="mi">12411</span>     <span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/generic.py:12370,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12366</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12368</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">&gt; </span><span class="mi">12370</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">12371</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
-<span class="g g-Whitespace">  </span><span class="mi">12372</span> <span class="p">)</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/generic.py:12377,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
+<span class="g g-Whitespace">  </span><span class="mi">12373</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">12375</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="ne">&gt; </span><span class="mi">12377</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
+<span class="g g-Whitespace">  </span><span class="mi">12378</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
+<span class="g g-Whitespace">  </span><span class="mi">12379</span> <span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11535,</span> in <span class="ni">DataFrame._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11531</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
-<span class="g g-Whitespace">  </span><span class="mi">11533</span> <span class="c1"># After possibly _get_data and transposing, we are now in the</span>
-<span class="g g-Whitespace">  </span><span class="mi">11534</span> <span class="c1">#  simple case where we can use BlockManager.reduce</span>
-<span class="ne">&gt; </span><span class="mi">11535</span> <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">blk_func</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11536</span> <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_constructor_from_mgr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">  </span><span class="mi">11537</span> <span class="k">if</span> <span class="n">out_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">out</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s2">&quot;boolean&quot;</span><span class="p">:</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/frame.py:11562,</span> in <span class="ni">DataFrame._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11558</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
+<span class="g g-Whitespace">  </span><span class="mi">11560</span> <span class="c1"># After possibly _get_data and transposing, we are now in the</span>
+<span class="g g-Whitespace">  </span><span class="mi">11561</span> <span class="c1">#  simple case where we can use BlockManager.reduce</span>
+<span class="ne">&gt; </span><span class="mi">11562</span> <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">blk_func</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11563</span> <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_constructor_from_mgr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">  </span><span class="mi">11564</span> <span class="k">if</span> <span class="n">out_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">out</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s2">&quot;boolean&quot;</span><span class="p">:</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/internals/managers.py:1501,</span> in <span class="ni">BlockManager.reduce</span><span class="nt">(self, func)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="n">res_blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1500</span> <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1501</span>     <span class="n">nbs</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="n">res_blocks</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1504</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Index</span><span class="p">([</span><span class="kc">None</span><span class="p">])</span>  <span class="c1"># placeholder</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/internals/managers.py:1500,</span> in <span class="ni">BlockManager.reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="n">res_blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1500</span>     <span class="n">nbs</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="n">res_blocks</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1503</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Index</span><span class="p">([</span><span class="kc">None</span><span class="p">])</span>  <span class="c1"># placeholder</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/internals/blocks.py:404,</span> in <span class="ni">Block.reduce</span><span class="nt">(self, func)</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/internals/blocks.py:404,</span> in <span class="ni">Block.reduce</span><span class="nt">(self, func)</span>
 <span class="g g-Whitespace">    </span><span class="mi">398</span> <span class="nd">@final</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">def</span> <span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">def</span><span class="w"> </span><span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
 <span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="c1"># We will apply the function and reshape the result into a single-row</span>
 <span class="g g-Whitespace">    </span><span class="mi">401</span>     <span class="c1">#  Block with the same mgr_locs; squeezing will be done at a higher level</span>
 <span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span>
@@ -3097,25 +3094,25 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <span class="g g-Whitespace">    </span><span class="mi">406</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">407</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">result</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/frame.py:11454,</span> in <span class="ni">DataFrame._reduce.&lt;locals&gt;.blk_func</span><span class="nt">(values, axis)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11452</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">result</span><span class="p">])</span>
-<span class="g g-Whitespace">  </span><span class="mi">11453</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">&gt; </span><span class="mi">11454</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/frame.py:11481,</span> in <span class="ni">DataFrame._reduce.&lt;locals&gt;.blk_func</span><span class="nt">(values, axis)</span>
+<span class="g g-Whitespace">  </span><span class="mi">11479</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">result</span><span class="p">])</span>
+<span class="g g-Whitespace">  </span><span class="mi">11480</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">&gt; </span><span class="mi">11481</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:147,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/nanops.py:147,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
 <span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="k">else</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">147</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">return</span> <span class="n">result</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:404,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/nanops.py:404,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">404</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/pandas/core/nanops.py:1098,</span> in <span class="ni">_nanminmax.&lt;locals&gt;.reduction</span><span class="nt">(values, axis, skipna, mask)</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/nanops.py:1098,</span> in <span class="ni">_nanminmax.&lt;locals&gt;.reduction</span><span class="nt">(values, axis, skipna, mask)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1093</span>     <span class="k">return</span> <span class="n">_na_for_min_count</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1095</span> <span class="n">values</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_get_values</span><span class="p">(</span>
 <span class="g g-Whitespace">   </span><span class="mi">1096</span>     <span class="n">values</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">fill_value_typ</span><span class="o">=</span><span class="n">fill_value_typ</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span>
@@ -3124,10 +3121,10 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <span class="g g-Whitespace">   </span><span class="mi">1099</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_maybe_null_out</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1100</span> <span class="k">return</span> <span class="n">result</span>
 
-<span class="nn">File ~/micromamba-root/envs/book/lib/python3.12/site-packages/numpy/core/_methods.py:41,</span> in <span class="ni">_amax</span><span class="nt">(a, axis, out, keepdims, initial, where)</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span> <span class="k">def</span> <span class="nf">_amax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>           <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">41</span>     <span class="k">return</span> <span class="n">umr_maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
+<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/numpy/_core/_methods.py:44,</span> in <span class="ni">_amax</span><span class="nt">(a, axis, out, keepdims, initial, where)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="k">def</span><span class="w"> </span><span class="nf">_amax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>           <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">44</span>     <span class="k">return</span> <span class="n">umr_maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: &#39;&gt;=&#39; not supported between instances of &#39;str&#39; and &#39;float&#39;
 </pre></div>
@@ -3154,7 +3151,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </div>
 </section>
 <section id="plotting">
-<h2>Plotting<a class="headerlink" href="#plotting" title="Permalink to this heading">#</a></h2>
+<h2>Plotting<a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
 <p>Plotting is just fun. It is also, far and away, the best method for exploring your data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3181,7 +3178,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#first, import numpy, which has the logarithm function. We&#39;ll also give it a nickname.</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># the apply method applies a function to every element of a data frame (or series in this case)</span>
 <span class="c1"># we will use this to create a new column in the data frame called log_price</span>
@@ -3195,7 +3192,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#let&#39;s pull out the big guns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  
 <span class="c1"># we need this to call the two plt functions below, which allow us to label the axes</span>
 
 <span class="n">data</span><span class="p">[</span><span class="s1">&#39;log_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;hist&#39;</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -3246,7 +3243,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <p>You can see from the above above that color and cut don’t seem to matter much to price. Can you think of a reason why this might be?</p>
 </div>
 <section id="solution">
-<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -3259,7 +3256,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;cut&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 
-<span class="kn">from</span> <span class="nn">pandas.plotting</span> <span class="kn">import</span> <span class="n">scatter_matrix</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas.plotting</span><span class="w"> </span><span class="kn">import</span> <span class="n">scatter_matrix</span>
 
 <span class="n">column_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;carat&#39;</span><span class="p">,</span> <span class="s1">&#39;price per carat&#39;</span><span class="p">,</span> <span class="s1">&#39;log_price&#39;</span><span class="p">]</span>
 <span class="n">scatter_matrix</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">column_list</span><span class="p">]);</span>
@@ -3274,7 +3271,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </section>
 </section>
 <section id="final-thoughts">
-<h2>Final thoughts:<a class="headerlink" href="#final-thoughts" title="Permalink to this heading">#</a></h2>
+<h2>Final thoughts:<a class="headerlink" href="#final-thoughts" title="Link to this heading">#</a></h2>
 <p>There are lots and lots and lots of plotting libraries out there.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="http://matplotlib.org/">Matplotlib</a> is the standard (and most full-featured), but it’s built to look and work like Matlab, which is not known for the prettiness of its plots.</p></li>
@@ -3292,7 +3289,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cleaning up</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;minerals.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3328,7 +3325,7 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -3356,7 +3353,8 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -3423,8 +3421,8 @@ By John Pearson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

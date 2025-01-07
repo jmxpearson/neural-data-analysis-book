@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Patterns, functions, and duck typing &#8212; Introduction to Neural Data Analysis</title>
   
@@ -15,53 +14,52 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'python_intro/patterns';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,6 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="Case Study: Nested Data Structures" href="nested_data_structures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -76,31 +75,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -108,7 +92,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -116,10 +99,15 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -128,7 +116,8 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,6 +132,8 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -154,7 +145,14 @@ const thebe_selector_output = ".output, .cell_output"
     <p class="title logo__title">Introduction to Neural Data Analysis</p>
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -165,7 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Introduction to Python</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">Introduction to Python</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="data_structures.html">Basic Programming in Python: Data Structures</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nested_data_structures.html">Case Study: Nested Data Structures</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Patterns, functions, and duck typing</a></li>
@@ -173,35 +171,35 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="arrays.html">Working with Array Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data_frames.html">Introduction to Data Frames</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../point_process/intro.html">Point process data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/theory.html">A little point process theory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/estimation.html">Estimating Poisson processes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/psth.html">The peri-stimulus time histogram</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/exploring_spike_data.html">Exploring neural spike data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../point_process/analyzing_spike_data.html">Analyzing neural spike data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tables/intro.html">Tabular data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../tables/exploring_table_data.html">Exploring table data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../tables/analyzing_table_data.html">Analyzing table data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../images/intro.html">Image data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../images/exploring_image_data.html">Exploring Image data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../images/analyzing_image_data.html">Analyzing Image data</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../debugging/intro.html">Debugging</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_i.html">Debugging Practicum I</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../debugging/debugging_ii.html">Debugging Practicum II</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../models/intro.html">Modeling neural data</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../models/fitting_basic_models.html">Fitting basic models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../models/simulation_models.html">Fitting simulated models</a></li>
 </ul>
-</li>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="../bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -211,14 +209,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -227,14 +230,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -259,14 +262,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/jmxpearson/neural-data-analysis-book/main?urlpath=lab/tree/introduction_to_neural_data_analysis/python_intro/patterns.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -277,14 +280,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://colab.research.google.com/github/jmxpearson/neural-data-analysis-book/blob/main/introduction_to_neural_data_analysis/python_intro/patterns.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -406,27 +409,19 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -477,13 +472,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="patterns-functions-and-duck-typing">
-<h1>Patterns, functions, and duck typing<a class="headerlink" href="#patterns-functions-and-duck-typing" title="Permalink to this heading">#</a></h1>
+<h1>Patterns, functions, and duck typing<a class="headerlink" href="#patterns-functions-and-duck-typing" title="Link to this heading">#</a></h1>
 <p>In the last section, we looked at the basic ingredients of Python (its data types) and the ways we can use them (iteration and logic, more formally known as “control flow”).</p>
 <p>We also touched on the idea that both these ingredients and the way we mix them are designed so as to be consistent. This consistency, that lists behave like tuples behave like dicts (whenever that makes sense), is one of the hallmarks of Python.</p>
 <p>This consistency also gives rise to one of the most common patterns or idioms in Python: duck typing. Unlike languages that require you to strictly define what types of data a particular piece of code can work with, Python takes the standpoint that, “If it walks like a duck and quacks like a duck, it’s a duck.” In this paradigm, it doesn’t matter what kind of data you pass to a function so long as that data supports all the necessary operations.</p>
 <p>We’ll explore some of this below.</p>
 <section id="patterns">
-<h2>Patterns<a class="headerlink" href="#patterns" title="Permalink to this heading">#</a></h2>
+<h2>Patterns<a class="headerlink" href="#patterns" title="Link to this heading">#</a></h2>
 <p>Programmers are extremely lazy — a certain type of lazy. A good programmer is the kind of person who will spend six hours coding a solution to a problem that saves her six seconds thousands of times.</p>
 <p>As a result, since the 90s, programmers have collected and studied several dozen kinds of (good) solutions for how to <em>structure</em> programs that come up over and over again. If you’ve written anything more complicated than a simple script, you might have even come up with one or two of these. Many of them only really apply to larger software projects. These solutions are known as <a class="reference external" href="https://www.oreilly.com/library/view/head-first-design/0596007124/">Design Patterns</a>, and they’re the next step up the ladder in your programming education once you feel comfortable writing snippets of code.</p>
 <p>But let’s make this concrete. To review, consider:</p>
@@ -540,12 +535,12 @@ piglet
 </div>
 </section>
 <section id="functions">
-<span id="patterns-functions"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h2>
+<span id="patterns-functions"></span><h2>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <p>Functions are the single greatest invention in the history of computer programming. By allowing us to reuse code, functions allow for greater abstraction (as we’ll see), more readable code, and greater modularity (you don’t need to to know the inner details of everything).</p>
 <p>More explicitly, functions are named blocks of code with inputs and a single output (though we can get around this restriction). To define a function, we can use the <code class="docutils literal notranslate"><span class="pre">def</span></code> keyword:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">myfunc</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span>
 
@@ -568,7 +563,7 @@ piglet
 <p>Finally, the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword specifies the output of the function. Note that, like <code class="docutils literal notranslate"><span class="pre">for</span></code>, the line defining the function ends in a colon and the entire function body is indented.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">anotherfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>  <span class="c1"># y has the default value 2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">anotherfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>  <span class="c1"># y has the default value 2</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="n">y</span>  <span class="c1"># x to the power y</span>
     <span class="k">return</span> <span class="n">z</span> <span class="o">/</span> <span class="mf">2.0</span>
 
@@ -585,7 +580,7 @@ piglet
 </div>
 </div>
 <section id="understanding-variable-scope">
-<h3>Understanding variable scope<a class="headerlink" href="#understanding-variable-scope" title="Permalink to this heading">#</a></h3>
+<h3>Understanding variable scope<a class="headerlink" href="#understanding-variable-scope" title="Link to this heading">#</a></h3>
 <p>Functions are like <em>black boxes</em>. The information that gets passed into them is bound to the input variable name, but this variable only exists while the function is running. This is a tricky topic that goes under the name of <em>variable scoping</em>, but the following examples illustrate that you have to be careful about what information is and isn’t being passed into a function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,7 +588,7 @@ piglet
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
 
 <span class="c1"># appending an empty string seems like a sensible default</span>
-<span class="k">def</span> <span class="nf">reverser</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">appender</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>  
+<span class="k">def</span><span class="w"> </span><span class="nf">reverser</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">appender</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">):</span>  
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This is a docstring. It tells us what the function does. </span>
 <span class="sd">    This function reverses its input and appends its second argument to the end.</span>
@@ -633,7 +628,7 @@ x = foo
 <p>Functions take inputs, perform their work, and return outputs. You don’t have to know what they are doing under the hood, and your own functions should play nice in the same way.</p>
 </section>
 <section id="what-makes-a-good-function">
-<h3>What makes a good function?<a class="headerlink" href="#what-makes-a-good-function" title="Permalink to this heading">#</a></h3>
+<h3>What makes a good function?<a class="headerlink" href="#what-makes-a-good-function" title="Link to this heading">#</a></h3>
 <p>Some things to consider:</p>
 <ul class="simple">
 <li><p>functions do <em>one thing</em></p></li>
@@ -645,12 +640,12 @@ x = foo
 </section>
 </section>
 <section id="handling-multiple-data-sets">
-<h2>Handling multiple data sets:<a class="headerlink" href="#handling-multiple-data-sets" title="Permalink to this heading">#</a></h2>
+<h2>Handling multiple data sets:<a class="headerlink" href="#handling-multiple-data-sets" title="Link to this heading">#</a></h2>
 <p>To illustrate these features, we’ll be examining data from a comparative study of cognitive ability between macaques and lemurs <a class="reference external" href="https://www.researchgate.net/publication/257075016_Lemurs_and_macaques_show_similar_numerical_sensitivity">link</a>. Data are available <a class="reference external" href="http://www.duke.edu/~jmp33/dibs/primates.tar.gz">here</a>, but to make things easy, we will create a directory here on Colab and download the files directly from Google drive. After that, we will assume that these data live in a directory <code class="docutils literal notranslate"><span class="pre">data/primates</span></code> inside the working directory.</p>
 <p>To accomplish that, we’ll use the <code class="docutils literal notranslate"><span class="pre">os</span></code> library:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="s1">&#39;data/primates&#39;</span><span class="p">):</span>
   <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="s1">&#39;data/primates&#39;</span><span class="p">)</span>
 </pre></div>
@@ -660,7 +655,7 @@ x = foo
 <p>Then we’ll use the <code class="docutils literal notranslate"><span class="pre">gdown</span></code> package to download the files directly from Google Drive:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gdown</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gdown</span>
 <span class="n">data_urls</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1t-USz89jo4DPuyxUcr6DzX1FKdEeIOl6&#39;</span><span class="p">,</span>
     <span class="s1">&#39;https://drive.google.com/uc?export=download&amp;id=1sZNoxO8Hf4sw6-dvtOKz2TYAydVnihHo&#39;</span><span class="p">,</span>
@@ -685,7 +680,7 @@ x = foo
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>If you don’t already have a package installed, lines like</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gdown</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">gdown</span>
 </pre></div>
 </div>
 <p>above will produce errors. In this case, you can install them by creating a new cell and running, e.g.,</p>
@@ -736,7 +731,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Mongoose.csv&#39;, &#39;Black.csv&#39;, &#39;macaque.csv&#39;, &#39;trained_Macaque.csv&#39;, &#39;Catta.csv&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Black.csv&#39;, &#39;Catta.csv&#39;, &#39;Mongoose.csv&#39;, &#39;macaque.csv&#39;, &#39;trained_Macaque.csv&#39;]
 </pre></div>
 </div>
 </div>
@@ -752,7 +747,7 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make the filename by joining with the path (works cross-platform!)</span>
 <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">fullpath</span><span class="p">,</span> <span class="n">datfiles</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="c1"># df is short for dataframe</span>
 <span class="c1"># in code with a lot of dataframes, we would choose a more descriptive name</span>
 <span class="c1"># index_col=0 says the first column of the file is row names </span>
@@ -763,16 +758,6 @@ typed into the terminal. <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3811/954763891.py:4: DeprecationWarning: 
-Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-but was not found to be installed on your system.
-If this would cause problems for you,
-please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-  import pandas as pd
-</pre></div>
-</div>
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -805,69 +790,69 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
   </thead>
   <tbody>
     <tr>
-      <th>12765</th>
-      <td>eduardo</td>
-      <td>Mongoose</td>
-      <td>12/2/08</td>
+      <th>0</th>
+      <td>hopkins</td>
+      <td>Black</td>
+      <td>9/3/08</td>
       <td>1.0</td>
       <td>1</td>
-      <td>4</td>
-      <td>5</td>
-      <td>1</td>
-      <td>1.183</td>
+      <td>7</td>
+      <td>8</td>
+      <td>0</td>
+      <td>1.317</td>
       <td>equal</td>
     </tr>
     <tr>
-      <th>12766</th>
-      <td>eduardo</td>
-      <td>Mongoose</td>
-      <td>12/2/08</td>
+      <th>1</th>
+      <td>hopkins</td>
+      <td>Black</td>
+      <td>9/3/08</td>
       <td>1.0</td>
       <td>2</td>
+      <td>4</td>
+      <td>9</td>
+      <td>1</td>
+      <td>0.583</td>
+      <td>equal</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>hopkins</td>
+      <td>Black</td>
+      <td>9/3/08</td>
+      <td>1.0</td>
+      <td>3</td>
       <td>3</td>
       <td>9</td>
-      <td>0</td>
-      <td>0.883</td>
+      <td>1</td>
+      <td>0.700</td>
       <td>equal</td>
     </tr>
     <tr>
-      <th>12767</th>
-      <td>eduardo</td>
-      <td>Mongoose</td>
-      <td>12/2/08</td>
+      <th>3</th>
+      <td>hopkins</td>
+      <td>Black</td>
+      <td>9/3/08</td>
       <td>1.0</td>
-      <td>3</td>
       <td>4</td>
-      <td>7</td>
       <td>1</td>
-      <td>2.750</td>
+      <td>8</td>
+      <td>1</td>
+      <td>1.717</td>
       <td>congruent</td>
     </tr>
     <tr>
-      <th>12768</th>
-      <td>eduardo</td>
-      <td>Mongoose</td>
-      <td>12/2/08</td>
+      <th>4</th>
+      <td>hopkins</td>
+      <td>Black</td>
+      <td>9/3/08</td>
       <td>1.0</td>
-      <td>4</td>
       <td>5</td>
       <td>7</td>
-      <td>1</td>
-      <td>1.000</td>
-      <td>congruent</td>
-    </tr>
-    <tr>
-      <th>12769</th>
-      <td>eduardo</td>
-      <td>Mongoose</td>
-      <td>12/2/08</td>
-      <td>1.0</td>
-      <td>5</td>
-      <td>2</td>
-      <td>3</td>
+      <td>9</td>
       <td>0</td>
-      <td>1.250</td>
-      <td>congruent</td>
+      <td>0.800</td>
+      <td>equal</td>
     </tr>
   </tbody>
 </table>
@@ -881,7 +866,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;eduardo&#39;, &#39;felipe&#39;, &#39;pedro&#39;, &#39;sancho&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;hopkins&#39;, &#39;quinn&#39;, &#39;redford&#39;, &#39;tarantino&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -893,16 +878,15 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Mongoose&#39;], dtype=object),
- array([&#39;12/2/08&#39;, &#39;12/3/08&#39;, &#39;12/4/08&#39;, &#39;12/5/08&#39;, &#39;12/10/08&#39;, &#39;12/11/08&#39;,
-        &#39;12/12/08&#39;, &#39;12/15/08&#39;, &#39;1/6/09&#39;, &#39;1/7/09&#39;, &#39;1/8/09&#39;, &#39;1/12/09&#39;,
-        &#39;1/13/09&#39;, &#39;1/14/09&#39;, &#39;1/16/09&#39;, &#39;11/16/09&#39;, &#39;11/17/09&#39;,
-        &#39;11/18/09&#39;, &#39;11/19/09&#39;, &#39;11/25/09&#39;, &#39;11/30/09&#39;, &#39;12/1/09&#39;,
-        &#39;12/8/09&#39;, &#39;12/9/09&#39;, &#39;12/10/09&#39;, &#39;12/11/09&#39;, &#39;12/14/09&#39;,
-        &#39;12/15/09&#39;, &#39;12/16/09&#39;, &#39;12/17/09&#39;, &#39;1/21/09&#39;, &#39;1/22/09&#39;,
-        &#39;1/23/09&#39;, &#39;9/8/09&#39;, &#39;9/10/09&#39;, &#39;9/11/09&#39;, &#39;9/14/09&#39;, &#39;9/15/09&#39;,
-        &#39;9/17/09&#39;, &#39;9/18/09&#39;, &#39;9/21/09&#39;, &#39;9/22/09&#39;, &#39;9/24/09&#39;, &#39;9/25/09&#39;,
-        &#39;9/28/09&#39;, &#39;9/29/09&#39;, &#39;10/2/09&#39;, &#39;10/6/09&#39;, &#39;10/9/09&#39;, &#39;10/13/09&#39;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Black&#39;], dtype=object),
+ array([&#39;9/3/08&#39;, &#39;9/4/08&#39;, &#39;9/8/08&#39;, &#39;9/9/08&#39;, &#39;9/10/08&#39;, &#39;9/11/08&#39;,
+        &#39;9/12/08&#39;, &#39;9/16/08&#39;, &#39;9/17/08&#39;, &#39;9/18/08&#39;, &#39;9/19/08&#39;, &#39;9/22/08&#39;,
+        &#39;9/23/08&#39;, &#39;9/30/08&#39;, &#39;10/1/08&#39;, &#39;9/7/10&#39;, &#39;9/8/10&#39;, &#39;9/9/10&#39;,
+        &#39;9/10/10&#39;, &#39;9/13/10&#39;, &#39;9/14/10&#39;, &#39;9/15/10&#39;, &#39;9/16/10&#39;, &#39;9/20/10&#39;,
+        &#39;9/22/10&#39;, &#39;9/23/10&#39;, &#39;9/24/10&#39;, &#39;9/27/10&#39;, &#39;9/28/10&#39;, &#39;9/29/10&#39;,
+        &#39;1/5/10&#39;, &#39;1/6/10&#39;, &#39;1/7/10&#39;, &#39;1/8/10&#39;, &#39;1/11/10&#39;, &#39;1/12/10&#39;,
+        &#39;1/13/10&#39;, &#39;1/14/10&#39;, &#39;1/15/10&#39;, &#39;1/19/10&#39;, &#39;1/20/10&#39;, &#39;1/22/10&#39;,
+        &#39;1/23/10&#39;, &#39;1/25/10&#39;, &#39;1/26/10&#39;, &#39;10/2/08&#39;, &#39;10/3/08&#39;, &#39;10/8/08&#39;],
        dtype=object))
 </pre></div>
 </div>
@@ -910,7 +894,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </section>
 <section id="groupby-split-apply-combine">
-<h2>Groupby: Split-Apply-Combine:<a class="headerlink" href="#groupby-split-apply-combine" title="Permalink to this heading">#</a></h2>
+<h2>Groupby: Split-Apply-Combine:<a class="headerlink" href="#groupby-split-apply-combine" title="Link to this heading">#</a></h2>
 <p>It’s pretty typical in a dataset like this that we want to do some analysis for each subset of the data, however that subset is defined. Pandas makes this very easy:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -953,24 +937,24 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
   </thead>
   <tbody>
     <tr>
-      <th>eduardo</th>
-      <td>0.766854</td>
-      <td>3.534282</td>
+      <th>hopkins</th>
+      <td>0.700803</td>
+      <td>2.023438</td>
     </tr>
     <tr>
-      <th>felipe</th>
-      <td>0.593519</td>
-      <td>1.147807</td>
+      <th>quinn</th>
+      <td>0.749074</td>
+      <td>1.345008</td>
     </tr>
     <tr>
-      <th>pedro</th>
-      <td>0.763109</td>
-      <td>1.454616</td>
+      <th>redford</th>
+      <td>0.597222</td>
+      <td>1.260423</td>
     </tr>
     <tr>
-      <th>sancho</th>
-      <td>0.661111</td>
-      <td>1.890181</td>
+      <th>tarantino</th>
+      <td>0.725096</td>
+      <td>1.687411</td>
     </tr>
   </tbody>
 </table>
@@ -1014,48 +998,48 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
   </thead>
   <tbody>
     <tr>
-      <th rowspan="2" valign="top">eduardo</th>
+      <th rowspan="2" valign="top">hopkins</th>
       <th>congruent</th>
-      <td>0.732210</td>
-      <td>4.433112</td>
+      <td>0.700803</td>
+      <td>1.988470</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.801498</td>
-      <td>2.635451</td>
+      <td>0.700803</td>
+      <td>2.058406</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">felipe</th>
+      <th rowspan="2" valign="top">quinn</th>
       <th>congruent</th>
-      <td>0.594444</td>
-      <td>1.150126</td>
+      <td>0.757407</td>
+      <td>1.280183</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.592593</td>
-      <td>1.145489</td>
+      <td>0.740741</td>
+      <td>1.409833</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">pedro</th>
+      <th rowspan="2" valign="top">redford</th>
       <th>congruent</th>
-      <td>0.762172</td>
-      <td>1.458337</td>
+      <td>0.609259</td>
+      <td>1.235722</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.764045</td>
-      <td>1.450895</td>
+      <td>0.585185</td>
+      <td>1.285124</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">sancho</th>
+      <th rowspan="2" valign="top">tarantino</th>
       <th>congruent</th>
-      <td>0.657407</td>
-      <td>1.758446</td>
+      <td>0.727969</td>
+      <td>1.757307</td>
     </tr>
     <tr>
       <th>equal</th>
-      <td>0.664815</td>
-      <td>2.021917</td>
+      <td>0.722222</td>
+      <td>1.617515</td>
     </tr>
   </tbody>
 </table>
@@ -1065,14 +1049,14 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <p>In addition, we can plot things like reaction time distributions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Sub&#39;</span><span class="p">,</span> <span class="s1">&#39;RT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Sub&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b96f50c84f11314fd588ffed3779598090cea8014f4a2ea030290a24ce632ed1.svg" src="../_images/b96f50c84f11314fd588ffed3779598090cea8014f4a2ea030290a24ce632ed1.svg" /></div>
+<img alt="../_images/8177e9a50c488f6650e480c03c6481a90073ca7e2822f6a69c5cc853d2b2de5d.svg" src="../_images/8177e9a50c488f6650e480c03c6481a90073ca7e2822f6a69c5cc853d2b2de5d.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1081,7 +1065,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5cc2c0ea7cbd541224616b203832c85e102500532a50b1e503d48e9010f50540.svg" src="../_images/5cc2c0ea7cbd541224616b203832c85e102500532a50b1e503d48e9010f50540.svg" /></div>
+<img alt="../_images/f057d1f2b9ebd0a49b5a4576b9554d0a089e280d05bc134e12ae1a6e2914dd67.svg" src="../_images/f057d1f2b9ebd0a49b5a4576b9554d0a089e280d05bc134e12ae1a6e2914dd67.svg" /></div>
 </div>
 <p>Pandas plotting is best for quick and dirty plots; if we want to do better, we need to dive more into Matplotlib or Seaborn. We’ll see how to prettify our outputs later on.</p>
 <p>But we can plot all on the same axis if we simply tell Pandas which axis to plot into.</p>
@@ -1111,7 +1095,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d00f685e8f8d1a55499050ecf1a20c558519e9bf50a3d3855eae89477335c592.svg" src="../_images/d00f685e8f8d1a55499050ecf1a20c558519e9bf50a3d3855eae89477335c592.svg" /></div>
+<img alt="../_images/a5f56197226ad5b9594f0c96d8859dd4420012ed14ba1731c16fd979523d5752.svg" src="../_images/a5f56197226ad5b9594f0c96d8859dd4420012ed14ba1731c16fd979523d5752.svg" /></div>
 </div>
 <p>So we’ve seen that we can do some neat things with this individual dataset. In fact, we’d like to do these analyses and <em>aggregate</em> across all datasets.</p>
 <p>Here’s the plan:
@@ -1121,7 +1105,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 - load the next dataset, repeat</p>
 </section>
 <section id="multiple-datasets-pulling-it-together">
-<h2>Multiple datasets: pulling it together:<a class="headerlink" href="#multiple-datasets-pulling-it-together" title="Permalink to this heading">#</a></h2>
+<h2>Multiple datasets: pulling it together:<a class="headerlink" href="#multiple-datasets-pulling-it-together" title="Link to this heading">#</a></h2>
 <p>Let’s try to combine the above code into a single chunk of code. We’ll iterate over data files and simply repeat the same code each time. (Note how we made a good decision in encoding the file name in a variable we can change instead of hard coding it.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1183,38 +1167,38 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
   </thead>
   <tbody>
     <tr>
-      <th>eduardo</th>
-      <td>0.766854</td>
-      <td>3.534282</td>
-    </tr>
-    <tr>
-      <th>felipe</th>
-      <td>0.593519</td>
-      <td>1.147807</td>
-    </tr>
-    <tr>
-      <th>pedro</th>
-      <td>0.763109</td>
-      <td>1.454616</td>
-    </tr>
-    <tr>
-      <th>sancho</th>
-      <td>0.661111</td>
-      <td>1.890181</td>
-    </tr>
-    <tr>
       <th>hopkins</th>
       <td>0.700803</td>
       <td>2.023438</td>
     </tr>
+    <tr>
+      <th>quinn</th>
+      <td>0.749074</td>
+      <td>1.345008</td>
+    </tr>
+    <tr>
+      <th>redford</th>
+      <td>0.597222</td>
+      <td>1.260423</td>
+    </tr>
+    <tr>
+      <th>tarantino</th>
+      <td>0.725096</td>
+      <td>1.687411</td>
+    </tr>
+    <tr>
+      <th>agathon</th>
+      <td>0.725000</td>
+      <td>3.105548</td>
+    </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/e2651fd02314ecc2490ddbefaeb8a895089598d05b2c341bf7630df9957893ca.svg" src="../_images/e2651fd02314ecc2490ddbefaeb8a895089598d05b2c341bf7630df9957893ca.svg" /></div>
+</div></div><img alt="../_images/98a04182b9244ca889d7d93454970e17d65b3060b2670b5f45b713d67c3add71.svg" src="../_images/98a04182b9244ca889d7d93454970e17d65b3060b2670b5f45b713d67c3add71.svg" /></div>
 </div>
 <p>Note that we basically just copied over the code from before. (For the slick arguments to <code class="docutils literal notranslate"><span class="pre">legend</span></code> that put the box outside and to the right, see example <a class="reference external" href="http://matplotlib.org/users/legend_guide.html">here</a>.</p>
 </section>
 <section id="building-code-that-lasts">
-<h2>Building code that lasts<a class="headerlink" href="#building-code-that-lasts" title="Permalink to this heading">#</a></h2>
+<h2>Building code that lasts<a class="headerlink" href="#building-code-that-lasts" title="Link to this heading">#</a></h2>
 <p>The above chunk of code is pretty nifty. It works, it produces good output, it’s something we can back and run in six months to produce that figure.</p>
 <p>But how well will you understand that code in six months? What if you need to change it? What if we’d like to reuse the code elsewhere. Typically, researchers use a few approaches:</p>
 <ul class="simple">
@@ -1230,7 +1214,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </ul>
 <p>The strategy that good coders use to surmount these difficulties is <em>code reuse</em>. There are lots of ways to reuse code, but the oldest and arguably best is to modularize our code by writing functions. Modular code is built up from smaller subunits. Originally, these units were scripts, but over time, the preferred method is to create functions. Functions are like scripts in that they are named sections of code, but they have a few advantages over scripts, as we will see.</p>
 <section id="modularization-strategy">
-<h3>Modularization strategy<a class="headerlink" href="#modularization-strategy" title="Permalink to this heading">#</a></h3>
+<h3>Modularization strategy<a class="headerlink" href="#modularization-strategy" title="Link to this heading">#</a></h3>
 <p>For scientists, the path to modularization generally takes this form:</p>
 <ul class="simple">
 <li><p>start by exploring data interactively in the console or a notebook</p></li>
@@ -1242,13 +1226,13 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <p>The emphasis here is first on deciding what we want to do (exploring analyses), getting it working (illustrating in a notebook), and only lastly on making our code cleaner and more reusable. The same goes for making our code faster, which comes as a last step. As you become a better programmer, you will develop the ability to think about reuse and speed from the early stages, but even very good coders can be bad guessers at how best to design things early on.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data_files</span><span class="p">(</span><span class="n">pathparts</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_data_files</span><span class="p">(</span><span class="n">pathparts</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function takes an iterable of path parts (directories), </span>
 <span class="sd">    finds all files in that directory, and returns a list of those files.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
-    <span class="kn">import</span> <span class="nn">os</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
     
     <span class="n">fullpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">pathparts</span><span class="p">)</span>
 
@@ -1273,8 +1257,8 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/macaque.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Catta.csv&#39;]
-[&#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/Black.csv&#39;, &#39;data/primates/macaque.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;, &#39;data/primates/Catta.csv&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Black.csv&#39;, &#39;data/primates/Catta.csv&#39;, &#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/macaque.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;]
+[&#39;data/primates/Black.csv&#39;, &#39;data/primates/Catta.csv&#39;, &#39;data/primates/Mongoose.csv&#39;, &#39;data/primates/macaque.csv&#39;, &#39;data/primates/trained_Macaque.csv&#39;]
 </pre></div>
 </div>
 </div>
@@ -1284,7 +1268,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <p>And we can define a couple of other functions:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">extract_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the mean RT and Accuracy per subject for the dataframe df. </span>
 <span class="sd">    Return result as a data frame.</span>
@@ -1300,7 +1284,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_RT_dist</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_RT_dist</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Given a file name and axis object, plot the RT distribution for </span>
 <span class="sd">    each animal in the file into the axis object.</span>
@@ -1321,15 +1305,15 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <p>Note how much easier this is to read than the code before. Even though it’s more lines, calling functions with descriptive names like <code class="docutils literal notranslate"><span class="pre">plot_RT_dist</span></code> makes the goal we’re trying to achieve clearer.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_all_analysis</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">do_all_analysis</span><span class="p">(</span><span class="n">files</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function plots the reaction time density for each subject in each file</span>
 <span class="sd">    contained in the iterable files. It also calculates the mean accuracy and </span>
 <span class="sd">    reaction time for each subject and returns these in a data frame.</span>
 <span class="sd">    Files should be full file paths.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
     
     <span class="n">df_pieces</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span>
@@ -1402,26 +1386,6 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
   </thead>
   <tbody>
     <tr>
-      <th>eduardo</th>
-      <td>0.766854</td>
-      <td>3.534282</td>
-    </tr>
-    <tr>
-      <th>felipe</th>
-      <td>0.593519</td>
-      <td>1.147807</td>
-    </tr>
-    <tr>
-      <th>pedro</th>
-      <td>0.763109</td>
-      <td>1.454616</td>
-    </tr>
-    <tr>
-      <th>sancho</th>
-      <td>0.661111</td>
-      <td>1.890181</td>
-    </tr>
-    <tr>
       <th>hopkins</th>
       <td>0.700803</td>
       <td>2.023438</td>
@@ -1440,6 +1404,46 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
       <th>tarantino</th>
       <td>0.725096</td>
       <td>1.687411</td>
+    </tr>
+    <tr>
+      <th>agathon</th>
+      <td>0.725000</td>
+      <td>3.105548</td>
+    </tr>
+    <tr>
+      <th>berisades</th>
+      <td>0.727778</td>
+      <td>0.798131</td>
+    </tr>
+    <tr>
+      <th>capnlee</th>
+      <td>0.664193</td>
+      <td>0.826445</td>
+    </tr>
+    <tr>
+      <th>licinius</th>
+      <td>0.704630</td>
+      <td>1.454208</td>
+    </tr>
+    <tr>
+      <th>eduardo</th>
+      <td>0.766854</td>
+      <td>3.534282</td>
+    </tr>
+    <tr>
+      <th>felipe</th>
+      <td>0.593519</td>
+      <td>1.147807</td>
+    </tr>
+    <tr>
+      <th>pedro</th>
+      <td>0.763109</td>
+      <td>1.454616</td>
+    </tr>
+    <tr>
+      <th>sancho</th>
+      <td>0.661111</td>
+      <td>1.890181</td>
     </tr>
     <tr>
       <th>broome</th>
@@ -1476,35 +1480,15 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
       <td>0.726852</td>
       <td>0.978447</td>
     </tr>
-    <tr>
-      <th>agathon</th>
-      <td>0.725000</td>
-      <td>3.105548</td>
-    </tr>
-    <tr>
-      <th>berisades</th>
-      <td>0.727778</td>
-      <td>0.798131</td>
-    </tr>
-    <tr>
-      <th>capnlee</th>
-      <td>0.664193</td>
-      <td>0.826445</td>
-    </tr>
-    <tr>
-      <th>licinius</th>
-      <td>0.704630</td>
-      <td>1.454208</td>
-    </tr>
   </tbody>
 </table>
-</div></div><img alt="../_images/684a8ee85b8cb702085aab67204af2baf5f88a1184d7af82a8e8dbf49b24d048.svg" src="../_images/684a8ee85b8cb702085aab67204af2baf5f88a1184d7af82a8e8dbf49b24d048.svg" /></div>
+</div></div><img alt="../_images/fa0fcf6156eaabb7b44fc12fbca2cbf8788efab4631944fdb8e263babf2fbddb.svg" src="../_images/fa0fcf6156eaabb7b44fc12fbca2cbf8788efab4631944fdb8e263babf2fbddb.svg" /></div>
 </div>
 </section>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="writing-your-own-modules">
-<h1>Writing your own modules:<a class="headerlink" href="#writing-your-own-modules" title="Permalink to this heading">#</a></h1>
+<h1>Writing your own modules:<a class="headerlink" href="#writing-your-own-modules" title="Link to this heading">#</a></h1>
 <p>First, let’s download the module:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1536,7 +1520,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <p>This will have the same effect, except we will be able to carry on at the end of the code with all the variables still intact. This is great if we want to pull part of our analysis into a separate file but try out new ideas in the notebook from the place the code left off.</p>
 </li>
 <li><p>Finally, if we just want to make use of some function in the module we can do</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lemurs</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lemurs</span>
 </pre></div>
 </div>
 <p>which loads all of the definitions from the module into memory where we can call them. This is <em>exactly</em> what we did in importing pandas or matplotlib, but this time with our own code!</p>
@@ -1549,14 +1533,14 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/286fbe20e7e6a98222798d3652e326238f5da9070c5960abac4c19ab00b9cdd5.svg" src="../_images/286fbe20e7e6a98222798d3652e326238f5da9070c5960abac4c19ab00b9cdd5.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+<img alt="../_images/fdb3f76cbf0a67ab11330899231bcc79a076d3f9db8b5c26a44e54f6828058c1.svg" src="../_images/fdb3f76cbf0a67ab11330899231bcc79a076d3f9db8b5c26a44e54f6828058c1.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">lemurs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">lemurs</span>
 
 <span class="nb">dir</span><span class="p">(</span><span class="n">lemurs</span><span class="p">)</span>
 </pre></div>
@@ -1589,11 +1573,11 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Mongoose.csv&#39;,
- &#39;data/primates/Black.csv&#39;,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;data/primates/Black.csv&#39;,
+ &#39;data/primates/Catta.csv&#39;,
+ &#39;data/primates/Mongoose.csv&#39;,
  &#39;data/primates/macaque.csv&#39;,
- &#39;data/primates/trained_Macaque.csv&#39;,
- &#39;data/primates/Catta.csv&#39;]
+ &#39;data/primates/trained_Macaque.csv&#39;]
 </pre></div>
 </div>
 </div>
@@ -1628,7 +1612,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1656,7 +1640,8 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1731,8 +1716,8 @@ By John Pearson
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
