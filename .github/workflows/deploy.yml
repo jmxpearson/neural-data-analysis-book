@@ -33,10 +33,6 @@ jobs:
       with: 
         environment-file: environment.yml
 
-    # - name: Activate environment
-    #   run: |
-    #     micromamba activate book
-
     # Build the book
     - name: Build the book
       run: |
