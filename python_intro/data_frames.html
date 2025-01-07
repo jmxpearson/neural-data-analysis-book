@@ -3025,108 +3025,19 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <p>In fact, these functions will work column-by-column where appropriate:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/frame.py:11656,</span> in <span class="ni">DataFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11648</span> <span class="nd">@doc</span><span class="p">(</span><span class="n">make_doc</span><span class="p">(</span><span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-<span class="g g-Whitespace">  </span><span class="mi">11649</span> <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">11650</span>     <span class="bp">self</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11654</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">11655</span> <span class="p">):</span>
-<span class="ne">&gt; </span><span class="mi">11656</span>     <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11657</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">Series</span><span class="p">):</span>
-<span class="g g-Whitespace">  </span><span class="mi">11658</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;max&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/generic.py:12404,</span> in <span class="ni">NDFrame.max</span><span class="nt">(self, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12397</span> <span class="k">def</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">12398</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12399</span>     <span class="n">axis</span><span class="p">:</span> <span class="n">Axis</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12402</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12403</span> <span class="p">):</span>
-<span class="ne">&gt; </span><span class="mi">12404</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stat_function</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">12405</span>         <span class="s2">&quot;max&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12406</span>         <span class="n">nanops</span><span class="o">.</span><span class="n">nanmax</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12407</span>         <span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12408</span>         <span class="n">skipna</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12409</span>         <span class="n">numeric_only</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12410</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">12411</span>     <span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/generic.py:12377,</span> in <span class="ni">NDFrame._stat_function</span><span class="nt">(self, name, func, axis, skipna, numeric_only, **kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12373</span> <span class="n">nv</span><span class="o">.</span><span class="n">validate_func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="p">(),</span> <span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">12375</span> <span class="n">validate_bool_kwarg</span><span class="p">(</span><span class="n">skipna</span><span class="p">,</span> <span class="s2">&quot;skipna&quot;</span><span class="p">,</span> <span class="n">none_allowed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="ne">&gt; </span><span class="mi">12377</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">12378</span>     <span class="n">func</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span>
-<span class="g g-Whitespace">  </span><span class="mi">12379</span> <span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/frame.py:11562,</span> in <span class="ni">DataFrame._reduce</span><span class="nt">(self, op, name, axis, skipna, numeric_only, filter_type, **kwds)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11558</span>     <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">T</span>
-<span class="g g-Whitespace">  </span><span class="mi">11560</span> <span class="c1"># After possibly _get_data and transposing, we are now in the</span>
-<span class="g g-Whitespace">  </span><span class="mi">11561</span> <span class="c1">#  simple case where we can use BlockManager.reduce</span>
-<span class="ne">&gt; </span><span class="mi">11562</span> <span class="n">res</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">blk_func</span><span class="p">)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11563</span> <span class="n">out</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">_constructor_from_mgr</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="n">res</span><span class="o">.</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">  </span><span class="mi">11564</span> <span class="k">if</span> <span class="n">out_dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">out</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="s2">&quot;boolean&quot;</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/internals/managers.py:1500,</span> in <span class="ni">BlockManager.reduce</span><span class="nt">(self, func)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1498</span> <span class="n">res_blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1500</span>     <span class="n">nbs</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="n">res_blocks</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">nbs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1503</span> <span class="n">index</span> <span class="o">=</span> <span class="n">Index</span><span class="p">([</span><span class="kc">None</span><span class="p">])</span>  <span class="c1"># placeholder</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/internals/blocks.py:404,</span> in <span class="ni">Block.reduce</span><span class="nt">(self, func)</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span> <span class="nd">@final</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="k">def</span><span class="w"> </span><span class="nf">reduce</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span>     <span class="c1"># We will apply the function and reshape the result into a single-row</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>     <span class="c1">#  Block with the same mgr_locs; squeezing will be done at a higher level</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span>
-<span class="ne">--&gt; </span><span class="mi">404</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>         <span class="n">res_values</span> <span class="o">=</span> <span class="n">result</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/frame.py:11481,</span> in <span class="ni">DataFrame._reduce.&lt;locals&gt;.blk_func</span><span class="nt">(values, axis)</span>
-<span class="g g-Whitespace">  </span><span class="mi">11479</span>         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">result</span><span class="p">])</span>
-<span class="g g-Whitespace">  </span><span class="mi">11480</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">&gt; </span><span class="mi">11481</span>     <span class="k">return</span> <span class="n">op</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/nanops.py:147,</span> in <span class="ni">bottleneck_switch.__call__.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">145</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">146</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">147</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">alt</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">149</span> <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/nanops.py:404,</span> in <span class="ni">_datetimelike_compat.&lt;locals&gt;.new_func</span><span class="nt">(values, axis, skipna, mask, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span> <span class="k">if</span> <span class="n">datetimelike</span> <span class="ow">and</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="n">mask</span> <span class="o">=</span> <span class="n">isna</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">404</span> <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="k">if</span> <span class="n">datetimelike</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">_wrap_results</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orig_values</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">iNaT</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/pandas/core/nanops.py:1098,</span> in <span class="ni">_nanminmax.&lt;locals&gt;.reduction</span><span class="nt">(values, axis, skipna, mask)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1093</span>     <span class="k">return</span> <span class="n">_na_for_min_count</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1095</span> <span class="n">values</span><span class="p">,</span> <span class="n">mask</span> <span class="o">=</span> <span class="n">_get_values</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1096</span>     <span class="n">values</span><span class="p">,</span> <span class="n">skipna</span><span class="p">,</span> <span class="n">fill_value_typ</span><span class="o">=</span><span class="n">fill_value_typ</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span>
-<span class="g g-Whitespace">   </span><span class="mi">1097</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1098</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">meth</span><span class="p">)(</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1099</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_maybe_null_out</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1100</span> <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">File ~/micromamba/envs/book/lib/python3.13/site-packages/numpy/_core/_methods.py:44,</span> in <span class="ni">_amax</span><span class="nt">(a, axis, out, keepdims, initial, where)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="k">def</span><span class="w"> </span><span class="nf">_amax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>           <span class="n">initial</span><span class="o">=</span><span class="n">_NoValue</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">44</span>     <span class="k">return</span> <span class="n">umr_maximum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">keepdims</span><span class="p">,</span> <span class="n">initial</span><span class="p">,</span> <span class="n">where</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: &#39;&gt;=&#39; not supported between instances of &#39;str&#39; and &#39;float&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>item                       65376.00
+carat                         20.13
+depth                         80.00
+table                        555.00
+price per carat           256150.00
+length to width ratio          3.12
+price                    2594800.00
+dtype: float64
 </pre></div>
 </div>
 </div>
@@ -3138,6 +3049,12 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subset</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;(carat &gt;= 1) &amp; (carat &lt;= 2)&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean for the whole dataset is </span><span class="si">{</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The mean for the subset is </span><span class="si">{</span><span class="n">subset</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean for the whole dataset is 9495.346426823298.
+The mean for the subset is 11344.487346603253.
 </pre></div>
 </div>
 </div>
@@ -3169,6 +3086,8 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/90cdb94da0c0d7fa9aa1d76f20f27f746790a597596cbebd11b70c54952d1260.svg" src="../_images/90cdb94da0c0d7fa9aa1d76f20f27f746790a597596cbebd11b70c54952d1260.svg" /></div>
 </div>
 <p>Hmm. Let’s fix two things:</p>
 <ol class="arabic simple">
@@ -3187,6 +3106,8 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/4763a353e388d4e557806401cd6cfd497938874f196e38d0cf05012c42c78dfc.svg" src="../_images/4763a353e388d4e557806401cd6cfd497938874f196e38d0cf05012c42c78dfc.svg" /></div>
 </div>
 <p>But we can do so much better!</p>
 <div class="cell docutils container">
@@ -3201,6 +3122,8 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/7e00d61971121e897995d381e371fe707c3b098c01bd8b6d894e831877d6a959.svg" src="../_images/7e00d61971121e897995d381e371fe707c3b098c01bd8b6d894e831877d6a959.svg" /></div>
 </div>
 <p>What about other types of plots?</p>
 <div class="cell docutils container">
@@ -3210,6 +3133,8 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/0c07b53071f74bd5e5a843cf7e2cc0ea543efde7d77883311c46582f994b1836.svg" src="../_images/0c07b53071f74bd5e5a843cf7e2cc0ea543efde7d77883311c46582f994b1836.svg" /></div>
 </div>
 <p>That’s a bit ugly. Let’s change plot styles.</p>
 <div class="cell docutils container">
@@ -3229,6 +3154,10 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/195d1f3052258f105a173be104c2644923ad22ffaf9134e52f698f2ac2a7e6d1.png" src="../_images/195d1f3052258f105a173be104c2644923ad22ffaf9134e52f698f2ac2a7e6d1.png" />
+<img alt="../_images/14b0a568b2c0c0a02f83cddeb330b881c20e3d2612f436a498b92588687a683d.png" src="../_images/14b0a568b2c0c0a02f83cddeb330b881c20e3d2612f436a498b92588687a683d.png" />
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3236,6 +3165,10 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">column</span><span class="o">=</span><span class="s1">&#39;log_price&#39;</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="s1">&#39;cut&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9249eca2a1b16ace62a08f6c908656f56edb479e735b4cce9ee677f59fd924ab.png" src="../_images/9249eca2a1b16ace62a08f6c908656f56edb479e735b4cce9ee677f59fd924ab.png" />
+<img alt="../_images/627995039e047a3d134a8fce8153a4a0eec017a51c927fdf45a1b4d1ff90a9e7.png" src="../_images/627995039e047a3d134a8fce8153a4a0eec017a51c927fdf45a1b4d1ff90a9e7.png" />
 </div>
 </div>
 <div class="admonition-challenge-question admonition">
@@ -3263,6 +3196,11 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../_images/aa6dc4857d88ab24820c36be17712d85d19994d023f16e1eeeeaee8cee208a7b.png" src="../_images/aa6dc4857d88ab24820c36be17712d85d19994d023f16e1eeeeaee8cee208a7b.png" />
+<img alt="../_images/7cf04234fb32adad71bd3cd1794cf926c76f2dd07babc8f07fc506648c7fd5e0.png" src="../_images/7cf04234fb32adad71bd3cd1794cf926c76f2dd07babc8f07fc506648c7fd5e0.png" />
+<img alt="../_images/4bc7d390dbabf6e7a3303d4121d06c046a15c6d5ef7c6913a4db59020bf40531.png" src="../_images/4bc7d390dbabf6e7a3303d4121d06c046a15c6d5ef7c6913a4db59020bf40531.png" />
+</div>
 </details>
 </div>
 <div class="toggle docutils container">
@@ -3285,15 +3223,6 @@ The coefficient of variation (std / mean) is thus 0.8728304929426257.
 <p><strong>Very important:</strong> Plotting is lots of fun to play around with, but almost no plot is going to be of publication quality without some tweaking. Once you pick a package, you will want to spend time learning how to get labels, spacing, tick marks, etc. right. All of the packages above are very powerful, but inevitably, you will want to do something that seems simple and turns out to be hard.</p>
 <p>Why not just take the plot that’s easy to make and pretty it up in Adobe Illustrator? <strong>Any plot that winds up in a paper will be revised many times in the course of revision and peer review. Learn to let the program do the hard work.</strong> You want code that will get you 90 - 95% of the way to publication quality.</p>
 <p>Thankfully, it’s very, very easy to learn how to do this. Because plotting routines present such nice visual feedback, there are lots and lots of examples on line with code that will show you how to make gorgeous plots. Here again, documentation and StackOverflow are your friends!</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># cleaning up</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;minerals.csv&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>

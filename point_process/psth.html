@@ -466,7 +466,7 @@
 <p>We’ll start with some sample data, shown in the raster plot below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/3bbf6f5841583ce4ecbd444a39f6b27b9cf0f81f61faa26fc270efa01597c1a5.svg" src="../_images/3bbf6f5841583ce4ecbd444a39f6b27b9cf0f81f61faa26fc270efa01597c1a5.svg" /></div>
+<img alt="../_images/bf8bd2031107198934db294dbd089be02a6bb2705153d9298c50e1914d52e080.svg" src="../_images/bf8bd2031107198934db294dbd089be02a6bb2705153d9298c50e1914d52e080.svg" /></div>
 </div>
 <p>It should be obvious from this representation of the data that the firing rate goes up around 0 and down around 1 second later. In fact, these are artificial data generated from the methods of the last section by assuming that the firing rate is 1 Hz at baseline, increases to 10 Hz at 0.0, and falls again to baseline at 1.0 s. This highly contrived example — real data rarely look this clean — will allow us to examine the tradeoffs endemic in constructing the PSTH in a case where we know the ground truth.</p>
 <section id="binning">
@@ -504,7 +504,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6433adcbbabb5d190bf397524b6c198b0a3f22bcbe73d51a5288b35882dad46b.svg" src="../_images/6433adcbbabb5d190bf397524b6c198b0a3f22bcbe73d51a5288b35882dad46b.svg" /></div>
+<img alt="../_images/c7d7c74d2e52e123e39e92ffc3b41a3ce35fb1b24bc6fa3a681b743e944f3338.svg" src="../_images/c7d7c74d2e52e123e39e92ffc3b41a3ce35fb1b24bc6fa3a681b743e944f3338.svg" /></div>
 </div>
 <p>A few things should stick out to you about the effects bin size has on the PSTH:</p>
 <ul class="simple">
@@ -527,7 +527,7 @@
 <li><p>We will then <em>smooth</em> these firing rate estimates in time to trade temporal precision for a reduction in the variance of our estimates.</p></li>
 </ul>
 <figure class="align-default" id="filter-illustration">
-<img alt="../_images/1992b7b922d900870495aa294fbad1fc4800a6d2523a264048f68e42f92ae48c.svg" src="../_images/1992b7b922d900870495aa294fbad1fc4800a6d2523a264048f68e42f92ae48c.svg" /><figcaption>
+<img alt="../_images/c3163c4fe707abc0990afd0f0a8d1f0e6bf2d796f428991fe8128c64c4a7daba.svg" src="../_images/c3163c4fe707abc0990afd0f0a8d1f0e6bf2d796f428991fe8128c64c4a7daba.svg" /><figcaption>
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">Effects of filter shape and width on spike rate estimation. <strong>(Left)</strong> A single spike (blue) and the same spike as smoothed (convolved) with a boxcar (orange), Gaussian (green), and causal exponential (red) filter. <strong>(Right)</strong> An example spike train smoothed using the same filters. Note that a trial-averaged PSTH is comparable to a boxcar filter with width equal to the bin width, and that the boxcar and Gaussian filters spread the influence of a spike into the both the past and the future.</span><a class="headerlink" href="#filter-illustration" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
@@ -608,7 +608,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6cce11166b8d7ae1015c105c88c659d506459466836404e06a56c4453d0406ba.svg" src="../_images/6cce11166b8d7ae1015c105c88c659d506459466836404e06a56c4453d0406ba.svg" /></div>
+<img alt="../_images/a94a0310eb5c1b776a14e2f719512667dc3880f71558fe0914a18137c837fdaf.svg" src="../_images/a94a0310eb5c1b776a14e2f719512667dc3880f71558fe0914a18137c837fdaf.svg" /></div>
 </div>
 <p>Note that the smaller-width filters are more variable but still centered around the true data, so our estimates pick up on smaller fluctuations in local spike counts while being less reliable at each point. By contrast, the larger smoothing widths are less variable but are badly biased around firing rate changes. In effect, when smoothing with a filter of width <span class="math notranslate nohighlight">\(T\)</span>, it is hard to detect changes in firing rate on scales <span class="math notranslate nohighlight">\(&lt; T\)</span>.</p>
 <div class="admonition-question admonition">
